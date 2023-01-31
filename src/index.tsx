@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+
 import './index.css';
 import { Item } from './components/Item';
-import reportWebVitals from './reportWebVitals';
+
+
 
 import {
   createBrowserRouter,
@@ -38,5 +40,3 @@ root.render(
   </React.StrictMode>
 );
 
-
-reportWebVitals();
