@@ -1,0 +1,31 @@
+$color-primary: #303033;
+
+.button {
+  width: 200px;
+  box-sizing: border-box;
+  height: 35px;
+    border-radius: 35px;
+    padding: 0px 20px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    transition: all 0.3s ease 0s;
+    white-space: nowrap;
+    background-color: $color-primary;
+    color: rgb(255, 255, 255);
+    border: 1px solid transparent;
+    cursor: pointer;
+    &:hover {
+      color: $color-primary;
+      background-color: transparent;
+      border: 1px solid $color-primary;
+    }
+    &-primary {
+      color: $color-primary;
+      background-color: transparent;
+      border: 1px solid $color-primary;
+      
+    }
+}
