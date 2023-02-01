@@ -7,7 +7,6 @@ export function Main() {
     <>
       <div id="sidebar">
         <Header />
-      
       </div>
        <div id="detail">
         <Outlet />

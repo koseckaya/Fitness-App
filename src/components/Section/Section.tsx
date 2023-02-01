@@ -1,15 +1,14 @@
-import { FC, ComponentProps } from 'react';
+import { FC } from 'react';
 import './Section.scss';
 
 export type Props = {
     className?: string;
-    containerProps?: ComponentProps<'div'>;
+   
 };
 
-const Section: FC<Props> = ({ className, containerProps }: Props) => (
+const Section: FC<Props> = ({ className}: Props) => (
     <div
         className={`section ${className}`}
-        {...containerProps}
     >
         <span>{className}</span>
     </div>
