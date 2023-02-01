@@ -3,10 +3,12 @@ $color-primary: #303033;
 .header {
   box-sizing: border-box;
   background: $grey;
-  display: flex;
-  padding: 15px 20px;
-  align-items: center;
-  justify-content: space-between;
+ padding: 15px 20px;
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
   &__signUp{
     display: flex;
     gap: 10px;
