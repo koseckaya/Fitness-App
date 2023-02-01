@@ -1,0 +1,25 @@
+$grey : #f7f7f7;
+$color-primary: #303033;
+.header {
+  box-sizing: border-box;
+  background: $grey;
+  display: flex;
+  padding: 15px 20px;
+  align-items: center;
+  justify-content: space-between;
+  &__signUp{
+    display: flex;
+    gap: 10px;
+  }
+}
+.nav {
+  margin: 0 20px;
+  display: flex;
+  gap: 40px
+}
+
+a {
+  text-decoration: none;
+  color: $color-primary;
+  text-transform: capitalize;
+}

@@ -1,4 +1,5 @@
-import { Outlet, Link  } from "react-router-dom";
+import { Outlet  } from "react-router-dom";
+import { Header } from "./Header";
 
 
 export function Main() {
@@ -6,18 +7,8 @@ export function Main() {
     <>
       <div id="sidebar">
         <h1>React Router Contacts</h1>
-        <div>
-        </div>
-        <nav>
-          <ul>
-            <li>
-                 <Link to={`/`}>Home</Link>
-            </li>
-            <li>
-                 <Link to={`trainings`}>Trainings</Link>
-            </li>
-          </ul>
-        </nav>
+        <Header />
+      
       </div>
        <div id="detail">
         <Outlet />
