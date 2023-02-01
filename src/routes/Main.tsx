@@ -6,7 +6,6 @@ export function Main() {
   return (
     <>
       <div id="sidebar">
-        <h1>React Router Contacts</h1>
         <Header />
       
       </div>

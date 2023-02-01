@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
+import { Container } from '../components/Container'
 
 export class WorkoutVideos extends Component {
   render() {
     return (
-      <div>
+      <Container>
         WorkoutVideos
-      </div>
+      </Container>
     )
   }
 }

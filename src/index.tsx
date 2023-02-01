@@ -11,6 +11,7 @@ import { WorkoutVideos } from './routes/WorkoutVideos';
 import { Recipes } from './routes/Recipes';
 import { Store } from './routes/Header/Store';
 import { About } from './routes/About';
+import './styles/index.scss'
 
 
 const router = createBrowserRouter([
@@ -55,7 +56,6 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <Item />
     <RouterProvider router={router} />
   </React.StrictMode>
 );

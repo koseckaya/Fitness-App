@@ -7,15 +7,11 @@ import './Header.scss'
 
 export type Props = {
     className?: string;
-    testId?: string;
-    containerProps?: ComponentProps<'div'>;
+    testId?: string;git 
 };
 
-const Header: FC<Props> = ({ className='', containerProps }: Props) => (
-    <div
-        className={`header ${className}`}
-        {...containerProps}
-    >
+const Header: FC<Props> = () => (
+    <div className= "header container" >
          <Link to={`/`} className="logo">LOGO</Link>
           <nav className='nav'>
             <Link to={`/workoutPrograms`} className="nav-item">Workout Programs</Link>
