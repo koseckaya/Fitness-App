@@ -1,16 +1,26 @@
 export const programs = [{
-    title: '123',
+    title: 'NEW2023 Weight Loss Challenge',
     image: 'https://static.chloeting.com/programs/63ae15573e8cb6226b0c40c0/971c80f0-87c8-11ed-8684-75e08be900e2.jpeg',
-    tag: {
-        color: 'blue',
-        text: 'New'
-    },
-    url: '/workout-program'
+    duration: '28 days',
+    time: '20-50 min/day',
+    url: '/workout-program',
+    type: [' Weight Loss', 'Booty'],
+    equipment: ['Fitness Mat', 'Dumbbells'],
 },
     {
-        title: '234',
+        title: 'NEW2022 Weight Loss Challenge',
         image: 'https://static.chloeting.com/programs/63ae15573e8cb6226b0c40c0/971c80f0-87c8-11ed-8684-75e08be900e2.jpeg',
-        tag: null,
+        type: [' Weight Loss', 'Booty'],
+    },
+    {
+        title: 'NEW2022 Weight Loss Challenge',
+        image: 'https://static.chloeting.com/programs/63ae15573e8cb6226b0c40c0/971c80f0-87c8-11ed-8684-75e08be900e2.jpeg',
+        type: [' Weight Loss', 'Booty'],
+    },
+    {
+        title: 'NEW2022 Weight Loss Challenge',
+        image: 'https://static.chloeting.com/programs/63ae15573e8cb6226b0c40c0/971c80f0-87c8-11ed-8684-75e08be900e2.jpeg',
+        type: [' Weight Loss', 'Booty'],
     },
 ]
 

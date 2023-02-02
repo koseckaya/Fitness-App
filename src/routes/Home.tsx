@@ -14,17 +14,16 @@ export const Home = () => {
     navigate("/programs");
   }
 
-
-  
     return (
         <Container>
             {programs.length !== 0 ? (
-                 <Section
+                <Section
                     title={'Free Workout Programs'}
                     btnText={'View All Programs'}
                     onClick={handleClick}
                 >
-                    {programs.map(i => <ProgramCard title={i.title} image={i.image} tag={i.tag } url={i.url} />
+                {programs.map(i => <ProgramCard title={i.title}
+                    image={i.image} url={i.url} />
                 )}
                 </Section>
             ) : (<ErrorComponent />) }
