@@ -1,4 +1,4 @@
-import { FC, ComponentProps } from 'react';
+import { FC } from 'react';
 import './ProgramCard.scss';
 
 export type Props = {

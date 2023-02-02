@@ -11,7 +11,7 @@ export const Home = () => {
    
 
  function handleClick() {
-    navigate("/workoutPrograms");
+    navigate("/programs");
   }
 
 

@@ -13,10 +13,10 @@ export function Error() {
    const navigate = useNavigate();
     
     function handlePrograms() {
-        navigate("/workoutPrograms");
+        navigate("/programs");
     }
     function handleVideos() {
-        navigate("/workoutVideos");
+        navigate("/videos");
     }
     function handleRecipes() {
         navigate("/recipes");
