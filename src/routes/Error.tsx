@@ -30,7 +30,6 @@ export function Error() {
         <Container>
             <Header />
             <div className='error' >
-        
                 <span className='error-404'>404 • </span>
                 <span className='error-text'>The page you're looking for can't be found. Please check out one of these pages instead</span>
                 <div className='error-btns'>

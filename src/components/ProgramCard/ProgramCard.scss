@@ -1,3 +1,4 @@
+@import '../../styles/vars';
 
 .program-card {
   box-sizing: border-box;
@@ -8,6 +9,18 @@
   }
   &__inner{
     margin-bottom: 16px;
+    position: relative;
+    transition: all 0.3s;
+    color: $gray;
+     overflow: hidden;
+    &:hover {
+      .card__content {
+        bottom: 15px;
+      }
+      .card__image {
+         filter: brightness(0.6);
+      }
+    }
   }
 }
 .card {
@@ -15,5 +28,28 @@
     height: 470px;
     width: 360px;
     border-radius: 15px;
+    transition: all 0.3s;
+  }
+  &__content {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    bottom: -44px;
+    left: 15px;
+    gap: 10px;
+   
+    transition: all 0.3s;
+  }
+  &__duration, &__minutes{
+    background: #fff;
+   border-radius: 15px;
+    padding: 5px;
+    color: $color-primary;
+  }
+  &__duration {
+    width: 57px;
+  }
+   &__minutes {
+    width: 106px;
   }
 }
