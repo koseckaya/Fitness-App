@@ -5,4 +5,25 @@ body {
     padding: 0;
     box-sizing: border-box;
     background: $gray;
+    height: 100%;
+}
+
+.error  {
+    width: 100%;
+     min-height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(100%);
+    &-404 {
+        font-weight: 700;
+        margin-bottom: 30px;
+    }
+    &-btns {
+        display: flex;
+        gap: 15px;
+        margin-top: 50px;
+    }
 }
