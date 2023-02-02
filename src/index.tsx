@@ -4,6 +4,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import { PrivacyPolicy } from './routes/PrivacyPolicy';
 import {
   Main, Error, Home, WorkoutPrograms,
   WorkoutVideos, Recipes, Store, About
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
        {
         path: "about",
         element: <About />,
+      },
+        {
+        path: "privacy-policy",
+        element: <PrivacyPolicy />,
       },
     ],
   },

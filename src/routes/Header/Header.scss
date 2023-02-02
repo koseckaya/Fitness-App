@@ -1,8 +1,7 @@
-$grey : #f7f7f7;
-$color-primary: #303033;
+@import '../../styles/vars.scss';
 .header {
   box-sizing: border-box;
-  background: $grey;
+  background: $gray;
  padding: 15px 20px;
   &__container {
     display: flex;

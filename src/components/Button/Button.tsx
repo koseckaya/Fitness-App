@@ -5,7 +5,7 @@ export type Props = {
     className?: string;
     testId?: string;
     type?: BUTTON_TYPES;
-    content: string;
+    content?: string;
     containerProps?: ComponentProps<'div'>;
     onClick?: () => void;
 };
