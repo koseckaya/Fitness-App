@@ -5,8 +5,9 @@ export type Props = {
     className?: string;
     testId?: string;
     type?: BUTTON_TYPES;
-    content: string;
+    content?: string;
     containerProps?: ComponentProps<'div'>;
+    onClick?: () => void;
 };
 
 export enum BUTTON_TYPES {
@@ -23,9 +24,10 @@ export interface IButtonComponent<T> extends FC<T> {
     TYPES: typeof BUTTON_TYPES;
 }
 
-const Button = ({ content, className='', type = BUTTON_TYPES.PRIMARY }: Props) => (
+const Button = ({ content, className='', type = BUTTON_TYPES.PRIMARY, onClick }: Props) => (
     <div
         className={`button ${className} ${typeClassNames[type]}`}
+        onClick={onClick}
     >
         {content}
     </div>
