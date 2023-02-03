@@ -5,7 +5,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import { Main, Error, Trainings } from "./routes";
+import { Main, Error, Trainings, Signup, Login } from "./routes";
 import { WorkoutPrograms } from './routes/WorkoutPrograms';
 import { WorkoutVideos } from './routes/WorkoutVideos';
 import { Recipes } from './routes/Recipes';
@@ -43,6 +43,14 @@ const router = createBrowserRouter([
        {
         path: "about",
         element: <About />,
+      },
+      {
+        path: "signup",
+        element: <Signup />,
+      },
+      {
+        path: "login",
+        element: <Login />,
       },
     ],
   },
