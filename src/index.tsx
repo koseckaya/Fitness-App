@@ -1,17 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { Item } from './components/Item';
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import { Main, Error, Trainings } from "./routes";
-import { WorkoutPrograms } from './routes/WorkoutPrograms';
-import { WorkoutVideos } from './routes/WorkoutVideos';
-import { Recipes } from './routes/Recipes';
-import { Store } from './routes/Header/Store';
-import { About } from './routes/About';
+import { PrivacyPolicy } from './routes/PrivacyPolicy';
+import {
+  Main, Error, Home, WorkoutPrograms,
+  WorkoutVideos, Recipes, Store, About
+} from "./routes";
 import './styles/index.scss'
+
 
 
 const router = createBrowserRouter([
@@ -19,17 +18,17 @@ const router = createBrowserRouter([
     path: "/",
     element: <Main />,
     errorElement: <Error />,
-      children: [
-      {
-        path: "trainings",
-        element: <Trainings />,
+    children: [
+       {
+        path: "/",
+        element: <Home />,
         },
       {
-        path: "workoutPrograms",
+        path: "programs",
         element: <WorkoutPrograms />,
         },
       {
-        path: "workoutVideos",
+        path: "videos",
         element: <WorkoutVideos />,
         },
        {
@@ -43,6 +42,10 @@ const router = createBrowserRouter([
        {
         path: "about",
         element: <About />,
+      },
+        {
+        path: "privacy-policy",
+        element: <PrivacyPolicy />,
       },
     ],
   },

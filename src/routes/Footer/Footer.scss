@@ -1,0 +1,15 @@
+@import '../../styles/vars.scss';
+
+.footer {
+    box-sizing: border-box;
+    background: $gray;
+    padding: 15px 20px;
+    &__container{
+        display: flex;
+        justify-content: space-around;
+    }
+    .social{
+        display: flex;
+        gap: 15px;
+    }
+}
