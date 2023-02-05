@@ -1,5 +1,22 @@
-@import "src/styles/variables/index";
 
-.scl-section {
+
+.section {
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
+
+  &__title {
+    font-size: 18px;
+  }
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+  }
+  &__content{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 20px;
+  }
 }
