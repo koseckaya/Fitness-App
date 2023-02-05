@@ -10,6 +10,7 @@ import {
   WorkoutVideos, Recipes, Store, About
 } from "./routes";
 import './styles/index.scss'
+import { ProgramPage } from './routes/ProgramPage';
 
 
 
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
        {
         path: "/",
         element: <Home />,
+      },
+        {
+        path: "programs/:programId",
+        element: <ProgramPage />,
         },
       {
         path: "programs",

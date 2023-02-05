@@ -1,4 +1,4 @@
-interface Programs {
+export interface Programs {
   "id": number;
   "title": string;
   "type": string[];
@@ -16,7 +16,7 @@ export const programs: Programs[] = [
     "id": 1,
     "title": "Weight Loss Challenge",
     "type": ["Weight Loss", "Full Body"], 
-    "description": "This 4 week weight loss challenge will get your entire body sweating with HIIT, cardio, abs and full body workouts. This program is suitable for all fitness levels as there's no jumping or equipment required, with low-impact variations throughout.",
+    "description": "This 4 week weight loss challenge will get your entire body sweating with HIIT, cardio, abs and full body workouts.\n This program is suitable for all fitness levels as there's no jumping or equipment required, with low-impact variations throughout.",
     "imageUrl1": "https://static.chloeting.com/programs/63ae15573e8cb6226b0c40c0/971c80f0-87c8-11ed-8684-75e08be900e2.jpeg",
     "imageUrl2": "https://static.chloeting.com/programs/63ae15573e8cb6226b0c40c0/97331630-87c8-11ed-8684-75e08be900e2.jpeg",
     "path": "/weight-loss-challenge",
@@ -28,7 +28,7 @@ export const programs: Programs[] = [
     "id": 2,
     "title": "Grow A Booty Challenge",
     "type": ["Resistance", "Booty", "Abs & Core"], 
-    "description": "This 4-week resistance challenge will help you grow a booty with progressive overload! Dumbbells & resistance bands are recommended, a bench can be useful too.Beginners can try this with bodyweight or temporary alternatives like filled water bottles",
+    "description": "This 4-week resistance challenge will help you grow a booty with progressive overload! Dumbbells & resistance bands are recommended, a bench can be useful too. \n Beginners can try this with bodyweight or temporary alternatives like filled water bottles",
     "imageUrl1": "https://static.chloeting.com/programs/6306f2a687caf1cb72ebad58/371d88d0-86d2-11ed-8daf-11eb0dd6c117.jpeg",
     "imageUrl2": "https://static.chloeting.com/programs/6306f2a687caf1cb72ebad58/375058a0-86d2-11ed-8daf-11eb0dd6c117.jpeg",
     "path": "/grow-a-booty-challenge",

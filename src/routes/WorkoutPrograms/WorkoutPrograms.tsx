@@ -86,9 +86,9 @@ export class WorkoutPrograms extends Component {
 
         <div className='programs-container'>
           {filteredPrograms.length !== 0 ? (
-              filteredPrograms.map((i) => <ProgramCard title={i.title}
-                image={i.imageUrl1} url={i.path} days={i.days}
-                time={i.time} type={i.type} equip={i.equip} />
+            filteredPrograms.map((i) => <ProgramCard title={i.title}
+              image={i.imageUrl1} url={i.path} days={i.days}
+              time={i.time} type={i.type} equip={i.equip} key={i.id } />
                 )
             ) : <ErrorComponent /> }
            </div>

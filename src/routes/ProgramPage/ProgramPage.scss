@@ -1,0 +1,108 @@
+@import "src/styles/vars";
+
+.program-page {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 320px minmax(0px, 1fr);
+  column-gap: 40px;
+  background-color: #fff;
+  padding-top: 30px;
+  &__main {
+    h3 {
+          font-size: 30px;
+          font-weight: 700;
+          margin: 0;
+    }
+  }
+}
+.side {
+  &__image {
+    position: relative;
+  }
+  &__img {
+    object-fit: contain;
+    width: 320px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+  }
+  &__duration, &__minutes{
+    position: absolute;
+    left: 4px;
+    bottom: 33px;
+    text-transform: lowercase;
+    background: #fff;
+   border-radius: 15px;
+   font-size: 13px;
+    padding: 3px;
+    color: $color-primary;
+  }
+  &__minutes {
+    left: 62px;
+  }
+  &__type {
+    font-size: 14px;
+    margin-bottom: 6px;
+  }
+  &__equip, &__desc {
+    font-size: 14px;
+    margin-bottom: 6px;
+  }
+  &__title {
+    color: $secondary;
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    letter-spacing: 0.06em;
+    position: relative;
+    margin-top: 30px;
+        padding-top: 10px;
+    
+    &::before {
+      content: "";
+      height: 1px;
+      width: 100%;
+      background: $secondary;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+  }
+ 
+}
+.schedule {
+  background-color: white;
+    border: 1px solid rgba(239, 240, 244, 0.8);
+    border-radius: 15px;
+    padding: 40px 40px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+  &__head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  &__title {
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 130%;
+  }
+  &__week {
+    height: 30px;
+    width: fit-content;
+    padding: 5px 12px;
+    border: 1px solid $color-primary;
+    border-radius: 54px;
+    background-color: transparent;
+    margin-left: 5px;
+    cursor: pointer;
+    &.active {
+       background-color: rgb(124, 115, 197);
+        border-color: $purple;
+        color: #fff;
+    }
+  }
+}

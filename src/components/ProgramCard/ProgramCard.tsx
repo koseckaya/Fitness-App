@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import './ProgramCard.scss';
+import { Link } from 'react-router-dom';
 
 export type Props = {
     className?: string;
@@ -14,7 +15,7 @@ export type Props = {
 
 const ProgramCard: FC<Props> = ({ title, image,  url, days, time, type, equip }: Props) => (
     <div className='program-card'>
-        <a href={url}>
+        <Link to={ '/programs' + url}>
             <div className='program-card__inner'>
                 <img src={image} alt={title} className='card__image' />
                 <div className='card__content'>
@@ -25,7 +26,7 @@ const ProgramCard: FC<Props> = ({ title, image,  url, days, time, type, equip }:
                 </div>
             </div>
             <span className='program-card__title'>{title}</span>
-        </a>
+        </Link>
     </div>
 );
 
