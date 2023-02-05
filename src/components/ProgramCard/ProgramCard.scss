@@ -3,6 +3,7 @@
 .program-card {
   box-sizing: border-box;
   display: flex;
+  margin-bottom: 80px;
   &__title {
     font-size: 18px;
     font-weight: 500;
@@ -10,9 +11,10 @@
   &__inner{
     margin-bottom: 16px;
     position: relative;
-    transition: all 0.3s;
+    transition: all 0.5s;
     color: $gray;
      overflow: hidden;
+     cursor: pointer;
     &:hover {
       .card__content {
         bottom: 15px;
@@ -25,10 +27,11 @@
 }
 .card {
   &__image {
-    height: 470px;
-    width: 360px;
+    height: 490px;
+    width: 400px;
     border-radius: 15px;
-    transition: all 0.3s;
+     transition: all 0.5s;
+     object-fit: cover;
   }
   &__content {
     position: absolute;
@@ -37,10 +40,10 @@
     bottom: -44px;
     left: 15px;
     gap: 10px;
-   
-    transition: all 0.3s;
+    transition: all 0.5s;
   }
   &__duration, &__minutes{
+    text-transform: lowercase;
     background: #fff;
    border-radius: 15px;
     padding: 5px;
