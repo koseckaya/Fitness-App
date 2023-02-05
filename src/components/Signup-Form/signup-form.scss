@@ -137,3 +137,18 @@
 .form-btn {
   width: 100%;
 }
+
+.is-invalid {
+  color: rgb(255, 88, 88);
+  transition: border-color 0.3s ease 0s;
+  border-color: rgb(255, 88, 88);
+}
+
+.invalid-feedback {
+  font-size: 12px;
+  color: rgb(255, 88, 88);
+  font-weight: 400;
+  margin-bottom: 0px;
+  margin-top: 4px;
+}
+
