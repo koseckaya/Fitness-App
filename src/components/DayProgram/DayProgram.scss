@@ -1,0 +1,33 @@
+@import "src/styles/vars";
+
+.day-program {
+  box-sizing: border-box;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 8px;
+    background-color: $color-background-primary;
+    border: 1px solid #c8c8c8;
+    margin-bottom: 15px;
+}
+.day {
+  &__title {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__number {
+    font-weight: 700;
+    font-size: 18px;
+  }
+  &__desc {
+    font-weight: 500;
+    color: $secondary;
+  }
+}
+.program__videos{
+   display: grid;
+    width: 100%;
+    gap: 15px;
+    grid-template-columns: repeat(5, minmax(0px, 1fr));
+}

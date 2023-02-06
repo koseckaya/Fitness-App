@@ -1,7 +1,45 @@
+@import '../../styles/vars.scss';
+
 .programs{
     &-container {
        display: grid;
         grid-template-columns: repeat(3, 1fr);
         row-gap: 20px;
     }
+}
+.filter {
+    display: flex;
+    justify-content: space-between;
+    color: $color-primary;
+    select {
+        border: 1px solid $primary-disabled;
+        border-radius: 4px;
+        padding: 0px 10px;
+        height: 36px;
+        color: $color-primary;
+        outline: none;
+    }
+}
+.filters {
+    margin-bottom: 30px;
+    span {
+    width: fit-content;
+    text-align: center;
+    padding: 6px 10px;
+    font-weight: 500;
+    font-size: 15px;
+    border: 1px solid $primary-disabled;
+    border-radius: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;  
+    margin-right: 20px;
+    cursor: pointer;
+        &.active {
+            background-color: rgb(124, 115, 197);
+            border-color: $purple;
+            color: #fff;
+        }
+    }
+    
 }

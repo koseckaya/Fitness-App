@@ -3,16 +3,16 @@ import { Container } from '../components/Container'
 import { Section } from '../components/Section'
 import { useNavigate } from "react-router-dom";
 import { ErrorComponent } from '../components/ErrorComponent';
-import { programs } from '../mockData';
+import { programs } from '../data'
 import { ProgramCard } from '../components/ProgramCard';
 
 export const Home = () => {
     const navigate = useNavigate();
    
 
- function handleClick() {
-    navigate("/programs");
-  }
+    function handleClick() {
+        navigate("/programs");
+    }
 
     return (
         <Container>
@@ -22,8 +22,8 @@ export const Home = () => {
                     btnText={'View All Programs'}
                     onClick={handleClick}
                 >
-                {programs.map(i => <ProgramCard title={i.title}
-                    image={i.image} url={i.url} />
+                    {[...programs].slice(0, 3).map(i => <ProgramCard title={i.title}
+                        image={i.imageUrl1} url={i.path} key={i.id} />
                 )}
                 </Section>
             ) : (<ErrorComponent />) }

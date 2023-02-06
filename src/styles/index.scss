@@ -1,11 +1,12 @@
 @import './vars.scss';
-
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;600&display=swap');
 body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background: $gray;
+    background: #fff;
     height: 100%;
+    font-family: 'Manrope', sans-serif;
 }
 
 .error  {
