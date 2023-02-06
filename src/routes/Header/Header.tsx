@@ -25,8 +25,8 @@ const Header: FC<Props> = () => (
                 </nav>
                 <Link to={`/`} className="logo"> <Logo /> </Link>
                 <div className='header__signUp'>
-                    <Button content="Sign Up" type={Button.TYPES.DEFAULT} />
-                    <Button content="Log In" type={Button.TYPES.PRIMARY} />
+                    <Link to={`/signup`}><Button content="Sign Up" type={Button.TYPES.DEFAULT} /></Link>
+                    <Link to={`/login`}><Button content="Log In" type={Button.TYPES.PRIMARY} /></Link>
                 </div>
             </div>
         </Container>
