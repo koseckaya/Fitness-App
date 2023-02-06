@@ -1,35 +1,498 @@
-export const programs: Program[] = [{
-    title: 'NEW2023 Weight Loss Challenge',
-    image: 'https://static.chloeting.com/programs/63ae15573e8cb6226b0c40c0/971c80f0-87c8-11ed-8684-75e08be900e2.jpeg',
-    duration: '28 days',
-    time: '20-50 min/day',
-    url: '/workout-program1',
-    type: [' Weight Loss', 'Booty'],
-    equipment: ['Fitness Mat', 'Dumbbells'],
-},
+export const programByDays: Program[] = [
     {
-        title: 'NEW2022 Weight Loss Challenge',
-        image: 'https://static.chloeting.com/programs/63ae15573e8cb6226b0c40c0/971c80f0-87c8-11ed-8684-75e08be900e2.jpeg',
-        type: [' Weight Loss', 'Booty'],
+        programId: 1,
+        days: [
+            {
+                dayNum: 1,
+                videos: [
+                    {
+                        title: '5 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 5
+                    },
+                    {
+                        title: '6 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 5
+                    },
+                    {
+                        title: '7 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 5
+                    }
+                ]
+            },
+            {
+                dayNum: 2,
+                videos: [
+                    {
+                        title: '5 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 5
+                    },
+                    {
+                        title: '6 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 5
+                    },
+                    {
+                        title: '7 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 5
+                    }
+                ]
+            },
+            {
+                dayNum: 3,
+                videos: [
+                    {
+                        title: '5 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 6
+                    },
+                    {
+                        title: '6 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 4
+                    },
+                    {
+                        title: '7 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 3
+                    }
+                ]
+            },
+            {
+                dayNum: 4,
+                videos: [
+                    {
+                        title: '5 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 5
+                    },
+                    {
+                        title: '6 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 5
+                    },
+                    {
+                        title: '7 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 5
+                    }
+                ]
+            },
+            {
+                dayNum: 5,
+                videos: [
+                    {
+                        title: '5 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 5
+                    },
+                    {
+                        title: '6 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 5
+                    },
+                    {
+                        title: '7 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 5
+                    }
+                ]
+            },
+            {
+                dayNum: 6,
+                videos: [
+                    {
+                        title: '5 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 5
+                    },
+                    {
+                        title: '6 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 5
+                    },
+                    {
+                        title: '7 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 5
+                    }
+                ]
+            },
+            {
+                dayNum: 7,
+                videos: [
+                    {
+                        title: '5 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 5
+                    },
+                    {
+                        title: '6 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 5
+                    },
+                    {
+                        title: '7 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 5
+                    }
+                ]
+            },
+            {
+                dayNum: 8,
+                videos: [
+                    {
+                        title: '5 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 5
+                    },
+                    {
+                        title: '6 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 5
+                    },
+                    {
+                        title: '7 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 5
+                    }
+                ]
+            },
+            {
+                dayNum: 2,
+                videos: [
+                    {
+                        title: '5 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 5
+                    },
+                    {
+                        title: '6 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 5
+                    },
+                    {
+                        title: '7 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 5
+                    }
+                ]
+            },
+            {
+                dayNum: 2,
+                videos: [
+                    {
+                        title: '5 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 5
+                    },
+                    {
+                        title: '6 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 5
+                    },
+                    {
+                        title: '7 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 5
+                    }
+                ]
+            },
+            {
+                dayNum: 2,
+                videos: [
+                    {
+                        title: '5 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 5
+                    },
+                    {
+                        title: '6 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 5
+                    },
+                    {
+                        title: '7 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 5
+                    }
+                ]
+            },
+            {
+                dayNum: 2,
+                videos: [
+                    {
+                        title: '5 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 5
+                    },
+                    {
+                        title: '6 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 5
+                    },
+                    {
+                        title: '7 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 5
+                    }
+                ]
+            },
+            {
+                dayNum: 2,
+                videos: [
+                    {
+                        title: '5 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 5
+                    },
+                    {
+                        title: '6 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 5
+                    },
+                    {
+                        title: '7 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 5
+                    }
+                ]
+            },
+            {
+                dayNum: 2,
+                videos: [
+                    {
+                        title: '5 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 5
+                    },
+                    {
+                        title: '6 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 5
+                    },
+                    {
+                        title: '7 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 5
+                    }
+                ]
+            },
+            {
+                dayNum: 2,
+                videos: [
+                    {
+                        title: '5 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 5
+                    },
+                    {
+                        title: '6 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 5
+                    },
+                    {
+                        title: '7 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 5
+                    }
+                ]
+            },
+            {
+                dayNum: 2,
+                videos: [
+                    {
+                        title: '5 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 5
+                    },
+                    {
+                        title: '6 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 5
+                    },
+                    {
+                        title: '7 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 5
+                    }
+                ]
+            },
+            {
+                dayNum: 2,
+                videos: [
+                    {
+                        title: '5 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 5
+                    },
+                    {
+                        title: '6 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 5
+                    },
+                    {
+                        title: '7 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 5
+                    }
+                ]
+            },
+            {
+                dayNum: 2,
+                videos: [
+                    {
+                        title: '5 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 5
+                    },
+                    {
+                        title: '6 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 5
+                    },
+                    {
+                        title: '7 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 5
+                    }
+                ]
+            },
+            {
+                dayNum: 2,
+                videos: [
+                    {
+                        title: '5 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 5
+                    },
+                    {
+                        title: '6 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 5
+                    },
+                    {
+                        title: '7 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 5
+                    }
+                ]
+            },
+            {
+                dayNum: 2,
+                videos: [
+                    {
+                        title: '5 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 5
+                    },
+                    {
+                        title: '6 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 5
+                    },
+                    {
+                        title: '7 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 5
+                    }
+                ]
+            },
+            {
+                dayNum: 2,
+                videos: [
+                    {
+                        title: '5 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 5
+                    },
+                    {
+                        title: '6 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 5
+                    },
+                    {
+                        title: '7 Min Warm Up',
+                        src: 'https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing',
+                        srcImg: 'https://static.chloeting.com/videos/61ce4e1f34185a9a5611e4dd/3f4ce200-69d0-11ec-9b4b-f91362ad20db.jpeg',
+                        duration: 5
+                    }
+                ]
+            }
+        ]
+
     },
-    {
-        title: 'NEW2022 Weight Loss Challenge',
-        image: 'https://static.chloeting.com/programs/63ae15573e8cb6226b0c40c0/971c80f0-87c8-11ed-8684-75e08be900e2.jpeg',
-        type: [' Weight Loss', 'Booty'],
-    },
-    {
-        title: 'NEW2022 Weight Loss Challenge',
-        image: 'https://static.chloeting.com/programs/63ae15573e8cb6226b0c40c0/971c80f0-87c8-11ed-8684-75e08be900e2.jpeg',
-        type: [' Weight Loss', 'Booty'],
-    },
+
 ]
 
-export type Program= {
-    title?: string;
-    image?: string;
-    url?: string;
-    duration?: string;
-    time?: string;
-    type?: string[];
-    equipment?: string[];
+export interface Program {
+    "programId": number,
+    days: any[]
 }
+

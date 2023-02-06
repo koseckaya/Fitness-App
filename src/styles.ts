@@ -9,3 +9,5 @@ import 'components/ProgramCard/ProgramCard.scss';
 import 'components/PrivacyPolicy/PrivacyPolicy.scss';
 import 'components/Icon/Icon.scss';
 import 'components/ProgramPage/ProgramPage.scss';
+import 'components/DayProgram/DayProgram.scss';
+import 'components/ExerciseVideoPrev/ExerciseVideoPrev.scss';

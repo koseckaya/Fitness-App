@@ -1,14 +1,16 @@
+//@ts-nocheck
 import { FC, useState, useCallback } from 'react';
 import './ProgramPage.scss';
 import { useParams } from "react-router-dom";
 import { programs, Programs } from '../../data';
 import { Container } from '../../components/Container';
+import { programByDays } from './../../mockData';
+import { DayProgram } from '../../components/DayProgram';
 
 export type Props = {
     className?: string;
 
 };
-
 
 
 const ProgramPage: FC<Props> = ({ className }: Props) => {
@@ -30,7 +32,20 @@ const ProgramPage: FC<Props> = ({ className }: Props) => {
             console.log('target', target.dataset.week);
         setWeek(+target.dataset.week)
       },
-      [setWeek],)
+        [setWeek],)
+    
+    const dailyProgram = programByDays.filter(prog => prog.programId === program.id)[0];
+
+    console.log('dailyProgram', dailyProgram[0]);
+    let daysData = [];
+    if (week === 0) {
+        daysData = dailyProgram.days
+    } else {
+        const startDay = (week - 1) * 7 ;
+        const endDay = startDay + 7;
+        daysData = dailyProgram.days.slice(startDay,endDay)
+    }
+    console.log('daysData', daysData);
     
 
     return (
@@ -61,13 +76,17 @@ const ProgramPage: FC<Props> = ({ className }: Props) => {
                                            onClick={handleWeekClick}
                                            data-week={i.key}>{i.value}
                                        </span>  
-                                   
                                 })
                             }
-                            
                             </div>
                         </div>
-                        
+                        <div>
+                            {daysData.map(day => {
+                                console.log('day', day);
+                                return <DayProgram day={day.dayNum} videos={day.videos } />
+                            })}
+                            
+                        </div>
                         
                     </div>
                 </div>
