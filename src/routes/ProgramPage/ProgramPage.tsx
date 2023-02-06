@@ -1,10 +1,8 @@
-//@ts-nocheck
 import { FC, useState, useCallback } from 'react';
 import './ProgramPage.scss';
 import { useParams } from "react-router-dom";
-import { programs, Programs } from '../../data';
+import { programByDays, programs, Programs } from '../../data';
 import { Container } from '../../components/Container';
-import { programByDays } from './../../mockData';
 import { DayProgram } from '../../components/DayProgram';
 
 export type Props = {
@@ -29,14 +27,12 @@ const ProgramPage: FC<Props> = ({ className }: Props) => {
     const handleWeekClick = useCallback(
         (e: any) => {
             const target = e.target
-            console.log('target', target.dataset.week);
         setWeek(+target.dataset.week)
       },
         [setWeek],)
     
     const dailyProgram = programByDays.filter(prog => prog.programId === program.id)[0];
 
-    console.log('dailyProgram', dailyProgram[0]);
     let daysData = [];
     if (week === 0) {
         daysData = dailyProgram.days
@@ -45,7 +41,6 @@ const ProgramPage: FC<Props> = ({ className }: Props) => {
         const endDay = startDay + 7;
         daysData = dailyProgram.days.slice(startDay,endDay)
     }
-    console.log('daysData', daysData);
     
 
     return (
@@ -70,11 +65,12 @@ const ProgramPage: FC<Props> = ({ className }: Props) => {
                         <div className="schedule__title">Full Schedule List View</div>
                         <div className="schedule__weeks">
                             
-                                {filterWeeks.map(i => {
+                                {filterWeeks.map((i, indx) => {
                                     const classActive = week === i.key ? "active" : '';
-                                    return <span className={`schedule__week ${classActive}` } key={i.key}
-                                           onClick={handleWeekClick}
-                                           data-week={i.key}>{i.value}
+                                    return <span className={`schedule__week ${classActive}`}
+                                        onClick={handleWeekClick}
+                                        data-week={i.key} key={indx}>{
+                                            i.value}
                                        </span>  
                                 })
                             }
@@ -82,20 +78,14 @@ const ProgramPage: FC<Props> = ({ className }: Props) => {
                         </div>
                         <div>
                             {daysData.map(day => {
-                                console.log('day', day);
-                                return <DayProgram day={day.dayNum} videos={day.videos } />
+                                return <DayProgram day={day.dayNum} videos={day.videos} key={day.dayNum } />
                             })}
                             
                         </div>
-                        
                     </div>
                 </div>
             </div>
-            
-            
         </Container>
-        
-
 
     )
     

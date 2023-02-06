@@ -7,7 +7,8 @@ import {
 import { PrivacyPolicy } from './routes/PrivacyPolicy';
 import {
   Main, Error, Home, WorkoutPrograms,
-  WorkoutVideos, Recipes, Store, About
+  WorkoutVideos, Recipes, Store, About,
+  Signup, Login
 } from "./routes";
 import './styles/index.scss'
 import { ProgramPage } from './routes/ProgramPage';
@@ -48,7 +49,15 @@ const router = createBrowserRouter([
         path: "about",
         element: <About />,
       },
-        {
+      {
+        path: "signup",
+        element: <Signup />,
+      },
+      {
+        path: "login",
+        element: <Login />,
+      },
+      {
         path: "privacy-policy",
         element: <PrivacyPolicy />,
       },

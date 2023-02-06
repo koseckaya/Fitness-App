@@ -1,4 +1,4 @@
-//@ts-nocheck
+
 import { FC } from 'react';
 import { ExerciseVideoPrev } from '../ExerciseVideoPrev';
 import './DayProgram.scss';
@@ -21,8 +21,9 @@ const DayProgram: FC<Props> = ({ day, videos }: Props) => {
             </div>
         
             <div className='program__videos'>
-                {videos.map(video => {
-                   return <ExerciseVideoPrev title={video.title } src={video.src } srcImg={video.srcImg }/>
+                {videos.map((video, index) => {
+                    return <ExerciseVideoPrev title={video.title}
+                        src={video.src} srcImg={video.srcImg} key={index } />
                 })}
             </div>
     </div>

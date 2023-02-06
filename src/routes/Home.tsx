@@ -22,8 +22,8 @@ export const Home = () => {
                     btnText={'View All Programs'}
                     onClick={handleClick}
                 >
-                {[...programs].slice(0,3).map(i => <ProgramCard title={i.title}
-                    image={i.imageUrl1} url={i.path} />
+                    {[...programs].slice(0, 3).map(i => <ProgramCard title={i.title}
+                        image={i.imageUrl1} url={i.path} key={i.id} />
                 )}
                 </Section>
             ) : (<ErrorComponent />) }

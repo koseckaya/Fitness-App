@@ -6,8 +6,10 @@ import { WorkoutVideos } from './WorkoutVideos/WorkoutVideos';
 import { Recipes } from './Recipes';
 import { Store } from './Header/Store';
 import { About } from './About';
+import Signup from './Signup';
+import Login from './Login';
 
 
 export {
-    Error, Main, Home, WorkoutPrograms, WorkoutVideos, Recipes, Store, About
+    Error, Main, Home, WorkoutPrograms, WorkoutVideos, Recipes, Store, About, Login, Signup
 }
