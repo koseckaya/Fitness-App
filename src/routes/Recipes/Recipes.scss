@@ -1,0 +1,50 @@
+@import '../../styles/vars.scss';
+
+.recipes {
+    &__title {
+        margin: 0;
+        margin-bottom: 20px;
+        font-weight: 500;
+        font-size: 22px;
+        line-height: 30px;
+        color: $color-primary;
+        text-transform: capitalize;
+    }
+    &__container {
+    display: grid;
+       grid-template-columns: repeat(4, 1fr);
+        margin: 20px 0px; 
+        gap: 20px;
+    }
+}
+.latest__card {
+    display: grid;
+    grid-template-columns: 324px auto;
+    margin-bottom: 0px;
+    background:white;
+    border: 1px solid rgb(233, 233, 239);
+    border-radius: 15px;
+    padding: 30px;
+    display: grid;
+    column-gap: 30px;
+    margin-bottom: 30px;
+    &-title {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 27px;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;  
+        margin-bottom: 15px;
+
+        text-overflow: ellipsis;
+        overflow: hidden;
+        word-break: break-word;
+        user-select: none;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+    }
+    &-description{
+        margin-bottom: 30px;
+    }
+}

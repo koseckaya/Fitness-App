@@ -11,3 +11,5 @@ import 'components/Icon/Icon.scss';
 import 'components/ProgramPage/ProgramPage.scss';
 import 'components/DayProgram/DayProgram.scss';
 import 'components/ExerciseVideoPrev/ExerciseVideoPrev.scss';
+import 'components/RecipeCard/RecipeCard.scss';
+import 'components/RecipePage/RecipePage.scss';

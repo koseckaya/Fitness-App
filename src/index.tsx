@@ -4,14 +4,13 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import { PrivacyPolicy } from './routes/PrivacyPolicy';
+
 import {
   Main, Error, Home, WorkoutPrograms,
   WorkoutVideos, Recipes, Store, About,
-  Signup, Login
+  Signup, Login, PrivacyPolicy, RecipePage, ProgramPage
 } from "./routes";
 import './styles/index.scss'
-import { ProgramPage } from './routes/ProgramPage';
 
 
 
@@ -36,6 +35,10 @@ const router = createBrowserRouter([
       {
         path: "videos",
         element: <WorkoutVideos />,
+      },
+         {
+        path: "recipes/:recipeId",
+        element: <RecipePage />,
         },
        {
         path: "recipes",
