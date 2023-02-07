@@ -11,13 +11,12 @@ body {
 
 .error  {
     width: 100%;
-    min-height: calc(100vh - 130px);
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    transform: translateY(100%);
+    height: calc(100vh - 175px);
     &-404 {
         font-weight: 700;
         margin-bottom: 30px;
@@ -28,6 +27,4 @@ body {
         margin-top: 50px;
     }
 }
-#detail {
-    min-height: calc(100vh - 130px);
-}
+
