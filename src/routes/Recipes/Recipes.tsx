@@ -84,7 +84,8 @@ export class Recipes extends Component<IProps, IState> {
         const latestReceptUrl = latestReceptArr[latestReceptArr.length - 2];
 
         return (
-            <Container>
+          <Container>
+            <div className="recipes__top">
                 <div className="latest">
                     <h3 className="recipes__title">Latest Recipe</h3>
                     <div className="latest__card">
@@ -115,7 +116,79 @@ export class Recipes extends Component<IProps, IState> {
                             </Link>
                         </div>
                     </div>
-                </div>
+              </div>
+              <div className="categories">
+                <h3 className="recipes__title">Popular Categories</h3>
+                <Link to={"/recipes"}>
+                  <div className="categories__card">
+                      <img
+                          className="categories__img"
+                          src='https://static.privato.chloeting.com/recipes/61ff731b2a18c23f7d7f942e/images/healthy-crispy-baked-chicken-nuggets-square.webp'
+                          alt='High Protein'
+                      />
+                      <div className="categories-desc">
+                              <div className="categories-title">
+                                  High Protein
+                              </div>
+                              <div className="categories-description">
+                                  100 recipes
+                              </div>
+                          </div>
+                  </div>
+                </Link>
+                <Link to={"/recipes"}>
+                  <div className="categories__card">
+                      <img
+                          className="categories__img"
+                          src='https://static.privato.chloeting.com/recipes/6200ef551002f8372e72421a/images/rainbow-falafel-salad-bowl-square.webp'
+                          alt='Vegetarian'
+                      />
+                      <div className="categories-desc">
+                              <div className="categories-title">
+                                  Vegetarian
+                              </div>
+                              <div className="categories-description">
+                                  100 recipes
+                              </div>
+                          </div>
+                  </div>
+                </Link>
+                <Link to={"/recipes"}>
+                  <div className="categories__card">
+                      <img
+                          className="categories__img"
+                          src='https://static.privato.chloeting.com/recipes/61fb8ca6e75e851db8981687/images/low-carb-high-protein-waffles---gf-square.webp'
+                          alt='Low Carb'
+                      />
+                      <div className="categories-desc">
+                              <div className="categories-title">
+                                  Low Carb
+                              </div>
+                              <div className="categories-description">
+                                  100 recipes
+                              </div>
+                          </div>
+                  </div>
+                </Link>
+                <Link to={"/recipes"}>
+                  <div className="categories__card">
+                      <img
+                          className="categories__img"
+                          src='https://static.privato.chloeting.com/recipes/6200e7e41002f8372e723e76/images/5-ingredient-creamy-tomato-lentil-curry-square.webp'
+                          alt='Dairy-Free'
+                      />
+                      <div className="categories-desc">
+                              <div className="categories-title">
+                                  Dairy Free
+                              </div>
+                              <div className="categories-description">
+                                  100 recipes
+                              </div>
+                          </div>
+                  </div>
+                </Link>
+              </div>
+            </div>
 
                 <h3 className="recipes__title">All Recipes</h3>
                 <div className="recipes__container">
