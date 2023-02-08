@@ -1,5 +1,11 @@
 @import "src/styles/vars";
 
-.scl-recipe-page {
+.recipe-page {
   box-sizing: border-box;
+  display: flex;
+}
+.recipe {
+  &__title {
+
+  }
 }

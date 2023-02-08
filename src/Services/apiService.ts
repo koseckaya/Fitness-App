@@ -3,6 +3,10 @@ import axios from "axios";
 
 const url = `https://api.edamam.com/api/recipes/v2?type=public&app_id=${APP_ID}&app_key=${APP_KEY}&diet=balanced&health=alcohol-free`;
 
-export  function getRecipes() {
-    return  axios.get(url)
+export function getRecipes(newUrl = '') {
+    let requestUrl = url;
+    if (newUrl.length) {
+        requestUrl = newUrl;
+    }
+    return axios.get(requestUrl)
 }

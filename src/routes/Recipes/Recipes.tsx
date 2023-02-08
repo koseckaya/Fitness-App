@@ -1,40 +1,47 @@
 
-//@ts-nocheck
+
 import React, { Component } from 'react'
 import { Button } from '../../components/Button';
 import { Container } from '../../components/Container'
 import { RecipeCard } from '../../components/RecipeCard';
-import { getRecipes } from '../../Services/apiService';
-import {  RecipeApi, recipeData, RecipeItem, } from './../../data';
+//import { getRecipes } from '../../Services/apiService';
+import {  RecipeApi, RecipeContextType, recipeData, RecipeItem, } from './../../data';
 import './Recipes.scss';
 import { Link } from 'react-router-dom';
+import {RecipeContext} from '../../App'
 
 interface IProps {}
 interface IState {
   items: RecipeApi[];
+  page: number;
+  oneRecipe: RecipeItem[];
 }
 
 export class Recipes extends Component<IProps, IState> {
   
  
   state: IState = {
-    items: []
+    items: [],
+    page: 1,
+    oneRecipe: []
   }
 
+  static contextType = RecipeContext;
+ 
+
   componentDidMount() {
-  // const recipesData = getRecipes().then(data => {
-  //   console.log('data', data.data.hits);
-  //   this.setState({ items: data.data.hits })
-    //  })
-   this.setState({ items: recipeData })
-   
+    const { setRecipes } = this.context as RecipeContextType;
+    setRecipes(recipeData)
+    this.setState({ items: recipeData})
   }
 
   componentDidUpdate(prevProps: Readonly<IProps>, prevState: Readonly<IState>, snapshot?: any): void {}
   
-  render() {
-
+  handleNext = () => {
     
+  }
+
+  render() {
 
   const { items } = this.state;
   console.log('items', items);
@@ -43,11 +50,10 @@ export class Recipes extends Component<IProps, IState> {
   }
 
     const latestRecept = items[6].recipe;
-    const latestReceptUrl = latestRecept.label.toLowerCase().split(' ').join('-')
+    const latestReceptArr = items[6].recipe.url.split('/')
+    const latestReceptUrl = latestReceptArr[latestReceptArr.length - 2]
 
-    function handleClick() {
-        navigate(`${latestReceptUrl}`);
-    }
+    
 
     return (
       <Container>
@@ -61,11 +67,12 @@ export class Recipes extends Component<IProps, IState> {
              <div className='latest__card-desc'>
               <div className='latest__card-title'>{latestRecept.label}</div>
               <div className='latest__card-description'>
-                <div className='latest__card-text'>text</div>
-                <div className='latest__card-text'>text</div>
-                {latestRecept.ingredientLines.map(item => <div className='latest__card-text'>{item}</div>) }
+               
+                {latestRecept.ingredientLines?.map(item => <div className='latest__card-text'>{item}</div>) }
               </div>
-              <Button content='View Recipe' type={Button.TYPES.PRIMARY}  onClick={ handleClick }/>
+              <Link to={'/recipes/' + latestReceptUrl}>
+                <Button content='View Recipe' type={Button.TYPES.PRIMARY} />
+              </Link>
             </div>
               
           </div>
@@ -76,16 +83,21 @@ export class Recipes extends Component<IProps, IState> {
         <h3 className='recipes__title'>All Recipes</h3>
         <div className='recipes__container'>
           {items.map(i => {
-            const label = i.recipe.label;
-            const url = label.toLowerCase().split(' ').join('-');
+            const arrUrl = i.recipe.url.split('/');
+            const url = arrUrl[arrUrl.length - 2];
             
             return (
               <Link to={ '/recipes/' + url}>
-                <RecipeCard label={i.recipe.label} imgUrl={i.recipe.image} calories={i.recipe.calories} />
+                <RecipeCard label={i.recipe.label} imgUrl={i.recipe.image}
+                  calories={i.recipe.calories} />
               </Link>
             )
           })}
-          
+        </div>
+
+        <div className='pagination'>
+          <span onClick={this.handleNext}>Next</span>
+          <span>Prev</span>
         </div>
       </Container>
     )

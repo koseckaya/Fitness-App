@@ -13,3 +13,4 @@ import 'components/DayProgram/DayProgram.scss';
 import 'components/ExerciseVideoPrev/ExerciseVideoPrev.scss';
 import 'components/RecipeCard/RecipeCard.scss';
 import 'components/RecipePage/RecipePage.scss';
+import 'components/Pagination/Pagination.scss';
