@@ -1,3 +1,15 @@
-import { auth, signInWithGooglePopup, createUserDocFromAuth } from "./firebase.utils";
+import { 
+  auth,
+  signInWithGooglePopup,
+  createUserDocFromAuth,
+  signInWithGoogleRedirect,
+  createAuthUserWithEmailAndPass,
+} from "./firebase";
 
-export { auth, signInWithGooglePopup, createUserDocFromAuth };
+export { 
+  auth,
+  signInWithGooglePopup,
+  createUserDocFromAuth,
+  signInWithGoogleRedirect,
+  createAuthUserWithEmailAndPass,
+};

@@ -20,7 +20,7 @@ const LoginForm: FC = () => {
     password: Yup.string()
       .required('Password is required')
       .min(6, 'Password must be at least 6 characters')
-      .max(20, 'Password must not exceed 40 characters'),
+      .max(20, 'Password must not exceed 20 characters'),
     signed: Yup.bool().optional(),
   });
 
@@ -62,11 +62,9 @@ const LoginForm: FC = () => {
           </div>
 
           <div className="mb-3 form-check">
-            <input type="checkbox" id="acceptTerms"
-              className='form-check-input'
+            <input type="checkbox" id="signed" className='form-check-input'
               {...register('signed')} />
-            <label htmlFor="acceptTerms"
-              className='form-check-label'>
+            <label htmlFor="signed" className='form-check-label'>
               Keep me signed in
             </label>
           </div>
