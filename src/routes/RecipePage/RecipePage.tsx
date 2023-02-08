@@ -45,7 +45,8 @@ const RecipePage: FC<Props> = ({ className }: Props) => {
                     <span className='recipe__title'>{openRecipe.recipe.label}</span>
                     <img src={openRecipe.recipe?.image} alt={openRecipe.recipe.url}
                         className="recipe__img" />
-                    <div className="recipe__time">Cook time: { openRecipe.recipe.totalTime} min</div>
+                    <div className="recipe__time">Cook time:
+                        {openRecipe.recipe.totalTime ? ` ${openRecipe.recipe.totalTime}` : ' 5'} min</div>
                 </div>
 
                 <div className="recipe-page__main">

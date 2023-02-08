@@ -6382,7 +6382,7 @@ export interface RecipeContextItems {
 
 export interface RecipeContextType {
     recipes: RecipeContextItems;
-    setRecipes: (recipes: RecipeContextItems ) => void;
+    setRecipes: (recipes: RecipeContextItems, resetData?:boolean ) => void;
 }
 
 export const recipeData: RecipeApi[] = [

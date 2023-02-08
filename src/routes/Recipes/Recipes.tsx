@@ -1,3 +1,4 @@
+
 import React, { Component } from "react";
 import { Button } from "../../components/Button";
 import { Container } from "../../components/Container";
@@ -14,22 +15,24 @@ import "./Recipes.scss";
 import { Link } from "react-router-dom";
 import { RecipeContext } from "../../App";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { getRecipes } from "./../../Services/apiService";
+import { getRecipes, getRecipesOld } from "./../../Services/apiService";
 
 interface IProps {}
 interface IState {
-    items: RecipeApi[];
-    page: number;
-    oneRecipe: RecipeItem[];
-    hasMore: boolean;
+  items: RecipeApi[];
+  page: number;
+  oneRecipe: RecipeItem[];
+  hasMore: boolean;
+  search: string;
 }
 
 export class Recipes extends Component<IProps, IState> {
     state: IState = {
-        items: [],
-        page: 1,
-        oneRecipe: [],
-        hasMore: true,
+      items: [],
+      page: 1,
+      oneRecipe: [],
+      hasMore: true,
+      search: ''
     };
     static contextType = RecipeContext;
 
@@ -51,17 +54,23 @@ export class Recipes extends Component<IProps, IState> {
         const promice = new Promise<RecipeApi[]>((res, rej) => {
             setTimeout(() => {
                 res(recipeData);
-            }, 1500);
+            }, 3500);
         });
         promice.then((data: RecipeApi[]) => {
-            const dataObj = data.reduce((acc: RecipeContextItems, item) => {
-                acc[item.recipe.url + new Date().toISOString()] = item;
-                return acc;
-            }, {});
-            setRecipes(dataObj);
+          const modData = this.modifyData(data)
+          setRecipes(modData)
         });
     };
 
+  modifyData = (data: RecipeApi[]) => {
+    
+    const dataObj = data.reduce((acc: RecipeContextItems, item) => {
+        acc[item.recipe.url + new Date().toISOString()] = item;
+        return acc;
+    }, {});
+   return dataObj;
+  }
+  
     componentDidUpdate(
         prevProps: Readonly<IProps>,
         prevState: Readonly<IState>,
@@ -70,11 +79,25 @@ export class Recipes extends Component<IProps, IState> {
 
     handleNext = async () => {
         await this.fetchData(1);
-    };
+  };
+  handleSearchChange = (e:  React.ChangeEvent<HTMLInputElement>) => {
+     const val = e.target.value;
+     this.setState({
+      search: val
+     });
+    
+  }
+  onSubmit = async (e: React.FormEvent<EventTarget>) => {
+    e.preventDefault()
+    const { setRecipes } = this.context as RecipeContextType;
+    const val = this.state.search
+    const searchItems = await getRecipesOld(val)
+    const modData = this.modifyData(searchItems)
+    setRecipes(modData, true)
+  }
 
     render() {
         const { recipes: items } = this.context as RecipeContextType;
-        console.log("items", Object.keys(items).length);
         if (Object.keys(items).length === 0) {
             return null;
         }
@@ -85,6 +108,14 @@ export class Recipes extends Component<IProps, IState> {
 
         return (
           <Container>
+            <div className="recipes__search">
+              <form onSubmit={this.onSubmit}>
+                <input className="recipes__search_input"
+                  placeholder="Search"
+                  value={this.state.search}
+                  onChange={this.handleSearchChange} />
+              </form>
+            </div>
             <div className="recipes__top">
                 <div className="latest">
                     <h3 className="recipes__title">Latest Recipe</h3>

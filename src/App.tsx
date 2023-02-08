@@ -20,10 +20,17 @@ class App extends React.Component {
         };
     }
 
-    setRecipes = (recipes: RecipeContextItems) => {
-        this.setState((state: RecipeContextType) => ({
+    setRecipes = (recipes: RecipeContextItems, resetData = false) => {
+        
+        if (resetData) {
+            this.setState((state: RecipeContextType) => ({
+                recipes: {...recipes},
+            }));
+        } else {
+            this.setState((state: RecipeContextType) => ({
             recipes: {...state.recipes, ...recipes},
-        }));
+            }));
+        }
     };
 
     render() {
