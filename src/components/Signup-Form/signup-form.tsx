@@ -1,10 +1,14 @@
 import './signup-form.scss';
 import '../Button/Button.scss'
+import { GoogleIcon } from '../Icons';
+
 
 import { FC } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
+import { signInWithGooglePopup, createUserDocFromAuth } from '../utils/firebase';
+
 
 type UserSubmitForm = {
   name: string;
@@ -16,6 +20,11 @@ type UserSubmitForm = {
 };
 
 const SignupForm: FC = () => {
+
+  const logGoogleUser = async () => {
+    const { user} = await signInWithGooglePopup();
+    const userDocRef = await createUserDocFromAuth(user);
+  }
 
   const validationSchema = Yup.object().shape({
     name: Yup.string().required('Name is required')
@@ -110,6 +119,13 @@ const SignupForm: FC = () => {
 
           <button type='submit' className='button form-btn'>
             Sign Up
+          </button>
+          
+          <div className='form-delimiter'>or</div>
+          <button type='button' className='button form-btn form-btn-google'
+            onClick={ logGoogleUser }>
+            <GoogleIcon className='form-google-icon'/>
+            Log in with Google
           </button>
         </form>
       </div>

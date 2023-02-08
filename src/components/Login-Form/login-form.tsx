@@ -4,7 +4,6 @@ import { FC } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
-import { signInWithGooglePopup } from '../utils/firebase';
 
 type UserLoginForm = {
   email: string;
@@ -13,11 +12,6 @@ type UserLoginForm = {
 };
 
 const LoginForm: FC = () => {
-
-  const lopGoogleUser = async () => {
-    const response = await signInWithGooglePopup();
-    console.log(response);
-  }
 
   const validationSchema = Yup.object().shape({
     email: Yup.string()
@@ -57,7 +51,6 @@ const LoginForm: FC = () => {
               placeholder='Email address'
               {...register('email')} />
             <p className='invalid-feedback'>{errors.email?.message}</p>
-            <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
           </div>
 
           <div className="mb-3">
