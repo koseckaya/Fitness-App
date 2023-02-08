@@ -8,5 +8,15 @@ export function getRecipes(newUrl = '') {
     if (newUrl.length) {
         requestUrl = newUrl;
     }
-    return axios.get(requestUrl)
+    console.log('requestUrl', requestUrl);
+    return axios.get(requestUrl, {
+        transformRequest: (data, headers) => {
+            console.log(headers)
+            return data;
+        }
+    })
+    //     .then(result => {
+    //     console.log('12312312312', result);
+    //     return result;
+    // })
 }

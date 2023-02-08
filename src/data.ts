@@ -6370,14 +6370,19 @@ export interface RecipeItem {
     'images'?: ImagesType;
     'ingredientLines'?: string[];
     'totalNutrients'?: NutrientsType;
+    'healthLabels'?: string[];
+    'totalTime'?: number;
 }
 export interface RecipeApi {
     "recipe": RecipeItem;
 }
+export interface RecipeContextItems {
+    [key: string]: RecipeApi;
+}
 
 export interface RecipeContextType {
-    recipes: RecipeApi[];
-    setRecipes: (recipes: RecipeApi[] ) => void;
+    recipes: RecipeContextItems;
+    setRecipes: (recipes: RecipeContextItems ) => void;
 }
 
 export const recipeData: RecipeApi[] = [

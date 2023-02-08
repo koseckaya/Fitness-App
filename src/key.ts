@@ -1,2 +1,2 @@
 export const APP_ID = 'de511dc8';
-export const APP_KEY = '3f9639bae8563438d47729b156a7b78a';
+export const APP_KEY = '10f8049b20c86a8ee131c990bfe21d80';
