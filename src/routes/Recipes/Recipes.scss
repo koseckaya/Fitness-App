@@ -17,7 +17,9 @@
         gap: 20px;
     }
     &__top {
-        display: flex;
+       display: grid;
+        grid-template-columns:  1fr 320px;
+        row-gap: 20px;
     }
     &__search{
         align-items: center;

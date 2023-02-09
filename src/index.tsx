@@ -35,11 +35,11 @@ export const router = createBrowserRouter([
         element: <WorkoutVideos />,
       },
          {
-        path: "recipes/:recipeId",
+        path: "recipes/:categoryId/:recipeId",
         element: <RecipePage />,
         },
        {
-        path: "recipes",
+        path: "recipes/:categoryId",
         element: <Recipes />,
         },
        {

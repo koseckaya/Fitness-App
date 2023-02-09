@@ -16,7 +16,7 @@ export default class RecipesCategories extends Component<Props> {
     render() {
         const { onChangeCategory } = this.props
         return (
-            <Container>
+          
                 
                      <div className="categories">
                         <h3 className="recipes__title">Popular Categories</h3>
@@ -99,7 +99,7 @@ export default class RecipesCategories extends Component<Props> {
                             </div>
                         </div>
                     </div>
-            </Container>
+           
    ) }
 }
     

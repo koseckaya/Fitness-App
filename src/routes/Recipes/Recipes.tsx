@@ -16,6 +16,7 @@ import { getRecipeId, modifyData } from "./../../helpers/helpers";
 import { RecipeLatest } from "../../components/RecipeLatest";
 import RecipesCategories from "../../components/RecipesCategories/RecipesCategories";
 
+
 interface IProps {}
 interface IState {
     items: RecipeApi[];
@@ -44,20 +45,23 @@ export class Recipes extends Component<IProps, IState> {
     static contextType = RecipeContext;
 
   componentDidMount() {
-        const { recipes: items } = this.context as RecipeContextType;
-        if (Object.keys(items).length === 0) {
-            this.fetchData();
-        }
-        
-    }
+    const match = window.location.href.split('/')
+    const category = match[match.length - 1]
 
-    fetchData = (reset = false) => {
+
+    const { recipes: items } = this.context as RecipeContextType;
+    if (Object.keys(items).length === 0) {
+        this.fetchData(true, category );
+    }
+  }
+
+    fetchData = (reset = false, category = '') => {
         const { setRecipes } = this.context as RecipeContextType;
         const config = {
             from: this.state.from,
             to: this.state.to,
             search: this.state.search,
-            category: this.state.category,
+            category: category || this.state.category ,
         };
         getRecipes(config)
             .then((data) => {
@@ -133,9 +137,7 @@ export class Recipes extends Component<IProps, IState> {
                         <span
                             className="recipes__search_zoom"
                             onClick={this.onSubmit}
-                        >
-                            🔎︎
-                        </span>
+                        >🔎︎ </span>
                     </form>
                 </div>
                 <div className="recipes__top">
