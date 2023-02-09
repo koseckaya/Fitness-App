@@ -26,7 +26,9 @@ export const Home = () => {
                         image={i.imageUrl1} url={i.path} key={i.id} />
                 )}
                 </Section>
-            ) : (<ErrorComponent />) }
+            ) : (<ErrorComponent />)}
+            
+            
            
       </Container>
     )

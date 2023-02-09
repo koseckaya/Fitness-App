@@ -1,10 +1,8 @@
 import React, { Component } from "react";
-import { Button } from "../../components/Button";
 import { Container } from "../../components/Container";
 import { RecipeCard } from "../../components/RecipeCard";
 import {
     RecipeApi,
-    RecipeContextItems,
     RecipeContextType,
     recipeData,
     RecipeItem,
@@ -14,7 +12,9 @@ import { Link } from "react-router-dom";
 import { RecipeContext } from "../../App";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { getRecipes } from "./../../Services/apiService";
-import { getRecipeId } from "./../../helpers/helpers";
+import { getRecipeId, modifyData } from "./../../helpers/helpers";
+import { RecipeLatest } from "../../components/RecipeLatest";
+import RecipesCategories from "../../components/RecipesCategories/RecipesCategories";
 
 interface IProps {}
 interface IState {
@@ -43,8 +43,12 @@ export class Recipes extends Component<IProps, IState> {
     };
     static contextType = RecipeContext;
 
-    componentDidMount() {
-        this.fetchData();
+  componentDidMount() {
+        const { recipes: items } = this.context as RecipeContextType;
+        if (Object.keys(items).length === 0) {
+            this.fetchData();
+        }
+        
     }
 
     fetchData = (reset = false) => {
@@ -57,24 +61,16 @@ export class Recipes extends Component<IProps, IState> {
         };
         getRecipes(config)
             .then((data) => {
-                console.log("data", data);
-                const modData = this.modifyData(data);
+                const modData = modifyData(data);
                 setRecipes(modData, reset);
             })
             .catch(() => {
-                const modData = this.modifyData(recipeData);
+                const modData = modifyData(recipeData);
                 setRecipes(modData, reset);
             });
     };
 
-    modifyData = (data: RecipeApi[]) => {
-        const dataObj = data.reduce((acc: RecipeContextItems, item) => {
-            const idArr = getRecipeId(item.recipe.shareAs);
-            acc[idArr + new Date().toISOString()] = item;
-            return acc;
-        }, {});
-        return dataObj;
-    };
+
 
     handleNext = () => {
         this.setState((state) => {
@@ -104,7 +100,6 @@ export class Recipes extends Component<IProps, IState> {
         const target = e.currentTarget;
 
         let categ = target.getAttribute("data-categ");
-        console.log("category", e.currentTarget, categ);
         if (!categ) return;
         this.setState(
             {
@@ -123,9 +118,7 @@ export class Recipes extends Component<IProps, IState> {
         if (Object.keys(items).length === 0) {
             return null;
         }
-        const value6 = Object.values(items)[6];
-        const latestRecept = value6.recipe;
-        const latestReceptUrl = getRecipeId(value6.recipe.shareAs);
+      
 
         return (
             <Container>
@@ -146,120 +139,8 @@ export class Recipes extends Component<IProps, IState> {
                     </form>
                 </div>
                 <div className="recipes__top">
-                    <div className="latest">
-                        <h3 className="recipes__title">Latest Recipe</h3>
-                        <div className="latest__card">
-                            <Link to={"/recipes/" + latestReceptUrl}>
-                                <img
-                                    className="latest__card-img"
-                                    src={latestRecept.image}
-                                    alt={latestRecept.label}
-                                />
-                            </Link>
-
-                            <div className="latest__card-desc">
-                                <div className="latest__card-title">
-                                    {latestRecept.label}
-                                </div>
-                                <div className="latest__card-description">
-                                    {latestRecept.ingredientLines?.map(
-                                        (item) => (
-                                            <div className="latest__card-text">
-                                                {item}
-                                            </div>
-                                        )
-                                    )}
-                                </div>
-                                <Link to={"/recipes/" + latestReceptUrl}>
-                                    <Button
-                                        content="View Recipe"
-                                        type={Button.TYPES.PRIMARY}
-                                    />
-                                </Link>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="categories">
-                        <h3 className="recipes__title">Popular Categories</h3>
-
-                        <div
-                            className="categories__card"
-                            data-categ="high-protein"
-                            onClick={this.handleCategory}
-                        >
-                            <img
-                                className="categories__img"
-                                src="https://static.privato.chloeting.com/recipes/61ff731b2a18c23f7d7f942e/images/healthy-crispy-baked-chicken-nuggets-square.webp"
-                                alt="High Protein"
-                            />
-                            <div className="categories-desc">
-                                <div className="categories-title">
-                                    High Protein
-                                </div>
-                                <div className="categories-description">
-                                    100 recipes
-                                </div>
-                            </div>
-                        </div>
-
-                        <div
-                            className="categories__card"
-                            data-categ="vegetarian"
-                            onClick={this.handleCategory}
-                        >
-                            <img
-                                className="categories__img"
-                                src="https://static.privato.chloeting.com/recipes/6200ef551002f8372e72421a/images/rainbow-falafel-salad-bowl-square.webp"
-                                alt="Vegetarian"
-                            />
-                            <div className="categories-desc">
-                                <div className="categories-title">
-                                    Vegetarian
-                                </div>
-                                <div className="categories-description">
-                                    100 recipes
-                                </div>
-                            </div>
-                        </div>
-
-                        <div
-                            className="categories__card"
-                            data-categ="low-carb"
-                            onClick={this.handleCategory}
-                        >
-                            <img
-                                className="categories__img"
-                                src="https://static.privato.chloeting.com/recipes/61fb8ca6e75e851db8981687/images/low-carb-high-protein-waffles---gf-square.webp"
-                                alt="Low Carb"
-                            />
-                            <div className="categories-desc">
-                                <div className="categories-title">Low Carb</div>
-                                <div className="categories-description">
-                                    100 recipes
-                                </div>
-                            </div>
-                        </div>
-
-                        <div
-                            className="categories__card"
-                            data-categ="dairy-free"
-                            onClick={this.handleCategory}
-                        >
-                            <img
-                                className="categories__img"
-                                src="https://static.privato.chloeting.com/recipes/6200e7e41002f8372e723e76/images/5-ingredient-creamy-tomato-lentil-curry-square.webp"
-                                alt="Dairy-Free"
-                            />
-                            <div className="categories-desc">
-                                <div className="categories-title">
-                                    Dairy Free
-                                </div>
-                                <div className="categories-description">
-                                    100 recipes
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                  <RecipeLatest />
+                  <RecipesCategories onChangeCategory={ this.handleCategory} />
                 </div>
 
                 <h3 className="recipes__title">All Recipes</h3>

@@ -14,3 +14,5 @@ import 'components/ExerciseVideoPrev/ExerciseVideoPrev.scss';
 import 'components/RecipeCard/RecipeCard.scss';
 import 'components/RecipePage/RecipePage.scss';
 import 'components/Pagination/Pagination.scss';
+import 'components/RecipesHeader/RecipesHeader.scss';
+import 'components/RecipeLatest/RecipeLatest.scss';

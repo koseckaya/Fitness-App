@@ -1,0 +1,44 @@
+@import "src/styles/vars";
+
+ .categories__card {
+    display: grid;
+    grid-template-columns: 324px auto;
+    margin-bottom: 0px;
+    background:white;
+    border: 1px solid rgb(233, 233, 239);
+    border-radius: 15px;
+    padding: 38px 30px;
+    display: grid;
+    column-gap: 30px;
+    margin-bottom: 30px;
+  }
+
+.categories {
+    
+ &__card {
+    background: white;
+    border: 1px solid rgb(233, 233, 239);
+    border-radius: 15px;
+    display: flex;
+    columns: 15px auto;
+    width: 295px;
+    height: 90px;
+    padding: 0;
+    margin-left: 20px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    }
+    &__img{
+        border-radius: 14px;
+    }
+    &-title{
+      font-size: 18px;
+        font-weight: 500;
+        line-height: 150%;
+        margin-bottom: 5px;  
+        margin-top: 10px;
+    }
+    &-description{
+        text-transform: lowercase;
+    }
+}
