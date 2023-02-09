@@ -5,14 +5,14 @@ import axios from "axios";
 
 
 export async function getRecipes({
-    param = 'alcohol-free',
+    category = 'alcohol-free',
     search = '',
     from = 0,
     to = 20
-}): RecipeApi[] {
+}):  Promise<RecipeApi[]> {
     let url = `https://api.edamam.com/search?app_id=${APP_ID}` + 
         `&app_key=${APP_KEY}&from=${from}&to=${to}` +
-        `&health=${param}&q=${search}`;
+        `&health=${category}&q=${search}`;
     
     const res = await axios.get(url)
     return res.data.hits

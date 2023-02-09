@@ -85,6 +85,7 @@
     }
 }
 .categories {
+    
  &__card {
     background: white;
     border: 1px solid rgb(233, 233, 239);
@@ -96,6 +97,7 @@
     padding: 0;
     margin-left: 20px;
     margin-bottom: 5px;
+    cursor: pointer;
     }
     &__img{
         border-radius: 14px;
