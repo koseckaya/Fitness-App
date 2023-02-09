@@ -1,9 +1,8 @@
-
+//@ts-nocheck
 import React, { Component } from "react";
 import { Button } from "../../components/Button";
 import { Container } from "../../components/Container";
 import { RecipeCard } from "../../components/RecipeCard";
-//import { getRecipes } from '../../Services/apiService';
 import {
     RecipeApi,
     RecipeContextItems,
@@ -15,7 +14,7 @@ import "./Recipes.scss";
 import { Link } from "react-router-dom";
 import { RecipeContext } from "../../App";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { getRecipes, getRecipesOld } from "./../../Services/apiService";
+import { getRecipes } from "./../../Services/apiService";
 
 interface IProps {}
 interface IState {
@@ -24,7 +23,12 @@ interface IState {
   oneRecipe: RecipeItem[];
   hasMore: boolean;
   search: string;
+  from: number;
+  to: number;
+  category: string;
 }
+
+const ITEMS_PER_PAGE = 20;
 
 export class Recipes extends Component<IProps, IState> {
     state: IState = {
@@ -32,7 +36,10 @@ export class Recipes extends Component<IProps, IState> {
       page: 1,
       oneRecipe: [],
       hasMore: true,
-      search: ''
+      search: "",
+      from: 0,
+      to: 20,
+      category: 'alcohol-free'
     };
     static contextType = RecipeContext;
 
@@ -40,61 +47,74 @@ export class Recipes extends Component<IProps, IState> {
         // setRecipes(recipeData);
         // this.setState({ items: recipeData });
 
-        //this.fetchData(1);
+        // this.fetchData(1);
         // getRecipes()
         // .then((data) => {
         //     console.log("getRecipes", data);
         // });
-
         this.fetchData(1);
     }
 
-    fetchData = (page: number) => {
-        const { setRecipes } = this.context as RecipeContextType;
-        const promice = new Promise<RecipeApi[]>((res, rej) => {
-            setTimeout(() => {
-                res(recipeData);
-            }, 3500);
-        });
-        promice.then((data: RecipeApi[]) => {
-          const modData = this.modifyData(data)
-          setRecipes(modData)
-        });
+    fetchData = (reset = false) => {
+      const { setRecipes } = this.context as RecipeContextType;
+      const config = { from: this.state.from, to: this.state.to, search: this.state.search };
+      getRecipes(config).then((data) => {
+        console.log('data', data);
+        const modData = this.modifyData(data)
+         setRecipes(modData, reset);
+      }).catch(() => {
+        const modData = this.modifyData(recipeData)
+        setRecipes(modData, reset);
+      })
+
+        // const promice = new Promise<RecipeApi[]>((res, rej) => {
+        //     setTimeout(() => {
+        //         res(recipeData);
+        //     }, 3500);
+        // });
+        // promice.then((data: RecipeApi[]) => {
+        //     const modData = this.modifyData(data);
+        //     setRecipes(modData);
+        // });
     };
 
-  modifyData = (data: RecipeApi[]) => {
-    
-    const dataObj = data.reduce((acc: RecipeContextItems, item) => {
-        acc[item.recipe.url + new Date().toISOString()] = item;
-        return acc;
-    }, {});
-   return dataObj;
-  }
-  
-    componentDidUpdate(
-        prevProps: Readonly<IProps>,
-        prevState: Readonly<IState>,
-        snapshot?: any
-    ): void {}
+    modifyData = (data: RecipeApi[]) => {
+        const dataObj = data.reduce((acc: RecipeContextItems, item) => {
+            acc[item.recipe.url + new Date().toISOString()] = item;
+            return acc;
+        }, {});
+        return dataObj;
+    };
 
-    handleNext = async () => {
-        await this.fetchData(1);
-  };
-  handleSearchChange = (e:  React.ChangeEvent<HTMLInputElement>) => {
-     const val = e.target.value;
-     this.setState({
-      search: val
-     });
-    
-  }
-  onSubmit = async (e: React.FormEvent<EventTarget>) => {
-    e.preventDefault()
-    const { setRecipes } = this.context as RecipeContextType;
-    const val = this.state.search
-    const searchItems = await getRecipesOld(val)
-    const modData = this.modifyData(searchItems)
-    setRecipes(modData, true)
-  }
+    // componentDidUpdate(
+    //     prevProps: Readonly<IProps>,
+    //     prevState: Readonly<IState>,
+    //     snapshot?: any
+    // ): void {}
+
+    handleNext =  () => {
+      this.setState((state) => {
+        return {
+          from: state.from + ITEMS_PER_PAGE,
+          to: state.to + ITEMS_PER_PAGE}
+      })
+      this.fetchData();
+    };
+    handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const val = e.target.value;
+        this.setState({
+          search: val,
+        });
+    };
+    onSubmit = async (e: React.FormEvent<EventTarget>) => {
+        e.preventDefault();
+        this.setState({
+          from: 0, 
+          to: ITEMS_PER_PAGE,
+        });
+        
+        this.fetchData(true);
+    };
 
     render() {
         const { recipes: items } = this.context as RecipeContextType;
@@ -107,135 +127,131 @@ export class Recipes extends Component<IProps, IState> {
         const latestReceptUrl = latestReceptArr[latestReceptArr.length - 2];
 
         return (
-          <Container>
-            <div className="recipes__search">
-              <form onSubmit={this.onSubmit}>
-                <input className="recipes__search_input"
-                  placeholder="Search"
-                  value={this.state.search}
-                  onChange={this.handleSearchChange} />
-              </form>
-            </div>
-            <div className="recipes__top">
-                <div className="latest">
-                    <h3 className="recipes__title">Latest Recipe</h3>
-                    <div className="latest__card">
-                        <Link to={"/recipes/" + latestReceptUrl}>
-                            <img
-                                className="latest__card-img"
-                                src={latestRecept.image}
-                                alt={latestRecept.label}
-                            />
-                        </Link>
-
-                        <div className="latest__card-desc">
-                            <div className="latest__card-title">
-                                {latestRecept.label}
-                            </div>
-                            <div className="latest__card-description">
-                                {latestRecept.ingredientLines?.map((item) => (
-                                    <div className="latest__card-text">
-                                        {item}
-                                    </div>
-                                ))}
-                            </div>
+            <Container>
+                <div className="recipes__search">
+                    <form onSubmit={this.onSubmit}>
+                        <input
+                            className="recipes__search_input"
+                            placeholder="Search"
+                            value={this.state.search}
+                            onChange={this.handleSearchChange}
+                        />
+                        <span
+                            className="recipes__search_zoom"
+                            onClick={this.onSubmit}
+                        >
+                            🔎︎
+                        </span>
+                    </form>
+                </div>
+                <div className="recipes__top">
+                    <div className="latest">
+                        <h3 className="recipes__title">Latest Recipe</h3>
+                        <div className="latest__card">
                             <Link to={"/recipes/" + latestReceptUrl}>
-                                <Button
-                                    content="View Recipe"
-                                    type={Button.TYPES.PRIMARY}
+                                <img
+                                    className="latest__card-img"
+                                    src={latestRecept.image}
+                                    alt={latestRecept.label}
                                 />
                             </Link>
+
+                            <div className="latest__card-desc">
+                                <div className="latest__card-title">
+                                    {latestRecept.label}
+                                </div>
+                                <div className="latest__card-description">
+                                    {latestRecept.ingredientLines?.map(
+                                        (item) => (
+                                            <div className="latest__card-text">
+                                                {item}
+                                            </div>
+                                        )
+                                    )}
+                                </div>
+                                <Link to={"/recipes/" + latestReceptUrl}>
+                                    <Button
+                                        content="View Recipe"
+                                        type={Button.TYPES.PRIMARY}
+                                    />
+                                </Link>
+                            </div>
                         </div>
                     </div>
-              </div>
-              <div className="categories">
-                <h3 className="recipes__title">Popular Categories</h3>
-                <Link to={"/recipes"}>
-                  <div className="categories__card">
-                      <img
-                          className="categories__img"
-                          src='https://static.privato.chloeting.com/recipes/61ff731b2a18c23f7d7f942e/images/healthy-crispy-baked-chicken-nuggets-square.webp'
-                          alt='High Protein'
-                      />
-                      <div className="categories-desc">
-                              <div className="categories-title">
-                                  High Protein
-                              </div>
-                              <div className="categories-description">
-                                  100 recipes
-                              </div>
-                          </div>
-                  </div>
-                </Link>
-                <Link to={"/recipes"}>
-                  <div className="categories__card">
-                      <img
-                          className="categories__img"
-                          src='https://static.privato.chloeting.com/recipes/6200ef551002f8372e72421a/images/rainbow-falafel-salad-bowl-square.webp'
-                          alt='Vegetarian'
-                      />
-                      <div className="categories-desc">
-                              <div className="categories-title">
-                                  Vegetarian
-                              </div>
-                              <div className="categories-description">
-                                  100 recipes
-                              </div>
-                          </div>
-                  </div>
-                </Link>
-                <Link to={"/recipes"}>
-                  <div className="categories__card">
-                      <img
-                          className="categories__img"
-                          src='https://static.privato.chloeting.com/recipes/61fb8ca6e75e851db8981687/images/low-carb-high-protein-waffles---gf-square.webp'
-                          alt='Low Carb'
-                      />
-                      <div className="categories-desc">
-                              <div className="categories-title">
-                                  Low Carb
-                              </div>
-                              <div className="categories-description">
-                                  100 recipes
-                              </div>
-                          </div>
-                  </div>
-                </Link>
-                <Link to={"/recipes"}>
-                  <div className="categories__card">
-                      <img
-                          className="categories__img"
-                          src='https://static.privato.chloeting.com/recipes/6200e7e41002f8372e723e76/images/5-ingredient-creamy-tomato-lentil-curry-square.webp'
-                          alt='Dairy-Free'
-                      />
-                      <div className="categories-desc">
-                              <div className="categories-title">
-                                  Dairy Free
-                              </div>
-                              <div className="categories-description">
-                                  100 recipes
-                              </div>
-                          </div>
-                  </div>
-                </Link>
-              </div>
-            </div>
+                    <div className="categories">
+                        <h3 className="recipes__title">Popular Categories</h3>
+                        <Link to={"/recipes"}>
+                            <div className="categories__card">
+                                <img
+                                    className="categories__img"
+                                    src="https://static.privato.chloeting.com/recipes/61ff731b2a18c23f7d7f942e/images/healthy-crispy-baked-chicken-nuggets-square.webp"
+                                    alt="High Protein"
+                                />
+                                <div className="categories-desc">
+                                    <div className="categories-title">
+                                        High Protein
+                                    </div>
+                                    <div className="categories-description">
+                                        100 recipes
+                                    </div>
+                                </div>
+                            </div>
+                        </Link>
+                        <Link to={"/recipes"}>
+                            <div className="categories__card">
+                                <img
+                                    className="categories__img"
+                                    src="https://static.privato.chloeting.com/recipes/6200ef551002f8372e72421a/images/rainbow-falafel-salad-bowl-square.webp"
+                                    alt="Vegetarian"
+                                />
+                                <div className="categories-desc">
+                                    <div className="categories-title">
+                                        Vegetarian
+                                    </div>
+                                    <div className="categories-description">
+                                        100 recipes
+                                    </div>
+                                </div>
+                            </div>
+                        </Link>
+                        <Link to={"/recipes"}>
+                            <div className="categories__card">
+                                <img
+                                    className="categories__img"
+                                    src="https://static.privato.chloeting.com/recipes/61fb8ca6e75e851db8981687/images/low-carb-high-protein-waffles---gf-square.webp"
+                                    alt="Low Carb"
+                                />
+                                <div className="categories-desc">
+                                    <div className="categories-title">
+                                        Low Carb
+                                    </div>
+                                    <div className="categories-description">
+                                        100 recipes
+                                    </div>
+                                </div>
+                            </div>
+                        </Link>
+                        <Link to={"/recipes"}>
+                            <div className="categories__card">
+                                <img
+                                    className="categories__img"
+                                    src="https://static.privato.chloeting.com/recipes/6200e7e41002f8372e723e76/images/5-ingredient-creamy-tomato-lentil-curry-square.webp"
+                                    alt="Dairy-Free"
+                                />
+                                <div className="categories-desc">
+                                    <div className="categories-title">
+                                        Dairy Free
+                                    </div>
+                                    <div className="categories-description">
+                                        100 recipes
+                                    </div>
+                                </div>
+                            </div>
+                        </Link>
+                    </div>
+                </div>
 
                 <h3 className="recipes__title">All Recipes</h3>
-                <div className="recipes__container">
-                    {/* {Object.values(items).map((i) => {
-                        const arrUrl = i.recipe.url.split("/");
-                        const url = arrUrl[arrUrl.length - 2];
-
-                        <Link to={"/recipes/" + url}>
-                            <RecipeCard
-                                label={i.recipe.label}
-                                imgUrl={i.recipe.image}
-                                calories={i.recipe.calories}
-                            />
-                        </Link>
-                    })} */}
-                </div>
                 <InfiniteScroll
                     className="recipes__container"
                     dataLength={Object.keys(items).length}
