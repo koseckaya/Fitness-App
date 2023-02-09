@@ -2,20 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import {
   createBrowserRouter,
-  RouterProvider,
 } from "react-router-dom";
-import { PrivacyPolicy } from './routes/PrivacyPolicy';
+import { App } from './App';
+
 import {
   Main, Error, Home, WorkoutPrograms,
   WorkoutVideos, Recipes, Store, About,
-  Signup, Login
+  Signup, Login, PrivacyPolicy, RecipePage, ProgramPage
 } from "./routes";
 import './styles/index.scss'
-import { ProgramPage } from './routes/ProgramPage';
 
-
-
-const router = createBrowserRouter([
+export const router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
@@ -36,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: "videos",
         element: <WorkoutVideos />,
+      },
+         {
+        path: "recipes/:recipeId",
+        element: <RecipePage />,
         },
        {
         path: "recipes",
@@ -66,14 +67,12 @@ const router = createBrowserRouter([
 
 ]);
 
-
-
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <App />
   </React.StrictMode>
 );
-
