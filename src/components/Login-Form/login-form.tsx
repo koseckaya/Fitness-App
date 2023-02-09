@@ -4,6 +4,13 @@ import { FC } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
+import { GoogleIcon } from '../Icons';
+import { 
+  createUserDocFromAuth,
+  signInWithGooglePopup,
+  signInWithGoogleRedirect
+} from '../utils/firebase';
+import { signInAuthUserWithEmailAndPass } from '../utils/firebase/firebase';
 
 type UserLoginForm = {
   email: string;
@@ -12,6 +19,11 @@ type UserLoginForm = {
 };
 
 const LoginForm: FC = () => {
+
+  const signInWithGoogle = async () => {
+    const { user } = await signInWithGooglePopup();
+    await createUserDocFromAuth(user);
+  }
 
   const validationSchema = Yup.object().shape({
     email: Yup.string()
@@ -27,15 +39,28 @@ const LoginForm: FC = () => {
   const {
     register,
     handleSubmit,
-    reset,
+    setError,
     formState: { errors }
   } = useForm<UserLoginForm>({
     resolver: yupResolver(validationSchema)
   });
 
-  const onSubmit = (data: UserLoginForm) => {
-    console.log(JSON.stringify(data, null, 2));
-    reset();
+  const onSubmit = async (data: UserLoginForm) => {
+    try {
+      const response = await signInAuthUserWithEmailAndPass(data.email, data.password);
+      console.log(response);
+    } catch (error) {
+      if (error instanceof Error && error.code === 'auth/wrong-password') {
+        setError('password', { 
+          message: 'wrong password',
+        })
+      }
+      if (error instanceof Error && error.code === 'auth/user-not-found') {
+        setError('email', { 
+          message: 'user not found',
+        })
+      }
+    }
   };
 
   return (
@@ -70,7 +95,14 @@ const LoginForm: FC = () => {
           </div>
 
           <button type='submit' className='button form-btn'>
-            Sign Up
+            Log in
+          </button>
+          
+          <div className='form-delimiter'>or</div>
+          <button type='button' className='button form-btn form-btn-google'
+            onClick={ signInWithGoogle }>
+            <GoogleIcon className='form-google-icon'/>
+            Log in with Google
           </button>
         </form>
       </div>

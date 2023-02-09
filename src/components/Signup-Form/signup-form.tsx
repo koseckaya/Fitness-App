@@ -9,10 +9,10 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { 
   auth,
-  signInWithGooglePopup, 
   createUserDocFromAuth, 
   signInWithGoogleRedirect,
   createAuthUserWithEmailAndPass,
+  signInWithGooglePopup,
 } from '../utils/firebase';
 import { getRedirectResult } from 'firebase/auth';
 
@@ -29,10 +29,9 @@ type UserSubmitForm = {
 const SignupForm: FC = () => {
 
   useEffect(() => {
-    
     async function fetchData() {
       const response = await getRedirectResult(auth);
-      
+
       if (response) {
         const userDocRef = await createUserDocFromAuth(response.user);
       }
@@ -148,14 +147,14 @@ const SignupForm: FC = () => {
           </div>
 
           <button type='submit' className='button form-btn'>
-            Sign Up
+            Create account
           </button>
           
           <div className='form-delimiter'>or</div>
           <button type='button' className='button form-btn form-btn-google'
             onClick={ signInWithGoogleRedirect }>
             <GoogleIcon className='form-google-icon'/>
-            Log in with Google
+            Sign up with Google
           </button>
         </form>
       </div>
