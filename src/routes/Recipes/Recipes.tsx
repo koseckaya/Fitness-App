@@ -15,6 +15,7 @@ import { Link } from "react-router-dom";
 import { RecipeContext } from "../../App";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { getRecipes } from "./../../Services/apiService";
+import { getRecipeId } from './../../helpers/helpers';
 
 interface IProps {}
 interface IState {
@@ -61,7 +62,7 @@ export class Recipes extends Component<IProps, IState> {
         from: this.state.from,
         to: this.state.to,
         search: this.state.search,
-        param: this.state.category};
+        category: this.state.category};
       getRecipes(config).then((data) => {
         console.log('data', data);
         const modData = this.modifyData(data)
@@ -82,9 +83,11 @@ export class Recipes extends Component<IProps, IState> {
         // });
     };
 
-    modifyData = (data: RecipeApi[]) => {
-        const dataObj = data.reduce((acc: RecipeContextItems, item) => {
-            acc[item.recipe.url + new Date().toISOString()] = item;
+  modifyData = (data: RecipeApi[]) => {
+      
+    const dataObj = data.reduce((acc: RecipeContextItems, item) => {
+          const idArr = getRecipeId(item.recipe.shareAs)
+            acc[idArr + new Date().toISOString()] = item;
             return acc;
         }, {});
         return dataObj;
@@ -125,8 +128,12 @@ export class Recipes extends Component<IProps, IState> {
       let categ = target.getAttribute('data-categ')
       console.log('category',e.currentTarget,  categ);
       if (!categ) return;
-      this.setState({ category: categ })
-      this.fetchData(true);
+    this.setState({
+      category: categ,
+      from: 0, 
+      to: ITEMS_PER_PAGE, },
+    () => {this.fetchData(true);})
+
   }
 
     render() {
@@ -136,8 +143,7 @@ export class Recipes extends Component<IProps, IState> {
         }
         const value6 = Object.values(items)[6];
         const latestRecept = value6.recipe;
-        const latestReceptArr = value6.recipe.url.split("/");
-        const latestReceptUrl = latestReceptArr[latestReceptArr.length - 2];
+        const latestReceptUrl = getRecipeId(value6.recipe.shareAs)
 
         return (
             <Container>
@@ -282,9 +288,9 @@ export class Recipes extends Component<IProps, IState> {
                     }
                 >
                     {Object.values(items).map((i) => {
-                        const arrUrl = i.recipe.url.split("/");
-                        const url = arrUrl[arrUrl.length - 2];
-
+                       
+                        const url = getRecipeId(i.recipe.shareAs)
+                       
                         return (
                             <Link to={"/recipes/" + url}>
                                 <RecipeCard

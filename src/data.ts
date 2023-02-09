@@ -6364,6 +6364,8 @@ export interface NutrientsType {
 
 export interface RecipeItem {
     'url': string;
+    'uri': string;
+    'shareAs': string;
     'label': string;
     'image': string;
     'calories': number;

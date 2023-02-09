@@ -16,17 +16,15 @@ const RecipePage: FC<Props> = ({ className }: Props) => {
     const recipeContext = useContext(RecipeContext);
     let { recipeId } = useParams();
 
-
     let openRecipe;
  
     if (!recipeContext.recipes || Object.keys(recipeContext.recipes).length === 0) {
         openRecipe = recipeData[0]
     } else {
         openRecipe = Object.values(recipeContext.recipes).filter(item => {
-            return item.recipe.url.includes(recipeId as string);
+            return item.recipe.shareAs.includes(recipeId as string);
         })[0];
     }
-   console.log('openRecipe', recipeContext.recipes, openRecipe, recipeData[0]);
 
     const kkal = openRecipe.recipe.totalNutrients?.ENERC_KCAL.quantity;
     const fat = openRecipe.recipe.totalNutrients?.FAT.quantity;
