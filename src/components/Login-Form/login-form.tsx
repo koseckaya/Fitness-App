@@ -23,6 +23,7 @@ const LoginForm: FC = () => {
   const signInWithGoogle = async () => {
     const { user } = await signInWithGooglePopup();
     await createUserDocFromAuth(user);
+    setCurrentUser(user);
   }
 
   const validationSchema = Yup.object().shape({
@@ -49,9 +50,14 @@ const LoginForm: FC = () => {
 
   const onSubmit = async (data: UserLoginForm) => {
     try {
+
       const response = await signInAuthUserWithEmailAndPass(data.email, data.password);
-      setCurrentUser(response?.user);
+      const user = response?.user;
+      if (user) setCurrentUser(user);
+      console.log(user);
+
     } catch (error: unknown) {
+
       switch (error instanceof Error && error.code) {
         case 'auth/wrong-password': 
           setError('password', { 

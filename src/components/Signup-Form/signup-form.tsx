@@ -3,7 +3,7 @@ import '../Button/Button.scss'
 import { GoogleIcon } from '../Icons';
 
 
-import { FC, useEffect } from 'react';
+import { FC, useEffect, useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
@@ -15,6 +15,7 @@ import {
   signInWithGooglePopup,
 } from '../utils/firebase';
 import { getRedirectResult } from 'firebase/auth';
+import { UserContext } from '../utils/contexts';
 
 
 type UserSubmitForm = {
@@ -28,12 +29,15 @@ type UserSubmitForm = {
 
 const SignupForm: FC = () => {
 
+  const { setCurrentUser } = useContext(UserContext);
+
   useEffect(() => {
     async function fetchData() {
       const response = await getRedirectResult(auth);
-
       if (response) {
         const userDocRef = await createUserDocFromAuth(response.user);
+        const user = response.user;
+        setCurrentUser(user);
       }
     };
 
@@ -76,9 +80,11 @@ const SignupForm: FC = () => {
     if (!data) return;
     try {
       const response = await createAuthUserWithEmailAndPass(data.email, data.password);
-      console.log(response);
-      if (!response) return;
-      const user = response.user;
+
+      const user = response?.user;
+      if (user) setCurrentUser(user);
+      console.log(user);
+
       await createUserDocFromAuth(user, { displayName: data.name });
     } catch (error) {
       if (error instanceof Error && error.code === 'auth/email-already-in-use') {
