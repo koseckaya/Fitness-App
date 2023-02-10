@@ -11,8 +11,7 @@ import {
   Signup, Login
 } from "./routes";
 import './styles/index.scss'
-
-
+import { UserProvider } from './components/utils/contexts';
 
 const router = createBrowserRouter([
   {
@@ -61,14 +60,14 @@ const router = createBrowserRouter([
 
 ]);
 
-
-
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <UserProvider>
+      <RouterProvider router={router} />
+    </UserProvider>
   </React.StrictMode>
 );
-

@@ -1,6 +1,6 @@
 import './login-form.scss';
 
-import { FC } from 'react';
+import { FC, useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
@@ -8,9 +8,9 @@ import { GoogleIcon } from '../Icons';
 import { 
   createUserDocFromAuth,
   signInWithGooglePopup,
-  signInWithGoogleRedirect
 } from '../utils/firebase';
 import { signInAuthUserWithEmailAndPass } from '../utils/firebase/firebase';
+import { UserContext } from '../utils/contexts';
 
 type UserLoginForm = {
   email: string;
@@ -45,20 +45,31 @@ const LoginForm: FC = () => {
     resolver: yupResolver(validationSchema)
   });
 
+  const { setCurrentUser } = useContext(UserContext);
+
   const onSubmit = async (data: UserLoginForm) => {
     try {
       const response = await signInAuthUserWithEmailAndPass(data.email, data.password);
-      console.log(response);
-    } catch (error) {
-      if (error instanceof Error && error.code === 'auth/wrong-password') {
-        setError('password', { 
-          message: 'wrong password',
-        })
-      }
-      if (error instanceof Error && error.code === 'auth/user-not-found') {
-        setError('email', { 
-          message: 'user not found',
-        })
+      setCurrentUser(response?.user);
+    } catch (error: unknown) {
+      switch (error instanceof Error && error.code) {
+        case 'auth/wrong-password': 
+          setError('password', { 
+            message: 'Wrong password',
+          });
+          break;
+        case 'auth/user-not-found': 
+          setError('email', { 
+            message: 'User not found',
+          })
+        break;
+        case 'auth/too-many-requests': 
+          setError('email', { 
+            message: 'Too many requests',
+          });
+        break;
+        default: 
+          console.log(error);
       }
     }
   };
