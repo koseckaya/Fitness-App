@@ -39,19 +39,19 @@ export default class RecipeLatest extends Component<Props, IState> {
     static contextType = RecipeContext;
 
     render() {
-        const { recipes: items } = this.context as RecipeContextType;
+        const { recipes: items, category} = this.context as RecipeContextType;
         if (Object.keys(items).length === 0) {
             return null;
         }
         const value6 = Object.values(items)[6];
         const latestRecept = value6.recipe;
         const latestReceptUrl = getRecipeId(value6.recipe.shareAs);
-
+        const url = `/recipes/${category}/${latestReceptUrl}`;
         return (
             <div className="latest">
                 <h3 className="recipes__title">Latest Recipe</h3>
                 <div className="latest__card">
-                    <Link to={"/recipes/" + latestReceptUrl}>
+                    <Link to={url}>
                         <img
                             className="latest__card-img"
                             src={latestRecept.image}
@@ -63,11 +63,11 @@ export default class RecipeLatest extends Component<Props, IState> {
                             {latestRecept.label}
                         </div>
                         <div className="latest__card-description">
-                            {latestRecept.ingredientLines?.map((item) => (
-                                <div className="latest__card-text">{item}</div>
+                            {latestRecept.ingredientLines?.map((item, index) => (
+                                <div className="latest__card-text" key={index}>{item}</div>
                             ))}
                         </div>
-                        <Link to={"/recipes/" + latestReceptUrl}>
+                        <Link to={url}>
                             <Button
                                 content="View Recipe"
                                 type={Button.TYPES.PRIMARY}

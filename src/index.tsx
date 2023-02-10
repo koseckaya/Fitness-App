@@ -7,9 +7,10 @@ import { App } from './App';
 
 import {
   Main, Error, Home, WorkoutPrograms,
-  WorkoutVideos, Recipes, Store, About,
+  WorkoutVideos, Store, About,
   Signup, Login, PrivacyPolicy, RecipePage, ProgramPage
 } from "./routes";
+import RecipesWrapper from './routes/Recipes/RecipesWrapper';
 import './styles/index.scss'
 
 export const router = createBrowserRouter([
@@ -40,7 +41,7 @@ export const router = createBrowserRouter([
         },
        {
         path: "recipes/:categoryId",
-        element: <Recipes />,
+        element: <RecipesWrapper />,
         },
        {
         path: "store",

@@ -8,7 +8,7 @@ import {
     RecipeItem,
 } from "./../../data";
 import "./Recipes.scss";
-import { Link } from "react-router-dom";
+import { Link, NavigateFunction } from "react-router-dom";
 import { RecipeContext } from "../../App";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { getRecipes } from "./../../Services/apiService";
@@ -17,7 +17,9 @@ import { RecipeLatest } from "../../components/RecipeLatest";
 import RecipesCategories from "../../components/RecipesCategories/RecipesCategories";
 
 
-interface IProps {}
+interface IProps {
+  navigate:  NavigateFunction;
+}
 interface IState {
     items: RecipeApi[];
     page: number;
@@ -27,6 +29,7 @@ interface IState {
     from: number;
     to: number;
     category: string;
+  
 }
 
 const ITEMS_PER_PAGE = 20;
@@ -45,23 +48,19 @@ export class Recipes extends Component<IProps, IState> {
     static contextType = RecipeContext;
 
   componentDidMount() {
-    const match = window.location.href.split('/')
-    const category = match[match.length - 1]
 
-
-    const { recipes: items } = this.context as RecipeContextType;
+    const { recipes: items, category } = this.context as RecipeContextType;
     if (Object.keys(items).length === 0) {
         this.fetchData(true, category );
     }
   }
-
     fetchData = (reset = false, category = '') => {
-        const { setRecipes } = this.context as RecipeContextType;
+        const { setRecipes, category: categoryContext } = this.context as RecipeContextType;
         const config = {
             from: this.state.from,
             to: this.state.to,
             search: this.state.search,
-            category: category || this.state.category ,
+            category: category || categoryContext ,
         };
         getRecipes(config)
             .then((data) => {
@@ -82,8 +81,7 @@ export class Recipes extends Component<IProps, IState> {
                 from: state.from + ITEMS_PER_PAGE,
                 to: state.to + ITEMS_PER_PAGE,
             };
-        });
-        this.fetchData();
+        }, () => { this.fetchData()});
     };
     handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const val = e.target.value;
@@ -102,28 +100,26 @@ export class Recipes extends Component<IProps, IState> {
     };
     handleCategory = (e: React.MouseEvent<HTMLDivElement>) => {
         const target = e.currentTarget;
-
         let categ = target.getAttribute("data-categ");
         if (!categ) return;
+        const { setCategory } = this.context as RecipeContextType;
+        setCategory(categ)
         this.setState(
-            {
-                category: categ,
-                from: 0,
-                to: ITEMS_PER_PAGE,
+            {from: 0,
+              to: ITEMS_PER_PAGE,
             },
             () => {
                 this.fetchData(true);
             }
-        );
+      );
+        this.props.navigate(`/recipes/${categ}`)
     };
 
-    render() {
-        const { recipes: items } = this.context as RecipeContextType;
-        if (Object.keys(items).length === 0) {
-            return null;
-        }
-      
-
+  render() {
+    const { recipes: items, category } = this.context as RecipeContextType;
+    if (Object.keys(items).length === 0) {
+      return null;
+    }
         return (
             <Container>
                 <div className="recipes__search">
@@ -158,16 +154,15 @@ export class Recipes extends Component<IProps, IState> {
                         </p>
                     }
                 >
-                    {Object.values(items).map((i) => {
+                    {Object.values(items).map((i, index) => {
                         const url = getRecipeId(i.recipe.shareAs);
 
                         return (
-                            <Link to={"/recipes/" + url}>
+                            <Link to={`/recipes/${category}/${url}`} key={index}>
                                 <RecipeCard
                                     label={i.recipe.label}
                                     imgUrl={i.recipe.image}
                                     calories={i.recipe.calories}
-                                    key={url}
                                 />
                             </Link>
                         );

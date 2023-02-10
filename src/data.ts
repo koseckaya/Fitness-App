@@ -6384,7 +6384,9 @@ export interface RecipeContextItems {
 }
 
 export interface RecipeContextType {
+    category: string;
     recipes: RecipeContextItems;
+    setCategory: (category: string) => void;
     setRecipes: (recipes: RecipeContextItems, resetData?:boolean ) => void;
 }
 
