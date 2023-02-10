@@ -2,18 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import {
   createBrowserRouter,
-  RouterProvider,
 } from "react-router-dom";
-import { PrivacyPolicy } from './routes/PrivacyPolicy';
+import { App } from './App';
+
 import {
   Main, Error, Home, WorkoutPrograms,
   WorkoutVideos, Recipes, Store, About,
-  Signup, Login
+  Signup, Login, PrivacyPolicy, RecipePage, ProgramPage
 } from "./routes";
 import './styles/index.scss'
 import { UserProvider } from './components/utils/contexts';
 
-const router = createBrowserRouter([
+export const router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
@@ -22,6 +22,10 @@ const router = createBrowserRouter([
        {
         path: "/",
         element: <Home />,
+      },
+        {
+        path: "programs/:programId",
+        element: <ProgramPage />,
         },
       {
         path: "programs",
@@ -30,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: "videos",
         element: <WorkoutVideos />,
+      },
+         {
+        path: "recipes/:recipeId",
+        element: <RecipePage />,
         },
        {
         path: "recipes",
@@ -67,7 +75,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <UserProvider>
-      <RouterProvider router={router} />
+      <App />
     </UserProvider>
   </React.StrictMode>
 );
