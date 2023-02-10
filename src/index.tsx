@@ -11,6 +11,7 @@ import {
   Signup, Login, PrivacyPolicy, RecipePage, ProgramPage
 } from "./routes";
 import './styles/index.scss'
+import { UserProvider } from './components/utils/contexts';
 
 export const router = createBrowserRouter([
   {
@@ -73,6 +74,8 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <App />
+    <UserProvider>
+      <App />
+    </UserProvider>
   </React.StrictMode>
 );
