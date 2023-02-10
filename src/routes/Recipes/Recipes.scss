@@ -1,0 +1,57 @@
+@import '../../styles/vars.scss';
+
+.recipes {
+    &__title {
+        margin: 0;
+        margin-bottom: 20px;
+        font-weight: 500;
+        font-size: 22px;
+        line-height: 30px;
+        color: $color-primary;
+        text-transform: capitalize;
+    }
+    &__container {
+    display: grid;
+       grid-template-columns: repeat(4, 1fr);
+        margin: 20px 0px; 
+        gap: 20px;
+    }
+    &__top {
+       display: grid;
+        grid-template-columns:  1fr 320px;
+        row-gap: 20px;
+    }
+    &__search{
+        align-items: center;
+        display: flex;
+        padding: 6px 9px 6px 14px;
+        border-radius: 4px;
+        border: 1px solid $primary-disabled;
+        max-width: 230px;
+        margin-left: auto;
+        margin-bottom: 17px;
+        transition: all ease 0.3s;
+        margin-right: 20px;
+        position: relative;
+
+        &:hover {
+            border: 1px solid $color-primary;
+        }
+        &_input{
+            border: none;
+            padding: 0px 9px 0 0;
+            flex: 1 1 0%;
+            margin-right: 4px;
+            color: $secondary;
+            background-color: transparent;
+            outline: none;
+        }
+       &_zoom {
+        cursor: pointer;
+       }
+        form {
+            width: 100%;
+        }
+    }
+   
+}

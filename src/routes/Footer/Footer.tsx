@@ -2,7 +2,6 @@ import { FC } from 'react';
 import { Container } from '../../components/Container';
 import './Footer.scss';
 import { Link } from 'react-router-dom';
-import { Button } from '../../components/Button';
 import { FacebookIcon, InstagramIcon , YouTubeIcon} from '../../components/Icons';
 
 

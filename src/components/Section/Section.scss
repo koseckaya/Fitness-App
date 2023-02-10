@@ -14,9 +14,15 @@
     justify-content: space-between;
     margin-bottom: 24px;
   }
-  &__content{
+  
+  &__programs {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    row-gap: 20px;
+  }
+  &__recipes{
+    display: grid;
+    grid-template-columns:  1fr 320px;
     row-gap: 20px;
   }
 }

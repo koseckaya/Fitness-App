@@ -1,0 +1,14 @@
+@import "src/styles/vars";
+
+.exercise-video-prev {
+  box-sizing: border-box;
+   margin-bottom: 10px;
+    border-radius: 5px;
+
+  &__img {
+    object-fit: cover;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    width: 100%;
+  }
+}

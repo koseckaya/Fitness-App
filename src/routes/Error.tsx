@@ -26,9 +26,9 @@ export function Error() {
     }
 
     return (
-      
+    <>
+      <Header />
         <Container>
-            <Header />
             <div className='error' >
                 <span className='error-404'>404 • </span>
                 <span className='error-text'>The page you're looking for can't be found. Please check out one of these pages instead</span>
@@ -39,7 +39,9 @@ export function Error() {
                     <Button content="Store" type={Button.TYPES.DEFAULT} onClick={handleStore}/>
                 </div>
             </div>
-            <Footer />
+           
         </Container>
+      <Footer />  
+    </>
   );
 }

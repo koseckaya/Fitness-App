@@ -138,6 +138,19 @@
   width: 100%;
 }
 
+.form-btn-google {
+  display: flex;
+  gap: 10px;
+  background-color: rgb(255, 255, 255);;
+  color: #303033;
+  border: 1px solid;
+}
+
+.form-google-icon {
+  width: 24px;
+  height: 24px;
+}
+
 .is-invalid {
   color: rgb(255, 88, 88);
   transition: border-color 0.3s ease 0s;
@@ -152,3 +165,27 @@
   margin-top: 4px;
 }
 
+.form-delimiter {
+  margin: 20px 0px;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.form-delimiter::before, .form-delimiter::after {
+  content: "";
+  display: block;
+  height: 1px;
+  min-width: 50%;
+  background-color: rgb(225, 227, 242);
+}
+
+.form-delimiter::before {
+  margin-right: 10px;
+}
+
+.form-delimiter::after {
+  margin-left: 10px;
+}
