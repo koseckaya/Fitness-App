@@ -1,8 +1,10 @@
 
 import React from 'react';
 import { RouterProvider } from "react-router-dom";
-import { RecipeContextType, RecipeContextItems } from './data';
+import { RecipeContextType, RecipeContextItems, recipeData } from './data';
+import { modifyData } from './helpers/helpers';
 import { router } from './index';
+import { getRecipes } from './Services/apiService';
 
 
 
@@ -18,6 +20,18 @@ class App extends React.Component {
             recipes: {},
             setRecipes: this.setRecipes,
         };
+    }
+
+    componentDidMount(): void {
+         getRecipes({})
+            .then((data) => {
+                const modData = modifyData(data);
+                this.setRecipes(modData, true);
+            })
+            .catch(() => {
+                const modData = modifyData(recipeData);
+                this.setRecipes(modData, true);
+            });
     }
 
     setRecipes = (recipes: RecipeContextItems, resetData = false) => {

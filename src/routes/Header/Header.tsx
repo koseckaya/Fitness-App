@@ -19,7 +19,7 @@ const Header: FC<Props> = () => (
                 <nav className='nav'>
                     <Link to={`/programs`} className="nav-item">Workout Programs</Link>
                     <Link to={`/videos`} className="nav-item">Workout Videos</Link>
-                    <Link to={`/recipes`} className="nav-item">Recipes</Link>
+                    <Link to={`/recipes/alcohol-free`} className="nav-item">Recipes</Link>
                     <Link to={`/store`} className="nav-item">Store</Link>
                     <Link to={`/about`} className="nav-item">About</Link>
                 </nav>
