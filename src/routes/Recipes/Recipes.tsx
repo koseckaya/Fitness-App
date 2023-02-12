@@ -52,7 +52,8 @@ export class Recipes extends Component<IProps, IState> {
     const { recipes: items, category } = this.context as RecipeContextType;
     if (Object.keys(items).length === 0) {
         this.fetchData(true, category );
-    }
+      }
+      console.log('items',items);
   }
     fetchData = (reset = false, category = '') => {
         const { setRecipes, category: categoryContext } = this.context as RecipeContextType;

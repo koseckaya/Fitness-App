@@ -29,7 +29,7 @@ export default class RecipesCategories extends Component<Props> {
                         High Protein
                     </div>
                     <div className="categories-description">
-                        100 recipes
+                        800 recipes
                     </div>
                 </div>
             </div>
@@ -49,7 +49,7 @@ export default class RecipesCategories extends Component<Props> {
                         Vegetarian
                     </div>
                     <div className="categories-description">
-                        100 recipes
+                        700 recipes
                     </div>
                 </div>
             </div>
@@ -67,7 +67,7 @@ export default class RecipesCategories extends Component<Props> {
                 <div className="categories-desc">
                     <div className="categories-title">Low Carb</div>
                     <div className="categories-description">
-                        100 recipes
+                        600 recipes
                     </div>
                 </div>
             </div>
@@ -87,7 +87,7 @@ export default class RecipesCategories extends Component<Props> {
                         Dairy Free
                     </div>
                     <div className="categories-description">
-                        100 recipes
+                        700 recipes
                     </div>
                 </div>
             </div>
