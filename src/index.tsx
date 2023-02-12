@@ -12,6 +12,7 @@ import {
 } from "./routes";
 import RecipesWrapper from './routes/Recipes/RecipesWrapper';
 import './styles/index.scss'
+import { UserProvider } from './components/utils/contexts';
 
 export const router = createBrowserRouter([
   {
@@ -74,6 +75,8 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <App />
+    <UserProvider>
+      <App />
+    </UserProvider>
   </React.StrictMode>
 );

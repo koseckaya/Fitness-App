@@ -1,9 +1,10 @@
 
-import { FC } from 'react';
+import { FC, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '../../components/Button';
 import { Container } from '../../components/Container';
 import { Logo } from '../../components/Logo';
+import { UserContext } from '../../components/utils/contexts';
 import './Header.scss'
 
 
@@ -12,7 +13,11 @@ export type Props = {
     testId?: string;
 };
 
-const Header: FC<Props> = () => (
+const Header: FC<Props> = () => {
+  const { currentUser } = useContext(UserContext);
+  const email = currentUser?.email;
+
+  return (
     <div className="header" >
         <Container>
             <div className="header__container" >
@@ -24,13 +29,19 @@ const Header: FC<Props> = () => (
                     <Link to={`/about`} className="nav-item">About</Link>
                 </nav>
                 <Link to={`/`} className="logo"> <Logo /> </Link>
-                <div className='header__signUp'>
+                {currentUser ? (
+                  <Button content={`${email}`} type={Button.TYPES.DEFAULT} />
+                ) : (
+                  <div className='header__signUp'>
                     <Link to={`/signup`}><Button content="Sign Up" type={Button.TYPES.DEFAULT} /></Link>
                     <Link to={`/login`}><Button content="Log In" type={Button.TYPES.PRIMARY} /></Link>
-                </div>
+                  </div>
+                )
+              }
             </div>
         </Container>
     </div>
-);
+  )
+};
 
 export default Header;
