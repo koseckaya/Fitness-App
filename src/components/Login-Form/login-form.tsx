@@ -10,7 +10,6 @@ import {
   signInWithGooglePopup,
 } from '../utils/firebase';
 import { signInAuthUserWithEmailAndPass } from '../utils/firebase/firebase';
-import { UserContext } from '../utils/contexts';
 
 type UserLoginForm = {
   email: string;
@@ -21,9 +20,7 @@ type UserLoginForm = {
 const LoginForm: FC = () => {
 
   const signInWithGoogle = async () => {
-    const { user } = await signInWithGooglePopup();
-    await createUserDocFromAuth(user);
-    setCurrentUser(user);
+    await signInWithGooglePopup();
   }
 
   const validationSchema = Yup.object().shape({
@@ -46,15 +43,11 @@ const LoginForm: FC = () => {
     resolver: yupResolver(validationSchema)
   });
 
-  const { setCurrentUser } = useContext(UserContext);
-
   const onSubmit = async (data: UserLoginForm) => {
     try {
 
       const response = await signInAuthUserWithEmailAndPass(data.email, data.password);
       const user = response?.user;
-      if (user) setCurrentUser(user);
-      console.log(user);
 
     } catch (error: unknown) {
 
