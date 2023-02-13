@@ -1,0 +1,75 @@
+@import '../../styles/vars.scss';
+
+.calc {
+    &__form {
+    width: 600px;
+    box-sizing: border-box;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 8px;
+    background-color: #eee;
+    border: 1px solid #c8c8c8;
+    margin-bottom: 15px;
+    margin: 15px auto;
+    align-items: center;
+    }
+}
+.form {
+   display: flex;
+    justify-content: space-around;
+    background-color: #fff;
+    width: 96%;
+    align-items: center;
+    padding: 5px 15px;
+     border-radius: 5px;
+
+    &__name, &__weight {
+        align-items: center;
+        display: flex;
+        padding: 6px 9px 6px 14px;
+        border-radius: 4px;
+        border: 1px solid $primary-disabled;
+        max-width: 250px;
+        transition: all ease 0.3s;
+        position: relative;
+        outline: none;
+        
+        &:hover {
+            border: 1px solid $color-primary;
+        }
+    }
+    &__btn {
+        width: 100px;
+    }
+    &__list {
+        width: 100%;
+    }
+}
+.list {
+    &__item {
+        display: flex;
+        background-color: #fff;
+        padding: 5px 15px;
+        border-radius: 5px;
+        margin-bottom: 8px;
+    }
+    &__controls {
+        margin-left: auto;
+        display: flex;
+        gap: 10px;
+        cursor: pointer;
+    }
+    &__weight {
+        margin-right: 20px;
+    }
+    &__title {
+        margin-right: 30px;
+    }
+    &__nutrition, &__kkal {
+        color: #c8c8c8;
+        margin-right: 10px;
+        font-size: 13px;
+    }
+}

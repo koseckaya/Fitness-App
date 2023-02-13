@@ -1,8 +1,11 @@
-//@ts-nocheck
-import { APP_ID, APP_KEY } from './../key';
-import axios from "axios";
 
-const categoryMapping = {
+import { APP_ID, APP_KEY, FATSECRET_SECRET, FATSECRET_ID } from './../key';
+import axios from "axios";
+import { RecipeApi } from '../data';
+import { categoryMappingType } from './types';
+
+
+const categoryMapping: categoryMappingType = {
     'alcohol-free': 'health',
     'dairy-free': 'health',
     'vegetarian': 'health',
@@ -25,3 +28,9 @@ export async function getRecipes({
     return res.data.hits
 }
 
+export async function getNutrients() {
+    let url = ``;
+
+    const res = await axios.get(url)
+    return res.data.hits
+}
