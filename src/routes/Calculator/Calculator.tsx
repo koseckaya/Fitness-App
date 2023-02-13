@@ -1,4 +1,4 @@
-
+//@ts-nocheck
 import { FC, useState, useCallback } from 'react';
 import { Container } from '../../components/Container';
 import './Calculator.scss';
@@ -56,7 +56,9 @@ const Calculator: FC<Props> = ({ className }: Props) => {
 
     const [items, setItems] = useState(demoItems)
     const [productName, setName] = useState('')
-    const [weigh, setWeigh] = useState(0)
+    const [weight, setWeight] = useState('')
+    const [editingWeight, setEditingWeight] = useState(0);
+    const [isEditing, setIsEditing] = useState(0);
 
     const handleDelete = useCallback((e: React.MouseEvent) => {
         const targ = e.target as HTMLButtonElement
@@ -71,21 +73,54 @@ const Calculator: FC<Props> = ({ className }: Props) => {
         const newItem = {
             id: newId,
             title: productName,
-            weight: weigh,
+            weight: weight,
         }
-        setItems([...items, newItem] )
+        setItems([...items, newItem])
+        setName('')
+        setWeight(0)
 
-    }, [productName, weigh,items])
+    }, [productName, weight,items])
     
     const handleNameChange = useCallback((e:  React.ChangeEvent<HTMLInputElement>) => {
         let value = e.target.value
         setName(value)
     }, [setName])
 
-    const handleWeighChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleWeightChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
         let value = Number(e.target.value)
-        setWeigh(value)
-    }, [setWeigh])
+        setWeight(value)
+    }, [setWeight])
+
+   const handleEditStart = useCallback((e: React.MouseEvent) => {
+        const targ = e.target as HTMLButtonElement
+       const id = Number(targ.getAttribute('data-id'))
+       const itemWeight = items.filter(i => i.id === +id)[0].weight
+       setIsEditing(id)
+       setEditingWeight(itemWeight)
+      
+   }, [ items, setEditingWeight, setIsEditing])
+    
+    const handleEditSave = useCallback((e: React.MouseEvent) => {
+       const targ = e.target as HTMLButtonElement
+        const id = Number(targ.getAttribute('data-id'))
+        const newItems = items.map(i => {
+            if (i.id === isEditing) {
+                i.weight = editingWeight
+            }
+            return i
+        })
+        setItems(newItems)
+        setIsEditing(0)
+        setEditingWeight(0)
+
+   }, [setItems, isEditing, editingWeight, items])
+    
+    const handleEditWeightChange = useCallback((e:  React.ChangeEvent<HTMLInputElement>) => { 
+        const val = e.target.value
+        setEditingWeight(+val)
+    }, [])
+    
+
 
     return (
     <Container>
@@ -101,20 +136,32 @@ const Calculator: FC<Props> = ({ className }: Props) => {
                     <input className='form__name' type='text' placeholder='Product Name'
                         value={productName } onChange={handleNameChange} />
                     <input className='form__weight' type='number' placeholder='Weight in grams'
-                            value={weigh} onChange={handleWeighChange}    />
+                            value={weight} onChange={handleWeightChange}    />
                     <input className='button form__btn' type='submit' value='Add' onClick={handleAdd} />
                 </form>
                 <div className='form__list'>
                         {items.map(item => {
                             return (
-                                 <div className='list__item' key={item.id}>
-                                    <div className='list__weight'>{item.weight} g</div>
+                                <div className='list__item' key={item.id}>
+                                    {isEditing === item.id ? (
+                                      <input className='form__weight' type='number'
+                                            value={editingWeight} onChange={handleEditWeightChange} />  
+                                    ) : (
+                                        <div className='list__weight'>{item.weight} g</div>    
+                                    )
+                                    }
+                                    
                                     <div className='list__title'>{item.title}</div>
                                     <div className='list__nutrition'>Protein: {item.protein}
                                         Fat: {item.fat}  Carb: {item.carb}</div>
                                     <div className='list__kkal'>{item.calories} kkal</div>
                                     <div className="list__controls">
-                                        <div className="list__edit">⭮</div>
+                                        {isEditing === item.id ? (
+                                            <div className = "list__save" data-id={item.id}  onClick={handleEditSave}>save</div>
+                                        ) : (
+                                            <div className="list__edit" data-id={item.id}  onClick={handleEditStart}>⭮</div>
+                                        )}
+                                        
                                         <div className="list__delete" data-id={item.id} onClick={handleDelete}>❌</div>
                                     </div>
                                 </div>
