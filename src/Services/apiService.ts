@@ -1,5 +1,5 @@
 
-import { APP_ID, APP_KEY, FATSECRET_SECRET, FATSECRET_ID } from './../key';
+import { APP_ID, APP_KEY, NUTRITION_ID, NUTRITION_KEY } from './../key';
 import axios from "axios";
 import { RecipeApi } from '../data';
 import { categoryMappingType } from './types';
@@ -28,9 +28,9 @@ export async function getRecipes({
     return res.data.hits
 }
 
-export async function getNutrients() {
-    let url = ``;
+export async function getNutrients(search: string) {
+    let url = `https://api.edamam.com/api/nutrition-data?app_id=${NUTRITION_ID}&app_key=${NUTRITION_KEY}&nutrition-type=cooking&ingr=${search}`;
 
     const res = await axios.get(url)
-    return res.data.hits
+    return res.data
 }
