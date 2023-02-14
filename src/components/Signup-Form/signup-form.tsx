@@ -3,7 +3,7 @@ import '../Button/Button.scss'
 import { GoogleIcon } from '../Icons';
 
 
-import { FC, useEffect, useContext } from 'react';
+import { FC, useEffect} from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
@@ -12,7 +12,6 @@ import {
   createUserDocFromAuth, 
   signInWithGoogleRedirect,
   createAuthUserWithEmailAndPass,
-  signInWithGooglePopup,
 } from '../utils/firebase';
 import { getRedirectResult } from 'firebase/auth';
 
@@ -31,18 +30,17 @@ const SignupForm: FC = () => {
     async function fetchData() {
       const response = await getRedirectResult(auth);
       if (response) {
-        const userDocRef = await createUserDocFromAuth(response.user);
-        const user = response.user;
+        await createUserDocFromAuth(response.user);
       }
     };
 
     fetchData();
   }, [])
 
-  const logGoogleUser = async () => {
+/*   const logGoogleUser = async () => {
     const { user} = await signInWithGooglePopup();
     const userDocRef = await createUserDocFromAuth(user);
-  }
+  } */
 
   const validationSchema = Yup.object().shape({
     name: Yup.string().required('Name is required')
@@ -76,8 +74,7 @@ const SignupForm: FC = () => {
     try {
       const response = await createAuthUserWithEmailAndPass(data.email, data.password);
       const user = response?.user;
-
-      await createUserDocFromAuth(user, { displayName: data.name, lastName: data.lastName });
+      if (user) await createUserDocFromAuth(user, { displayName: data.name, lastName: data.lastName });
     } catch (error) {
       if (error instanceof Error && error.code === 'auth/email-already-in-use') {
         console.log('User already in use');

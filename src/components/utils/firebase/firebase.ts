@@ -8,6 +8,8 @@ import {
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
+  User,
+  NextOrObserver,
 } from 'firebase/auth'
 import {
   getFirestore,
@@ -15,8 +17,8 @@ import {
   getDoc,
   setDoc,
   updateDoc,
+  DocumentSnapshot
 } from 'firebase/firestore';
-import { async } from 'q';
 
 // Web app's Firebase configuration
 const firebaseConfig = {
@@ -27,6 +29,18 @@ const firebaseConfig = {
   messagingSenderId: "25561443999",
   appId: "1:25561443999:web:292b093174ffae20df7caa"
 };
+
+export type UserData = {
+  displayName: string,
+  email: string,
+  createdAt: Date,
+ }
+
+export type AdditionalInformation = {
+  displayName?: string,
+  lastName?: string,
+  updatedAt?: Date,
+}
 
 // Initialize Firebase
 const firebaseApp = initializeApp(firebaseConfig);
@@ -41,7 +55,10 @@ export const auth = getAuth();
 export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
 export const signInWithGoogleRedirect = () => signInWithRedirect(auth, provider);
 
-export const createUserDocFromAuth = async (userAuth, additionalInformation = {}) => {
+export const createUserDocFromAuth = async (
+  userAuth: User,
+  additionalInformation = {} as AdditionalInformation
+): Promise<void | DocumentSnapshot<UserData>> => {
   if (!userAuth) return;
   const userDocRef = doc(db, 'users', userAuth.uid);
   const userSnapshot = await getDoc(userDocRef);
@@ -59,14 +76,17 @@ export const createUserDocFromAuth = async (userAuth, additionalInformation = {}
         ...additionalInformation
       });
     } catch (error) {
-      console.log('error creating user', error.message);
+      if (error instanceof Error) console.log('error creating user', error.message);
     }
   }
 
-  return userDocRef;
+  return userSnapshot as DocumentSnapshot<UserData>;
 }
 
-export const updateUserDocFromAuth = async (userAuth, additionalInformation = {}) => {
+export const updateUserDocFromAuth = async (
+  userAuth: User,
+  additionalInformation = {} as AdditionalInformation
+) => {
   if (!userAuth) return;
   const userDocRef = doc(db, 'users', userAuth.uid);
   const userSnapshot = await getDoc(userDocRef);
@@ -81,32 +101,28 @@ export const updateUserDocFromAuth = async (userAuth, additionalInformation = {}
         ...additionalInformation
       });
     } catch (error) {
-      console.log('error creating user', error.message);
+      if (error instanceof Error) console.log('error creating user', error.message);
     }
   }
 
   return userDocRef;
 }
 
-export const newUser = (displayName, email, createdAt) => {
-  return {
-    displayName,
-    email,
-    createdAt,
-  }
+export const getUserDocFromAuth = async (userAuth: User ) => {
+  
+  if (!userAuth) return;
+  const userDocRef = doc(db, 'users', userAuth.uid);
+  const userSnapshot = await getDoc(userDocRef);
+  return userSnapshot.data();
 }
 
-export const createNewUser = async () => {
-
-}
-
-export const createAuthUserWithEmailAndPass = async (email, password) => {
+export const createAuthUserWithEmailAndPass = async (email: string, password: string) => {
   if(!email && !password) return;
 
   return await createUserWithEmailAndPassword(auth, email, password); 
 }
 
-export const signInAuthUserWithEmailAndPass = async (email, password) => {
+export const signInAuthUserWithEmailAndPass = async (email: string, password: string) => {
   if(!email && !password) return;
 
   return await signInWithEmailAndPassword(auth, email, password); 
@@ -114,4 +130,4 @@ export const signInAuthUserWithEmailAndPass = async (email, password) => {
 
 export const signOutUser = async () => await signOut(auth);
 
-export const onAuthStateChangeListener = (callback) => onAuthStateChanged(auth, callback);
+export const onAuthStateChangeListener = (callback: NextOrObserver<User>) => onAuthStateChanged(auth, callback);
