@@ -31,9 +31,7 @@ const Calculator: FC<Props> = ({ className }: Props) => {
         const searchStr = `${weight}g ${productName}`
         getNutrients(searchStr).then((data) => {
             console.log('data', data);
-            let newId;
-            if (items.length === 0) newId = 1;
-            newId = items[items.length - 1].id + 1
+             let newId = items.length === 0 ?  1 : items[items.length - 1].id + 1
             const newItem = {
                 id: newId,
                 title: productName,
@@ -43,10 +41,7 @@ const Calculator: FC<Props> = ({ className }: Props) => {
              setItems([...items, newItem])
         setName('')
         setWeight(0)
-console.log('item', items[items.length]);
         })
-        
-
     }, [productName, weight,items])
     
     const handleNameChange = useCallback((e:  React.ChangeEvent<HTMLInputElement>) => {
@@ -69,19 +64,28 @@ console.log('item', items[items.length]);
    }, [ items, setEditingWeight, setIsEditing])
     
     const handleEditSave = useCallback((e: React.MouseEvent) => {
-       const targ = e.target as HTMLButtonElement
-        const id = Number(targ.getAttribute('data-id'))
-        const newItems = items.map(i => {
-            if (i.id === isEditing) {
-                i.weight = editingWeight
-            }
-            return i
+        const currentItem= items.filter(i => i.id === isEditing)[0] 
+        console.log('currentItem', currentItem);
+        const searchStr = `${editingWeight}g ${currentItem.title}`
+        getNutrients(searchStr).then((data) => {
+            
+            const newItems = items.map(i => {
+                if (i.id === isEditing) {
+                    return {
+                        ...i, 
+                        ...data,
+                        weight: editingWeight,
+                    }
+                }
+                else {
+                    return i
+                }
+            })
+            console.log('newItems', newItems);
+            setItems(newItems)
+            setIsEditing(0)
         })
-        setItems(newItems)
-        setIsEditing(0)
-        setEditingWeight(0)
-
-   }, [setItems, isEditing, editingWeight, items])
+   }, [editingWeight, isEditing, setIsEditing, items])
     
     const handleEditWeightChange = useCallback((e:  React.ChangeEvent<HTMLInputElement>) => { 
         const val = e.target.value
@@ -90,7 +94,7 @@ console.log('item', items[items.length]);
 
     const totalCalories = items.reduce((acc, item) => acc += item.calories,0)
     const totalFat = (items.reduce((acc, item) => acc += item.totalNutrients.FAT.quantity, 0)).toFixed(1)
-    const dailyFat = (totalFat * 9 * 100 / DAILY_CALORIES).toFixed(0)
+    const dailyFat = (items.reduce((acc, item) => acc += item.totalDaily.FAT.quantity, 0)).toFixed()
     const cholest = (items.reduce((acc, item) => acc += item.totalNutrients.CHOLE.quantity, 0)).toFixed(1)
     const dailyCholest = (items.reduce((acc, item) => acc += item.totalDaily.CHOLE.quantity, 0)).toFixed(0)
     const sodium = (items.reduce((acc, item) => acc += item.totalNutrients.NA.quantity, 0)).toFixed(1)
@@ -106,15 +110,20 @@ console.log('item', items[items.length]);
     const dailyCalcium = (items.reduce((acc, item) => acc += item.totalDaily.CA.quantity, 0)).toFixed(0)
     const potassium = (items.reduce((acc, item) => acc += item.totalNutrients.K.quantity, 0)).toFixed(1)
     const dailyCPotassium = (items.reduce((acc, item) => acc += item.totalDaily.K.quantity, 0)).toFixed(0)
+    // const total = (items.reduce((acc, item) => {
+    //     acc.dailyCPotassium = acc.dailyCPotassium ? acc.dailyCPotassium + item.totalDaily.K.quantity : 0;
+            
+    //     return acc;
+    // }, {}))
 
     return (
     <Container>
         <div className="calc" >
             <h3 className="calc__title" >Try Our Recipe Nutrition Calculator</h3>
             <div className='calc__steps'>
-                <div className='calc__step'>Step 1: Enter Your Ingredients</div>
-                <div className='calc__step'>Step 2: Click on 'Analyze Recipe'</div>
-                <div className='calc__step'>Step 3: Get Your Nutrition Facts Label</div>
+                <div className='calc__step'><span>Step 1</span> Enter Your Ingredients</div>
+                <div className='calc__step'><span>Step 2</span> Click on 'Analyze Recipe'</div>
+                <div className='calc__step'><span>Step 3</span> Get Your Nutrition Facts Label</div>
             </div>
             <div className='calc__forms'>
                 <div className="calc__form" >
@@ -163,8 +172,7 @@ console.log('item', items[items.length]);
                                 )
                             }) }   
                         </div>
-                        {items.length === 0 ? <div className=''>Add products to the List</div> : 
-                            <div className='button'>Recipe Analysis</div>}
+                        {items.length === 0 && ( <div className=''>Add products to the List</div>) }
                 </div>
                 <div className='calc__analysis'>
                         <h3 className='analysis__title'>Nutrition Facts</h3>
