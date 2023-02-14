@@ -15,8 +15,6 @@ import {
   signInWithGooglePopup,
 } from '../utils/firebase';
 import { getRedirectResult } from 'firebase/auth';
-import { UserContext } from '../utils/contexts';
-
 
 type UserSubmitForm = {
   name: string;
@@ -29,15 +27,12 @@ type UserSubmitForm = {
 
 const SignupForm: FC = () => {
 
-  const { setCurrentUser } = useContext(UserContext);
-
   useEffect(() => {
     async function fetchData() {
       const response = await getRedirectResult(auth);
       if (response) {
         const userDocRef = await createUserDocFromAuth(response.user);
         const user = response.user;
-        setCurrentUser(user);
       }
     };
 
@@ -80,12 +75,9 @@ const SignupForm: FC = () => {
     if (!data) return;
     try {
       const response = await createAuthUserWithEmailAndPass(data.email, data.password);
-
       const user = response?.user;
-      if (user) setCurrentUser(user);
-      console.log(user);
 
-      await createUserDocFromAuth(user, { displayName: data.name });
+      await createUserDocFromAuth(user, { displayName: data.name, lastName: data.lastName });
     } catch (error) {
       if (error instanceof Error && error.code === 'auth/email-already-in-use') {
         console.log('User already in use');
