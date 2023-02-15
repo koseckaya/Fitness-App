@@ -5,7 +5,7 @@ import { Button } from '../../components/Button';
 import { Container } from '../../components/Container';
 import { Logo } from '../../components/Logo';
 import { UserContext } from '../../components/utils/contexts';
-import { signOutUser } from '../../components/utils/firebase/firebase';
+import { DropdownMenu } from '../../components/DropdownMenu';
 import './Header.scss'
 
 export type Props = {
@@ -15,7 +15,6 @@ export type Props = {
 
 const Header: FC<Props> = () => {
   const { currentUser } = useContext(UserContext);
-  const email = currentUser?.email;
 
   return (
     <div className="header" >
@@ -30,8 +29,9 @@ const Header: FC<Props> = () => {
                 </nav>
                 <Link to={`/`} className="logo"> <Logo /> </Link>
                 {currentUser ? (
-                  <Button content={`Sign Out ${email}`} type={Button.TYPES.DEFAULT} 
-                    onClick={signOutUser}/>
+                  <DropdownMenu userName={currentUser}/>
+                  /* <Button content={`Sign Out ${name}`} type={Button.TYPES.DEFAULT} 
+                    onClick={signOutUser}/> */
                   ) : (
                     <div className='header__signUp'>
                       <Link to={`/signup`}><Button content="Sign Up" type={Button.TYPES.DEFAULT} /></Link>
