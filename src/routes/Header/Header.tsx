@@ -5,8 +5,8 @@ import { Button } from '../../components/Button';
 import { Container } from '../../components/Container';
 import { Logo } from '../../components/Logo';
 import { UserContext } from '../../components/utils/contexts';
+import { DropdownMenu } from '../../components/DropdownMenu';
 import './Header.scss'
-
 
 export type Props = {
     className?: string;
@@ -15,7 +15,6 @@ export type Props = {
 
 const Header: FC<Props> = () => {
   const { currentUser } = useContext(UserContext);
-  const email = currentUser?.email;
 
   return (
     <div className="header" >
@@ -30,14 +29,16 @@ const Header: FC<Props> = () => {
                 </nav>
                 <Link to={`/`} className="logo"> <Logo /> </Link>
                 {currentUser ? (
-                  <Button content={`${email}`} type={Button.TYPES.DEFAULT} />
-                ) : (
-                  <div className='header__signUp'>
-                    <Link to={`/signup`}><Button content="Sign Up" type={Button.TYPES.DEFAULT} /></Link>
-                    <Link to={`/login`}><Button content="Log In" type={Button.TYPES.PRIMARY} /></Link>
-                  </div>
-                )
-              }
+                  <DropdownMenu userName={currentUser}/>
+                  /* <Button content={`Sign Out ${name}`} type={Button.TYPES.DEFAULT} 
+                    onClick={signOutUser}/> */
+                  ) : (
+                    <div className='header__signUp'>
+                      <Link to={`/signup`}><Button content="Sign Up" type={Button.TYPES.DEFAULT} /></Link>
+                      <Link to={`/login`}><Button content="Log In" type={Button.TYPES.PRIMARY} /></Link>
+                    </div>
+                  )
+                }
             </div>
         </Container>
     </div>
