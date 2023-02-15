@@ -2,6 +2,7 @@ import { User } from "firebase/auth";
 import { FC, useState } from "react";
 import { Button } from "../Button";
 import { signOutUser } from "../utils/firebase/firebase";
+import useOuterClick from "../utils/useOuterClick";
 
 import './dropdown-menu.scss'
 
@@ -33,17 +34,22 @@ export const DropdownMenu: FC<DropdownProps> = ({userName}: DropdownProps) => {
     signOutUser();
   }
 
+  const ref = useOuterClick<HTMLDivElement>(
+    (e: Function ) => { setOpen(false) });
+
   return (
-    <DropdownItem
-      open={open}
-      trigger={<Button content={`${userName.email}`} 
+    <div ref={ref}>
+      <DropdownItem
+        open={open}
+        trigger={<Button content={`${userName.email}`} 
         type={Button.TYPES.DEFAULT} 
         onClick={handleOpen}/>}
-      menu={[
-        <button onClick={openProfile}>Profile</button>,
-        <button onClick={signOut}>Sign out</button>,
-      ]}
-    />
+        menu={[
+          <button onClick={openProfile}>Profile</button>,
+          <button onClick={signOut}>Sign out</button>,
+        ]}
+      />
+    </div>
   );
 }
 
