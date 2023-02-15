@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { programByDays, programs, Programs } from '../../data';
 import { Container } from '../../components/Container';
 import { DayProgram } from '../../components/DayProgram';
+import { Button } from '../../components/Button';
 
 export type Props = {
     className?: string;
@@ -56,6 +57,12 @@ const ProgramPage: FC<Props> = ({ className }: Props) => {
                     <div className='side__equip'>{program.equip.join(', ')}</div>
                     <div className='side__title'>DETAILS</div>
                     <div className='side__desc'>{program.description}</div>
+                    <div className='side__start'>
+                        <div className='start__title'>Start This Challenge</div>
+                        <div className='start__desc'>When you start a challenge you can see your progress in your personal account</div>
+                        <div className='button start__btn'>Start Challenge</div>
+                    </div>
+
                 </div>
 
                 <div className='program-page__main'>

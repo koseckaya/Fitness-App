@@ -69,7 +69,24 @@
       right: 0;
     }
   }
- 
+ &__start {
+   padding: 20px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    background-color: #ece9fc;
+    margin: 20px 0;
+ }
+}
+.start {
+  &__title {
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  &__btn {
+    margin: 15px auto 0;
+  }
 }
 .schedule {
   background-color: white;

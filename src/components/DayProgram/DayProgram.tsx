@@ -1,5 +1,5 @@
 
-import { FC } from 'react';
+import { FC, useState, useCallback } from 'react';
 import { ExerciseVideoPrev } from '../ExerciseVideoPrev';
 import './DayProgram.scss';
 
@@ -10,6 +10,20 @@ export type Props = {
 };
 
 const DayProgram: FC<Props> = ({ day, videos }: Props) => {
+    const [completedVideos, setCompletedVideos] = useState(['1-0'])
+
+    
+    const onVideoClick = useCallback((day: string, e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+        e.stopPropagation();
+        e.preventDefault()
+        if (completedVideos.includes(day)) {
+            const filt = completedVideos.filter(d => d !== day);
+            setCompletedVideos(filt)
+        } else {
+            const newComplVideos = [...completedVideos, day];
+            setCompletedVideos(newComplVideos)
+        }
+    }, [setCompletedVideos, completedVideos])
     return (
         <div className='day-program'>
             <div className='day__title'>
@@ -21,11 +35,14 @@ const DayProgram: FC<Props> = ({ day, videos }: Props) => {
             </div>
         
             <div className='program__videos'>
-                {videos.map((video, index) => {
-                    return <ExerciseVideoPrev title={video.title}
-                        src={video.src} srcImg={video.srcImg} key={index } />
+                {
+                    videos.map((video, index) => {
+                        let dayIndex = `${day}-${index}`;
+                    return <ExerciseVideoPrev title={video.title} onVideoClick={onVideoClick} active={completedVideos.includes(dayIndex)}
+                        src={video.src} srcImg={video.srcImg} key={index} day={dayIndex} />
                 })}
             </div>
+            <div className='button'>Mark Day {day } As Complete</div>
     </div>
     )
 }
