@@ -7,23 +7,27 @@ import { router } from './index';
 import { getRecipes } from './Services/apiService';
 
 
-
+interface IProps {}
+interface IState extends RecipeContextType{}
+  
 export const RecipeContext = React.createContext<Partial<RecipeContextType>>({
   recipes: {},
   setRecipes: () => {}
 })
 
-class App extends React.Component {
+class App extends React.Component<IProps,IState > {
     constructor(props: any) {
         super(props);
         this.state = {
+            category: 'alcohol-free',
             recipes: {},
+            setCategory: this.setCategory,
             setRecipes: this.setRecipes,
         };
     }
 
     componentDidMount(): void {
-         getRecipes({})
+         getRecipes({category: this.state.category})
             .then((data) => {
                 const modData = modifyData(data);
                 this.setRecipes(modData, true);
@@ -32,6 +36,9 @@ class App extends React.Component {
                 const modData = modifyData(recipeData);
                 this.setRecipes(modData, true);
             });
+    }
+    setCategory = (category: string) => {
+        this.setState({ category: category })
     }
 
     setRecipes = (recipes: RecipeContextItems, resetData = false) => {

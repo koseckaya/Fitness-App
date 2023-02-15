@@ -1,2 +1,2 @@
-export { default as RecipesHeader } from './RecipesCategories';
-export type { Props as RecipesHeaderProps } from './RecipesCategories';
+export { default as RecipesCategories } from './RecipesCategories';
+export type { Props as RecipesCategoriesProps } from './RecipesCategories';

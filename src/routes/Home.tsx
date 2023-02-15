@@ -21,7 +21,6 @@ export const Home = () => {
      function handleNavigateCategory(e: React.MouseEvent<HTMLDivElement>) {
         const target = e.currentTarget;
          let categ = target.getAttribute("data-categ");
-         console.log('categ');
          navigate(`/recipes/${categ}`);
     }
 

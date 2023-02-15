@@ -24,8 +24,7 @@ const Footer: FC<Props> = ({ className }: Props) => (
                     <a href='https://www.youtube.com/'><YouTubeIcon /></a>
                 </div>
             </div>
-           
-            
+
         </Container>
     </div>
 );
