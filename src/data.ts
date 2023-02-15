@@ -23,6 +23,8 @@ export interface DayProgram {
 }
 
 export interface Video {
+    id?: number;
+    categories?: string[];
     title: string;
     src: string;
     srcImg: string;
@@ -21426,4 +21428,70 @@ export const recipeData: RecipeApi[] = [
         }
     }
 ]
-
+// categories: ['All', 'Low Intensity', 'No Jumping', 'No Burpees', 'No Planks', 'Standing']
+export const workoutVideosData: Video[] = [
+    {
+      id: 1,
+      categories: ['All', 'No Burpees', 'No Planks'],
+      title: 'Abs in 2 Weeks',
+      src: 'https://www.youtube.com/watch?v=2pLT-olgUJs&ab_channel=ChloeTing',
+      srcImg: 'https://static.chloeting.com/videos/61bbdcdd017bbb985e15f8eb/28972560-5ed2-11ec-b99f-c33e6b9468db.jpeg',
+      duration: 11,
+    },
+    {
+      id: 2,
+      categories: ['All', 'No Burpees', 'No Planks', 'Standing'],
+      title: 'Do This Everyday to Lose Weight',
+      src: 'https://www.youtube.com/watch?v=2MoGxae-zyo&ab_channel=ChloeTing',
+      srcImg: 'https://static.chloeting.com/videos/61bbdc7e2cb3b78eb6ac2bba/efca6f80-5ed1-11ec-b182-df31ae6aab45.jpeg',
+      duration: 14,
+    },
+    {
+      id: 3,
+      categories: ['All', 'No Planks', 'Standing'],
+      title: '11 Line Abs',
+      src: 'https://www.youtube.com/watch?v=6TmQiugy_qw&feature=youtu.be',
+      srcImg: 'https://static.chloeting.com/videos/61bbd89dc3d293024898b84d/9ff668d0-5ecf-11ec-b8cd-2976cd667d03.jpeg',
+      duration: 11,
+    },
+    {
+      id: 4,
+      categories: ['All', 'Low Intensity'],
+      title: 'Warm Up',
+      src: 'https://www.youtube.com/watch?v=-p0PA9Zt8zk&feature=youtu.be&ab_channel=ChloeTing',
+      srcImg: 'https://static.chloeting.com/videos/61bbf59552c5c9bf0f2550eb/e43a1620-5ee0-11ec-9a04-3fd984621d67.jpeg',
+      duration: 6,
+    },
+    {
+      id: 5,
+      categories: ['All', 'No Jumping', 'No Planks'],
+      title: 'Flat Belly Abs',
+      src: 'https://www.youtube.com/watch?v=UBnfm4s7CRA&feature=youtu.be&ab_channel=ChloeTing',
+      srcImg: 'https://static.chloeting.com/videos/61bbbbf0c3d293024898b838/8873f260-5ebe-11ec-9a04-3fd984621d67.jpeg',
+      duration: 11,
+    },
+    {
+      id: 6,
+      categories: ['All', 'Standing'],
+      title: 'Abs in 2 Weeks - 2020',
+      src: 'https://www.youtube.com/watch?v=h8ctkfSx6R0&feature=youtu.be&ab_channel=ChloeTing',
+      srcImg: 'https://static.chloeting.com/videos/61bc1877dff295b571b03e08/af196bc0-5ef5-11ec-b4e8-6545cdfc138f.jpeg',
+      duration: 11,
+    },
+    {
+      id: 7,
+      categories: ['All', 'No Jumping', 'Standing'],
+      title: 'Tiny Waist Round Butt',
+      src: 'https://www.youtube.com/watch?v=cIuiQyfKBTg&feature=youtu.be&ab_channel=ChloeTing',
+      srcImg: 'https://static.chloeting.com/videos/61bbf3f62d47479a9df235a8/ed177c20-5edf-11ec-9a04-3fd984621d67.jpeg',
+      duration: 16,
+    },
+    {
+      id: 8,
+      categories: ['All', 'Low Intensity', 'No Jumping', 'No Burpees'],
+      title: 'Lean Arms Workout',
+      src: 'https://www.youtube.com/watch?v=j64BBgBGNIU&t=0s&ab_channel=ChloeTing',
+      srcImg: 'https://static.chloeting.com/videos/61bbdeaac3d293024898b867/3b4068b0-5ed3-11ec-b99f-c33e6b9468db.jpeg',
+      duration: 11,
+    },
+  ]

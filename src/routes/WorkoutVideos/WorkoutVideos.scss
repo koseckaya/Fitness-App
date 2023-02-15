@@ -1,0 +1,100 @@
+@import '../../styles/vars.scss';
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg) translate3d(0, 0, 0);
+    }
+    25% {
+        transform: rotate(3deg) translate3d(0, 0, 0);
+    }
+    50% { 
+        transform: rotate(-3deg) translate3d(0, 0, 0);
+    }
+    75% {
+        transform: rotate(1deg) translate3d(0, 0, 0);
+    };
+    100% {
+        transform: rotate(0deg) translate3d(0, 0, 0);
+    }
+}
+@keyframes storm {
+    0% {
+        transform: translate3d( 0, 0, 0) translateZ(0);
+    }
+    25% {
+        transform: translate3d( 4px, 0, 0) translateZ(0);
+    }
+    50% {
+        transform: translate3d( -3px, 0, 0) translateZ(0);
+    }
+    75% {
+        transform: translate3d( 2px, 0, 0) translateZ(0);
+    }
+    100% {
+        transform: translate3d( 0, 0, 0) translateZ(0);
+    }
+}
+
+.workout-videos {
+  display: flex;
+  gap: 2%;
+  &__left-side {
+    width: 30%;
+    background-color: $color-primary;
+  }
+  &__right-side {
+    width: 70%;
+    .videos-filters {
+      display: flex;
+      width: 100%;
+      gap: 1%;
+      .video-filter {
+        display: flex;
+        width: calc(100%/6.5);
+        position: relative;
+        outline: none;
+        text-decoration: none;
+        border-radius: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        text-transform: uppercase;
+        height: 35px;
+        opacity: 1;
+        background-color: #252525;
+        border: 1px solid gray;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        &.active {
+          background-color: rgb(57, 19, 1);
+          span {
+            color: #e76400;
+          }
+        }
+        span {
+        color: rgb(255, 255, 255);
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 0.7px;
+        }
+        &:hover {
+        animation: rotate 0.35s ease-in-out both;
+          span {
+            animation: storm 0.35s ease-in-out both;
+            animation-delay: 0s;
+          }
+        }
+      }
+    }
+    .videos-container {
+      margin-top: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      row-gap: 20px;
+      column-gap: 17px;
+    }
+  }
+}
+.videos-container {
+  display: flex;
+  gap: 1%;
+}

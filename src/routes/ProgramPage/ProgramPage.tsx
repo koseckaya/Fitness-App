@@ -66,7 +66,7 @@ const ProgramPage: FC<Props> = ({ className }: Props) => {
                         <div className="schedule__weeks">
                             
                                 {filterWeeks.map((i, indx) => {
-                                    const classActive = week === i.key ? "active" : '';
+                                    const classActive = (week === i.key) ? "active" : '';
                                     return <span className={`schedule__week ${classActive}`}
                                         onClick={handleWeekClick}
                                         data-week={i.key} key={indx}>{

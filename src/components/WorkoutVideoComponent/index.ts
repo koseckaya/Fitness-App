@@ -1,0 +1,2 @@
+export { WorkoutVideoComponent }  from './WorkoutVideoComponent'
+ 
