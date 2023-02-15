@@ -7,12 +7,13 @@ import { App } from './App';
 
 import {
   Main, Error, Home, WorkoutPrograms,
-  WorkoutVideos, Store, About,
+  WorkoutVideos, About,
   Signup, Login, PrivacyPolicy, RecipePage, ProgramPage
 } from "./routes";
 import RecipesWrapper from './routes/Recipes/RecipesWrapper';
 import './styles/index.scss'
 import { UserProvider } from './components/utils/contexts';
+import { Calculator } from './routes/Calculator';
 
 export const router = createBrowserRouter([
   {
@@ -45,8 +46,8 @@ export const router = createBrowserRouter([
         element: <RecipesWrapper />,
         },
        {
-        path: "store",
-        element: <Store />,
+        path: "calculator",
+        element: <Calculator />,
         },
        {
         path: "about",

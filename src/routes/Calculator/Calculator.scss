@@ -1,0 +1,159 @@
+@import '../../styles/vars.scss';
+
+.calc {
+    &__title {
+        margin-left: 106px;
+        position: relative;
+        color: #fff;
+        font-size: 37px;
+    }
+    &__forms {
+        display: flex;
+    }
+    &__form, &__analysis {
+        position: relative;
+        width: 600px;
+        box-sizing: border-box;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        border-radius: 8px;
+        background-color: #eee;
+        border: 1px solid #c8c8c8;
+        margin-bottom: 15px;
+        margin: 15px auto;
+        align-items: center;
+        padding-top: 30px;
+        transition: all 0.5s ease;
+    }
+    &__analysis {
+        margin-right: 10px;
+        width: 350px;
+        gap: 3px;
+        padding-top: 0;
+    }
+    &__error {
+        position: absolute;
+        top: 3px;
+        color: $error;
+        font-weight: 600;
+        transition: all 0.5s ease;
+    }
+}
+.form {
+   display: flex;
+    justify-content: space-around;
+    background-color: #fff;
+    width: 96%;
+    align-items: center;
+    padding: 5px 15px;
+     border-radius: 5px;
+
+    &__name, &__weight {
+        align-items: center;
+        display: flex;
+        padding: 6px 9px 6px 14px;
+        border-radius: 4px;
+        border: 1px solid $primary-disabled;
+        max-width: 250px;
+        transition: all ease 0.3s;
+        position: relative;
+        outline: none;
+        
+        &:hover {
+            border: 1px solid $color-primary;
+        }
+    }
+    &__btn {
+        width: 100px;
+    }
+    &__list {
+        width: 100%;
+    }
+    &__editing {
+        align-items: center;
+        display: flex;
+        padding: 2px 5px;
+        border-radius: 4px;
+        border: 1px solid #e3e4eb;
+        max-width: 50px;
+        transition: all ease 0.3s;
+        position: relative;
+        outline: none;
+        margin-right: 5px;
+    }
+}
+.list {
+    &__item {
+        display: flex;
+        background-color: #fff;
+        padding: 5px 15px;
+        border-radius: 5px;
+        margin-bottom: 8px;
+    }
+    &__controls {
+        margin-left: auto;
+        display: flex;
+        gap: 10px;
+        cursor: pointer;
+    }
+    &__weight {
+        margin-right: 20px;
+    }
+    &__title {
+        margin-right: 30px;
+    }
+    &__nutrition, &__kkal {
+        color: #c8c8c8;
+        margin-right: 10px;
+        font-size: 13px;
+        &_fat, &_carb, &_prot {
+            margin-right: 5px;
+        }
+    }
+}
+
+.analysis {
+    &__title {
+        margin: 8px 0;
+    }
+   &__fat, &__kkal, &__carb, &__prot, &__cholest, &__sodium, &__sugar,
+   &__vitD, &__calcium, &__iron, &__potass, &__desc
+   {
+    display: flex;
+    border-bottom: 1px solid $color-background-primary;
+    background-color: #fff;
+    padding: 5px 15px;
+    border-radius: 5px;
+    width: 92%;
+    justify-content: space-between;
+   } 
+   &__vitamins {
+    border-top: 2px solid $secondary;
+    width: 100%;
+    padding-top: 8px;
+   }
+   
+   &__vitD, &__calcium, &__iron, &__potass {
+    padding: 3px 15px;
+    font-size: 14px;
+   }
+   &__kkal {
+    font-size: 18px;
+    font-weight: 700;
+   }
+   &__text {
+    margin-left: auto;
+    font-size: 14px;
+   }
+   &__desc {
+    font-size: 12px;
+    font-style: italic;
+   }
+}
+.videoTag {
+    width: 100%;
+    filter: grayscale(1);
+    position: absolute;
+}

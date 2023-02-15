@@ -18,7 +18,7 @@ const ProgramPage: FC<Props> = ({ className }: Props) => {
     const [week, setWeek] = useState(1);
 
     const countWeek = Math.ceil(program.days / 7)
-    const filterWeeks =[]
+    const filterWeeks = []
     for (let i = 1; i <= countWeek; i++) {
         filterWeeks.push({value: `Week ${i}`, key: i})
     }
@@ -27,7 +27,7 @@ const ProgramPage: FC<Props> = ({ className }: Props) => {
     const handleWeekClick = useCallback(
         (e: any) => {
             const target = e.target
-        setWeek(+target.dataset.week)
+            setWeek(+target.dataset.week)
       },
         [setWeek],)
     
