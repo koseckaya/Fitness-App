@@ -1,9 +1,33 @@
 
-interface ItemType {
-    id: number;
-    title: string;
-    weight: number;
-    calories?: number;
+export interface ITotalData {
+    totalCalories: number;
+    dailyPotassium: number;
+    potassium: number;
+    dailyCalcium: number;
+    calcium: number;
+    dailyVitD: number;
+    VitD: number;
+    dailyProt: number;
+    prot: number;
+    dailyCarb: number;
+    carb: number;
+    dailySodium: number;
+    sodium: number;
+    dailyCholest: number;
+    cholest: number;
+    dailyFat: number;
+    fat: number;
+    dailyIron: number;
+    iron: number;
+    sugar: number;
+}
+
+
+export interface ItemType {
+    id?: number;
+    title?: string;
+    weight?: number;
+    calories: number;
     totalWeight: number;
     dietLabels: string[];
     healthLabels: string[];

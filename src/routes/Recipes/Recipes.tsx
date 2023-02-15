@@ -63,15 +63,15 @@ export class Recipes extends Component<IProps, IState> {
             search: this.state.search,
             category: category || categoryContext ,
         };
-        // getRecipes(config)
-        //     .then((data) => {
-        //         const modData = modifyData(data);
-        //         setRecipes(modData, reset);
-        //     })
-        //     .catch(() => {
-        //         const modData = modifyData(recipeData);
-        //         setRecipes(modData, reset);
-        //     });
+        getRecipes(config)
+            .then((data) => {
+                const modData = modifyData(data);
+                setRecipes(modData, reset);
+            })
+            .catch(() => {
+                const modData = modifyData(recipeData);
+                setRecipes(modData, reset);
+            });
     };
 
 
