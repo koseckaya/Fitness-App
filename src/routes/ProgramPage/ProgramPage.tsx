@@ -123,16 +123,6 @@ const ProgramPage: FC<Props> = ({ className }: Props) => {
                             </div>
                             <div className="schedule__weeks">
                                 {filterWeeks.map((i, indx) => {
-<<<<<<< HEAD
-                                    const classActive = (week === i.key) ? "active" : '';
-                                    return <span className={`schedule__week ${classActive}`}
-                                        onClick={handleWeekClick}
-                                        data-week={i.key} key={indx}>{
-                                            i.value}
-                                       </span>  
-                                })
-                            }
-=======
                                     const classActive =
                                         week === i.key ? "active" : "";
                                     return (
@@ -146,7 +136,6 @@ const ProgramPage: FC<Props> = ({ className }: Props) => {
                                         </span>
                                     );
                                 })}
->>>>>>> ed26325eb4712738369d9593ddc19dedb0767359
                             </div>
                         </div>
                         <div>
