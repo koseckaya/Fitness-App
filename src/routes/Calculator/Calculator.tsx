@@ -191,7 +191,7 @@ const Calculator: FC<Props> = ({ className }: Props) => {
                
                 <div className="calc__forms">
                     <div className="calc__form">
-                        <form className="form">
+                        <form className="form-calculator">
                             <input
                                 className="form__name"
                                 type="text"

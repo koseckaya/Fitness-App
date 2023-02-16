@@ -42,6 +42,7 @@
     }
 }
 .form {
+    &-calculator {
    display: flex;
     justify-content: space-around;
     background-color: #fff;
@@ -49,6 +50,7 @@
     align-items: center;
     padding: 5px 15px;
      border-radius: 5px;
+    }
 
     &__name, &__weight {
         align-items: center;

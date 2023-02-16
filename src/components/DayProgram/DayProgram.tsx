@@ -1,6 +1,7 @@
 
-import { FC, useState, useCallback } from 'react';
+import { FC, useState, useCallback, useEffect, useContext, useMemo } from 'react';
 import { ExerciseVideoPrev } from '../ExerciseVideoPrev';
+import { UserContext } from '../utils/contexts';
 import './DayProgram.scss';
 
 export type Props = {
@@ -10,8 +11,14 @@ export type Props = {
 };
 
 const DayProgram: FC<Props> = ({ day, videos }: Props) => {
-    const [completedVideos, setCompletedVideos] = useState(['1-0'])
+    const [completedVideos, setCompletedVideos] = useState<string[]>([])
+    const [completedDay, setCompletedDay] = useState(false)
 
+    const { currentUser } = useContext(UserContext);
+    const isUserAuthorized = useMemo(() => {
+        const isAuthorize = currentUser?.email ? true : false;
+        return isAuthorize;
+    }, [currentUser]);
     
     const onVideoClick = useCallback((day: string, e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
         e.stopPropagation();
@@ -24,6 +31,24 @@ const DayProgram: FC<Props> = ({ day, videos }: Props) => {
             setCompletedVideos(newComplVideos)
         }
     }, [setCompletedVideos, completedVideos])
+
+
+    const handleDayCheck = useCallback((e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+      
+        //saveData to profile
+        
+        setCompletedDay(true)
+
+    }, [setCompletedDay])
+
+    const isCompletedDayVideos = () => {
+        const isComplete = completedVideos.length === videos.length ? true : false;
+        return isComplete
+    }
+
+    const dayChallengeComplAndAuthorize = isCompletedDayVideos() && isUserAuthorized 
+    console.log(completedDay, isUserAuthorized, dayChallengeComplAndAuthorize);
+
     return (
         <div className='day-program'>
             <div className='day__title'>
@@ -42,8 +67,17 @@ const DayProgram: FC<Props> = ({ day, videos }: Props) => {
                         src={video.src} srcImg={video.srcImg} key={index} day={dayIndex} />
                 })}
             </div>
-            <div className='button'>Mark Day {day } As Complete</div>
-    </div>
+            <div onClick={dayChallengeComplAndAuthorize ? handleDayCheck: undefined}
+                className={`button btn-complete 
+                ${isCompletedDayVideos() ? 'active' : ''}
+                ${(completedDay && isUserAuthorized) ? 'completed' : ''}`}>
+                { (completedDay && isUserAuthorized) ? `Day ${day} Complete`: `Mark Day ${day} as Complete` }
+                
+            </div>
+            {isCompletedDayVideos() && !isUserAuthorized  &&
+                (<div className='day__message'>Log in or register a free account track your schedule progress</div>)}
+            
+        </div>
     )
 }
     

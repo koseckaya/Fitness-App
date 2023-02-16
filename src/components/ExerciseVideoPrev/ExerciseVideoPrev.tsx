@@ -7,7 +7,6 @@ export type Props = {
     srcImg: string;
     day: string;
     active: boolean;
-    
     onVideoClick: (day: string, e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 };
 
@@ -18,8 +17,6 @@ const ExerciseVideoPrev: FC<Props> = ({title, src, srcImg, day, onVideoClick, ac
                     <img className='exercise-video-prev__img' src={srcImg} alt={title} />
                     
                     <div className={`video-prev ${active ? 'active' : ''}`} onClick={(e) => onVideoClick(day, e)}>
-                        {/* <input type="checkbox" className='video-prev__check' id={day} />
-                        <label htmlFor={day} ></label> */}
                     </div>
                     <div>{title}</div>
                 </a>
