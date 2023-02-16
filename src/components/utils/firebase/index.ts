@@ -4,7 +4,6 @@ import {
   createUserDocFromAuth,
   signInWithGoogleRedirect,
   createAuthUserWithEmailAndPass,
-  getUserDocFromAuth,
 } from "./firebase";
 
 export { 
@@ -13,5 +12,4 @@ export {
   createUserDocFromAuth,
   signInWithGoogleRedirect,
   createAuthUserWithEmailAndPass,
-  getUserDocFromAuth
 };

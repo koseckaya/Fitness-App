@@ -88,12 +88,12 @@ const SignupForm: FC = () => {
     <div className='form-wrap'>
       <div className='form-container'>
         <h2 className='form-title'>Track Your Progress & More!</h2>
-        <form className='form'
+        <form className='form__auth'
           onSubmit={handleSubmit(onSubmit)}>
 
           <div className="mb-3">
             <input type="text" id="name" aria-describedby="nameHelp"
-              className={`form-control ${ errors.name ? 'is-invalid' : '' }`}
+              className={`form-control__auth ${ errors.name ? 'is-invalid' : '' }`}
               placeholder='First Name'
               {...register('name')} />
             <p className='invalid-feedback'>{errors.name?.message}</p>
@@ -101,7 +101,7 @@ const SignupForm: FC = () => {
 
           <div className="mb-3">
             <input type="text" id="lastName" aria-describedby="nameHelp"
-              className={`form-control ${ errors.lastName ? 'is-invalid' : '' }`}
+              className={`form-control__auth ${ errors.lastName ? 'is-invalid' : '' }`}
               placeholder='Last Name (optional)'
               {...register('lastName')} />
             <p className='invalid-feedback'>{errors.lastName?.message}</p>
@@ -109,7 +109,7 @@ const SignupForm: FC = () => {
 
           <div className="mb-3">
             <input type="email" id="email" aria-describedby="emailHelp"
-              className={`form-control ${ errors.email ? 'is-invalid' : '' }`}
+              className={`form-control__auth ${ errors.email ? 'is-invalid' : '' }`}
               placeholder='Email address'
               {...register('email')} />
             <p className='invalid-feedback'>{errors.email?.message}</p>
@@ -118,7 +118,7 @@ const SignupForm: FC = () => {
 
           <div className="mb-3">
             <input type="password" id="password" 
-              className={`form-control ${ errors.password ? 'is-invalid' : '' }`}
+              className={`form-control__auth ${ errors.password ? 'is-invalid' : '' }`}
               placeholder='Password'
               {...register('password')} />
             <p className='invalid-feedback'>{errors.password?.message}</p>
@@ -126,7 +126,7 @@ const SignupForm: FC = () => {
 
           <div className="mb-3">
             <input type="password" id="confirmPassword"
-              className={`form-control ${ errors.confirmPassword ? 'is-invalid' : '' }`}
+              className={`form-control__auth ${ errors.confirmPassword ? 'is-invalid' : '' }`}
               placeholder='Re-enter password'
               {...register('confirmPassword')}/>
             <p className='invalid-feedback'>{errors.confirmPassword?.message}</p>
