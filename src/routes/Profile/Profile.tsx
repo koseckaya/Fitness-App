@@ -1,5 +1,5 @@
-import './signup-form.scss';
-import '../Button/Button.scss'
+import '../../components/Signup-Form/signup-form.scss';
+import '../../components/Button/Button.scss'
 
 import { FC, useEffect, useState} from 'react';
 import { useForm } from 'react-hook-form';
@@ -7,6 +7,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { AdditionalInformation, getUserDocFromAuth } from '../../components/utils/firebase/firebase';
 import { User } from 'firebase/auth';
+import { useLocation } from 'react-router-dom';
 
 type UserSubmitForm = {
   name: string;
@@ -17,9 +18,10 @@ type UserSubmitForm = {
   emailSubscription: boolean;*/
 };
 
-const Profile: FC<User> = (currentUser: User) => {
-
-  const userData = useUserData(currentUser);
+export const Profile: FC = () => {
+  const location = useLocation();
+  const userName = location.state.userName;
+  const userData = useUserData(userName);
 
   const validationSchema = Yup.object().shape({
     name: Yup.string().optional()
@@ -28,17 +30,6 @@ const Profile: FC<User> = (currentUser: User) => {
     lastName: Yup.string().optional()
       .min(4, 'Name must be at least 4 characters')
       .max(20, 'Name must not exceed 20 characters'),
-/*     email: Yup.string()
-      .required('Email is required')
-      .email('Email is invalid'),
-    password: Yup.string()
-      .required('Password is required')
-      .min(6, 'Password must be at least 6 characters')
-      .max(20, 'Password must not exceed 20 characters'),
-    confirmPassword: Yup.string()
-      .required('Confirm Password is required')
-      .oneOf([Yup.ref('password'), null], 'Confirm Password does not match'),
-    emailSubscription: Yup.bool().optional() */
   });
 
   const {
@@ -52,7 +43,7 @@ const Profile: FC<User> = (currentUser: User) => {
 
   const onSubmit = async (data: UserSubmitForm) => {
     if (!data) return;
-/*     try {
+/*  try {
       const response = await createAuthUserWithEmailAndPass(data.email, data.password);
       const user = response?.user;
       if (user) await createUserDocFromAuth(user, { displayName: data.name, lastName: data.lastName });
