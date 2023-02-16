@@ -4,11 +4,51 @@
   box-sizing: border-box;
    margin-bottom: 10px;
     border-radius: 5px;
+    position: relative;
 
   &__img {
     object-fit: cover;
     margin-bottom: 10px;
     border-radius: 5px;
     width: 100%;
+    position: relative;
+    z-index: 5;
   }
+  &__check {
+    margin-left: -10px;
+    background-color: white;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 1px solid rgb(219, 213, 253);
+  }
+}
+.video-prev {
+
+   right: -11px;
+    bottom: 36px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    z-index: 10;
+    cursor: pointer;
+    height: 28px;
+    position: absolute;
+    width: 28px;
+       &:after {
+        border: 2px solid #fff;
+        border-top: none;
+        border-right: none;
+        content: "";
+        height: 6px;
+        left: 7px;
+        position: absolute;
+        top: 8px;
+        transform: rotate(-45deg);
+        width: 12px;
+      }
+    &.active {
+      background-color: #66bb6a;
+      border-color: #66bb6a;
+    }
 }

@@ -1,6 +1,7 @@
 @import "src/styles/vars";
 
 .day-program {
+  position: relative;
   box-sizing: border-box;
     padding: 10px;
     display: flex;
@@ -24,10 +25,36 @@
     font-weight: 500;
     color: $secondary;
   }
+  &__message {
+    background: white;
+    width: 250px;
+    padding: 5px 10px;
+    border-radius: 8px;
+    position: absolute;
+    bottom: 10px;
+    left: 220px;
+   
+  }
 }
 .program__videos{
    display: grid;
     width: 100%;
     gap: 15px;
     grid-template-columns: repeat(5, minmax(0px, 1fr));
+}
+.btn-complete{ 
+    color: $color-primary;
+    background-color: transparent;
+    border: 1px solid $color-primary;
+    transition: 0.5s all ease;
+    opacity: 0.5;
+    pointer-events: none;
+    &.active, &:hover {
+      opacity: 1;
+      pointer-events: all;
+    }
+    &.completed {
+      background-color: $color-primary;
+      color: rgb(255, 255, 255);
+    }
 }
