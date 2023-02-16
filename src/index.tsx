@@ -7,46 +7,47 @@ import { App } from './App';
 
 import {
   Main, Error, Home, WorkoutPrograms,
-  WorkoutVideos, Store, About,
+  WorkoutVideos, About,
   Signup, Login, PrivacyPolicy, RecipePage, ProgramPage
 } from "./routes";
 import RecipesWrapper from './routes/Recipes/RecipesWrapper';
 import './styles/index.scss'
 import { UserProvider } from './components/utils/contexts';
-
+import { Calculator } from './routes/Calculator';
+import { Profile } from './routes/Profile';
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
     errorElement: <Error />,
     children: [
-       {
+      {
         path: "/",
         element: <Home />,
       },
-        {
+      {
         path: "programs/:programId",
         element: <ProgramPage />,
-        },
+      },
       {
         path: "programs",
         element: <WorkoutPrograms />,
-        },
+      },
       {
         path: "videos",
         element: <WorkoutVideos />,
       },
-         {
+      {
         path: "recipes/:categoryId/:recipeId",
         element: <RecipePage />,
-        },
-       {
+      },
+      {
         path: "recipes/:categoryId",
         element: <RecipesWrapper />,
         },
        {
-        path: "store",
-        element: <Store />,
+        path: "calculator",
+        element: <Calculator />,
         },
        {
         path: "about",
@@ -59,6 +60,10 @@ export const router = createBrowserRouter([
       {
         path: "login",
         element: <Login />,
+      },
+      {
+        path: "profile",
+        element: <Profile />,
       },
       {
         path: "privacy-policy",
