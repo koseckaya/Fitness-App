@@ -42,6 +42,8 @@ export type AdditionalInformation = {
   updatedAt?: Date,
   readonly email?: string,
   readonly createdAt?: Date,
+  challenge?: number, 
+  completedDays?: number[]
 }
 
 // Initialize Firebase
@@ -93,21 +95,22 @@ export const updateUserDocFromAuth = async (
   const userDocRef = doc(db, 'users', userAuth.uid);
   const userSnapshot = await getDoc(userDocRef);
   const userExist = userSnapshot.exists();
-  
-  if (!userExist) {
+
+  if (userExist) {
     const updatedAt = new Date();
 
     try {
-      await updateDoc(userDocRef, {
+      const result = await updateDoc(userDocRef, {
         updatedAt,
         ...additionalInformation
       });
+      return result;
     } catch (error) {
       if (error instanceof Error) console.log('error creating user', error.message);
     }
   }
 
-  return userDocRef;
+  return userSnapshot.data();
 }
 
 export const getUserDocFromAuth = async (userAuth: User ): Promise<void | AdditionalInformation> => {
