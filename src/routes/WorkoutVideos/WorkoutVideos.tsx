@@ -1,9 +1,10 @@
+// @ts-nocheck
 import React, { Component } from 'react'
 import { Container } from '../../components/Container'
 import './WorkoutVideos.scss';
 import { workoutVideosData } from '../../data';
 import { WorkoutVideoComponent}  from '../../components/WorkoutVideoComponent';
-
+import { MultiRangeSlider } from '../../components/MultiRangeSlider';
 interface VideoTagItem {
   value: string;
   key: number;
@@ -115,6 +116,11 @@ export class WorkoutVideos extends Component {
               </div>
             </form>
           </div>
+          <MultiRangeSlider
+      min={0}
+      max={10}
+      onChange={({ min, max }) => console.log(`min = ${min}, max = ${max}`)}
+    />
         </div>
         <div className='workout-videos__right-side'>
           <div className='videos-filters'>
