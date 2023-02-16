@@ -47,7 +47,6 @@ const DayProgram: FC<Props> = ({ day, videos }: Props) => {
     }
 
     const dayChallengeComplAndAuthorize = isCompletedDayVideos() && isUserAuthorized 
-    console.log(completedDay, isUserAuthorized, dayChallengeComplAndAuthorize);
 
     return (
         <div className='day-program'>

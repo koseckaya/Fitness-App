@@ -5,6 +5,8 @@ import { programByDays, programs, Programs } from "../../data";
 import { Container } from "../../components/Container";
 import { DayProgram } from "../../components/DayProgram";
 import { UserContext } from "./../../components/utils/contexts/UserContext";
+import { updateUserDocFromAuth } from "../../components/utils/firebase/firebase";
+import { useUserData } from "../Profile";
 
 export type Props = {
     className?: string;
@@ -48,6 +50,9 @@ const ProgramPage: FC<Props> = ({ className }: Props) => {
     }
 
     const { currentUser } = useContext(UserContext);
+    const userData = useUserData(currentUser);
+
+
     const isUserAuthorized = useMemo(() => {
         const isAuthorize = currentUser?.email ? true : false;
         return isAuthorize;
@@ -56,7 +61,6 @@ const ProgramPage: FC<Props> = ({ className }: Props) => {
     let classChallenge = "button start__btn ";
     let textChallenge = "";
     if (!isUserAuthorized) {
-        // classChallenge += 'start__error'
          textChallenge = 'Should Sign in to Start'
         
     } else if (isProgramActive) {
@@ -66,7 +70,6 @@ const ProgramPage: FC<Props> = ({ className }: Props) => {
         classChallenge += "";
         textChallenge = "Start Challenge";
     }
-    console.log("isUserAuthorized", isUserAuthorized);
 
     const handleStartProgram = useCallback(() => {
             isProgramActive
@@ -74,6 +77,14 @@ const ProgramPage: FC<Props> = ({ className }: Props) => {
                 : setIsProgramActive(true);
         
         // send data to profile
+        
+
+        console.log('userData', userData , program.id);
+        if (isUserAuthorized) {
+            // получить массив challenge юзера и сравнить - добав
+           // updateUserDocFromAuth(userData, {challenge: program.id} )
+        }
+       
     }, [setIsProgramActive, isProgramActive]);
 
 
