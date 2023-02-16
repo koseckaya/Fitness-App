@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { FC, useState, useCallback, useContext, useMemo } from "react";
 import "./ProgramPage.scss";
 import { useParams } from "react-router-dom";
@@ -72,18 +73,18 @@ const ProgramPage: FC<Props> = ({ className }: Props) => {
     }
 
     const handleStartProgram = useCallback(() => {
-            isProgramActive
-                ? setIsProgramActive(false)
-                : setIsProgramActive(true);
+        isProgramActive
+            ? setIsProgramActive(false)
+            : setIsProgramActive(true);
+        if (!isUserAuthorized) return
         
-        // send data to profile
-        
-
-        console.log('userData', userData , program.id);
-        if (isUserAuthorized) {
-            // получить массив challenge юзера и сравнить - добав
-           // updateUserDocFromAuth(userData, {challenge: program.id} )
+        if (userData.challenge.includes(program.id)) {
+            return
+        } else {
+            const newChallenge = [...userData.challenge,program.id]
+              // updateUserDocFromAuth(userData, {challenge: newChallenge} ) 
         }
+        console.log('userData', userData , program.id);
        
     }, [setIsProgramActive, isProgramActive]);
 

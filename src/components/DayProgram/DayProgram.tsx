@@ -1,5 +1,6 @@
-
-import { FC, useState, useCallback, useEffect, useContext, useMemo } from 'react';
+//@ts-nocheck
+import { FC, useState, useCallback, useContext, useMemo } from 'react';
+import { useUserData } from '../../routes/Profile';
 import { ExerciseVideoPrev } from '../ExerciseVideoPrev';
 import { UserContext } from '../utils/contexts';
 import './DayProgram.scss';
@@ -15,6 +16,7 @@ const DayProgram: FC<Props> = ({ day, videos }: Props) => {
     const [completedDay, setCompletedDay] = useState(false)
 
     const { currentUser } = useContext(UserContext);
+    const userData = useUserData(currentUser);
     const isUserAuthorized = useMemo(() => {
         const isAuthorize = currentUser?.email ? true : false;
         return isAuthorize;
@@ -35,11 +37,19 @@ const DayProgram: FC<Props> = ({ day, videos }: Props) => {
 
     const handleDayCheck = useCallback((e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
       
-        //saveData to profile
+         if (!isUserAuthorized) return
+        
+        if (userData.completedDays.includes(day)) {
+            return
+        } else {
+           const newDaysCheck = [...userData.challenge, day]
+            //  updateUserDocFromAuth(userData, {challenge: newDaysCheck} ) 
+       }
+        console.log('userData', userData , day)
         
         setCompletedDay(true)
 
-    }, [setCompletedDay])
+    }, [setCompletedDay, isUserAuthorized, userData, day])
 
     const isCompletedDayVideos = () => {
         const isComplete = completedVideos.length === videos.length ? true : false;

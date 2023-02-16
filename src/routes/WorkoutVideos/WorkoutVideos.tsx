@@ -117,7 +117,7 @@ export class WorkoutVideos extends Component {
     console.log(this.state)
     return (
       <Container className='workout-videos'>
-        <div className='workout-videos__left-side'>
+        <div className='workout-videos__left'>
           <div className="search-container">
             <form className="finder-form" autoComplete="off" onSubmit={this.searchSubmit}>
               <div className="finder">
@@ -149,14 +149,14 @@ export class WorkoutVideos extends Component {
             />
           </div>
         </div>
-        <div className='workout-videos__right-side'>
+        <div className='workout-videos__right'>
           <div className='videos-filters'>
             {
             this.videoTags.map((elem: VideoTagItem) => {
               const classActive = (this.state.tags.includes(elem.value)) ? "active" : '';
-              return (<span className={`video-filter ${classActive}`} key={elem.key} onClick={this.handleClick} data-val={elem.value}>
+              return <span className={`video-filter ${classActive}`} key={elem.key} onClick={this.handleClick} data-val={elem.value}>
               <span data-val={elem.value}>{elem.value}</span>
-            </span>)
+            </span>
             })}
           </div>
           <div className='filtered-videos-count'>{`Showing ${
