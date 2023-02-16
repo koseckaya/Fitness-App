@@ -8,7 +8,6 @@ import * as Yup from 'yup';
 import { 
   AdditionalInformation,
   getUserDocFromAuth,
-  updateUserDocFromAuth
 } from '../../components/utils/firebase/firebase';
 import { UserContext } from '../../components/utils/contexts';
 import { User } from 'firebase/auth';
@@ -42,23 +41,22 @@ export const Profile: FC = () => {
   });
 
   const onSubmit = async (data: UserSubmitForm) => {
-    try {
+/*     try {
       if (currentUser) await updateUserDocFromAuth(currentUser, {challenge: 1, completedDays: [1,2,3]});
     } catch (error) {
       console.log('user create encountered an error', error);
-    }
+    } */
   };
 
   const sendData = async () => {
-    //if (!data) return;
+/*     //if (!data) return;
     try {
-      
       if (currentUser) {
-        const result = await updateUserDocFromAuth(currentUser, {challenge: 1, completedDays: [1,2,3]});
+        await updateUserDocFromAuth(currentUser, {challenge: 1, completedDays: [1,2,3]});
       }
     } catch (error) {
       console.log('user create encountered an error', error);
-    }
+    } */
   };
 
   return (

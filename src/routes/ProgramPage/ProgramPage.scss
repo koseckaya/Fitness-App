@@ -1,4 +1,4 @@
-@import "src/styles/vars";
+@import "../../styles/vars";
 
 .program-page {
   box-sizing: border-box;
@@ -69,7 +69,45 @@
       right: 0;
     }
   }
- 
+ &__start {
+   padding: 20px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    background-color: #ece9fc;
+    margin: 20px 0;
+   
+ }
+
+}
+.start {
+  &__title {
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  &__btn {
+    margin: 15px auto 0;
+      color: $color-primary;
+      background-color: transparent;
+      border: 1px solid $color-primary;
+      transition: 0.5s all ease;
+      opacity: 0.5;
+      &:hover {
+      opacity: 1;
+      pointer-events: all;
+    }
+   }
+    &__active{
+      background-color: $color-primary;
+      color: rgb(255, 255, 255);
+      opacity: 1;
+    }
+     &__error{
+      background-color: $error;
+      color: rgb(255, 255, 255);
+      opacity: 1;
+    }
 }
 .schedule {
   background-color: white;
