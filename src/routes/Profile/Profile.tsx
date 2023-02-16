@@ -7,10 +7,10 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { 
   AdditionalInformation,
-  getUserDocFromAuth
+  getUserDocFromAuth,
 } from '../../components/utils/firebase/firebase';
-import { User } from 'firebase/auth';
 import { UserContext } from '../../components/utils/contexts';
+import { User } from 'firebase/auth';
 
 type UserSubmitForm = {
   name: string;
@@ -20,6 +20,7 @@ type UserSubmitForm = {
 export const Profile: FC = () => {
   const { currentUser } = useContext(UserContext);
   const userData = useUserData(currentUser);
+  console.log(currentUser);
 
   const validationSchema = Yup.object().shape({
     name: Yup.string().optional()
@@ -40,18 +41,22 @@ export const Profile: FC = () => {
   });
 
   const onSubmit = async (data: UserSubmitForm) => {
-    if (!data) return;
-/*  try {
-      const response = await createAuthUserWithEmailAndPass(data.email, data.password);
-      const user = response?.user;
-      if (user) await createUserDocFromAuth(user, { displayName: data.name, lastName: data.lastName });
+/*     try {
+      if (currentUser) await updateUserDocFromAuth(currentUser, {challenge: 1, completedDays: [1,2,3]});
     } catch (error) {
-      if (error instanceof Error && error.code === 'auth/email-already-in-use') {
-        console.log('User already in use');
-      }
       console.log('user create encountered an error', error);
     } */
-    reset();
+  };
+
+  const sendData = async () => {
+/*     //if (!data) return;
+    try {
+      if (currentUser) {
+        await updateUserDocFromAuth(currentUser, {challenge: 1, completedDays: [1,2,3]});
+      }
+    } catch (error) {
+      console.log('user create encountered an error', error);
+    } */
   };
 
   return (
@@ -81,7 +86,8 @@ export const Profile: FC = () => {
             </div>
           </div>
           <div>
-            <button type='button' className='button form-btn'>
+            <button type='button' className='button form-btn'
+              onClick={sendData}>
               Cancel
             </button>
             <button type='submit' className='button form-btn'>
