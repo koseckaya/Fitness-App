@@ -1,34 +1,32 @@
 import '../../components/Signup-Form/signup-form.scss';
 import '../../components/Button/Button.scss'
 
-import { FC, useEffect, useState} from 'react';
+import { FC, useContext, useEffect, useState} from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
-import { AdditionalInformation, getUserDocFromAuth } from '../../components/utils/firebase/firebase';
+import { 
+  AdditionalInformation,
+  getUserDocFromAuth
+} from '../../components/utils/firebase/firebase';
 import { User } from 'firebase/auth';
-import { useLocation } from 'react-router-dom';
+import { UserContext } from '../../components/utils/contexts';
 
 type UserSubmitForm = {
   name: string;
   lastName?: string;
-/*email: string;
-  password: string;
-  confirmPassword: string;
-  emailSubscription: boolean;*/
 };
 
 export const Profile: FC = () => {
-  const location = useLocation();
-  const userName = location.state.userName;
-  const userData = useUserData(userName);
+  const { currentUser } = useContext(UserContext);
+  const userData = useUserData(currentUser);
 
   const validationSchema = Yup.object().shape({
     name: Yup.string().optional()
-      .min(4, 'Name must be at least 4 characters')
+      .min(3, 'Name must be at least 4 characters')
       .max(20, 'Name must not exceed 20 characters'),
     lastName: Yup.string().optional()
-      .min(4, 'Name must be at least 4 characters')
+      .min(3, 'Name must be at least 4 characters')
       .max(20, 'Name must not exceed 20 characters'),
   });
 
@@ -36,7 +34,7 @@ export const Profile: FC = () => {
     register,
     handleSubmit,
     reset,
-    formState: { errors }
+    formState: { errors },
   } = useForm<UserSubmitForm>({
     resolver: yupResolver(validationSchema)
   });
@@ -60,24 +58,24 @@ export const Profile: FC = () => {
     <div className='form-wrap'>
       <div className='form-container'>
         <h2 className='form-title'>Personal Info</h2>
-        <form className='form'
+        <form className='form__auth'
           onSubmit={handleSubmit(onSubmit)}>
           <p>Your Name</p>
           <div>
             <div className="mb-3">
               <input type="text" id="name" aria-describedby="nameHelp"
-                className={`form-control ${ errors.name ? 'is-invalid' : '' }`}
+                className={`form-control__auth ${ errors.name ? 'is-invalid' : '' }`}
                 placeholder='First Name'
-                value={userData?.displayName}
+                defaultValue={userData?.displayName}
                 {...register('name')} />
               <p className='invalid-feedback'>{errors.name?.message}</p>
             </div>
             
             <div className="mb-3">
               <input type="text" id="lastName" aria-describedby="nameHelp"
-                className={`form-control ${ errors.lastName ? 'is-invalid' : '' }`}
+                className={`form-control__auth ${ errors.lastName ? 'is-invalid' : '' }`}
                 placeholder='Last Name'
-                value={userData?.lastName}
+                defaultValue={userData?.lastName}
                 {...register('lastName')} />
               <p className='invalid-feedback'>{errors.lastName?.message}</p>
             </div>
@@ -96,13 +94,14 @@ export const Profile: FC = () => {
   );
 }
 
-export function useUserData(currentUser: User) {
+export function useUserData(currentUser: User | null) {
   const [data, setUserData] = useState<AdditionalInformation | null>(null);
   
   useEffect(() => {
     async function startFetching() {
       setUserData(null);
       try {
+        if (!currentUser) return;
         const result = await getUserDocFromAuth(currentUser);
         if (!ignore && result) {
           setUserData(result);
