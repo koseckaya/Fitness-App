@@ -21470,7 +21470,7 @@ export const workoutVideosData: Video[] = [
       title: 'Flat Belly Abs',
       src: 'https://www.youtube.com/watch?v=UBnfm4s7CRA&feature=youtu.be&ab_channel=ChloeTing',
       srcImg: 'https://static.chloeting.com/videos/61bbbbf0c3d293024898b838/8873f260-5ebe-11ec-9a04-3fd984621d67.jpeg',
-      duration: 11,
+      duration: 25,
     },
     {
       id: 6,

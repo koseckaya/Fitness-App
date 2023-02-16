@@ -1,10 +1,12 @@
-// @ts-nocheck
+//@ts-nocheck
+
 import React, { Component } from 'react'
 import { Container } from '../../components/Container'
 import './WorkoutVideos.scss';
 import { workoutVideosData } from '../../data';
 import { WorkoutVideoComponent}  from '../../components/WorkoutVideoComponent';
 import { MultiRangeSlider } from '../../components/MultiRangeSlider';
+import { stat } from 'fs';
 interface VideoTagItem {
   value: string;
   key: number;
@@ -12,11 +14,13 @@ interface VideoTagItem {
 interface IState {
   tags: string[];
   search: string;
+  duration: number[];
 }
 export class WorkoutVideos extends Component {
   state: IState = {
     tags: ['All'],
     search: '',
+    duration: [5, 25],
   };
 
   videoTags:VideoTagItem[] = [{
@@ -47,6 +51,7 @@ export class WorkoutVideos extends Component {
       this.setState({
         tags: [clickedTag],
         search: '',
+        duration: [5, 25],
       });
     } else if (this.state.tags.includes(clickedTag)) {
       let neededItemIndexInState = this.state.tags.indexOf(clickedTag);
@@ -58,6 +63,7 @@ export class WorkoutVideos extends Component {
         this.setState({
           tags: ['All'],
           search: '',
+          duration: [5, 25],
         });
       }
     } else if (!this.state.tags.includes(clickedTag)) {
@@ -86,14 +92,29 @@ export class WorkoutVideos extends Component {
     finder.classList.add("active");
   }
   getFilteredVideos() {
+        let filteredArray = [...workoutVideosData];
         if (this.state.search === '') {
-          return ([...workoutVideosData].filter(elem => [...this.state.tags].every(el => elem.categories?.includes(el))));
+          filteredArray = filteredArray.filter(elem => [...this.state.tags].every(el => elem.categories?.includes(el)));
         } else {
-          return ([...workoutVideosData].filter(elem => elem.title.toLowerCase().includes(this.state.search.toLowerCase())))
+          filteredArray = filteredArray.filter(elem => elem.title.toLowerCase().includes(this.state.search.toLowerCase()))
         }
+        return filteredArray.filter(elem => (elem.duration >= this.state.duration[0] && elem.duration <= this.state.duration[1]))
+  }
+  handleCrossChange = () => {
+    const input = document.querySelector(".finder__input") as HTMLInputElement;
+    input.value = '';
+    const videoFilterFirst = document.querySelectorAll('.video-filter')[0] as HTMLElement;
+    this.setState({
+      tags: ['All'],
+      search: '',
+      duration: [5, 25],
+    })
+    videoFilterFirst.click();
+    input.focus()
   }
   render() {
     const filteredVideos = this.getFilteredVideos();
+    console.log(this.state)
     return (
       <Container className='workout-videos'>
         <div className='workout-videos__left-side'>
@@ -114,13 +135,19 @@ export class WorkoutVideos extends Component {
                   </div>
                 </div>
               </div>
+              <div className='finder__cross' onClick={this.handleCrossChange}></div>
             </form>
           </div>
-          <MultiRangeSlider
-      min={0}
-      max={10}
-      onChange={({ min, max }) => console.log(`min = ${min}, max = ${max}`)}
-    />
+          <div>
+            <div className="slider-minutes">
+              WORKOUT DURATION
+            </div>
+            <MultiRangeSlider
+            min={5}
+            max={25}
+            onChange={({ min, max }) => this.setState({...this.state, duration: [min, max]})}
+            />
+          </div>
         </div>
         <div className='workout-videos__right-side'>
           <div className='videos-filters'>
