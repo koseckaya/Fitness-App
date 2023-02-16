@@ -6,7 +6,7 @@ import './WorkoutVideos.scss';
 import { workoutVideosData } from '../../data';
 import { WorkoutVideoComponent}  from '../../components/WorkoutVideoComponent';
 import { MultiRangeSlider } from '../../components/MultiRangeSlider';
-import { stat } from 'fs';
+
 interface VideoTagItem {
   value: string;
   key: number;

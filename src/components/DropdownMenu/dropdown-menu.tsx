@@ -24,11 +24,6 @@ export const DropdownMenu: FC<DropdownProps> = ({userName}: DropdownProps) => {
     setOpen(!open);
   }
 
-  const openProfile = () => {
-    console.log('profile');
-    setOpen(false);
-  }
-
   const signOut = () => {
     console.log('sign out')
     setOpen(false);
@@ -46,8 +41,8 @@ export const DropdownMenu: FC<DropdownProps> = ({userName}: DropdownProps) => {
         type={Button.TYPES.DEFAULT} 
         onClick={handleOpen}/>}
         menu={[
-          <Link to={`/profile`} state={{userName}}>
-            <button>Profile</button>
+          <Link to={`/profile`}>
+            Profile
           </Link>,
           <button onClick={signOut}>Sign out</button>,
         ]}

@@ -42,7 +42,7 @@
   justify-content: space-between;
 }
 
-.form-control {
+.form-control__auth {
   width: 94%;
   padding: .375rem .75rem;
   font-size: 1rem;
@@ -59,8 +59,8 @@
   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
-.form-control:hover,
-.form-control:focus {
+.form-control__auth:hover,
+.form-control__auth:focus {
   color: var(--bs-body-color);
   background-color: var(--bs-form-control-bg);
   border-color: var(--color-primary);
