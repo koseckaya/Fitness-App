@@ -1,18 +1,19 @@
 import { User } from "firebase/auth";
 import { FC, useState } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "../Button";
 import { signOutUser } from "../utils/firebase/firebase";
 import useOuterClick from "../utils/useOuterClick";
 
 import './dropdown-menu.scss'
 
-export type MenuProps = {
+type MenuProps = {
   open: boolean,
   menu: React.ReactNode[],
   trigger: React.ReactNode
 };
 
-export type DropdownProps = {
+type DropdownProps = {
   userName: User
 }
 
@@ -45,7 +46,9 @@ export const DropdownMenu: FC<DropdownProps> = ({userName}: DropdownProps) => {
         type={Button.TYPES.DEFAULT} 
         onClick={handleOpen}/>}
         menu={[
-          <button onClick={openProfile}>Profile</button>,
+          <Link to={`/profile`} state={{userName}}>
+            <button>Profile</button>
+          </Link>,
           <button onClick={signOut}>Sign out</button>,
         ]}
       />

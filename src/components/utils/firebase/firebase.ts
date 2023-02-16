@@ -40,6 +40,8 @@ export type AdditionalInformation = {
   displayName?: string,
   lastName?: string,
   updatedAt?: Date,
+  readonly email?: string,
+  readonly createdAt?: Date,
 }
 
 // Initialize Firebase
@@ -63,7 +65,7 @@ export const createUserDocFromAuth = async (
   const userDocRef = doc(db, 'users', userAuth.uid);
   const userSnapshot = await getDoc(userDocRef);
   const userExist = userSnapshot.exists();
-  
+
   if (!userExist) {
     const { displayName, email } = userAuth;
     const createdAt = new Date();
@@ -108,7 +110,7 @@ export const updateUserDocFromAuth = async (
   return userDocRef;
 }
 
-export const getUserDocFromAuth = async (userAuth: User ) => {
+export const getUserDocFromAuth = async (userAuth: User ): Promise<void | AdditionalInformation> => {
   
   if (!userAuth) return;
   const userDocRef = doc(db, 'users', userAuth.uid);

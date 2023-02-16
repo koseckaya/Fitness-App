@@ -30,8 +30,6 @@ const Header: FC<Props> = () => {
                 <Link to={`/`} className="logo"> <Logo /> </Link>
                 {currentUser ? (
                   <DropdownMenu userName={currentUser}/>
-                  /* <Button content={`Sign Out ${name}`} type={Button.TYPES.DEFAULT} 
-                    onClick={signOutUser}/> */
                   ) : (
                     <div className='header__signUp'>
                       <Link to={`/signup`}><Button content="Sign Up" type={Button.TYPES.DEFAULT} /></Link>
