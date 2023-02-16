@@ -119,7 +119,7 @@ export class WorkoutVideos extends Component {
       <Container className='workout-videos'>
         <div className='workout-videos__left-side'>
           <div className="search-container">
-            <form autoComplete="off" onSubmit={this.searchSubmit}>
+            <form className="finder-form" autoComplete="off" onSubmit={this.searchSubmit}>
               <div className="finder">
                 <div className="finder__outer">
                   <div className="finder__inner">
