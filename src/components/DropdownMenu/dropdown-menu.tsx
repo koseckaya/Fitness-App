@@ -1,7 +1,6 @@
 import { User } from "firebase/auth";
 import { FC, useState } from "react";
 import { Link } from "react-router-dom";
-import { Link } from "react-router-dom";
 import { Button } from "../Button";
 import { signOutUser } from "../utils/firebase/firebase";
 import useOuterClick from "../utils/useOuterClick";
@@ -9,13 +8,11 @@ import useOuterClick from "../utils/useOuterClick";
 import './dropdown-menu.scss'
 
 type MenuProps = {
-type MenuProps = {
   open: boolean,
   menu: React.ReactNode[],
   trigger: React.ReactNode
 };
 
-type DropdownProps = {
 type DropdownProps = {
   userName: User
 }
