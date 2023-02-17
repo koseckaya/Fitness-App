@@ -128,13 +128,14 @@ export class WorkoutVideos extends Component {
   };
   
   randomizeVideo = () => {
-    let min = 1; let max = workoutVideosData.length
+    let min = 0; let max = workoutVideosData.length-1
     let rand = Math.floor(min + Math.random() * (max + 1 - min));
     let video = [...workoutVideosData][rand]
     return video
   }
   handleRandomVideo = () => {
-    this.setState({randomVideo: this.randomizeVideo()})
+      this.setState({ randomVideo: this.randomizeVideo() })
+      console.log(this.state.randomVideo?.id);
   }
  
   
