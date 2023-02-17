@@ -1,4 +1,4 @@
-//@ts-nocheck
+
 import { FC, useState, useCallback, useContext, useMemo } from 'react';
 import { useUserData } from '../../routes/Profile';
 import { ExerciseVideoPrev } from '../ExerciseVideoPrev';
@@ -6,6 +6,7 @@ import { UserContext } from '../utils/contexts';
 import { updateUserDocFromAuth } from '../utils/firebase/firebase';
 import './DayProgram.scss';
 import { useEffect } from 'react';
+
 
 
 export type Props = {
@@ -18,38 +19,35 @@ export type Props = {
 const DayProgram: FC<Props> = ({ day, videos, programId }: Props) => {
     const { currentUser } = useContext(UserContext);
     const userData = useUserData(currentUser);
-    const startedChallenges = userData?.challenges ? Object.keys(userData?.challenges) : []
 
 
     const isUserAuthorized = useMemo(() => {
         const isAuthorize = currentUser?.email ? true : false;
         return isAuthorize;
     }, [currentUser]);
-    
-
-    let completedDaysFire = [];
-    if (startedChallenges.includes(`${programId}`)) {
-        completedDaysFire = userData?.challenges['' + programId]; 
-    }
 
     const [completedVideos, setCompletedVideos] = useState<string[]>([])
-    const [completedDay, setCompletedDay] = useState(false)
+    const [completedDays, setCompletedDays] = useState<number[]>([])
 
     useEffect(() => {
-        let initialVideos = [];
-        if (completedDaysFire.includes(day)) {
+        const startedChallenges = userData?.challenges ? Object.keys(userData?.challenges) : []
+        let completedDaysFire: number[] = [];
+        if (startedChallenges.includes(`${programId}`) && userData?.challenges) {
+            completedDaysFire = userData?.challenges['' + programId]; 
+        }        
+
+        let initialVideos: string[] = [];
+        if (completedDaysFire?.includes(day)) {
             initialVideos = videos.map((video, index) => `${day}-${index}`);
         }
+        setCompletedDays(completedDaysFire);
         setCompletedVideos(initialVideos)
-    }, [completedDaysFire])
+    }, [userData])
 
     
-
-   
     const onVideoClick = useCallback((dayString: string, e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
         e.stopPropagation();
         e.preventDefault();
-        console.log(completedVideos)
         if (completedVideos.includes(dayString)) {
             const filt = completedVideos.filter(d => d !== dayString);
             setCompletedVideos(filt)
@@ -60,29 +58,47 @@ const DayProgram: FC<Props> = ({ day, videos, programId }: Props) => {
     }, [setCompletedVideos, completedVideos])
 
 
-    const handleDayCheck = useCallback((e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-      
+    const handleDayCheck = useCallback(async (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
         if (!isUserAuthorized) return
         const currentProgram = '' + programId;
         const challenges = userData?.challenges;
-        const completedDays = challenges[currentProgram];
-        let newCompletedDays = [...completedDays]
-        if (!completedDays.includes(day)) newCompletedDays.push(day)
-        
-        const newChallenges = {
-            ...challenges, 
-            [currentProgram]: newCompletedDays
+        if(challenges && currentUser) {
+            const completedDays =  challenges[currentProgram];
+            let newCompletedDays = [...completedDays]
+            if (!completedDays?.includes(day)) newCompletedDays.push(day)
+            
+            const newChallenges = {
+                ...challenges, 
+                [currentProgram]: newCompletedDays,
+            }
+            updateUserDocFromAuth(currentUser, { challenges: newChallenges }).then(() => {
+                setCompletedDays([day]);
+            });
         }
+    }, [isUserAuthorized, userData, day, currentUser, programId])
     
-        updateUserDocFromAuth(currentUser, { challenges: newChallenges }) 
-
-     
+    
+    const handleDayUncheck = useCallback((e: React.MouseEvent<HTMLDivElement>) => { 
+        if (!isUserAuthorized) return
+        const challenges = userData?.challenges;
+        const currentProgram = '' + programId;
         
-        setCompletedDay(true)
+         if(challenges && currentUser) {
+            const completedDays =  challenges[currentProgram];
+            let newCompletedDays = completedDays.filter(d => d !== day)
+             
+            const newChallenges = {
+                ...challenges, 
+                [currentProgram]: newCompletedDays,
+             }
+            updateUserDocFromAuth(currentUser, { challenges: newChallenges }).then(() => {
+                setCompletedDays([]);
+                setCompletedVideos([]);
+            });
+        }
 
-    }, [setCompletedDay, isUserAuthorized, userData, day])
-
-
+    }, [isUserAuthorized, userData, day,currentUser, programId])
+    
     const isCompletedDayVideos = () => {
         const isComplete = completedVideos.length === videos.length ? true : false;
         return isComplete
@@ -103,17 +119,16 @@ const DayProgram: FC<Props> = ({ day, videos, programId }: Props) => {
             <div className='program__videos'>
                 {
                     videos.map((video, index) => {
-                        let dayIndex = `${day}-${index}`;
-                        console.log(completedVideos, dayIndex);
+                    let dayIndex = `${day}-${index}`;
                     return <ExerciseVideoPrev title={video.title} onVideoClick={onVideoClick} active={completedVideos.includes(dayIndex)}
                         src={video.src} srcImg={video.srcImg} key={index} day={dayIndex} />
                 })}
             </div>
-            <div onClick={dayChallengeComplAndAuthorize ? handleDayCheck: undefined}
+            <div onClick={completedDays?.includes(day) ? handleDayUncheck : dayChallengeComplAndAuthorize ? handleDayCheck: undefined }
                 className={`button btn-complete 
                 ${isCompletedDayVideos() ? 'active' : ''}
-                ${(completedDay && isUserAuthorized) ? 'completed' : ''}`}>
-                { (completedDay && isUserAuthorized) ? `Day ${day} Complete`: `Mark Day ${day} as Complete` }
+                ${(completedDays?.includes(day)) ? 'completed' : ''}`}>
+                { (completedDays?.includes(day)) ? `Day ${day} Complete`: `Mark Day ${day} as Complete` }
                 
             </div>
             {isCompletedDayVideos() && !isUserAuthorized  &&

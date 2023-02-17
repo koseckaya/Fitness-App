@@ -19,6 +19,7 @@ import {
   updateDoc,
   DocumentSnapshot
 } from 'firebase/firestore';
+import { string } from 'yup';
 
 // Web app's Firebase configuration
 const firebaseConfig = {
@@ -34,7 +35,11 @@ export type UserData = {
   displayName: string,
   email: string,
   createdAt: Date,
- }
+}
+ 
+type Challenges = {
+  [key: string]  : number[] 
+}
 
 export type AdditionalInformation = {
   displayName?: string,
@@ -42,8 +47,7 @@ export type AdditionalInformation = {
   updatedAt?: Date,
   readonly email?: string,
   readonly createdAt?: Date,
-  challenge?: number[], 
-  completedDays?: number[]
+  challenges?: Challenges, 
 }
 
 // Initialize Firebase

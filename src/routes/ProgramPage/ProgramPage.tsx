@@ -1,4 +1,4 @@
-//@ts-nocheck
+
 import { FC, useState, useCallback, useContext, useMemo } from "react";
 import "./ProgramPage.scss";
 import { useParams } from "react-router-dom";
@@ -20,7 +20,6 @@ const ProgramPage: FC<Props> = ({ className }: Props) => {
     )[0];
 
     const [week, setWeek] = useState(1);
-    //const [isProgramActive, setIsProgramActive] = useState(false);
 
     const countWeek = Math.ceil(program.days / 7);
     const filterWeeks = [];
@@ -52,11 +51,11 @@ const ProgramPage: FC<Props> = ({ className }: Props) => {
 
     const { currentUser } = useContext(UserContext);
     const userData = useUserData(currentUser);
-    console.log(currentUser, userData);
-
+    
     let startedChallenges = userData?.challenges ? Object.keys(userData?.challenges) : []
-    console.log(startedChallenges);
 
+    console.log(currentUser, userData, startedChallenges);
+    
     const isUserAuthorized = useMemo(() => {
         const isAuthorize = currentUser?.email ? true : false;
         return isAuthorize;
@@ -77,24 +76,11 @@ const ProgramPage: FC<Props> = ({ className }: Props) => {
 
     const handleStartProgram = useCallback(() => {
 
-        // isProgramActive
-        //     ? setIsProgramActive(false)
-        //     : setIsProgramActive(true);
         if (!isUserAuthorized) return
 
+        if (currentUser) updateUserDocFromAuth(currentUser, {challenges: {[program.id] : []}} )
 
-
-        updateUserDocFromAuth(currentUser, {challenges: {[program.id] : []}} )
-        
-        // if (userData.challenge.includes(program.id)) {
-        //     return
-        // } else {
-        //     const newChallenge = [...userData.challenge,program.id]
-        //       // updateUserDocFromAuth(userData, {challenge: newChallenge} ) 
-        // }
-
-       
-    }, [ currentUser, program]);
+    }, [ currentUser, program, isUserAuthorized]);
 
 
 
