@@ -21,6 +21,7 @@ import {
   Timestamp
 } from 'firebase/firestore';
 
+
 // Web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyBWggYMcrri8cZRg0cS8hqdSWMugVkMUBk",
@@ -35,7 +36,11 @@ export type UserData = {
   displayName: string,
   email: string,
   createdAt: Date,
- }
+}
+ 
+type Challenges = {
+  [key: string]  : number[] 
+}
 
 export type AdditionalInformation = {
   displayName?: string,
@@ -43,6 +48,7 @@ export type AdditionalInformation = {
   updatedAt?: Timestamp,
   readonly email?: string,
   readonly createdAt?: Timestamp,
+  challenges?: Challenges,
 }
 
 // Initialize Firebase

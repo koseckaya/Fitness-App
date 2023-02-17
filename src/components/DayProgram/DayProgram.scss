@@ -48,7 +48,7 @@
     border: 1px solid $color-primary;
     transition: 0.5s all ease;
     opacity: 0.5;
-    pointer-events: none;
+    // pointer-events: none;
     &.active, &:hover {
       opacity: 1;
       pointer-events: all;

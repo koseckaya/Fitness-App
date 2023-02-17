@@ -2,7 +2,7 @@ import { Error } from './Error';
 import { Main } from './Main';
 import { Home } from './Home';
 import { WorkoutPrograms } from './WorkoutPrograms/WorkoutPrograms';
-import { WorkoutVideos } from './WorkoutVideos/WorkoutVideos';
+import { WorkoutVideos } from './WorkoutVideos1/WorkoutVideos';
 import { Recipes } from './Recipes/Recipes';
 
 import { About } from './About';
