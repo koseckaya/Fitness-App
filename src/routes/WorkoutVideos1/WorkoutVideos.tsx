@@ -1,9 +1,9 @@
-//@ts-nocheck
+
 
 import React, { Component } from "react";
 import { Container } from "../../components/Container";
 import "./WorkoutVideos.scss";
-import { workoutVideosData } from "../../data";
+import { workoutVideosData, Video } from "../../data";
 import { WorkoutVideoComponent } from "../../components/WorkoutVideoComponent";
 import { MultiRangeSlider } from "../../components/MultiRangeSlider";
 
@@ -12,16 +12,23 @@ interface VideoTagItem {
     key: number;
 }
 interface IState {
-    tags: string[];
-    search: string;
-    duration: number[];
+  tags: string[];
+  search: string;
+  duration: number[];
+  reset: number;
+  randomVideo: Video | null;
 }
 export class WorkoutVideos extends Component {
+  constructor(props: IState) {
+    super(props)
+    this.state.randomVideo = this.randomizeVideo()
+  }
     state: IState = {
         tags: ["All"],
         search: "",
         duration: [5, 25],
         reset: new Date().getTime(),
+        randomVideo: null,
     };
 
     videoTags: VideoTagItem[] = [
@@ -95,10 +102,7 @@ export class WorkoutVideos extends Component {
                 )
             );
         } else {
-            filteredArray = filteredArray.filter((elem) =>
-                elem.title
-                    .toLowerCase()
-                    .includes(this.state.search.toLowerCase())
+          filteredArray = filteredArray.filter((elem) => elem.title?.toLowerCase().includes(this.state.search.toLowerCase())
             );
         }
         const durationFilter = filteredArray.filter(
@@ -109,7 +113,7 @@ export class WorkoutVideos extends Component {
         return durationFilter;
     }
 
-    handleCrossChange = (e) => {
+    handleCrossChange = (e: React.MouseEvent) => {
         const input = e.target as HTMLInputElement;
         input.value = "";
 
@@ -121,10 +125,23 @@ export class WorkoutVideos extends Component {
         });
 
         input.focus();
-    };
+  };
+  
+  randomizeVideo = () => {
+    let min = 1; let max = workoutVideosData.length
+    let rand = Math.floor(min + Math.random() * (max + 1 - min));
+    let video = [...workoutVideosData][rand]
+    return video
+  }
+  handleRandomVideo = () => {
+    this.setState({randomVideo: this.randomizeVideo()})
+  }
+ 
+  
 
     render() {
-        const filteredVideos = this.getFilteredVideos();
+  const filteredVideos = this.getFilteredVideos();
+      const randomVideo = this.state.randomVideo;
 
         return (
             <Container className="workout-videos">
@@ -156,9 +173,22 @@ export class WorkoutVideos extends Component {
                                     ...this.state,
                                     duration: [min, max],
                                 })
-                            }
-                        />
-                    </div>
+                            }/>
+                <div className="random-video">
+                  <div className="random-video__title">Try out this Random Workout Video:</div>
+                  {randomVideo && (
+                         <WorkoutVideoComponent
+                                    key={randomVideo.id}
+                                    title={randomVideo.title}
+                                    src={randomVideo.src}
+                                    srcImg={randomVideo.srcImg}
+                                    duration={randomVideo.duration}
+                  /> ) }
+                  
+                  <div className="button" onClick={this.handleRandomVideo }>Randomize Again</div>
+                </div>
+              </div>
+              
                 </div>
                 <div className="workout-videos__right-side">
                     <div className="videos-filters">
