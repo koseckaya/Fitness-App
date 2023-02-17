@@ -13,6 +13,7 @@ import {
   createAuthUserWithEmailAndPass,
 } from '../utils/firebase';
 import { getRedirectResult } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
 
 type UserSubmitForm = {
   name: string;
@@ -24,12 +25,14 @@ type UserSubmitForm = {
 };
 
 const SignupForm: FC = () => {
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchData() {
       const response = await getRedirectResult(auth);
       if (response) {
         await createUserDocFromAuth(response.user);
+        navigate('/');
       }
     };
 
@@ -74,7 +77,10 @@ const SignupForm: FC = () => {
     try {
       const response = await createAuthUserWithEmailAndPass(data.email, data.password);
       const user = response?.user;
-      if (user) await createUserDocFromAuth(user, { displayName: data.name, lastName: data.lastName });
+      if (user) {
+        await createUserDocFromAuth(user, { displayName: data.name, lastName: data.lastName });
+        navigate('/');
+      }
     } catch (error: unknown) {
       if (error instanceof Error && error.code === 'auth/email-already-in-use') {
         setError('email', { 

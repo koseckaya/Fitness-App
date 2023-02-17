@@ -9,6 +9,7 @@ import {
   signInWithGooglePopup,
 } from '../utils/firebase';
 import { signInAuthUserWithEmailAndPass } from '../utils/firebase/firebase';
+import { useNavigate } from 'react-router-dom';
 
 type UserLoginForm = {
   email: string;
@@ -18,8 +19,11 @@ type UserLoginForm = {
 
 const LoginForm: FC = () => {
 
+  const navigate = useNavigate();
+
   const signInWithGoogle = async () => {
     await signInWithGooglePopup();
+    navigate('/');
   }
 
   const validationSchema = Yup.object().shape({
@@ -45,6 +49,7 @@ const LoginForm: FC = () => {
   const onSubmit = async (data: UserLoginForm) => {
     try {
       await signInAuthUserWithEmailAndPass(data.email, data.password);
+      navigate('/');
     } catch (error: unknown) {
 
       switch (error instanceof Error && error.code) {
@@ -100,14 +105,14 @@ const LoginForm: FC = () => {
             </label>
           </div>
 
-          <button type='submit' className='button form-btn'>
+          <button type='submit' className='button form-btn'
+            disabled={!isValid}>
             Log in
           </button>
           
           <div className='form-delimiter'>or</div>
           <button type='button' className='button form-btn form-btn-google'
-            onClick={ signInWithGoogle }
-            disabled={!isValid}>
+            onClick={ signInWithGoogle }>
             <GoogleIcon className='form-google-icon'/>
             Log in with Google
           </button>
