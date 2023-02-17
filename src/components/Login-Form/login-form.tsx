@@ -37,7 +37,7 @@ const LoginForm: FC = () => {
     register,
     handleSubmit,
     setError,
-    formState: { errors }
+    formState: { errors, isValid }
   } = useForm<UserLoginForm>({
     resolver: yupResolver(validationSchema)
   });
@@ -106,7 +106,8 @@ const LoginForm: FC = () => {
           
           <div className='form-delimiter'>or</div>
           <button type='button' className='button form-btn form-btn-google'
-            onClick={ signInWithGoogle }>
+            onClick={ signInWithGoogle }
+            disabled={!isValid}>
             <GoogleIcon className='form-google-icon'/>
             Log in with Google
           </button>

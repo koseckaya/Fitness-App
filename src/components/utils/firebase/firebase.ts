@@ -17,7 +17,8 @@ import {
   getDoc,
   setDoc,
   updateDoc,
-  DocumentSnapshot
+  DocumentSnapshot,
+  Timestamp
 } from 'firebase/firestore';
 
 // Web app's Firebase configuration
@@ -39,11 +40,9 @@ export type UserData = {
 export type AdditionalInformation = {
   displayName?: string,
   lastName?: string,
-  updatedAt?: Date,
+  updatedAt?: Timestamp,
   readonly email?: string,
-  readonly createdAt?: Date,
-  challenge?: number, 
-  completedDays?: number[]
+  readonly createdAt?: Timestamp,
 }
 
 // Initialize Firebase
@@ -70,7 +69,7 @@ export const createUserDocFromAuth = async (
 
   if (!userExist) {
     const { displayName, email } = userAuth;
-    const createdAt = new Date();
+    const createdAt = Timestamp.fromDate(new Date());
 
     try {
       await setDoc(userDocRef, {
@@ -97,7 +96,7 @@ export const updateUserDocFromAuth = async (
   const userExist = userSnapshot.exists();
 
   if (userExist) {
-    const updatedAt = new Date();
+    const updatedAt = Timestamp.fromDate(new Date());
 
     try {
       const result = await updateDoc(userDocRef, {
