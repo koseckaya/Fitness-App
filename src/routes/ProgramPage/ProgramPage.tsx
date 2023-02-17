@@ -20,7 +20,7 @@ const ProgramPage: FC<Props> = ({ className }: Props) => {
     )[0];
 
     const [week, setWeek] = useState(1);
-    const [isProgramActive, setIsProgramActive] = useState(false);
+    //const [isProgramActive, setIsProgramActive] = useState(false);
 
     const countWeek = Math.ceil(program.days / 7);
     const filterWeeks = [];
@@ -52,7 +52,10 @@ const ProgramPage: FC<Props> = ({ className }: Props) => {
 
     const { currentUser } = useContext(UserContext);
     const userData = useUserData(currentUser);
+    console.log(currentUser, userData);
 
+    let startedChallenges = userData?.challenges ? Object.keys(userData?.challenges) : []
+    console.log(startedChallenges);
 
     const isUserAuthorized = useMemo(() => {
         const isAuthorize = currentUser?.email ? true : false;
@@ -64,7 +67,7 @@ const ProgramPage: FC<Props> = ({ className }: Props) => {
     if (!isUserAuthorized) {
          textChallenge = 'Should Sign in to Start'
         
-    } else if (isProgramActive) {
+    } else if ( startedChallenges.includes(`${program.id}`)) {
         classChallenge += "start__active";
         textChallenge = "Challenge is active";
     } else {
@@ -73,20 +76,25 @@ const ProgramPage: FC<Props> = ({ className }: Props) => {
     }
 
     const handleStartProgram = useCallback(() => {
-        isProgramActive
-            ? setIsProgramActive(false)
-            : setIsProgramActive(true);
+
+        // isProgramActive
+        //     ? setIsProgramActive(false)
+        //     : setIsProgramActive(true);
         if (!isUserAuthorized) return
+
+
+
+        updateUserDocFromAuth(currentUser, {challenges: {[program.id] : []}} )
         
-        if (userData.challenge.includes(program.id)) {
-            return
-        } else {
-            const newChallenge = [...userData.challenge,program.id]
-              // updateUserDocFromAuth(userData, {challenge: newChallenge} ) 
-        }
-        console.log('userData', userData , program.id);
+        // if (userData.challenge.includes(program.id)) {
+        //     return
+        // } else {
+        //     const newChallenge = [...userData.challenge,program.id]
+        //       // updateUserDocFromAuth(userData, {challenge: newChallenge} ) 
+        // }
+
        
-    }, [setIsProgramActive, isProgramActive]);
+    }, [ currentUser, program]);
 
 
 
@@ -154,6 +162,7 @@ const ProgramPage: FC<Props> = ({ className }: Props) => {
                             {daysData.map((day) => {
                                 return (
                                     <DayProgram
+                                        programId = {program.id}
                                         day={day.dayNum}
                                         videos={day.videos}
                                         key={day.dayNum}

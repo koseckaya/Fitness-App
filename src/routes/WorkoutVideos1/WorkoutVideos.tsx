@@ -135,7 +135,6 @@ export class WorkoutVideos extends Component {
   }
   handleRandomVideo = () => {
       this.setState({ randomVideo: this.randomizeVideo() })
-      console.log(this.state.randomVideo?.id);
   }
  
   
@@ -148,13 +147,13 @@ export class WorkoutVideos extends Component {
             <Container className="workout-videos">
                 <div className="workout-videos__left-side">
                     <div className="search-container">
-                        <form className="finder-form" autoComplete="off">
+                        <form className="finder-form" autoComplete="off" >
                             <div className="finder__icon"></div>
                             <input
                                 className="finder__input"
                                 type="text"
                                 name="q"
-                                placeholder="Type and press Enter"
+                                placeholder="Type title of Video"
                                 onChange={this.inputChange}
                             />
                             <div

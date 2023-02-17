@@ -25,3 +25,4 @@ const ExerciseVideoPrev: FC<Props> = ({title, src, srcImg, day, onVideoClick, ac
 }
    
 export default ExerciseVideoPrev;
+

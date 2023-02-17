@@ -3,33 +3,58 @@ import { FC, useState, useCallback, useContext, useMemo } from 'react';
 import { useUserData } from '../../routes/Profile';
 import { ExerciseVideoPrev } from '../ExerciseVideoPrev';
 import { UserContext } from '../utils/contexts';
+import { updateUserDocFromAuth } from '../utils/firebase/firebase';
 import './DayProgram.scss';
+import { useEffect } from 'react';
+
 
 export type Props = {
     className?: string;
     day: number;
     videos: any[];
+    programId: number;
 };
 
-const DayProgram: FC<Props> = ({ day, videos }: Props) => {
-    const [completedVideos, setCompletedVideos] = useState<string[]>([])
-    const [completedDay, setCompletedDay] = useState(false)
-
+const DayProgram: FC<Props> = ({ day, videos, programId }: Props) => {
     const { currentUser } = useContext(UserContext);
     const userData = useUserData(currentUser);
+    const startedChallenges = userData?.challenges ? Object.keys(userData?.challenges) : []
+
+
     const isUserAuthorized = useMemo(() => {
         const isAuthorize = currentUser?.email ? true : false;
         return isAuthorize;
     }, [currentUser]);
     
-    const onVideoClick = useCallback((day: string, e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+
+    let completedDaysFire = [];
+    if (startedChallenges.includes(`${programId}`)) {
+        completedDaysFire = userData?.challenges['' + programId]; 
+    }
+
+    const [completedVideos, setCompletedVideos] = useState<string[]>([])
+    const [completedDay, setCompletedDay] = useState(false)
+
+    useEffect(() => {
+        let initialVideos = [];
+        if (completedDaysFire.includes(day)) {
+            initialVideos = videos.map((video, index) => `${day}-${index}`);
+        }
+        setCompletedVideos(initialVideos)
+    }, [completedDaysFire])
+
+    
+
+   
+    const onVideoClick = useCallback((dayString: string, e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
         e.stopPropagation();
-        e.preventDefault()
-        if (completedVideos.includes(day)) {
-            const filt = completedVideos.filter(d => d !== day);
+        e.preventDefault();
+        console.log(completedVideos)
+        if (completedVideos.includes(dayString)) {
+            const filt = completedVideos.filter(d => d !== dayString);
             setCompletedVideos(filt)
         } else {
-            const newComplVideos = [...completedVideos, day];
+            const newComplVideos = [...completedVideos, dayString];
             setCompletedVideos(newComplVideos)
         }
     }, [setCompletedVideos, completedVideos])
@@ -37,19 +62,26 @@ const DayProgram: FC<Props> = ({ day, videos }: Props) => {
 
     const handleDayCheck = useCallback((e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
       
-         if (!isUserAuthorized) return
+        if (!isUserAuthorized) return
+        const currentProgram = '' + programId;
+        const challenges = userData?.challenges;
+        const completedDays = challenges[currentProgram];
+        let newCompletedDays = [...completedDays]
+        if (!completedDays.includes(day)) newCompletedDays.push(day)
         
-        if (userData.completedDays.includes(day)) {
-            return
-        } else {
-           const newDaysCheck = [...userData.challenge, day]
-            //  updateUserDocFromAuth(userData, {challenge: newDaysCheck} ) 
-       }
-        console.log('userData', userData , day)
+        const newChallenges = {
+            ...challenges, 
+            [currentProgram]: newCompletedDays
+        }
+    
+        updateUserDocFromAuth(currentUser, { challenges: newChallenges }) 
+
+     
         
         setCompletedDay(true)
 
     }, [setCompletedDay, isUserAuthorized, userData, day])
+
 
     const isCompletedDayVideos = () => {
         const isComplete = completedVideos.length === videos.length ? true : false;
@@ -72,6 +104,7 @@ const DayProgram: FC<Props> = ({ day, videos }: Props) => {
                 {
                     videos.map((video, index) => {
                         let dayIndex = `${day}-${index}`;
+                        console.log(completedVideos, dayIndex);
                     return <ExerciseVideoPrev title={video.title} onVideoClick={onVideoClick} active={completedVideos.includes(dayIndex)}
                         src={video.src} srcImg={video.srcImg} key={index} day={dayIndex} />
                 })}
