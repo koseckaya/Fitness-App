@@ -25,7 +25,7 @@ export interface DayProgram {
 export interface Video {
     id?: number;
     categories?: string[];
-    title: string;
+    title?: string;
     src: string;
     srcImg: string;
     duration: number;

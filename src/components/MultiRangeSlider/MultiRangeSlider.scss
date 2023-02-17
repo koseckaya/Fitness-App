@@ -1,3 +1,4 @@
+@import '../../styles/vars.scss';
 .slider-container {
   height: 40px;
   display: flex;
@@ -30,13 +31,13 @@
 }
 
 .slider__range {
-  background-color: #ff7648;
+  background-color: $purple;
   z-index: 2;
 }
 
 .slider__left-value,
 .slider__right-value {
-  color: #ff7648;
+  color: $purple;
   font-size: 1.5rem;
   margin-top: 15px;
 }

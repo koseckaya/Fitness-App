@@ -42,7 +42,7 @@ export type AdditionalInformation = {
   updatedAt?: Date,
   readonly email?: string,
   readonly createdAt?: Date,
-  challenge?: number, 
+  challenge?: number[], 
   completedDays?: number[]
 }
 

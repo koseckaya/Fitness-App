@@ -31,3 +31,7 @@ body {
 #detail {
     min-height: calc(100vh - 160px);
 }
+.section__videos{
+    display: flex;
+    justify-content: space-between;
+}

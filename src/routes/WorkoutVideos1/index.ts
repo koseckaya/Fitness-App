@@ -1,0 +1,2 @@
+
+export { WorkoutVideos } from './WorkoutVideos';
