@@ -19,7 +19,7 @@ import {
   updateDoc,
   DocumentSnapshot
 } from 'firebase/firestore';
-import { string } from 'yup';
+
 
 // Web app's Firebase configuration
 const firebaseConfig = {
