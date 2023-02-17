@@ -1,16 +1,14 @@
 import './login-form.scss';
 
-import { FC, useContext } from 'react';
+import { FC } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { GoogleIcon } from '../Icons';
 import { 
-  createUserDocFromAuth,
   signInWithGooglePopup,
 } from '../utils/firebase';
 import { signInAuthUserWithEmailAndPass } from '../utils/firebase/firebase';
-import { UserContext } from '../utils/contexts';
 
 type UserLoginForm = {
   email: string;
@@ -21,9 +19,7 @@ type UserLoginForm = {
 const LoginForm: FC = () => {
 
   const signInWithGoogle = async () => {
-    const { user } = await signInWithGooglePopup();
-    await createUserDocFromAuth(user);
-    setCurrentUser(user);
+    await signInWithGooglePopup();
   }
 
   const validationSchema = Yup.object().shape({
@@ -46,16 +42,9 @@ const LoginForm: FC = () => {
     resolver: yupResolver(validationSchema)
   });
 
-  const { setCurrentUser } = useContext(UserContext);
-
   const onSubmit = async (data: UserLoginForm) => {
     try {
-
-      const response = await signInAuthUserWithEmailAndPass(data.email, data.password);
-      const user = response?.user;
-      if (user) setCurrentUser(user);
-      console.log(user);
-
+      await signInAuthUserWithEmailAndPass(data.email, data.password);
     } catch (error: unknown) {
 
       switch (error instanceof Error && error.code) {
@@ -84,12 +73,12 @@ const LoginForm: FC = () => {
     <div className='form-wrap'>
       <div className='form-container'>
         <h2 className='form-title'>Welcome Back!</h2>
-        <form className='form'
+        <form className='form__auth'
           onSubmit={handleSubmit(onSubmit)}>
           
           <div className="mb-3">
             <input type="email" id="email" aria-describedby="emailHelp"
-              className={`form-control ${ errors.email ? 'is-invalid' : '' }`}
+              className={`form-control__auth ${ errors.email ? 'is-invalid' : '' }`}
               placeholder='Email address'
               {...register('email')} />
             <p className='invalid-feedback'>{errors.email?.message}</p>
@@ -97,7 +86,7 @@ const LoginForm: FC = () => {
 
           <div className="mb-3">
             <input type="password" id="password" 
-              className={`form-control ${ errors.password ? 'is-invalid' : '' }`}
+              className={`form-control__auth ${ errors.password ? 'is-invalid' : '' }`}
               placeholder='Password'
               {...register('password')} />
             <p className='invalid-feedback'>{errors.password?.message}</p>

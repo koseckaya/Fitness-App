@@ -1,6 +1,8 @@
-
-import { FC } from 'react';
+//@ts-nocheck
+import { FC, useState, useCallback, useContext, useMemo } from 'react';
+import { useUserData } from '../../routes/Profile';
 import { ExerciseVideoPrev } from '../ExerciseVideoPrev';
+import { UserContext } from '../utils/contexts';
 import './DayProgram.scss';
 
 export type Props = {
@@ -10,6 +12,52 @@ export type Props = {
 };
 
 const DayProgram: FC<Props> = ({ day, videos }: Props) => {
+    const [completedVideos, setCompletedVideos] = useState<string[]>([])
+    const [completedDay, setCompletedDay] = useState(false)
+
+    const { currentUser } = useContext(UserContext);
+    const userData = useUserData(currentUser);
+    const isUserAuthorized = useMemo(() => {
+        const isAuthorize = currentUser?.email ? true : false;
+        return isAuthorize;
+    }, [currentUser]);
+    
+    const onVideoClick = useCallback((day: string, e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+        e.stopPropagation();
+        e.preventDefault()
+        if (completedVideos.includes(day)) {
+            const filt = completedVideos.filter(d => d !== day);
+            setCompletedVideos(filt)
+        } else {
+            const newComplVideos = [...completedVideos, day];
+            setCompletedVideos(newComplVideos)
+        }
+    }, [setCompletedVideos, completedVideos])
+
+
+    const handleDayCheck = useCallback((e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+      
+         if (!isUserAuthorized) return
+        
+        if (userData.completedDays.includes(day)) {
+            return
+        } else {
+           const newDaysCheck = [...userData.challenge, day]
+            //  updateUserDocFromAuth(userData, {challenge: newDaysCheck} ) 
+       }
+        console.log('userData', userData , day)
+        
+        setCompletedDay(true)
+
+    }, [setCompletedDay, isUserAuthorized, userData, day])
+
+    const isCompletedDayVideos = () => {
+        const isComplete = completedVideos.length === videos.length ? true : false;
+        return isComplete
+    }
+
+    const dayChallengeComplAndAuthorize = isCompletedDayVideos() && isUserAuthorized 
+
     return (
         <div className='day-program'>
             <div className='day__title'>
@@ -21,12 +69,24 @@ const DayProgram: FC<Props> = ({ day, videos }: Props) => {
             </div>
         
             <div className='program__videos'>
-                {videos.map((video, index) => {
-                    return <ExerciseVideoPrev title={video.title}
-                        src={video.src} srcImg={video.srcImg} key={index } />
+                {
+                    videos.map((video, index) => {
+                        let dayIndex = `${day}-${index}`;
+                    return <ExerciseVideoPrev title={video.title} onVideoClick={onVideoClick} active={completedVideos.includes(dayIndex)}
+                        src={video.src} srcImg={video.srcImg} key={index} day={dayIndex} />
                 })}
             </div>
-    </div>
+            <div onClick={dayChallengeComplAndAuthorize ? handleDayCheck: undefined}
+                className={`button btn-complete 
+                ${isCompletedDayVideos() ? 'active' : ''}
+                ${(completedDay && isUserAuthorized) ? 'completed' : ''}`}>
+                { (completedDay && isUserAuthorized) ? `Day ${day} Complete`: `Mark Day ${day} as Complete` }
+                
+            </div>
+            {isCompletedDayVideos() && !isUserAuthorized  &&
+                (<div className='day__message'>Log in or register a free account track your schedule progress</div>)}
+            
+        </div>
     )
 }
     

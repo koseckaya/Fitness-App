@@ -16,3 +16,4 @@ import 'components/RecipePage/RecipePage.scss';
 import 'components/Pagination/Pagination.scss';
 import 'components/RecipesHeader/RecipesHeader.scss';
 import 'components/RecipeLatest/RecipeLatest.scss';
+import 'components/RecipesWrapper/RecipesWrapper.scss';

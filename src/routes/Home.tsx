@@ -7,6 +7,8 @@ import { programs } from '../data'
 import { ProgramCard } from '../components/ProgramCard';
 import { RecipeLatest } from '../components/RecipeLatest';
 import RecipesCategories from '../components/RecipesCategories/RecipesCategories';
+import { workoutVideosData } from '../data';
+import { WorkoutVideoComponent } from '../components/WorkoutVideoComponent';
 
 export const Home = () => {
     const navigate = useNavigate();
@@ -15,13 +17,15 @@ export const Home = () => {
     function handleClick() {
         navigate("/programs");
     }
+    function handleVideosClick() {
+        navigate("/videos");
+    }
     function handleRecipes() {
         navigate("/recipes/alcohol-free");
     }
      function handleNavigateCategory(e: React.MouseEvent<HTMLDivElement>) {
         const target = e.currentTarget;
          let categ = target.getAttribute("data-categ");
-         console.log('categ');
          navigate(`/recipes/${categ}`);
     }
 
@@ -40,7 +44,17 @@ export const Home = () => {
                 )}</div>
                 </Section>
             ) : (<ErrorComponent />)}
-            
+            <Section
+                    title={'Recent Workout Videos'}
+                    btnText={'View All Workout Videos'}
+                    onClick={handleVideosClick}
+                >
+                    <div className='section__videos'>
+                    {[...workoutVideosData].slice(0, 3).map(video => 
+                    <WorkoutVideoComponent key={video.id} title={video.title} src={video.src} srcImg={video.srcImg} duration={video.duration}/>
+                    
+                )}</div>
+            </Section>
             <Section title={'Recipes'}
                 btnText={'View More Recipes'}
                 onClick={handleRecipes}>

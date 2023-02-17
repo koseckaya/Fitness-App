@@ -78,7 +78,7 @@ const RecipePage: FC<Props> = ({ className }: Props) => {
                 </div>
             </div>
             <div className="recipe-page__button">
-                <Link to="/recipes"><Button content="View All Recipes"
+                <Link to="/recipes/alcohol-free"><Button content="View All Recipes"
                     type={Button.TYPES.DEFAULT} />
                 </Link>
             </div>
