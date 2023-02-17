@@ -4870,41 +4870,6 @@ export const programByDays: Program[] = [
                 ]
             },
             {
-                dayNum: 3,
-                videos: [
-                    {
-                        title: 'Warm Up',
-                        src: 'https://www.youtube.com/watch?v=-p0PA9Zt8zk&feature=youtu.be&ab_channel=ChloeTing',
-                        srcImg: 'https://static.chloeting.com/videos/61bbf59552c5c9bf0f2550eb/e43a1620-5ee0-11ec-9a04-3fd984621d67.jpeg',
-                        duration: 6,
-                    },
-                    {
-                        title: 'Slim Legs',
-                        src: 'https://www.youtube.com/watch?v=qH1e8HYEDCQ&ab_channel=ChloeTing',
-                        srcImg: 'https://static.chloeting.com/videos/61bbd5ba2d47479a9df23558/e7b18440-5ecd-11ec-b8cd-2976cd667d03.jpeg',
-                        duration: 16
-                    },
-                    {
-                        title: 'Flat Belly Abs',
-                        src: 'https://www.youtube.com/watch?v=UBnfm4s7CRA&feature=youtu.be&ab_channel=ChloeTing',
-                        srcImg: 'https://static.chloeting.com/videos/61bbbbf0c3d293024898b838/8873f260-5ebe-11ec-9a04-3fd984621d67.jpeg',
-                        duration: 11
-                    },
-                    {
-                        title: 'Plank Challenge',
-                        src: 'https://www.youtube.com/watch?v=EJ8XxPvCG0U&ab_channel=ChloeTing',
-                        srcImg: 'https://static.chloeting.com/videos/61bbbbf0c3d293024898b838/8873f260-5ebe-11ec-9a04-3fd984621d67.jpeg',
-                        duration: 12
-                    },
-                    {
-                        title: 'Slim Thigh Stretches',
-                        src: 'https://www.youtube.com/watch?v=a3gaS8gz1aw&t=0s&ab_channel=ChloeTing',
-                        srcImg: 'https://static.chloeting.com/videos/61bbd68e52c5c9bf0f255099/66272c80-5ece-11ec-883e-77d525cedf9b.jpeg',
-                        duration: 11
-                    },
-                ]
-            },
-            {
                 dayNum: 4,
                 videos: [
                     {
