@@ -39,12 +39,15 @@ body {
 
 :root[data-theme="light"] {
   --background-color: #fafafa;
+  --color: #2b3e51;
 }
 
 :root[data-theme="dark"] {
   --background-color: #2b3e51;
+  --color: #fafafa;
 }
 
 body {
   background: var(--background-color);
+  color: var(--color);
 }
