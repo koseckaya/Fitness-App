@@ -1,1 +1,36 @@
-@import '../../components/Signup-Form/signup-form.scss'
+@import url('../../components/Signup-Form/signup-form.scss');
+
+.form-btn:disabled {
+  background-color: var(--color-primary-disabled);
+  color: rgb(255, 255, 255);
+  border: none;
+  pointer-events: none;
+}
+
+.form-btn__container {
+  display: flex;
+  gap: 1rem;
+}
+
+.form-btn__default {
+  background-color: rgb(225, 227, 242);
+  color: var(--color-primary);
+}
+
+.form__auth-subtitle {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 140%;
+  color: var(--color-primary);
+}
+
+.auth__text{
+  margin: 0;
+  color: rgb(134, 138, 147);
+}
+
+.auth__text-secondary{
+  font-weight: 600;
+  color: rgb(48, 48, 51);
+  margin-left: 0.5rem;
+}
