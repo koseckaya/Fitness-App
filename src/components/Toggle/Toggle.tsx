@@ -1,5 +1,6 @@
-import { FC, ComponentProps } from 'react';
-import './Toggle.scss';
+//@ts-nocheck
+import { FC } from 'react';
+import styles from './Toggle.scss';
 
 export type Props = {
     className?: string;
@@ -9,7 +10,7 @@ export type Props = {
 
 const Toggle: FC<Props> = ({ value, onChange }: Props) => (
     <div className='toggle-container'>
- <label className={styles.switch} htmlFor="toggler">
+ <label className="switch" htmlFor="toggler">
     <input
       id="toggler"
       type="checkbox"
@@ -17,8 +18,8 @@ const Toggle: FC<Props> = ({ value, onChange }: Props) => (
       checked={value}
       readOnly
     />
-    <span className={styles.slider} />
-    <span className={styles.wave} />
+    <span className="slider" />
+    <span className="wave" />
         </label>
     </div>
 );

@@ -5,10 +5,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { GoogleIcon } from '../Icons';
-import { 
-  signInWithGooglePopup,
-} from '../utils/firebase';
-import { signInAuthUserWithEmailAndPass } from '../utils/firebase/firebase';
+import { signInWithGooglePopup, signInAuthUserWithEmailAndPass } from '../utils/firebase/firebase';
 import { useNavigate } from 'react-router-dom';
 
 type UserLoginForm = {
