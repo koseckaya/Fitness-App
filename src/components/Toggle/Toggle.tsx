@@ -1,4 +1,3 @@
-//@ts-nocheck
 import { FC } from 'react';
 import './Toggle.scss';
 
