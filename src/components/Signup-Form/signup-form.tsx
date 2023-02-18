@@ -1,5 +1,4 @@
 import './signup-form.scss';
-import '../Button/Button.scss'
 import { GoogleIcon } from '../Icons';
 
 
@@ -14,6 +13,7 @@ import {
   createAuthUserWithEmailAndPass,
 } from '../utils/firebase';
 import { getRedirectResult } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
 
 type UserSubmitForm = {
   name: string;
@@ -25,12 +25,14 @@ type UserSubmitForm = {
 };
 
 const SignupForm: FC = () => {
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchData() {
       const response = await getRedirectResult(auth);
       if (response) {
         await createUserDocFromAuth(response.user);
+        navigate('/');
       }
     };
 
@@ -63,8 +65,9 @@ const SignupForm: FC = () => {
   const {
     register,
     handleSubmit,
+    setError,
     reset,
-    formState: { errors }
+    formState: { errors, isValid }
   } = useForm<UserSubmitForm>({
     resolver: yupResolver(validationSchema)
   });
@@ -74,14 +77,18 @@ const SignupForm: FC = () => {
     try {
       const response = await createAuthUserWithEmailAndPass(data.email, data.password);
       const user = response?.user;
-      if (user) await createUserDocFromAuth(user, { displayName: data.name, lastName: data.lastName });
-    } catch (error) {
+      if (user) {
+        await createUserDocFromAuth(user, { displayName: data.name, lastName: data.lastName });
+        navigate('/');
+      }
+    } catch (error: unknown) {
       if (error instanceof Error && error.code === 'auth/email-already-in-use') {
-        console.log('User already in use');
+        setError('email', { 
+          message: 'Email already in use',
+        })
       }
       console.log('user create encountered an error', error);
     }
-    reset();
   };
 
   return (
@@ -141,7 +148,8 @@ const SignupForm: FC = () => {
             </label>
           </div>
 
-          <button type='submit' className='button form-btn'>
+          <button type='submit' className='button form-btn'
+            disabled={!isValid}>
             Create account
           </button>
           
