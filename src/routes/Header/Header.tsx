@@ -7,6 +7,7 @@ import { Logo } from '../../components/Logo';
 import { UserContext } from '../../components/utils/contexts';
 import { DropdownMenu } from '../../components/DropdownMenu';
 import './Header.scss'
+import { CrossHamburgerIcon } from '../../components/Icons';
 
 export type Props = {
     className?: string;
@@ -20,14 +21,14 @@ const Header: FC<Props> = () => {
     <div className="header" >
         <Container>
             <div className="header__container" >
-                <nav className='nav'>
-                    <Link to={`/programs`} className="nav-item">Workout Programs</Link>
-                    <Link to={`/videos`} className="nav-item">Workout Videos</Link>
-                    <Link to={`/recipes/alcohol-free`} className="nav-item">Recipes</Link>
-                    <Link to={`/calculator`} className="nav-item">Recipe Analyzer</Link>
-                    <Link to={`/about`} className="nav-item">About</Link>
-                </nav>
                 <Link to={`/`} className="logo"> <Logo /> </Link>
+                <nav className='nav' id='header-nav'>
+                    <Link to={`/programs`} className="nav-item a">Workout Programs</Link>
+                    <Link to={`/videos`} className="nav-item b">Workout Videos</Link>
+                    <Link to={`/recipes/alcohol-free`} className="nav-item c">Recipes</Link>
+                    <Link to={`/calculator`} className="nav-item d">Recipe Analyzer</Link>
+                    <Link to={`/about`} className="nav-item e">About</Link>
+                </nav>
                 {currentUser ? (
                   <DropdownMenu userName={currentUser}/>
                   ) : (
@@ -37,6 +38,19 @@ const Header: FC<Props> = () => {
                     </div>
                   )
                 }
+                <button className='header__hamburger' onClick={ () => {
+                  const headerHamburger = document.querySelector('.header__hamburger') as HTMLButtonElement;
+                  const headerNav = document.getElementById('header-nav') as HTMLElement;
+                  headerHamburger.classList.toggle('opened');
+                  headerHamburger.setAttribute('aria-expanded', `${headerHamburger.classList.contains('opened')}`)
+                  headerNav.classList.toggle('activated');
+                  const logoElement = document.querySelector('.logo1') as HTMLElement;
+                  logoElement.classList.toggle('activated');
+                  const headerSingUp = document.querySelector('.header__signUp') as HTMLDivElement;
+                  headerSingUp.classList.toggle('activated');
+                }} aria-label="Main Menu">
+                  <CrossHamburgerIcon/>
+                </button>
             </div>
         </Container>
     </div>

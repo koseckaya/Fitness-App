@@ -1,9 +1,25 @@
+@import '../../styles/vars.scss';
+
 .logo1 {
-  width: 400px;
+  width: 286px;
   height: 100px;
   background: url(./result.svg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   filter: brightness(0) saturate(100%) invert(58%) sepia(12%) saturate(6353%) hue-rotate(331deg) brightness(105%) contrast(101%);
+}
+
+@include for-max-1200px() {
+  .logo1 {
+    width: 222px;
+    height: 76px;
+  }
+}
+
+@include for-max-400px() {
+  .logo1 {
+    width: 200px;
+    height: 68px;
+  }
 }

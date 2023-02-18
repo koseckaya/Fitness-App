@@ -3,7 +3,7 @@
 .program-card {
   box-sizing: border-box;
   display: flex;
-  margin-bottom: 80px;
+  margin-bottom: 1rem;
   &__title {
     font-size: 18px;
     font-weight: 500;
@@ -54,5 +54,47 @@
   }
    &__minutes {
     width: 108px;
+  }
+}
+
+@include for-max-1360px() {
+  .card__image {
+    height: 428px;
+    width: 329px;
+  }
+  .program-card {
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@include for-max-1128px() {
+  .card__image {
+    height: 371px;
+    width: 261px;
+  }
+}
+
+@include for-max-920px() {
+  .card__image {
+    height: 327px;
+    width: 216px;
+  }
+}
+
+@include for-max-740px() {
+  .card__image {
+    height: 275px;
+    width: 181px;
+  }
+  .program-card__title {
+    font-size: 14px;
+  }
+}
+
+@include for-max-620px() {
+  .card__image {
+    height: 228px;
+    width: 142px;
   }
 }

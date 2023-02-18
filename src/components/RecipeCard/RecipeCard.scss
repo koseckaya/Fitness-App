@@ -30,3 +30,45 @@
     color: $color-primary;
   }
 }
+
+@include for-max-1000px() {
+  .section__recipes { 
+    display: flex;
+    flex-direction: column;
+    .categories {
+      .categories__card {
+        width: 97%;
+        height: 174px;
+      }
+    }
+  }
+}
+
+
+@include for-max-568px() {
+  .section__recipes { 
+    .categories {
+      .categories__card {
+        width: 97%;
+        height: 174px;
+        margin-left: 0px;
+      }
+    }
+  }
+}
+
+@include for-max-400px() {
+  .section__recipes { 
+    .categories {
+      .categories__card {
+        gap: 0.5rem;
+        .categories-title {
+          font-size: 0.9rem;
+        }
+        .categories-description {
+          font-size: 0.9rem;
+        }
+      }
+    }
+  }
+}

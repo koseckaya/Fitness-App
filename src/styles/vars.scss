@@ -5,3 +5,105 @@ $purple: #7c73c5;
 $secondary: #868a93;
 $color-background-primary: #eee;
 $error: rgb(162, 5, 5) ;
+
+@mixin for-max-1360px {
+  @media (max-width: 1360px) { @content; }
+}
+
+@mixin for-max-1200px {
+  @media (max-width: 1200px) { @content; }
+}
+
+@mixin for-max-1250px {
+  @media (max-width: 1250px) { @content; }
+}
+
+@mixin for-max-1128px {
+  @media (max-width: 1128px) { @content; }
+}
+
+@mixin for-max-1050px {
+  @media (max-width: 1050px) { @content; }
+}
+
+@mixin for-max-1000px {
+  @media (max-width: 1000px) { @content; }
+}
+
+@mixin for-max-950px {
+  @media (max-width: 950px) { @content; }
+}
+
+@mixin for-max-920px {
+  @media (max-width: 920px) { @content; }
+}
+
+@mixin for-max-740px {
+  @media (max-width: 740px) { @content; }
+}
+
+@mixin for-max-640px {
+  @media (max-width: 640px) { @content; }
+}
+
+@mixin for-max-620px {
+  @media (max-width: 620px) { @content; }
+}
+
+@mixin for-max-568px {
+  @media (max-width: 568px) { @content; }
+}
+
+@mixin for-max-440px {
+  @media (max-width: 440px) { @content; }
+}
+
+@mixin for-max-400px {
+  @media (max-width: 400px) { @content; }
+}
+
+@keyframes taadaa { 
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes taadaa-logo { 
+  0% {
+    opacity: 0;
+    width: 222px;
+    height: 76px;
+    left: 70px;
+    top: 1rem;
+  }
+
+  100% {
+    opacity: 1;
+    width: 268px;
+    height: 93px;
+    left: 20px;
+    top: 1rem;
+  }
+}
+
+@keyframes taadaa-logo1 { 
+  0% {
+    opacity: 0;
+    width: 222px;
+    height: 76px;
+    left: 15px;
+    top: 1rem;
+  }
+
+  100% {
+    opacity: 1;
+    width: 230px;
+    height: 75px;
+    left: 20px;
+    top: 1rem;
+  }
+}

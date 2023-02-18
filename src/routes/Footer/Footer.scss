@@ -7,6 +7,9 @@
     &__container{
         display: flex;
         justify-content: space-around;
+        .nav {
+            width: 60%;
+        }
     }
     .social{
         display: flex;
