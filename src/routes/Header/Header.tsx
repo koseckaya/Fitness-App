@@ -20,7 +20,20 @@ const Header: FC<Props> = () => {
   return (
     <div className="header" >
         <Container>
-            <div className="header__container" >
+            <div className="header__container" onClick={(e) => {
+              const headerHamburger = document.querySelector('.header__hamburger') as HTMLButtonElement;
+              if (headerHamburger.classList.contains('opened')) {
+                const headerHamburger = document.querySelector('.header__hamburger') as HTMLButtonElement;
+                const headerNav = document.getElementById('header-nav') as HTMLElement;
+                const logoElement = document.querySelector('.logo1') as HTMLElement;
+                const headerSingUp = document.querySelector('.header__signUp') as HTMLDivElement;
+                headerHamburger.classList.toggle('opened');
+                headerHamburger.setAttribute('aria-expanded', `${headerHamburger.classList.contains('opened')}`)
+                headerNav.classList.toggle('activated');
+                logoElement.classList.toggle('activated');
+                headerSingUp.classList.toggle('activated');
+              }
+            }}>
                 <Link to={`/`} className="logo"> <Logo /> </Link>
                 <nav className='nav' id='header-nav'>
                     <Link to={`/programs`} className="nav-item a">Workout Programs</Link>
@@ -38,7 +51,8 @@ const Header: FC<Props> = () => {
                     </div>
                   )
                 }
-                <button className='header__hamburger' onClick={ () => {
+                <button className='header__hamburger' onClick={ (e) => {
+                  e.stopPropagation();
                   const headerHamburger = document.querySelector('.header__hamburger') as HTMLButtonElement;
                   const headerNav = document.getElementById('header-nav') as HTMLElement;
                   headerHamburger.classList.toggle('opened');

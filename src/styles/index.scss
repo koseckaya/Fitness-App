@@ -40,6 +40,25 @@ body {
     justify-content: space-between;
 }
 
+@include for-max-1250px() {
+  
+    .workout-videos {
+        padding: 1rem;
+      &__right-side {
+        .videos-container {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          .workout-video {
+            width: 75%;
+            align-self: start;
+            justify-self: center;
+          }
+        }
+      }
+    }
+  
+}
+
 @include for-max-1000px() {
     body {
         overflow-x: hidden;
