@@ -5,8 +5,8 @@ import { Container } from "../../components/Container";
 import { Logo } from "../../components/Logo";
 import { UserContext } from "../../components/utils/contexts";
 import { DropdownMenu } from "../../components/DropdownMenu";
-import "./Header.scss";
 import { ThemeChange } from "../../components/ThemeChange";
+import "./Header.scss";
 
 export type Props = {
     className?: string;
