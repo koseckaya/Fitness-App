@@ -11,6 +11,7 @@ const Toggle: FC<Props> = ({ value, onChange }: Props) => (
     <div className='toggle-container'>
         <label className="switch" htmlFor="toggler">
             <input
+            className='toggle-input'
             id="toggler"
             type="checkbox"
             onClick={onChange}
