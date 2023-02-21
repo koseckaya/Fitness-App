@@ -40,6 +40,7 @@ body {
     justify-content: space-between;
 }
 
+
 @include for-max-1250px() {
   
     .workout-videos {
@@ -103,3 +104,21 @@ body {
         }
     }
   }
+
+
+:root[data-theme="light"] {
+  --background-color: #fafafa;
+  --color: #2b3e51;
+}
+
+:root[data-theme="dark"] {
+  --background-color: #2b3e51;
+  --color: #fafafa;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--color);
+  transition: background-color 1s linear, color 0.5s linear;
+}
+

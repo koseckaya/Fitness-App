@@ -1,4 +1,5 @@
 
+
 import { FC, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '../../components/Button';
@@ -8,6 +9,7 @@ import { UserContext } from '../../components/utils/contexts';
 import { DropdownMenu } from '../../components/DropdownMenu';
 import './Header.scss'
 import { CrossHamburgerIcon } from '../../components/Icons';
+import { ThemeChange } from '../../components/ThemeChange';
 
 export type Props = {
     className?: string;
@@ -15,7 +17,7 @@ export type Props = {
 };
 
 const Header: FC<Props> = () => {
-  const { currentUser } = useContext(UserContext);
+    const { currentUser } = useContext(UserContext);
 
   return (
     <div className="header" >
@@ -65,6 +67,7 @@ const Header: FC<Props> = () => {
                 }} aria-label="Main Menu">
                   <CrossHamburgerIcon/>
                 </button>
+                <ThemeChange />
             </div>
         </Container>
     </div>
