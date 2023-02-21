@@ -1,6 +1,6 @@
 import { User } from "firebase/auth";
 import { FC, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Button } from "../Button";
 import { signOutUser } from "../utils/firebase/firebase";
 import useOuterClick from "../utils/useOuterClick";
@@ -20,16 +20,20 @@ type DropdownProps = {
 export const DropdownMenu: FC<DropdownProps> = ({userName}: DropdownProps) => {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
-  
+
   const handleOpen = () => {
     setOpen(!open);
   }
 
   const signOut = () => {
-    console.log('sign out')
     setOpen(false);
     signOutUser();
     navigate('/')
+  }
+
+  const openProfile = () => {
+    setOpen(false);
+    navigate('/profile')
   }
 
   const ref = useOuterClick<HTMLDivElement>(
@@ -39,13 +43,11 @@ export const DropdownMenu: FC<DropdownProps> = ({userName}: DropdownProps) => {
     <div ref={ref}>
       <DropdownItem
         open={open}
-        trigger={<Button content={`${userName.email}`} 
-        type={Button.TYPES.DEFAULT} 
+        trigger={<Button content={`${userName.email}`}
+        type={Button.TYPES.DEFAULT}
         onClick={handleOpen}/>}
         menu={[
-          <Link to={`/profile`}>
-            Profile
-          </Link>,
+          <button onClick={openProfile}>Profile</button>,
           <button onClick={signOut}>Sign out</button>,
         ]}
       />

@@ -1,3 +1,4 @@
+//@ts-nocheck
 import './Tabs.scss'
 import { useState } from "react";
 

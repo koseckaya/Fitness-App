@@ -12,7 +12,7 @@ const Profile = () => {
         <TabItem label="Personal Info" index="1">
           <Preferences />
         </TabItem>
-        <TabItem label="B" index="2">
+        <TabItem label="Started Challenges" index="2">
           Dolor sit amet
         </TabItem>
       </Tabs>

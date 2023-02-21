@@ -45,7 +45,7 @@ export const Preferences: FC = () => {
     if (!data) return;
     try {
       if (currentUser) {
-        const result = await updateUserDocFromAuth(currentUser, { displayName: data.name, lastName: data.lastName });
+        await updateUserDocFromAuth(currentUser, { displayName: data.name, lastName: data.lastName });
       }
     } catch (error) {
       console.log('user create encountered an error', error);
@@ -59,7 +59,6 @@ export const Preferences: FC = () => {
   return (
     <div className='form-wrap'>
       <div className='form-container'>
-        <h2 className='form-title'>Personal Info</h2>
         <form className='form__auth'
           onSubmit={handleSubmit(onSubmit)}>
           <p className='form__auth-subtitle'>Your Name</p>
