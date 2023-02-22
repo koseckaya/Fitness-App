@@ -7,7 +7,7 @@ import { Container } from "../../components/Container";
 import { DayProgram } from "../../components/DayProgram";
 import { UserContext } from "./../../components/utils/contexts/UserContext";
 import { updateUserDocFromAuth } from "../../components/utils/firebase/firebase";
-import { useUserData } from "../Profile";
+import { useUserData } from "../../components/Preferences";
 
 export type Props = {
     className?: string;
@@ -30,7 +30,7 @@ const ProgramPage: FC<Props> = ({ className }: Props) => {
         const startedChallenges = userData?.challenges ? Object.keys(userData?.challenges) : []
         let completedDaysFire: number[] = [];
         if (startedChallenges.includes(`${program.id}`) && userData?.challenges) {
-            completedDaysFire = userData?.challenges['' + program.id]; 
+            completedDaysFire = userData?.challenges['' + program.id];
         }
 
         setCompletedDays(completedDaysFire);
@@ -89,7 +89,7 @@ const ProgramPage: FC<Props> = ({ className }: Props) => {
 
     const handleStartProgram = useCallback(() => {
         if (!isUserAuthorized) return
-        
+
         const challenges = userData?.challenges;
         if (currentUser) {
             updateUserDocFromAuth(currentUser, { challenges: { ...challenges, [program.id]: [] } }).then(() => {
@@ -97,8 +97,8 @@ const ProgramPage: FC<Props> = ({ className }: Props) => {
             })
         }
     }, [currentUser, program, isUserAuthorized, userData, setActiveChallenge]);
-    
-    const handleInactiveProgram = useCallback(() => {        
+
+    const handleInactiveProgram = useCallback(() => {
         if (!isUserAuthorized) return
         if (activeChallenge) {
             const challenges = userData?.challenges;
@@ -118,11 +118,11 @@ const ProgramPage: FC<Props> = ({ className }: Props) => {
         const currentProgram = '' + program.id;
         const challenges = userData?.challenges;
         if(challenges && currentUser) {
-            let newCompletedDays = [...completedDays] 
+            let newCompletedDays = [...completedDays]
             if (!completedDays?.includes(day)) newCompletedDays.push(day)
-            
+
             const newChallenges = {
-                ...challenges, 
+                ...challenges,
                 [currentProgram]: newCompletedDays,
             }
             updateUserDocFromAuth(currentUser, { challenges: newChallenges }).then(async () => {
@@ -130,18 +130,18 @@ const ProgramPage: FC<Props> = ({ className }: Props) => {
             });
         }
     }, [isUserAuthorized, userData, currentUser, program, completedDays])
-    
-    
-    const handleDayUncheck = useCallback((day: number) => { 
+
+
+    const handleDayUncheck = useCallback((day: number) => {
         if (!isUserAuthorized) return
         const challenges = userData?.challenges;
         const currentProgram = '' + program.id;
-        
+
          if(challenges && currentUser) {
             let newCompletedDays = completedDays.filter(d => d !== day)
-             
+
             const newChallenges = {
-                ...challenges, 
+                ...challenges,
                 [currentProgram]: newCompletedDays,
              }
             updateUserDocFromAuth(currentUser, { challenges: newChallenges }).then(() => {

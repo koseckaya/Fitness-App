@@ -27,7 +27,7 @@ const ProgramCard: FC<Props> = ({ title, image,  url, days, time, type, equip }:
             </div>
             <span className='program-card__title'>{title}</span>
         </Link>
-    </div>
+    </div>  
 );
 
 export default ProgramCard;
