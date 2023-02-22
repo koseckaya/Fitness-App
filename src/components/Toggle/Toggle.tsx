@@ -1,4 +1,3 @@
-//@ts-nocheck
 import { FC } from 'react';
 import './Toggle.scss';
 
@@ -11,7 +10,7 @@ export type Props = {
 const Toggle: FC<Props> = ({ value, onChange }: Props) => (
     <div className='toggle-container'>
         <label className="switch" htmlFor="toggler">
-            <input 
+            <input
             className='toggle-input'
             id="toggler"
             type="checkbox"

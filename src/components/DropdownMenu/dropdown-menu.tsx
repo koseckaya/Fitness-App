@@ -26,7 +26,7 @@ export const DropdownMenu: FC<DropdownProps> = ({userName}: DropdownProps) => {
   }
 
   const signOut = () => {
-    console.log('sign out')
+    console.log('sign out', userName)
     setOpen(false);
     signOutUser();
     navigate('/')

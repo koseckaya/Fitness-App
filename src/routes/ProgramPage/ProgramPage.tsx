@@ -114,7 +114,6 @@ const ProgramPage: FC<Props> = ({ className }: Props) => {
 
     const handleDayCheck = useCallback(async (day: number) => {
         if (!isUserAuthorized) return;
-
         const currentProgram = '' + program.id;
         const challenges = userData?.challenges;
         if(challenges && currentUser) {
