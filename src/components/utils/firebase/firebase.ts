@@ -37,9 +37,9 @@ export type UserData = {
   email: string,
   createdAt: Date,
 }
- 
-type Challenges = {
-  [key: string]  : number[] 
+
+export type Challenges = {
+  [key: string]  : number[]
 }
 
 export type AdditionalInformation = {
@@ -119,7 +119,7 @@ export const updateUserDocFromAuth = async (
 }
 
 export const getUserDocFromAuth = async (userAuth: User ): Promise<void | AdditionalInformation> => {
-  
+
   if (!userAuth) return;
   const userDocRef = doc(db, 'users', userAuth.uid);
   const userSnapshot = await getDoc(userDocRef);
@@ -129,13 +129,13 @@ export const getUserDocFromAuth = async (userAuth: User ): Promise<void | Additi
 export const createAuthUserWithEmailAndPass = async (email: string, password: string) => {
   if(!email && !password) return;
 
-  return await createUserWithEmailAndPassword(auth, email, password); 
+  return await createUserWithEmailAndPassword(auth, email, password);
 }
 
 export const signInAuthUserWithEmailAndPass = async (email: string, password: string) => {
   if(!email && !password) return;
 
-  return await signInWithEmailAndPassword(auth, email, password); 
+  return await signInWithEmailAndPassword(auth, email, password);
 }
 
 export const signOutUser = async () => await signOut(auth);

@@ -2,6 +2,7 @@ import './Profile.scss';
 import { Container } from "../../components/Container";
 import { Preferences } from "../../components/Preferences";
 import { TabItem, Tabs } from '../../components/Tabs';
+import { CompletedChallenges } from '../../components/CompletedChallenges';
 
 
 const Profile = () => {
@@ -13,7 +14,7 @@ const Profile = () => {
           <Preferences />
         </TabItem>
         <TabItem label="Started Challenges" index="2">
-          Dolor sit amet
+          <CompletedChallenges />
         </TabItem>
       </Tabs>
     </Container>
