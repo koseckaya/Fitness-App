@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { DayProgram } from './DayProgram';
+import  DayProgram from './DayProgram';
 
 
 const props = {

@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { ExerciseVideoPrev } from './ExerciseVideoPrev';
+import  ExerciseVideoPrev from './ExerciseVideoPrev';
 
 
 const props = {
@@ -14,7 +14,7 @@ const props = {
 
 
 
-describe("DayProgram component", () => {
+describe("ExerciseVideoPrev component", () => {
     it('should render component with default props', () => {
         const component = renderer
             .create(<ExerciseVideoPrev {...props}></ExerciseVideoPrev>)

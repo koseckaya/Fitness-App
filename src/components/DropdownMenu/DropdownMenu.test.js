@@ -1,18 +1,26 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { DropdownMenu } from './dropdown-menu';
+import { Router } from 'react-router-dom';
+
 
 const props = {
-    displayName: "Mila",
-    email:"interika11@gmail.com",
-    emailVerified:true,
+    userName: {}
 }
 
+const mockedUsedNavigate = jest.fn();
+
+jest.mock('react-router-dom', () => ({
+    ...jest.requireActual('react-router-dom'),
+    useNavigate: () => mockedUsedNavigate,
+}));
 
 describe("DropDownMenu component", () => {
     it('should render component with default props', () => {
         const component = renderer
-            .create(<DropdownMenu {...props}></DropdownMenu>)
+            .create(
+                <DropdownMenu {...props} />
+           )
             .toJSON();
         expect(component).toMatchSnapshot();
     });
@@ -24,3 +32,4 @@ describe("DropDownMenu component", () => {
         expect(component).toMatchSnapshot();
     });
 })
+

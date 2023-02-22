@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DayProgram component should render component with default props 1`] = `
+exports[`ExerciseVideoPrev component should render component with default props 1`] = `
 <div
   className="exercise-video-prev"
 >
@@ -23,7 +23,7 @@ exports[`DayProgram component should render component with default props 1`] = `
 </div>
 `;
 
-exports[`DayProgram component should render component with inactive prop 1`] = `
+exports[`ExerciseVideoPrev component should render component with inactive prop 1`] = `
 <div
   className="exercise-video-prev"
 >
@@ -46,7 +46,7 @@ exports[`DayProgram component should render component with inactive prop 1`] = `
 </div>
 `;
 
-exports[`DayProgram component should render component without prop title 1`] = `
+exports[`ExerciseVideoPrev component should render component without prop title 1`] = `
 <div
   className="exercise-video-prev"
 >
@@ -67,7 +67,7 @@ exports[`DayProgram component should render component without prop title 1`] = `
 </div>
 `;
 
-exports[`DayProgram component should render component without src prop 1`] = `
+exports[`ExerciseVideoPrev component should render component without src prop 1`] = `
 <div
   className="exercise-video-prev"
 >
@@ -90,7 +90,7 @@ exports[`DayProgram component should render component without src prop 1`] = `
 </div>
 `;
 
-exports[`DayProgram component should render component without srcImg prop 1`] = `
+exports[`ExerciseVideoPrev component should render component without srcImg prop 1`] = `
 <div
   className="exercise-video-prev"
 >
