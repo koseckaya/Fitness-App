@@ -48,6 +48,7 @@ body {
 }
 
 body {
-  background: var(--background-color);
+  background-color: var(--background-color);
   color: var(--color);
+  transition: background-color 1s linear, color 0.5s linear;
 }
