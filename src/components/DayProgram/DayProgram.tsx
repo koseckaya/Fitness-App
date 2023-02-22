@@ -3,7 +3,6 @@ import { FC, useState, useCallback, useContext, useMemo } from 'react';
 import { useUserData } from '../Preferences';
 import { ExerciseVideoPrev } from '../ExerciseVideoPrev';
 import { UserContext } from '../utils/contexts';
-import { getUserDocFromAuth, updateUserDocFromAuth } from '../utils/firebase/firebase';
 import './DayProgram.scss';
 import { useEffect } from 'react';
 

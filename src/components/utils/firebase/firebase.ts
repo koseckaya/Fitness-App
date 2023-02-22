@@ -127,13 +127,13 @@ export const getUserDocFromAuth = async (userAuth: User ): Promise<void | Additi
 }
 
 export const createAuthUserWithEmailAndPass = async (email: string, password: string) => {
-  if(!email && !password) return;
+  if (!email && !password) return;
 
   return await createUserWithEmailAndPassword(auth, email, password);
 }
 
 export const signInAuthUserWithEmailAndPass = async (email: string, password: string) => {
-  if(!email && !password) return;
+  if (!email && !password) return;
 
   return await signInWithEmailAndPassword(auth, email, password);
 }

@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { GoogleIcon } from '../Icons';
-import { 
+import {
   signInWithGooglePopup,
 } from '../utils/firebase';
 import { signInAuthUserWithEmailAndPass } from '../utils/firebase/firebase';
@@ -53,22 +53,22 @@ const LoginForm: FC = () => {
     } catch (error: unknown) {
 
       switch (error instanceof Error && error.code) {
-        case 'auth/wrong-password': 
-          setError('password', { 
+        case 'auth/wrong-password':
+          setError('password', {
             message: 'Wrong password',
           });
           break;
-        case 'auth/user-not-found': 
-          setError('email', { 
+        case 'auth/user-not-found':
+          setError('email', {
             message: 'User not found',
           })
         break;
-        case 'auth/too-many-requests': 
-          setError('email', { 
+        case 'auth/too-many-requests':
+          setError('email', {
             message: 'Too many requests',
           });
         break;
-        default: 
+        default:
           console.log(error);
       }
     }
@@ -80,7 +80,7 @@ const LoginForm: FC = () => {
         <h2 className='form-title'>Welcome Back!</h2>
         <form className='form__auth'
           onSubmit={handleSubmit(onSubmit)}>
-          
+
           <div className="mb-3">
             <input type="email" id="email" aria-describedby="emailHelp"
               className={`form-control__auth ${ errors.email ? 'is-invalid' : '' }`}
@@ -90,7 +90,7 @@ const LoginForm: FC = () => {
           </div>
 
           <div className="mb-3">
-            <input type="password" id="password" 
+            <input type="password" id="password"
               className={`form-control__auth ${ errors.password ? 'is-invalid' : '' }`}
               placeholder='Password'
               {...register('password')} />
@@ -109,7 +109,7 @@ const LoginForm: FC = () => {
             disabled={!isValid}>
             Log in
           </button>
-          
+
           <div className='form-delimiter'>or</div>
           <button type='button' className='button form-btn form-btn-google'
             onClick={ signInWithGoogle }>

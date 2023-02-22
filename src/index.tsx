@@ -4,7 +4,6 @@ import {
   createBrowserRouter,
 } from "react-router-dom";
 import { App } from './App';
-
 import {
   Main, Error, Home, WorkoutPrograms,
   WorkoutVideos, About,
@@ -12,9 +11,10 @@ import {
 } from "./routes";
 import RecipesWrapper from './routes/Recipes/RecipesWrapper';
 import './styles/index.scss'
-import { UserProvider } from './components/utils/contexts';
+import { ThemeProvider, UserProvider } from './components/utils/contexts';
 import { Calculator } from './routes/Calculator';
 import { Profile } from './routes/Profile';
+
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -80,8 +80,10 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <UserProvider>
-      <App />
-    </UserProvider>
+      <ThemeProvider> 
+        <UserProvider>
+          <App />
+        </UserProvider>
+    </ThemeProvider>
   </React.StrictMode>
 );
