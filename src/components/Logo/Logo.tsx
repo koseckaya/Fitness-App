@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
+import React from 'react'
 import './Logo.scss'
-export class Logo extends Component {
-  render() {
+
+export type Props = {
+  className?: string;
+};
+export const Logo = ({className}: Props) => {
     return (
-      <div className='logo1'></div>
+      <div className={className}></div>
     )
-  }
 }
-
-
