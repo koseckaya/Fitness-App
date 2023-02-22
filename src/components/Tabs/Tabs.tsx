@@ -4,10 +4,10 @@ import { useState } from "react";
 
 export const TabItem = props => <div {...props} />;
 
-export const Tabs = ({ defaultIndex = '0', onTabClick, children }) => {
+export const Tabs = ({ defaultIndex = '0', children }) => {
   const [bindIndex, setBindIndex] = useState(defaultIndex);
   const changeTab = newIndex => {
-    if (typeof onTabClick === 'function') onTabClick(newIndex);
+    // if (typeof onTabClick === 'function') onTabClick(newIndex);
     setBindIndex(newIndex);
   };
   const items = children.filter(item => item.type.name === 'TabItem');

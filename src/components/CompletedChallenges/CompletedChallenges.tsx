@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { UserContext } from "../utils/contexts";
 import { getUserDocFromAuth } from "../utils/firebase/firebase";
 import { programs } from "../../data";
+import { Review } from "../Review";
 
 export type Props = {
   className?: string;
@@ -73,6 +74,9 @@ const SmallProgramCard: FC<Props> = ({
         {startedDays.length === days
           ? 'Completed Challenge'
           : `Completed days ${startedDays.length} / ${days}`}
+      </div>
+      <div>
+        {startedDays.length === days ? <Review /> : ''}
       </div>
     </div>
   );
