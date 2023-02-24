@@ -47,21 +47,21 @@ const LoginForm: FC = () => {
       navigate("/");
     } catch (error: unknown) {
       switch (error instanceof Error && error.code) {
-        case "auth/wrong-password":
-          setError("password", {
-            message: "Wrong password",
+        case 'auth/wrong-password':
+          setError('password', {
+            message: 'Wrong password',
           });
           break;
-        case "auth/user-not-found":
-          setError("email", {
-            message: "User not found",
+        case 'auth/user-not-found':
+          setError('email', {
+            message: 'User not found',
+          })
+        break;
+        case 'auth/too-many-requests':
+          setError('email', {
+            message: 'Too many requests',
           });
-          break;
-        case "auth/too-many-requests":
-          setError("email", {
-            message: "Too many requests",
-          });
-          break;
+        break;
         default:
           console.log(error);
       }
@@ -69,10 +69,12 @@ const LoginForm: FC = () => {
   };
 
   return (
-    <div className="form-wrap">
-      <div className="form-container">
-        <h2 className="form-title">Welcome Back!</h2>
-        <form className="form__auth" onSubmit={handleSubmit(onSubmit)}>
+    <div className='form-wrap'>
+      <div className='form-container'>
+        <h2 className='form-title'>Welcome Back!</h2>
+        <form className='form__auth'
+          onSubmit={handleSubmit(onSubmit)}>
+
           <div className="mb-3">
             <input
               type="email"
@@ -88,16 +90,11 @@ const LoginForm: FC = () => {
           </div>
 
           <div className="mb-3">
-            <input
-              type="password"
-              id="password"
-              className={`form-control__auth ${
-                errors.password ? "is-invalid" : ""
-              }`}
-              placeholder="Password"
-              {...register("password")}
-            />
-            <p className="invalid-feedback">{errors.password?.message}</p>
+            <input type="password" id="password"
+              className={`form-control__auth ${ errors.password ? 'is-invalid' : '' }`}
+              placeholder='Password'
+              {...register('password')} />
+            <p className='invalid-feedback'>{errors.password?.message}</p>
           </div>
 
           <div className="mb-3 form-check">
@@ -116,13 +113,10 @@ const LoginForm: FC = () => {
             Log in
           </button>
 
-          <div className="form-delimiter">or</div>
-          <button
-            type="button"
-            className="button form-btn form-btn-google"
-            onClick={signInWithGoogle}
-          >
-            <GoogleIcon className="form-google-icon" />
+          <div className='form-delimiter'>or</div>
+          <button type='button' className='button form-btn form-btn-google'
+            onClick={ signInWithGoogle }>
+            <GoogleIcon className='form-google-icon'/>
             Log in with Google
           </button>
         </form>

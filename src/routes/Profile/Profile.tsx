@@ -4,7 +4,6 @@ import { Preferences } from "../../components/Preferences";
 import { TabItem, Tabs } from '../../components/Tabs';
 import { CompletedChallenges } from '../../components/CompletedChallenges';
 
-
 const Profile = () => {
 
   return (
@@ -20,5 +19,4 @@ const Profile = () => {
     </Container>
   );
 }
-
 export default Profile;

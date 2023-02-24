@@ -125,9 +125,8 @@ export const updateUserDocFromAuth = async (
   return userSnapshot.data();
 };
 
-export const getUserDocFromAuth = async (
-  userAuth: User
-): Promise<void | AdditionalInformation> => {
+export const getUserDocFromAuth = async (userAuth: User): Promise<void | AdditionalInformation> => {
+
   if (!userAuth) return;
   const userDocRef = doc(db, "users", userAuth.uid);
   const userSnapshot = await getDoc(userDocRef);
