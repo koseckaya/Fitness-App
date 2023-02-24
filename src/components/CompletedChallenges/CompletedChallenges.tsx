@@ -2,13 +2,13 @@ import "./CompletedChallenges.scss";
 import { User } from "firebase/auth";
 import { FC, useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
 import { UserContext } from "../utils/contexts";
-import { getUserDocFromAuth } from "../utils/firebase/firebase";
+import { Feedback, getUserDocFromAuth } from "../utils/firebase/firebase";
 import { programs } from "../../data";
 import { Review } from "../Review";
 
 export type Props = {
+  id: string;
   className?: string;
   title?: string;
   image?: string;
@@ -16,22 +16,30 @@ export type Props = {
   days?: number;
   time?: number[];
   startedDays: number[];
+  feedback: string | null;
 };
 
 export const CompletedChallenges = () => {
   const { currentUser } = useContext(UserContext);
-  const userData = useUserChallenges(currentUser);
+  const { data, dataFeedbacks } = useUserData(currentUser);
 
   const getProgram = (key: string) => {
     const id = Number(key);
     return programs[id - 1];
   };
 
+  const checkIdFeedback = (id: string) => {
+    if (!dataFeedbacks) return null;
+    if (!dataFeedbacks[id]) return null;
+    return dataFeedbacks[id];
+  };
+
   return (
-    <div className="small-programs_container">
-      {userData?.length ? (
-        userData.map((item) => (
+    <div className="small-programs__container">
+      {data?.length ? (
+        data.map((item) => (
           <SmallProgramCard
+            id={item[0]}
             title={getProgram(item[0]).title}
             image={getProgram(item[0]).imageUrl2}
             url={getProgram(item[0]).path}
@@ -39,6 +47,7 @@ export const CompletedChallenges = () => {
             time={getProgram(item[0]).time}
             key={getProgram(item[0]).id}
             startedDays={item[1]}
+            feedback={checkIdFeedback(item[0])}
           />
         ))
       ) : (
@@ -49,12 +58,14 @@ export const CompletedChallenges = () => {
 };
 
 const SmallProgramCard: FC<Props> = ({
+  id,
   title,
   image,
   url,
   days,
   time,
   startedDays,
+  feedback,
 }: Props) => {
   return (
     <div className="small-programs__card">
@@ -71,19 +82,19 @@ const SmallProgramCard: FC<Props> = ({
         </div>
       </Link>
       <div className="small-programs__info">
-        {startedDays.length === days
-          ? 'Completed Challenge'
-          : `Completed days ${startedDays.length} / ${days}`}
-      </div>
-      <div>
-        {startedDays.length === days ? <Review /> : ''}
+        {startedDays.length === days ? (
+          <Review idChallenge={id} reviewText={feedback}/>
+        ) : (
+          `Completed days ${startedDays.length} / ${days}`
+        )}
       </div>
     </div>
   );
 };
 
-export function useUserChallenges(currentUser: User | null) {
+export function useUserData(currentUser: User | null) {
   const [data, setUserChallenges] = useState<[string, number[]][] | null>(null);
+  const [dataFeedbacks, setUserFeedbacks] = useState<Feedback | null>(null);
 
   useEffect(() => {
     async function startFetching() {
@@ -98,6 +109,11 @@ export function useUserChallenges(currentUser: User | null) {
               ? Object.entries(challenges)
               : [];
             setUserChallenges(startedChallenges);
+          }
+
+          const feedbacks = result.feedbacks;
+          if (feedbacks) {
+            setUserFeedbacks(feedbacks);
           }
         }
       } catch (error) {
@@ -114,5 +130,5 @@ export function useUserChallenges(currentUser: User | null) {
     };
   }, [currentUser]);
 
-  return data;
+  return { data, dataFeedbacks };
 }

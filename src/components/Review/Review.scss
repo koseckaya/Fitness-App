@@ -1,24 +1,49 @@
 .textarea-review {
   height: 120px;
-  width: 260px;
+  width: 320px;
+  font-family: "Manrope", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 120%;
+  color: var(--color-primary);
   border: 1px solid #e3e4eb;
   border-radius: 15px;
   padding: 15px 20px;
+  margin: 0 0;
   resize: none;
   overflow: auto;
 }
 
+p.textarea-review {
+  margin-bottom: 5px;
+}
+
 .textarea-review:focus {
-  border: none;
+  outline: 0px;
 }
 
 .textarea-container {
   position: relative;
-
 }
 
 .textarea-limit {
   position: absolute;
   right: 0;
   transform: translateY(-250%) translateX(-30%);
+}
+
+.btn-review {
+  width: auto;
+}
+
+.btn-cancel {
+  background-color: var(--bs-form-control-bg);
+  color: var(--color-primary);
+}
+
+.review-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.5rem;
 }
