@@ -4,12 +4,11 @@ import { Preferences } from "../../components/Preferences";
 import { TabItem, Tabs } from '../../components/Tabs';
 import { CompletedChallenges } from '../../components/CompletedChallenges';
 
-
 const Profile = () => {
 
   return (
     <Container>
-      <Tabs defaultIndex='1' onTabClick={console.log}>
+      <Tabs defaultIndex='1'>
         <TabItem label="Personal Info" index="1">
           <Preferences />
         </TabItem>
@@ -20,5 +19,4 @@ const Profile = () => {
     </Container>
   );
 }
-
 export default Profile;

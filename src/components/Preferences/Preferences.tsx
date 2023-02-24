@@ -46,6 +46,7 @@ export const Preferences: FC = () => {
     try {
       if (currentUser) {
         await updateUserDocFromAuth(currentUser, { displayName: data.name, lastName: data.lastName });
+        reset({'lastName': data.lastName, 'name': data.name});
       }
     } catch (error) {
       console.log('user create encountered an error', error);

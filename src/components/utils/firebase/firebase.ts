@@ -1,4 +1,4 @@
-import { initializeApp } from 'firebase/app';
+import { initializeApp } from "firebase/app";
 import {
   getAuth,
   signInWithRedirect,
@@ -10,7 +10,7 @@ import {
   onAuthStateChanged,
   User,
   NextOrObserver,
-} from 'firebase/auth'
+} from "firebase/auth";
 import {
   getFirestore,
   doc,
@@ -18,9 +18,8 @@ import {
   setDoc,
   updateDoc,
   DocumentSnapshot,
-  Timestamp
-} from 'firebase/firestore';
-
+  Timestamp,
+} from "firebase/firestore";
 
 // Web app's Firebase configuration
 const firebaseConfig = {
@@ -29,27 +28,32 @@ const firebaseConfig = {
   projectId: "fitness-app-rsschool",
   storageBucket: "fitness-app-rsschool.appspot.com",
   messagingSenderId: "25561443999",
-  appId: "1:25561443999:web:292b093174ffae20df7caa"
+  appId: "1:25561443999:web:292b093174ffae20df7caa",
 };
 
 export type UserData = {
-  displayName: string,
-  email: string,
-  createdAt: Date,
-}
+  displayName: string;
+  email: string;
+  createdAt: Date;
+};
 
 export type Challenges = {
-  [key: string]  : number[]
-}
+  [key: string]: number[];
+};
+
+export type Feedback = {
+  [key: string]: string;
+};
 
 export type AdditionalInformation = {
-  displayName?: string,
-  lastName?: string,
-  updatedAt?: Timestamp,
-  readonly email?: string,
-  readonly createdAt?: Timestamp,
-  challenges?: Challenges,
-}
+  displayName?: string;
+  lastName?: string;
+  updatedAt?: Timestamp;
+  readonly email?: string;
+  readonly createdAt?: Timestamp;
+  challenges?: Challenges;
+  feedbacks?: Feedback;
+};
 
 // Initialize Firebase
 const firebaseApp = initializeApp(firebaseConfig);
@@ -57,19 +61,20 @@ export const db = getFirestore(firebaseApp);
 
 const provider = new GoogleAuthProvider();
 provider.setCustomParameters({
-  prompt: 'select_account'
-})
+  prompt: "select_account",
+});
 
 export const auth = getAuth();
 export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
-export const signInWithGoogleRedirect = () => signInWithRedirect(auth, provider);
+export const signInWithGoogleRedirect = () =>
+  signInWithRedirect(auth, provider);
 
 export const createUserDocFromAuth = async (
   userAuth: User,
   additionalInformation = {} as AdditionalInformation
 ): Promise<void | DocumentSnapshot<UserData>> => {
   if (!userAuth) return;
-  const userDocRef = doc(db, 'users', userAuth.uid);
+  const userDocRef = doc(db, "users", userAuth.uid);
   const userSnapshot = await getDoc(userDocRef);
   const userExist = userSnapshot.exists();
 
@@ -82,22 +87,23 @@ export const createUserDocFromAuth = async (
         displayName,
         email,
         createdAt,
-        ...additionalInformation
+        ...additionalInformation,
       });
     } catch (error) {
-      if (error instanceof Error) console.log('error creating user', error.message);
+      if (error instanceof Error)
+        console.log("error creating user", error.message);
     }
   }
 
   return userSnapshot as DocumentSnapshot<UserData>;
-}
+};
 
 export const updateUserDocFromAuth = async (
   userAuth: User,
   additionalInformation = {} as AdditionalInformation
 ) => {
   if (!userAuth) return;
-  const userDocRef = doc(db, 'users', userAuth.uid);
+  const userDocRef = doc(db, "users", userAuth.uid);
   const userSnapshot = await getDoc(userDocRef);
   const userExist = userSnapshot.exists();
 
@@ -107,37 +113,45 @@ export const updateUserDocFromAuth = async (
     try {
       const result = await updateDoc(userDocRef, {
         updatedAt,
-        ...additionalInformation
+        ...additionalInformation,
       });
       return result;
     } catch (error) {
-      if (error instanceof Error) console.log('error creating user', error.message);
+      if (error instanceof Error)
+        console.log("error creating user", error.message);
     }
   }
 
   return userSnapshot.data();
-}
+};
 
-export const getUserDocFromAuth = async (userAuth: User ): Promise<void | AdditionalInformation> => {
+export const getUserDocFromAuth = async (userAuth: User): Promise<void | AdditionalInformation> => {
 
   if (!userAuth) return;
-  const userDocRef = doc(db, 'users', userAuth.uid);
+  const userDocRef = doc(db, "users", userAuth.uid);
   const userSnapshot = await getDoc(userDocRef);
   return userSnapshot.data();
-}
+};
 
-export const createAuthUserWithEmailAndPass = async (email: string, password: string) => {
+export const createAuthUserWithEmailAndPass = async (
+  email: string,
+  password: string
+) => {
   if (!email && !password) return;
 
   return await createUserWithEmailAndPassword(auth, email, password);
-}
+};
 
-export const signInAuthUserWithEmailAndPass = async (email: string, password: string) => {
+export const signInAuthUserWithEmailAndPass = async (
+  email: string,
+  password: string
+) => {
   if (!email && !password) return;
 
   return await signInWithEmailAndPassword(auth, email, password);
-}
+};
 
 export const signOutUser = async () => await signOut(auth);
 
-export const onAuthStateChangeListener = (callback: NextOrObserver<User>) => onAuthStateChanged(auth, callback);
+export const onAuthStateChangeListener = (callback: NextOrObserver<User>) =>
+  onAuthStateChanged(auth, callback);
