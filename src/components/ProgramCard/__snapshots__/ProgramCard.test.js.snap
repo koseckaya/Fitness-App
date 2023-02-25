@@ -435,28 +435,3 @@ exports[`ProgramCard component should render component without prop url 1`] = `
   </a>
 </div>
 `;
-
-exports[`renders correctly 1`] = `
-<div
-  className="program-card"
->
-  <a
-    href="/programsundefined"
-    onClick={[Function]}
-  >
-    <div
-      className="program-card__inner"
-    >
-      <img
-        className="card__image"
-      />
-      <div
-        className="card__content"
-      />
-    </div>
-    <span
-      className="program-card__title"
-    />
-  </a>
-</div>
-`;

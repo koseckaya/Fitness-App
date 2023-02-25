@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render component 1`] = `
+<div
+  className="toggle-container"
+>
+  <label
+    className="switch"
+    htmlFor="toggler"
+  >
+    <input
+      className="toggle-input"
+      id="toggler"
+      readOnly={true}
+      type="checkbox"
+    />
+    <span
+      className="toggle-slider"
+    />
+    <span
+      className="toggle-wave"
+    />
+  </label>
+</div>
+`;

@@ -1,5 +1,53 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`MultiRangeSlider component should render component with default props 1`] = `
+<div
+  className="slider-container"
+>
+  <input
+    className="thumb thumb--left"
+    max={200}
+    min={0}
+    onChange={[Function]}
+    style={
+      Object {
+        "zIndex": 0,
+      }
+    }
+    type="range"
+    value={0}
+  />
+  <input
+    className="thumb thumb--right"
+    max={200}
+    min={0}
+    onChange={[Function]}
+    type="range"
+    value={200}
+  />
+  <div
+    className="slider"
+  >
+    <div
+      className="slider__track"
+    />
+    <div
+      className="slider__range"
+    />
+    <div
+      className="slider__left-value"
+    >
+      0
+    </div>
+    <div
+      className="slider__right-value"
+    >
+      200
+    </div>
+  </div>
+</div>
+`;
+
 exports[`MultiRangeSlider component should render component without props 1`] = `
 <div
   className="slider-container"
@@ -11,7 +59,7 @@ exports[`MultiRangeSlider component should render component without props 1`] = 
     onChange={[Function]}
     style={
       Object {
-        "zIndex": "5",
+        "zIndex": 5,
       }
     }
     type="range"
@@ -44,44 +92,6 @@ exports[`MultiRangeSlider component should render component without props 1`] = 
     >
       0
     </div>
-  </div>
-</div>
-`;
-
-exports[`renders correctly 1`] = `
-<div
-  className="slider-container"
->
-  <input
-    className="thumb thumb--left"
-    onChange={[Function]}
-    style={
-      Object {
-        "zIndex": false,
-      }
-    }
-    type="range"
-  />
-  <input
-    className="thumb thumb--right"
-    onChange={[Function]}
-    type="range"
-  />
-  <div
-    className="slider"
-  >
-    <div
-      className="slider__track"
-    />
-    <div
-      className="slider__range"
-    />
-    <div
-      className="slider__left-value"
-    />
-    <div
-      className="slider__right-value"
-    />
   </div>
 </div>
 `;

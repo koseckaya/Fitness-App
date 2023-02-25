@@ -7,12 +7,6 @@ const props = {
     max: 200, 
     onChange: () => {},
 }
-it('renders correctly', () => {
-    const tree = renderer
-        .create(<MultiRangeSlider></MultiRangeSlider>)
-        .toJSON();
-    expect(tree).toMatchSnapshot();
-});
 
 describe("MultiRangeSlider component", () => {
     it('should render component with default props', () => {

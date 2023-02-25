@@ -44,6 +44,7 @@ export const MultiRangeSlider = ({ min, max, onChange }: Props) => {
 
   // Get min and max values when their state changes
   useEffect(() => {
+    console.log('', onChange);
     onChange({ min: minVal, max: maxVal });
   }, [minVal, maxVal]);
 
