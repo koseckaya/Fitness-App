@@ -114,7 +114,6 @@ export class WorkoutVideos extends Component {
   }
   render() {
     const filteredVideos = this.getFilteredVideos();
-    console.log(this.state)
     return (
       <Container className='workout-videos'>
         <div className='workout-videos__left'>
