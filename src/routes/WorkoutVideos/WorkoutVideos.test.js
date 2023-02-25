@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MemoryRouter as Router } from 'react-router-dom';
-import { WorkoutVideos } from '../WorkoutVideos2/WorkoutVideos';
+import { WorkoutVideos } from '../WorkoutVideos';
 
 
 it('renders correctly', () => {
