@@ -9,12 +9,12 @@ import {
 } from "./../../data";
 import "./Recipes.scss";
 import { Link, NavigateFunction } from "react-router-dom";
-import { RecipeContext } from "../../App";
 import InfiniteScroll from "react-infinite-scroll-component/dist";
 import { getRecipes } from "./../../Services/apiService";
 import { getRecipeId, modifyData } from "./../../helpers/helpers";
 import { RecipeLatest } from "../../components/RecipeLatest";
 import RecipesCategories from "../../components/RecipesCategories/RecipesCategories";
+import { RecipeContext } from "../../components/utils/contexts/RecipeContext";
 
 
 interface IProps {
