@@ -36,7 +36,7 @@ exports[`DayProgram component should render component with default props 1`] = `
     className="program__videos"
   />
   <div
-    className="button btn-complete 
+    className="button btn-complete
                 active
                 "
   >
@@ -86,7 +86,7 @@ exports[`DayProgram component should render component with isCompletedDay prop 1
     className="program__videos"
   />
   <div
-    className="button btn-complete 
+    className="button btn-complete
                 active
                 completed"
     onClick={[Function]}
@@ -137,7 +137,7 @@ exports[`DayProgram component should render component with video prop 1`] = `
     className="program__videos"
   />
   <div
-    className="button btn-complete 
+    className="button btn-complete
                 active
                 "
   >
@@ -187,7 +187,7 @@ exports[`DayProgram component should render component without programId prop 1`]
     className="program__videos"
   />
   <div
-    className="button btn-complete 
+    className="button btn-complete
                 active
                 "
   >
@@ -237,7 +237,7 @@ exports[`DayProgram component should render component without prop day 1`] = `
     className="program__videos"
   />
   <div
-    className="button btn-complete 
+    className="button btn-complete
                 active
                 "
   >
