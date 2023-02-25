@@ -17,13 +17,11 @@ export const MultiRangeSlider = ({ min, max, onChange }: Props) => {
   const maxValRef = useRef(max);
   const range = useRef<HTMLInputElement | null>(null);
 
-  // Convert to percentage
   const getPercent = useCallback(
     (value: number) => Math.round(((value - min) / (max - min)) * 100),
     [min, max]
   );
 
-  // Set width of the range to decrease from the left side
   useEffect(() => {
     const minPercent = getPercent(minVal);
     const maxPercent = getPercent(maxValRef.current);
@@ -34,7 +32,6 @@ export const MultiRangeSlider = ({ min, max, onChange }: Props) => {
     }
   }, [minVal, getPercent]);
 
-  // Set width of the range to decrease from the right side
   useEffect(() => {
     const minPercent = getPercent(minValRef.current);
     const maxPercent = getPercent(maxVal);
@@ -42,9 +39,7 @@ export const MultiRangeSlider = ({ min, max, onChange }: Props) => {
     if (range.current) range.current.style.width = `${maxPercent - minPercent}%`;
   }, [maxVal, getPercent]);
 
-  // Get min and max values when their state changes
   useEffect(() => {
-    console.log('', onChange);
     onChange({ min: minVal, max: maxVal });
   }, [minVal, maxVal]);
 
