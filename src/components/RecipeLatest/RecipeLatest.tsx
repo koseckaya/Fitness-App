@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Button } from "../../components/Button";
-
 import {
     RecipeApi,
     RecipeContextType,
@@ -8,8 +7,8 @@ import {
 } from "./../../data";
 import "./RecipeLatest.scss";
 import { Link } from "react-router-dom";
-import { RecipeContext } from "../../App";
 import { getRecipeId } from "./../../helpers/helpers";
+import { RecipeContext } from "../utils/contexts/RecipeContext";
 
 
 export interface Props {}
