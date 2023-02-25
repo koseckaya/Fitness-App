@@ -1,12 +1,10 @@
 
 import { FC, useState, useCallback, useContext, useMemo } from 'react';
-import { useUserData } from '../../routes/Profile';
+import { useUserData } from '../Preferences';
 import { ExerciseVideoPrev } from '../ExerciseVideoPrev';
 import { UserContext } from '../utils/contexts';
 import './DayProgram.scss';
 import { useEffect } from 'react';
-
-
 
 export type Props = {
     className?: string;
@@ -33,8 +31,8 @@ const DayProgram: FC<Props> = ({ day, videos, programId, isCompletedDay, onDayCh
         const startedChallenges = userData?.challenges ? Object.keys(userData?.challenges) : []
         let completedDaysFire: number[] = [];
         if (startedChallenges.includes(`${programId}`) && userData?.challenges) {
-            completedDaysFire = userData?.challenges['' + programId]; 
-        }        
+            completedDaysFire = userData?.challenges['' + programId];
+        }
 
         let initialVideos: string[] = [];
         if (completedDaysFire?.includes(day)) {
@@ -49,7 +47,7 @@ const DayProgram: FC<Props> = ({ day, videos, programId, isCompletedDay, onDayCh
         }
     }, [isCompletedDay])
 
-    
+
     const onVideoClick = useCallback((dayString: string, e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
         e.stopPropagation();
         e.preventDefault();
@@ -70,14 +68,14 @@ const DayProgram: FC<Props> = ({ day, videos, programId, isCompletedDay, onDayCh
         setCompletedVideos([]);
         onDayUncheck(day)
     }, [onDayUncheck, day]);
-    
-    
+
+
     const isCompletedDayVideos = () => {
         const isComplete = completedVideos.length === videos.length ? true : false;
         return isComplete
     }
 
-    const dayChallengeComplAndAuthorize = isCompletedDayVideos() && isUserAuthorized 
+    const dayChallengeComplAndAuthorize = isCompletedDayVideos() && isUserAuthorized
 
     return (
         <div className='day-program'>
@@ -88,7 +86,7 @@ const DayProgram: FC<Props> = ({ day, videos, programId, isCompletedDay, onDayCh
                     <span className='day__duration'> {videos.reduce((acc, video) => acc += video.duration ,0)} Mins</span>
                 </div>
             </div>
-        
+
             <div className='program__videos'>
                 {
                     videos.map((video, index) => {
@@ -98,19 +96,19 @@ const DayProgram: FC<Props> = ({ day, videos, programId, isCompletedDay, onDayCh
                 })}
             </div>
             <div onClick={isCompletedDay ? handleDayUncheck : dayChallengeComplAndAuthorize ? handleDayCheck: undefined }
-                className={`button btn-complete 
+                className={`button btn-complete
                 ${isCompletedDayVideos() ? 'active' : ''}
                 ${(isCompletedDay) ? 'completed' : ''}`}>
                 { (isCompletedDay) ? `Day ${day} Complete`: `Mark Day ${day} as Complete` }
-                
+
             </div>
             {isCompletedDayVideos() && !isUserAuthorized  &&
                 (<div className='day__message'>Log in or register a free account track your schedule progress</div>)}
-            
+
         </div>
     )
 }
-    
+
 
 
 export default DayProgram;

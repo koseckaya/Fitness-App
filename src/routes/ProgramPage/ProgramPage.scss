@@ -27,8 +27,8 @@
   }
   &__duration, &__minutes{
     position: absolute;
-    left: 4px;
-    bottom: 33px;
+    left: 8px;
+    bottom: 16px;
     text-transform: lowercase;
     background: #fff;
    border-radius: 15px;
@@ -37,7 +37,7 @@
     color: $color-primary;
   }
   &__minutes {
-    left: 62px;
+    left: 70px;
   }
   &__type {
     font-size: 14px;
@@ -57,7 +57,7 @@
     position: relative;
     margin-top: 30px;
         padding-top: 10px;
-    
+
     &::before {
       content: "";
       height: 1px;
@@ -76,7 +76,7 @@
     flex-direction: column;
     background-color: #ece9fc;
     margin: 20px 0;
-   
+
  }
 
 }
