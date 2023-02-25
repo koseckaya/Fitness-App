@@ -2,111 +2,153 @@
 
 exports[`renders correctly 1`] = `
 <div
-  className="form-wrap"
+  className="container "
 >
   <div
-    className="form-container"
+    className="tab-menu__wrapper"
   >
-    <h2
-      className="form-title"
+    <div
+      className="tab-menu"
     >
-      Personal Info
-    </h2>
-    <form
-      className="form__auth"
-      onSubmit={[Function]}
-    >
-      <p
-        className="form__auth-subtitle"
+      <button
+        className="focus"
+        onClick={[Function]}
       >
-        Your Name
-      </p>
-      <div>
+        Personal Info
+      </button>
+      <button
+        className=""
+        onClick={[Function]}
+      >
+        Started Challenges
+      </button>
+    </div>
+    <div
+      className="tab-view"
+    >
+      <div
+        className="tab-content selected"
+        index="1"
+        label="Personal Info"
+      >
         <div
-          className="mb-3"
+          className="form-wrap"
         >
-          <input
-            aria-describedby="nameHelp"
-            className="form-control__auth "
-            id="name"
-            name="name"
-            onBlur={[Function]}
-            onChange={[Function]}
-            placeholder="First Name"
-            type="text"
-          />
-          <p
-            className="invalid-feedback"
-          />
-        </div>
-        <div
-          className="mb-3"
-        >
-          <input
-            aria-describedby="nameHelp"
-            className="form-control__auth "
-            id="lastName"
-            name="lastName"
-            onBlur={[Function]}
-            onChange={[Function]}
-            placeholder="Last Name"
-            type="text"
-          />
-          <p
-            className="invalid-feedback"
-          />
+          <div
+            className="form-container"
+          >
+            <form
+              className="form__auth"
+              onSubmit={[Function]}
+            >
+              <p
+                className="form__auth-subtitle"
+              >
+                Your Name
+              </p>
+              <div>
+                <div
+                  className="mb-3"
+                >
+                  <input
+                    aria-describedby="nameHelp"
+                    className="form-control__auth "
+                    id="name"
+                    name="name"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="First Name"
+                    type="text"
+                  />
+                  <p
+                    className="invalid-feedback"
+                  />
+                </div>
+                <div
+                  className="mb-3"
+                >
+                  <input
+                    aria-describedby="nameHelp"
+                    className="form-control__auth "
+                    id="lastName"
+                    name="lastName"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="Last Name"
+                    type="text"
+                  />
+                  <p
+                    className="invalid-feedback"
+                  />
+                </div>
+              </div>
+              <div
+                className="form-btn__container"
+              >
+                <button
+                  className="button form-btn form-btn__default"
+                  disabled={true}
+                  onClick={[Function]}
+                  type="button"
+                >
+                  Cancel
+                </button>
+                <button
+                  className="button form-btn"
+                  disabled={true}
+                  type="submit"
+                >
+                  Save Changes
+                </button>
+              </div>
+              <div>
+                <p
+                  className="form__auth-subtitle"
+                >
+                  Email Address
+                </p>
+                <p
+                  className="auth__text"
+                >
+                  Your email address is
+                  <span
+                    className="auth__text-secondary"
+                  />
+                </p>
+              </div>
+              <div>
+                <p
+                  className="form__auth-subtitle"
+                >
+                  Account created
+                </p>
+                <p
+                  className="auth__text"
+                >
+                  Time of creation
+                  <span
+                    className="auth__text-secondary"
+                  />
+                </p>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
       <div
-        className="form-btn__container"
+        className="tab-content "
+        index="2"
+        label="Started Challenges"
       >
-        <button
-          className="button form-btn form-btn__default"
-          disabled={true}
-          onClick={[Function]}
-          type="button"
+        <div
+          className="small-programs__container"
         >
-          Cancel
-        </button>
-        <button
-          className="button form-btn"
-          disabled={true}
-          type="submit"
-        >
-          Save Changes
-        </button>
+          <p>
+            Start Workout Programs
+          </p>
+        </div>
       </div>
-      <div>
-        <p
-          className="form__auth-subtitle"
-        >
-          Email Address
-        </p>
-        <p
-          className="auth__text"
-        >
-          Your email address is
-          <span
-            className="auth__text-secondary"
-          />
-        </p>
-      </div>
-      <div>
-        <p
-          className="form__auth-subtitle"
-        >
-          Account created
-        </p>
-        <p
-          className="auth__text"
-        >
-          Time of creation
-          <span
-            className="auth__text-secondary"
-          />
-        </p>
-      </div>
-    </form>
+    </div>
   </div>
 </div>
 `;

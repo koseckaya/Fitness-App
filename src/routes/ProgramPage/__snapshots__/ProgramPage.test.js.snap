@@ -228,7 +228,7 @@ exports[`renders correctly 1`] = `
               </div>
             </div>
             <div
-              className="button btn-complete 
+              className="button btn-complete
                 
                 "
             >
@@ -331,7 +331,7 @@ exports[`renders correctly 1`] = `
               </div>
             </div>
             <div
-              className="button btn-complete 
+              className="button btn-complete
                 
                 "
             >
@@ -434,7 +434,7 @@ exports[`renders correctly 1`] = `
               </div>
             </div>
             <div
-              className="button btn-complete 
+              className="button btn-complete
                 
                 "
             >
@@ -537,7 +537,7 @@ exports[`renders correctly 1`] = `
               </div>
             </div>
             <div
-              className="button btn-complete 
+              className="button btn-complete
                 
                 "
             >
@@ -640,7 +640,7 @@ exports[`renders correctly 1`] = `
               </div>
             </div>
             <div
-              className="button btn-complete 
+              className="button btn-complete
                 
                 "
             >
@@ -743,7 +743,7 @@ exports[`renders correctly 1`] = `
               </div>
             </div>
             <div
-              className="button btn-complete 
+              className="button btn-complete
                 
                 "
             >
@@ -846,7 +846,7 @@ exports[`renders correctly 1`] = `
               </div>
             </div>
             <div
-              className="button btn-complete 
+              className="button btn-complete
                 
                 "
             >

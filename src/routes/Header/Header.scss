@@ -1,9 +1,11 @@
 @import '../../styles/vars.scss';
+@import "../../styles/light-dark-theme";
 .header {
   box-sizing: border-box;
-  background: $gray;
- padding: 15px 20px;
- 
+  padding: 15px 20px;
+    background-color: var(--bgThemeColor2);
+    color: var(--textThemeColor1);
+    transition: background-color 0.5s ease;
   &__container {
     display: flex;
     align-items: center;
@@ -17,12 +19,21 @@
 .nav {
   margin: 0 20px;
   display: flex;
-  gap: 40px
+  gap: 40px;
+   color: var(--textThemeColor1);
+  &-active {
+    color: $purple;
+  }
+  &-item {
+    &:hover {
+      color: darken($purple, 20%);
+    }
+  }
 }
 
 a {
+   color: var(--textThemeColor2);
   text-decoration: none;
-  color: $color-primary;
   text-transform: capitalize;
 }
 

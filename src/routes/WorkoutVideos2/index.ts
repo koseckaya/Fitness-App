@@ -1,2 +1,0 @@
-
-export { WorkoutVideos } from './WorkoutVideos';

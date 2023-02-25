@@ -5,7 +5,7 @@ exports[`renders correctly 1`] = `
   className="container workout-videos"
 >
   <div
-    className="workout-videos__left"
+    className="workout-videos__left-side"
   >
     <div
       className="search-container"
@@ -13,31 +13,17 @@ exports[`renders correctly 1`] = `
       <form
         autoComplete="off"
         className="finder-form"
-        onSubmit={[Function]}
       >
         <div
-          className="finder"
-        >
-          <div
-            className="finder__outer"
-          >
-            <div
-              className="finder__inner"
-            >
-              <div
-                className="finder__icon"
-              />
-              <input
-                className="finder__input"
-                name="q"
-                onBlur={[Function]}
-                onInput={[Function]}
-                placeholder="Type and press Enter"
-                type="text"
-              />
-            </div>
-          </div>
-        </div>
+          className="finder__icon"
+        />
+        <input
+          className="finder__input"
+          name="q"
+          onChange={[Function]}
+          placeholder="Type title of Video"
+          type="text"
+        />
         <div
           className="finder__cross"
           onClick={[Function]}
@@ -95,10 +81,49 @@ exports[`renders correctly 1`] = `
           </div>
         </div>
       </div>
+      <div
+        className="random-video"
+      >
+        <div
+          className="random-video__title"
+        >
+          Try out this Random Workout Video:
+        </div>
+        <div
+          className="workout-video"
+        >
+          <a
+            href="https://www.youtube.com/watch?v=h8ctkfSx6R0&feature=youtu.be&ab_channel=ChloeTing"
+          >
+            <img
+              alt="Abs in 2 Weeks - 2020"
+              className="workout-video__img"
+              src="https://static.chloeting.com/videos/61bc1877dff295b571b03e08/af196bc0-5ef5-11ec-b4e8-6545cdfc138f.jpeg"
+            />
+            <div
+              className="workout-video__title"
+            >
+              Abs in 2 Weeks - 2020
+            </div>
+            <div
+              className="workout-video__duration"
+            >
+              11
+               MIN
+            </div>
+          </a>
+        </div>
+        <div
+          className="button"
+          onClick={[Function]}
+        >
+          Randomize Again
+        </div>
+      </div>
     </div>
   </div>
   <div
-    className="workout-videos__right"
+    className="workout-videos__right-side"
   >
     <div
       className="videos-filters"
@@ -108,66 +133,42 @@ exports[`renders correctly 1`] = `
         data-val="All"
         onClick={[Function]}
       >
-        <span
-          data-val="All"
-        >
-          All
-        </span>
+        All
       </span>
       <span
         className="video-filter "
         data-val="Low Intensity"
         onClick={[Function]}
       >
-        <span
-          data-val="Low Intensity"
-        >
-          Low Intensity
-        </span>
+        Low Intensity
       </span>
       <span
         className="video-filter "
         data-val="No Jumping"
         onClick={[Function]}
       >
-        <span
-          data-val="No Jumping"
-        >
-          No Jumping
-        </span>
+        No Jumping
       </span>
       <span
         className="video-filter "
         data-val="No Burpees"
         onClick={[Function]}
       >
-        <span
-          data-val="No Burpees"
-        >
-          No Burpees
-        </span>
+        No Burpees
       </span>
       <span
         className="video-filter "
         data-val="No Planks"
         onClick={[Function]}
       >
-        <span
-          data-val="No Planks"
-        >
-          No Planks
-        </span>
+        No Planks
       </span>
       <span
         className="video-filter "
         data-val="Standing"
         onClick={[Function]}
       >
-        <span
-          data-val="Standing"
-        >
-          Standing
-        </span>
+        Standing
       </span>
     </div>
     <div
