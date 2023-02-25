@@ -35,6 +35,17 @@ body {
     display: flex;
     justify-content: space-between;
 }
+.nav {
+  &-active {
+    color: $purple;
+  }
+  &-item {
+    &:hover {
+      color: darken($purple, 20%);
+    }
+  }
+}
+
 
 
 :root[data-theme="light"] {

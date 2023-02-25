@@ -1,5 +1,5 @@
-import { FC, useContext } from "react";
-import { Link } from "react-router-dom";
+import { FC, useContext, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "../../components/Button";
 import { Container } from "../../components/Container";
 import { Logo } from "../../components/Logo";
@@ -15,25 +15,28 @@ export type Props = {
 
 const Header: FC<Props> = () => {
     const { currentUser } = useContext(UserContext);
+    const [activeLink, setActiveLink] = useState()
+    let location = useLocation();
+    let path = location.pathname
 
     return (
         <div className="header">
             <Container>
                 <div className="header__container">
                     <nav className="nav">
-                        <Link to={`/programs`} className="nav-item">
+                        <Link to={`/programs`} className={`nav-item ${path === '/programs' ? 'nav-active': ''}`}>
                             Workout Programs
                         </Link>
-                        <Link to={`/videos`} className="nav-item">
+                        <Link to={`/videos`} className={`nav-item ${path === '/videos' ? 'nav-active': ''}`}>
                             Workout Videos
                         </Link>
-                        <Link to={`/recipes/alcohol-free`} className="nav-item">
+                        <Link to={`/recipes/alcohol-free`} className={`nav-item ${path === '/recipes/alcohol-free' ? 'nav-active': ''}`}>
                             Recipes
                         </Link>
-                        <Link to={`/calculator`} className="nav-item">
+                        <Link to={`/calculator`} className={`nav-item ${path === '/calculator' ? 'nav-active': ''}`}>
                             Recipe Analyzer
                         </Link>
-                        <Link to={`/about`} className="nav-item">
+                        <Link to={`/about`} className={`nav-item ${path === '/about' ? 'nav-active': ''}`}>
                             About
                         </Link>
                     </nav>
