@@ -1,0 +1,54 @@
+$blue700: #1a1a40;
+$blue600: #2c2c66;
+$black: #000;
+$grey100: #fdfcfc;
+$grey200: #f5f1f1;
+$purple100: #7a0bc0;
+$purple200: #650c9d;
+
+
+$color-primary: #303033;
+$gray: #eee;
+$primary-disabled: #e3e4eb ;
+$purple: #7c73c5;
+$secondary: #868a93;
+$color-background-primary: #eee;
+$error: rgb(162, 5, 5) ;
+
+
+$themes: (
+  bgThemeColor1: (
+    darkTheme: $blue700,
+    lightTheme: $grey100,
+  ),
+  bgThemeColor2: (
+    darkTheme: $blue600,
+    lightTheme: $grey200,
+  ),
+  textThemeColor1: (
+    darkTheme: $grey100,
+    lightTheme: $black,
+  ),
+   textThemeColor2: (
+    darkTheme: $gray,
+    lightTheme: $color-primary,
+  ),
+);
+
+@mixin styles($mode) {
+  @each $key, $map in $themes {
+    @each $prop, $color in $map {
+      @if $prop == $mode {
+        --#{$key}: #{$color};
+      }
+    }
+  }
+}
+
+:root[data-theme="dark"] {
+  @include styles("darkTheme");
+}
+
+:root[data-theme="light"] {
+  @include styles("lightTheme");
+}

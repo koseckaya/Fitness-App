@@ -15,7 +15,6 @@ export type Props = {
 
 const Header: FC<Props> = () => {
     const { currentUser } = useContext(UserContext);
-    const [activeLink, setActiveLink] = useState()
     let location = useLocation();
     let path = location.pathname
 

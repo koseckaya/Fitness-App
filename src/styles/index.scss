@@ -1,5 +1,8 @@
 @import './vars.scss';
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;600&display=swap');
+
+@import "./light-dark-theme";
+
 body {
     margin: 0;
     padding: 0;
@@ -7,6 +10,9 @@ body {
     background: #fff;
     height: 100%;
     font-family: 'Manrope', sans-serif;
+    background-color: var(--bgThemeColor1);
+    color: var(--textThemeColor1);
+    transition: background-color 0.5s ease;
 }
 
 .error  {
@@ -35,31 +41,25 @@ body {
     display: flex;
     justify-content: space-between;
 }
-.nav {
-  &-active {
-    color: $purple;
-  }
-  &-item {
-    &:hover {
-      color: darken($purple, 20%);
-    }
-  }
-}
 
 
 
-:root[data-theme="light"] {
-  --background-color: #fafafa;
-  --color: #2b3e51;
-}
 
-:root[data-theme="dark"] {
-  --background-color: #2b3e51;
-  --color: #fafafa;
-}
 
-body {
-  background-color: var(--background-color);
-  color: var(--color);
-  transition: background-color 1s linear, color 0.5s linear;
-}
+
+// :root[data-theme="light"] {
+//   --background-color: #fafafa;
+//   --color: #2b3e51;
+// }
+
+// :root[data-theme="dark"] {
+//   --background-color: #2b3e51;
+//   --color: #fafafa;
+// }
+
+// body {
+//   background-color: var(--background-color);
+//   color: var(--color);
+//   transition: background-color 1s linear, color 0.5s linear;
+// }
+

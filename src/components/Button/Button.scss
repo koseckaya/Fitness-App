@@ -1,4 +1,6 @@
-$color-primary: #303033;
+@import "../../styles/light-dark-theme";
+@import '../../styles/vars';
+
 
 .button {
   width: 200px;
@@ -18,12 +20,12 @@ $color-primary: #303033;
     border: 1px solid transparent;
     cursor: pointer;
     &:hover {
-      color: $color-primary;
+      color: var(--textThemeColor2);
       background-color: transparent;
       border: 1px solid $color-primary;
     }
     &-primary {
-      color: $color-primary;
+      color: var(--textThemeColor2);
       background-color: transparent;
       border: 1px solid $color-primary;
       
