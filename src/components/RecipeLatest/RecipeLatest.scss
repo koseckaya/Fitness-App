@@ -33,6 +33,14 @@
     }
 }
 
+@include for-max-1000px() {
+    .latest__card {
+        gap: 0;
+    }
+}
+
+
+
 @include for-max-740px() {
     .latest__card {
         gap: 0;

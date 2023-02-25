@@ -42,3 +42,11 @@
         text-transform: lowercase;
     }
 }
+
+@include for-max-1000px() {
+  .categories {
+    &__card {
+      width: 90%;
+    }
+  }
+}

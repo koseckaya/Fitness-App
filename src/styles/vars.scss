@@ -54,6 +54,10 @@ $error: rgb(162, 5, 5) ;
   @media (max-width: 920px) { @content; }
 }
 
+@mixin for-max-800px {
+  @media (max-width: 800px) { @content; }
+}
+
 @mixin for-max-740px {
   @media (max-width: 740px) { @content; }
 }
