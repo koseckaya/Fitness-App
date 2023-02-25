@@ -1,6 +1,6 @@
 import { User } from "firebase/auth";
 import { FC, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Button } from "../Button";
 import { signOutUser } from "../utils/firebase/firebase";
 import useOuterClick from "../utils/useOuterClick";

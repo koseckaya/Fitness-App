@@ -1,18 +1,13 @@
 
 import { FC, useContext } from "react";
-import "./RecipePage.scss";
-import { RecipeContext } from '../../App';
 import { useParams, Link } from 'react-router-dom';
 import { recipeData } from "../../data";
 import { Container } from "../../components/Container";
 import { Button } from "../../components/Button";
+import "./RecipePage.scss";
+import { RecipeContext } from "../../components/utils/contexts/RecipeContext";
 
-
-export type Props = {
-    className?: string;
-};
-
-const RecipePage: FC<Props> = ({ className }: Props) => {
+const RecipePage: FC<{}> = () => {
     const recipeContext = useContext(RecipeContext);
     let { recipeId } = useParams();
 
@@ -32,13 +27,12 @@ const RecipePage: FC<Props> = ({ className }: Props) => {
     const carbs = openRecipe.recipe.totalNutrients?.CHOCDF.quantity;
     const tags = openRecipe.recipe.healthLabels?.slice(0,6)
 
-
     return (
         <Container>
             <div className='recipe-page'>
                 <div className="recipe-page__side">
                     <div className="recipe__tags">
-                        {tags?.map(tag => <span className="recipe__tag">{ tag}</span>)}
+                        {tags?.map((tag, i) => <span className="recipe__tag" key={ i}>{ tag}</span>)}
                     </div>
                     <span className='recipe__title'>{openRecipe.recipe.label}</span>
                     <img src={openRecipe.recipe?.image} alt={openRecipe.recipe.url}
@@ -64,8 +58,8 @@ const RecipePage: FC<Props> = ({ className }: Props) => {
                     </div>
                     <div className="recipe__ingredients">
                         <div className="recipe__ingredient_title">Ingredients:</div>
-                        {openRecipe.recipe.ingredientLines?.map(item => {
-                            return <li className="recipe__ingredient">{item}</li>
+                        {openRecipe.recipe.ingredientLines?.map((item, i) => {
+                            return <li className="recipe__ingredient" key={ i}>{item}</li>
                         })}
                     </div>
                     <div className="recipe__notes">

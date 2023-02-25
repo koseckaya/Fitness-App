@@ -1,0 +1,494 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="container "
+>
+  <div
+    className="filter"
+  >
+    <div
+      className="filters"
+    >
+      <span
+        className="active"
+        data-program="All"
+        onClick={[Function]}
+      >
+        All
+      </span>
+      <span
+        data-program="Weight Loss"
+        onClick={[Function]}
+      >
+        Weight Loss
+      </span>
+      <span
+        data-program="Abs & Core"
+        onClick={[Function]}
+      >
+        Abs & Core
+      </span>
+      <span
+        data-program="Booty"
+        onClick={[Function]}
+      >
+        Booty
+      </span>
+      <span
+        data-program="Full Body"
+        onClick={[Function]}
+      >
+        Full Body
+      </span>
+    </div>
+    <select
+      onChange={[Function]}
+    >
+      <option
+        value="0"
+      >
+        Duration
+      </option>
+      <option
+        value="14"
+      >
+        14 - 28 days
+      </option>
+      <option
+        value="28"
+      >
+        More 28 days
+      </option>
+    </select>
+  </div>
+  <div
+    className="programs-container"
+  >
+    <div
+      className="program-card"
+    >
+      <a
+        href="/programs/weight-loss-challenge"
+        onClick={[Function]}
+      >
+        <div
+          className="program-card__inner"
+        >
+          <img
+            alt="Weight Loss Challenge"
+            className="card__image"
+            src="https://static.chloeting.com/programs/63ae15573e8cb6226b0c40c0/971c80f0-87c8-11ed-8684-75e08be900e2.jpeg"
+          />
+          <div
+            className="card__content"
+          >
+            <span
+              className="card__duration"
+            >
+              28
+               days
+            </span>
+            <span
+              className="card__minutes"
+            >
+              20
+              -
+              50
+               min/day
+            </span>
+            <div
+              className="card__type"
+            >
+              Type: 
+              Weight Loss, Full Body
+            </div>
+            <div
+              className="card__type"
+            >
+              Equipment: 
+              Fitness Mat, Dumbbells, Resistance Bands
+            </div>
+          </div>
+        </div>
+        <span
+          className="program-card__title"
+        >
+          Weight Loss Challenge
+        </span>
+      </a>
+    </div>
+    <div
+      className="program-card"
+    >
+      <a
+        href="/programs/grow-a-booty-challenge"
+        onClick={[Function]}
+      >
+        <div
+          className="program-card__inner"
+        >
+          <img
+            alt="Grow A Booty Challenge"
+            className="card__image"
+            src="https://static.chloeting.com/programs/6306f2a687caf1cb72ebad58/371d88d0-86d2-11ed-8daf-11eb0dd6c117.jpeg"
+          />
+          <div
+            className="card__content"
+          >
+            <span
+              className="card__duration"
+            >
+              28
+               days
+            </span>
+            <span
+              className="card__minutes"
+            >
+              20
+              -
+              50
+               min/day
+            </span>
+            <div
+              className="card__type"
+            >
+              Type: 
+              Resistance, Booty, Abs & Core
+            </div>
+            <div
+              className="card__type"
+            >
+              Equipment: 
+              Fitness Mat, Dumbbells, Resistance Bands
+            </div>
+          </div>
+        </div>
+        <span
+          className="program-card__title"
+        >
+          Grow A Booty Challenge
+        </span>
+      </a>
+    </div>
+    <div
+      className="program-card"
+    >
+      <a
+        href="/programs/get-abs-challenge"
+        onClick={[Function]}
+      >
+        <div
+          className="program-card__inner"
+        >
+          <img
+            alt="Get Abs Challenge"
+            className="card__image"
+            src="https://static.chloeting.com/programs/62c4acbfb88c73c70da0e9d3/5bb42460-86d2-11ed-b23e-23a8639ef2f0.jpeg"
+          />
+          <div
+            className="card__content"
+          >
+            <span
+              className="card__duration"
+            >
+              18
+               days
+            </span>
+            <span
+              className="card__minutes"
+            >
+              20
+              -
+              40
+               min/day
+            </span>
+            <div
+              className="card__type"
+            >
+              Type: 
+              Weight Loss, Full Body, Abs & Core
+            </div>
+            <div
+              className="card__type"
+            >
+              Equipment: 
+              Fitness Mat, Dumbbells, Resistance Bands
+            </div>
+          </div>
+        </div>
+        <span
+          className="program-card__title"
+        >
+          Get Abs Challenge
+        </span>
+      </a>
+    </div>
+    <div
+      className="program-card"
+    >
+      <a
+        href="/programs/lean-arms-challenge"
+        onClick={[Function]}
+      >
+        <div
+          className="program-card__inner"
+        >
+          <img
+            alt="3 Weeks Lean Arms Challenge"
+            className="card__image"
+            src="https://static.chloeting.com/programs/61bd013558da74df97ff3b36/b6b41f80-86d4-11ed-be97-e54de3bdbeba.jpeg"
+          />
+          <div
+            className="card__content"
+          >
+            <span
+              className="card__duration"
+            >
+              21
+               days
+            </span>
+            <span
+              className="card__minutes"
+            >
+              20
+              -
+              50
+               min/day
+            </span>
+            <div
+              className="card__type"
+            >
+              Type: 
+              Weight Loss, Arms, Abs & Core
+            </div>
+            <div
+              className="card__type"
+            >
+              Equipment: 
+              Fitness Mat
+            </div>
+          </div>
+        </div>
+        <span
+          className="program-card__title"
+        >
+          3 Weeks Lean Arms Challenge
+        </span>
+      </a>
+    </div>
+    <div
+      className="program-card"
+    >
+      <a
+        href="/programs/hourglass-program"
+        onClick={[Function]}
+      >
+        <div
+          className="program-card__inner"
+        >
+          <img
+            alt="25 Days Hourglass Challenge"
+            className="card__image"
+            src="https://static.chloeting.com/programs/61bd0d5e245ccf425b8542e6/7d828d50-86d4-11ed-8daf-11eb0dd6c117.jpeg"
+          />
+          <div
+            className="card__content"
+          >
+            <span
+              className="card__duration"
+            >
+              25
+               days
+            </span>
+            <span
+              className="card__minutes"
+            >
+              10
+              -
+              50
+               min/day
+            </span>
+            <div
+              className="card__type"
+            >
+              Type: 
+              Booty, Full Body, Abs & Core
+            </div>
+            <div
+              className="card__type"
+            >
+              Equipment: 
+              Fitness Mat, Resistance Bands
+            </div>
+          </div>
+        </div>
+        <span
+          className="program-card__title"
+        >
+          25 Days Hourglass Challenge
+        </span>
+      </a>
+    </div>
+    <div
+      className="program-card"
+    >
+      <a
+        href="/programs/booty-challenge"
+        onClick={[Function]}
+      >
+        <div
+          className="program-card__inner"
+        >
+          <img
+            alt="5 Weeks Booty Challenge"
+            className="card__image"
+            src="https://static.chloeting.com/programs/61bd050658da74df97ff3ba8/ad6ca280-86d4-11ed-8daf-11eb0dd6c117.jpeg"
+          />
+          <div
+            className="card__content"
+          >
+            <span
+              className="card__duration"
+            >
+              35
+               days
+            </span>
+            <span
+              className="card__minutes"
+            >
+              10
+              -
+              45
+               min/day
+            </span>
+            <div
+              className="card__type"
+            >
+              Type: 
+              Resistance, Booty, Abs & Core
+            </div>
+            <div
+              className="card__type"
+            >
+              Equipment: 
+              Fitness Mat, Resistance Bands
+            </div>
+          </div>
+        </div>
+        <span
+          className="program-card__title"
+        >
+          5 Weeks Booty Challenge
+        </span>
+      </a>
+    </div>
+    <div
+      className="program-card"
+    >
+      <a
+        href="/programs/lean-thigh-challenge"
+        onClick={[Function]}
+      >
+        <div
+          className="program-card__inner"
+        >
+          <img
+            alt="Lean Thigh Challenge"
+            className="card__image"
+            src="https://static.chloeting.com/programs/61bc11f837778b5b830c66ef/06d3e720-86d5-11ed-84c8-9d80008c6436.jpeg"
+          />
+          <div
+            className="card__content"
+          >
+            <span
+              className="card__duration"
+            >
+              30
+               days
+            </span>
+            <span
+              className="card__minutes"
+            >
+              15
+              -
+              60
+               min/day
+            </span>
+            <div
+              className="card__type"
+            >
+              Type: 
+              Weight Loss, Legs
+            </div>
+            <div
+              className="card__type"
+            >
+              Equipment: 
+              Fitness Mat
+            </div>
+          </div>
+        </div>
+        <span
+          className="program-card__title"
+        >
+          Lean Thigh Challenge
+        </span>
+      </a>
+    </div>
+    <div
+      className="program-card"
+    >
+      <a
+        href="/programs/two-weeks-shred-challenge"
+        onClick={[Function]}
+      >
+        <div
+          className="program-card__inner"
+        >
+          <img
+            alt="2 Weeks Shred Challenge"
+            className="card__image"
+            src="https://static.chloeting.com/programs/61bcedf7084e277b60445c9c/14eabbf0-86d4-11ed-ac64-692111ca50d9.jpeg"
+          />
+          <div
+            className="card__content"
+          >
+            <span
+              className="card__duration"
+            >
+              14
+               days
+            </span>
+            <span
+              className="card__minutes"
+            >
+              35
+              -
+              60
+               min/day
+            </span>
+            <div
+              className="card__type"
+            >
+              Type: 
+              Weight Loss, Full Body, Abs & Core
+            </div>
+            <div
+              className="card__type"
+            >
+              Equipment: 
+              Fitness Mat, Dumbbells, Resistance Bands
+            </div>
+          </div>
+        </div>
+        <span
+          className="program-card__title"
+        >
+          2 Weeks Shred Challenge
+        </span>
+      </a>
+    </div>
+  </div>
+</div>
+`;

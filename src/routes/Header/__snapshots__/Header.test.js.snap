@@ -1,0 +1,113 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="header"
+>
+  <div
+    className="container "
+  >
+    <div
+      className="header__container"
+    >
+      <nav
+        className="nav"
+      >
+        <a
+          className="nav-item"
+          href="/programs"
+          onClick={[Function]}
+        >
+          Workout Programs
+        </a>
+        <a
+          className="nav-item"
+          href="/videos"
+          onClick={[Function]}
+        >
+          Workout Videos
+        </a>
+        <a
+          className="nav-item"
+          href="/recipes/alcohol-free"
+          onClick={[Function]}
+        >
+          Recipes
+        </a>
+        <a
+          className="nav-item"
+          href="/calculator"
+          onClick={[Function]}
+        >
+          Recipe Analyzer
+        </a>
+        <a
+          className="nav-item"
+          href="/about"
+          onClick={[Function]}
+        >
+          About
+        </a>
+      </nav>
+      <a
+        className="logo"
+        href="/"
+        onClick={[Function]}
+      >
+         
+        <div
+          className="logo1"
+        />
+         
+      </a>
+      <div
+        className="header__signUp"
+      >
+        <a
+          href="/signup"
+          onClick={[Function]}
+        >
+          <div
+            className="button  "
+          >
+            Sign Up
+          </div>
+        </a>
+        <a
+          href="/login"
+          onClick={[Function]}
+        >
+          <div
+            className="button  button-primary"
+          >
+            Log In
+          </div>
+        </a>
+      </div>
+      <div
+        className="toggle-container"
+      >
+        <label
+          className="switch"
+          htmlFor="toggler"
+        >
+          <input
+            checked={false}
+            className="toggle-input"
+            id="toggler"
+            onClick={[Function]}
+            readOnly={true}
+            type="checkbox"
+          />
+          <span
+            className="toggle-slider"
+          />
+          <span
+            className="toggle-wave"
+          />
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+`;

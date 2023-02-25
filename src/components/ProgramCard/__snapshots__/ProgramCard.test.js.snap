@@ -1,0 +1,437 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProgramCard component should render component with default props 1`] = `
+<div
+  className="program-card"
+>
+  <a
+    href="/programshttps://static.chloeting.com/programs/63ae15573e8cb6226b0c40c0/97331630-87c8-11ed-8684-75e08be900e2.jpeg"
+    onClick={[Function]}
+  >
+    <div
+      className="program-card__inner"
+    >
+      <img
+        alt="Weight Loss Challenge"
+        className="card__image"
+        src="https://static.chloeting.com/programs/63ae15573e8cb6226b0c40c0/971c80f0-87c8-11ed-8684-75e08be900e2.jpeg"
+      />
+      <div
+        className="card__content"
+      >
+        <span
+          className="card__duration"
+        >
+          28
+           days
+        </span>
+        <span
+          className="card__minutes"
+        >
+          20
+          -
+          50
+           min/day
+        </span>
+        <div
+          className="card__type"
+        >
+          Type: 
+          Weight Loss, Full Body
+        </div>
+        <div
+          className="card__type"
+        >
+          Equipment: 
+          Fitness Mat, Dumbbells, Resistance Bands
+        </div>
+      </div>
+    </div>
+    <span
+      className="program-card__title"
+    >
+      Weight Loss Challenge
+    </span>
+  </a>
+</div>
+`;
+
+exports[`ProgramCard component should render component without prop days 1`] = `
+<div
+  className="program-card"
+>
+  <a
+    href="/programshttps://static.chloeting.com/programs/63ae15573e8cb6226b0c40c0/97331630-87c8-11ed-8684-75e08be900e2.jpeg"
+    onClick={[Function]}
+  >
+    <div
+      className="program-card__inner"
+    >
+      <img
+        alt="Weight Loss Challenge"
+        className="card__image"
+        src="https://static.chloeting.com/programs/63ae15573e8cb6226b0c40c0/971c80f0-87c8-11ed-8684-75e08be900e2.jpeg"
+      />
+      <div
+        className="card__content"
+      >
+        <span
+          className="card__minutes"
+        >
+          20
+          -
+          50
+           min/day
+        </span>
+        <div
+          className="card__type"
+        >
+          Type: 
+          Weight Loss, Full Body
+        </div>
+        <div
+          className="card__type"
+        >
+          Equipment: 
+          Fitness Mat, Dumbbells, Resistance Bands
+        </div>
+      </div>
+    </div>
+    <span
+      className="program-card__title"
+    >
+      Weight Loss Challenge
+    </span>
+  </a>
+</div>
+`;
+
+exports[`ProgramCard component should render component without prop equip 1`] = `
+<div
+  className="program-card"
+>
+  <a
+    href="/programshttps://static.chloeting.com/programs/63ae15573e8cb6226b0c40c0/97331630-87c8-11ed-8684-75e08be900e2.jpeg"
+    onClick={[Function]}
+  >
+    <div
+      className="program-card__inner"
+    >
+      <img
+        alt="Weight Loss Challenge"
+        className="card__image"
+        src="https://static.chloeting.com/programs/63ae15573e8cb6226b0c40c0/971c80f0-87c8-11ed-8684-75e08be900e2.jpeg"
+      />
+      <div
+        className="card__content"
+      >
+        <span
+          className="card__duration"
+        >
+          28
+           days
+        </span>
+        <span
+          className="card__minutes"
+        >
+          20
+          -
+          50
+           min/day
+        </span>
+        <div
+          className="card__type"
+        >
+          Type: 
+          Weight Loss, Full Body
+        </div>
+        <div
+          className="card__type"
+        >
+          Equipment: 
+        </div>
+      </div>
+    </div>
+    <span
+      className="program-card__title"
+    >
+      Weight Loss Challenge
+    </span>
+  </a>
+</div>
+`;
+
+exports[`ProgramCard component should render component without prop image 1`] = `
+<div
+  className="program-card"
+>
+  <a
+    href="/programshttps://static.chloeting.com/programs/63ae15573e8cb6226b0c40c0/97331630-87c8-11ed-8684-75e08be900e2.jpeg"
+    onClick={[Function]}
+  >
+    <div
+      className="program-card__inner"
+    >
+      <img
+        alt="Weight Loss Challenge"
+        className="card__image"
+        src=""
+      />
+      <div
+        className="card__content"
+      >
+        <span
+          className="card__duration"
+        >
+          28
+           days
+        </span>
+        <span
+          className="card__minutes"
+        >
+          20
+          -
+          50
+           min/day
+        </span>
+        <div
+          className="card__type"
+        >
+          Type: 
+          Weight Loss, Full Body
+        </div>
+        <div
+          className="card__type"
+        >
+          Equipment: 
+          Fitness Mat, Dumbbells, Resistance Bands
+        </div>
+      </div>
+    </div>
+    <span
+      className="program-card__title"
+    >
+      Weight Loss Challenge
+    </span>
+  </a>
+</div>
+`;
+
+exports[`ProgramCard component should render component without prop time 1`] = `
+<div
+  className="program-card"
+>
+  <a
+    href="/programshttps://static.chloeting.com/programs/63ae15573e8cb6226b0c40c0/97331630-87c8-11ed-8684-75e08be900e2.jpeg"
+    onClick={[Function]}
+  >
+    <div
+      className="program-card__inner"
+    >
+      <img
+        alt="Weight Loss Challenge"
+        className="card__image"
+        src="https://static.chloeting.com/programs/63ae15573e8cb6226b0c40c0/971c80f0-87c8-11ed-8684-75e08be900e2.jpeg"
+      />
+      <div
+        className="card__content"
+      >
+        <span
+          className="card__duration"
+        >
+          28
+           days
+        </span>
+        <span
+          className="card__minutes"
+        >
+          -
+           min/day
+        </span>
+        <div
+          className="card__type"
+        >
+          Type: 
+          Weight Loss, Full Body
+        </div>
+        <div
+          className="card__type"
+        >
+          Equipment: 
+          Fitness Mat, Dumbbells, Resistance Bands
+        </div>
+      </div>
+    </div>
+    <span
+      className="program-card__title"
+    >
+      Weight Loss Challenge
+    </span>
+  </a>
+</div>
+`;
+
+exports[`ProgramCard component should render component without prop title 1`] = `
+<div
+  className="program-card"
+>
+  <a
+    href="/programshttps://static.chloeting.com/programs/63ae15573e8cb6226b0c40c0/97331630-87c8-11ed-8684-75e08be900e2.jpeg"
+    onClick={[Function]}
+  >
+    <div
+      className="program-card__inner"
+    >
+      <img
+        alt=""
+        className="card__image"
+        src="https://static.chloeting.com/programs/63ae15573e8cb6226b0c40c0/971c80f0-87c8-11ed-8684-75e08be900e2.jpeg"
+      />
+      <div
+        className="card__content"
+      >
+        <span
+          className="card__duration"
+        >
+          28
+           days
+        </span>
+        <span
+          className="card__minutes"
+        >
+          20
+          -
+          50
+           min/day
+        </span>
+        <div
+          className="card__type"
+        >
+          Type: 
+          Weight Loss, Full Body
+        </div>
+        <div
+          className="card__type"
+        >
+          Equipment: 
+          Fitness Mat, Dumbbells, Resistance Bands
+        </div>
+      </div>
+    </div>
+    <span
+      className="program-card__title"
+    />
+  </a>
+</div>
+`;
+
+exports[`ProgramCard component should render component without prop type 1`] = `
+<div
+  className="program-card"
+>
+  <a
+    href="/programshttps://static.chloeting.com/programs/63ae15573e8cb6226b0c40c0/97331630-87c8-11ed-8684-75e08be900e2.jpeg"
+    onClick={[Function]}
+  >
+    <div
+      className="program-card__inner"
+    >
+      <img
+        alt="Weight Loss Challenge"
+        className="card__image"
+        src="https://static.chloeting.com/programs/63ae15573e8cb6226b0c40c0/971c80f0-87c8-11ed-8684-75e08be900e2.jpeg"
+      />
+      <div
+        className="card__content"
+      >
+        <span
+          className="card__duration"
+        >
+          28
+           days
+        </span>
+        <span
+          className="card__minutes"
+        >
+          20
+          -
+          50
+           min/day
+        </span>
+        <div
+          className="card__type"
+        >
+          Type: 
+        </div>
+        <div
+          className="card__type"
+        >
+          Equipment: 
+          Fitness Mat, Dumbbells, Resistance Bands
+        </div>
+      </div>
+    </div>
+    <span
+      className="program-card__title"
+    >
+      Weight Loss Challenge
+    </span>
+  </a>
+</div>
+`;
+
+exports[`ProgramCard component should render component without prop url 1`] = `
+<div
+  className="program-card"
+>
+  <a
+    href="/programs"
+    onClick={[Function]}
+  >
+    <div
+      className="program-card__inner"
+    >
+      <img
+        alt="Weight Loss Challenge"
+        className="card__image"
+        src="https://static.chloeting.com/programs/63ae15573e8cb6226b0c40c0/971c80f0-87c8-11ed-8684-75e08be900e2.jpeg"
+      />
+      <div
+        className="card__content"
+      >
+        <span
+          className="card__duration"
+        >
+          28
+           days
+        </span>
+        <span
+          className="card__minutes"
+        >
+          20
+          -
+          50
+           min/day
+        </span>
+        <div
+          className="card__type"
+        >
+          Type: 
+          Weight Loss, Full Body
+        </div>
+        <div
+          className="card__type"
+        >
+          Equipment: 
+          Fitness Mat, Dumbbells, Resistance Bands
+        </div>
+      </div>
+    </div>
+    <span
+      className="program-card__title"
+    >
+      Weight Loss Challenge
+    </span>
+  </a>
+</div>
+`;

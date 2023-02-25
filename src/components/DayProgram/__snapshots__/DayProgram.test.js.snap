@@ -1,0 +1,252 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DayProgram component should render component with default props 1`] = `
+<div
+  className="day-program"
+>
+  <div
+    className="day__title"
+  >
+    <span
+      className="day__number"
+    >
+      Day 
+      1
+    </span>
+    <div
+      className="day__desc"
+    >
+      <span
+        className="day__count"
+      >
+         
+        0
+         Workouts | 
+      </span>
+      <span
+        className="day__duration"
+      >
+         
+        0
+         Mins
+      </span>
+    </div>
+  </div>
+  <div
+    className="program__videos"
+  />
+  <div
+    className="button btn-complete 
+                active
+                "
+  >
+    Mark Day 1 as Complete
+  </div>
+  <div
+    className="day__message"
+  >
+    Log in or register a free account track your schedule progress
+  </div>
+</div>
+`;
+
+exports[`DayProgram component should render component with isCompletedDay prop 1`] = `
+<div
+  className="day-program"
+>
+  <div
+    className="day__title"
+  >
+    <span
+      className="day__number"
+    >
+      Day 
+      1
+    </span>
+    <div
+      className="day__desc"
+    >
+      <span
+        className="day__count"
+      >
+         
+        0
+         Workouts | 
+      </span>
+      <span
+        className="day__duration"
+      >
+         
+        0
+         Mins
+      </span>
+    </div>
+  </div>
+  <div
+    className="program__videos"
+  />
+  <div
+    className="button btn-complete 
+                active
+                completed"
+    onClick={[Function]}
+  >
+    Day 1 Complete
+  </div>
+  <div
+    className="day__message"
+  >
+    Log in or register a free account track your schedule progress
+  </div>
+</div>
+`;
+
+exports[`DayProgram component should render component with video prop 1`] = `
+<div
+  className="day-program"
+>
+  <div
+    className="day__title"
+  >
+    <span
+      className="day__number"
+    >
+      Day 
+      1
+    </span>
+    <div
+      className="day__desc"
+    >
+      <span
+        className="day__count"
+      >
+         
+        0
+         Workouts | 
+      </span>
+      <span
+        className="day__duration"
+      >
+         
+        0
+         Mins
+      </span>
+    </div>
+  </div>
+  <div
+    className="program__videos"
+  />
+  <div
+    className="button btn-complete 
+                active
+                "
+  >
+    Mark Day 1 as Complete
+  </div>
+  <div
+    className="day__message"
+  >
+    Log in or register a free account track your schedule progress
+  </div>
+</div>
+`;
+
+exports[`DayProgram component should render component without programId prop 1`] = `
+<div
+  className="day-program"
+>
+  <div
+    className="day__title"
+  >
+    <span
+      className="day__number"
+    >
+      Day 
+      1
+    </span>
+    <div
+      className="day__desc"
+    >
+      <span
+        className="day__count"
+      >
+         
+        0
+         Workouts | 
+      </span>
+      <span
+        className="day__duration"
+      >
+         
+        0
+         Mins
+      </span>
+    </div>
+  </div>
+  <div
+    className="program__videos"
+  />
+  <div
+    className="button btn-complete 
+                active
+                "
+  >
+    Mark Day 1 as Complete
+  </div>
+  <div
+    className="day__message"
+  >
+    Log in or register a free account track your schedule progress
+  </div>
+</div>
+`;
+
+exports[`DayProgram component should render component without prop day 1`] = `
+<div
+  className="day-program"
+>
+  <div
+    className="day__title"
+  >
+    <span
+      className="day__number"
+    >
+      Day 
+      0
+    </span>
+    <div
+      className="day__desc"
+    >
+      <span
+        className="day__count"
+      >
+         
+        0
+         Workouts | 
+      </span>
+      <span
+        className="day__duration"
+      >
+         
+        0
+         Mins
+      </span>
+    </div>
+  </div>
+  <div
+    className="program__videos"
+  />
+  <div
+    className="button btn-complete 
+                active
+                "
+  >
+    Mark Day 0 as Complete
+  </div>
+  <div
+    className="day__message"
+  >
+    Log in or register a free account track your schedule progress
+  </div>
+</div>
+`;

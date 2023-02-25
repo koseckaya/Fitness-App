@@ -1,4 +1,3 @@
-
 import './ErrorComponent.scss';
 import { Container } from '../Container';
 
@@ -7,8 +6,6 @@ export type Props = {
 };
 
 export const ErrorComponent = () => {
- 
-    
     return (
         <Container>
             <div className='error-component' >

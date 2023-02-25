@@ -1,0 +1,114 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExerciseVideoPrev component should render component with default props 1`] = `
+<div
+  className="exercise-video-prev"
+>
+  <a
+    href="https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing"
+  >
+    <img
+      alt="5 Min Warm Up"
+      className="exercise-video-prev__img"
+      src="https://static.chloeting.com/videos/63ae100649cf64962cb594e2/f081bd90-8a98-11ed-97ac-4b900c40c009.jpeg"
+    />
+    <div
+      className="video-prev "
+      onClick={[Function]}
+    />
+    <div>
+      5 Min Warm Up
+    </div>
+  </a>
+</div>
+`;
+
+exports[`ExerciseVideoPrev component should render component with inactive prop 1`] = `
+<div
+  className="exercise-video-prev"
+>
+  <a
+    href="https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing"
+  >
+    <img
+      alt="5 Min Warm Up"
+      className="exercise-video-prev__img"
+      src="https://static.chloeting.com/videos/63ae100649cf64962cb594e2/f081bd90-8a98-11ed-97ac-4b900c40c009.jpeg"
+    />
+    <div
+      className="video-prev active"
+      onClick={[Function]}
+    />
+    <div>
+      5 Min Warm Up
+    </div>
+  </a>
+</div>
+`;
+
+exports[`ExerciseVideoPrev component should render component without prop title 1`] = `
+<div
+  className="exercise-video-prev"
+>
+  <a
+    href="https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing"
+  >
+    <img
+      alt=""
+      className="exercise-video-prev__img"
+      src="https://static.chloeting.com/videos/63ae100649cf64962cb594e2/f081bd90-8a98-11ed-97ac-4b900c40c009.jpeg"
+    />
+    <div
+      className="video-prev "
+      onClick={[Function]}
+    />
+    <div />
+  </a>
+</div>
+`;
+
+exports[`ExerciseVideoPrev component should render component without src prop 1`] = `
+<div
+  className="exercise-video-prev"
+>
+  <a
+    href=""
+  >
+    <img
+      alt="5 Min Warm Up"
+      className="exercise-video-prev__img"
+      src="https://static.chloeting.com/videos/63ae100649cf64962cb594e2/f081bd90-8a98-11ed-97ac-4b900c40c009.jpeg"
+    />
+    <div
+      className="video-prev "
+      onClick={[Function]}
+    />
+    <div>
+      5 Min Warm Up
+    </div>
+  </a>
+</div>
+`;
+
+exports[`ExerciseVideoPrev component should render component without srcImg prop 1`] = `
+<div
+  className="exercise-video-prev"
+>
+  <a
+    href="https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing"
+  >
+    <img
+      alt="5 Min Warm Up"
+      className="exercise-video-prev__img"
+      src=""
+    />
+    <div
+      className="video-prev "
+      onClick={[Function]}
+    />
+    <div>
+      5 Min Warm Up
+    </div>
+  </a>
+</div>
+`;
