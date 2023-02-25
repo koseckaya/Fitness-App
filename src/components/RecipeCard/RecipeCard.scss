@@ -31,6 +31,59 @@
   }
 }
 
+@include for-max-1273px() {
+  .infinite-scroll-component__outerdiv {
+    a {
+      .recipe-card {
+        &__cal {
+          top: 19px;
+        }
+      }
+    }
+  }
+}
+
+@include for-max-1177px() {
+  .infinite-scroll-component__outerdiv {
+    a {
+      .recipe-card {
+        &__cal {
+          top: 24px;
+        }
+      }
+    }
+  }
+}
+@include for-max-1128px() {
+  .infinite-scroll-component__outerdiv {
+    a {
+      .recipe-card {
+        &__cal {
+          top: 30px;
+        }
+      }
+    }
+  }
+}
+
+@include for-max-1050px() {
+  .infinite-scroll-component__outerdiv {
+    a {
+      .recipe-card {
+        &__cal {
+          top: 40px;
+        }
+        &__label {
+          position: relative;
+          text-align: center;
+          font-size: 14px;
+          bottom: 25px;
+        }
+      }
+    }
+  }
+}
+
 @include for-max-1000px() {
   .section__recipes { 
     display: flex;

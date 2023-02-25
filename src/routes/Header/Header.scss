@@ -127,6 +127,17 @@ a {
 }
 
 
+@include for-max-1443px() {
+  .header {
+    &__container {
+      gap: 0%;
+    }
+    .nav {
+      width: 53%;
+    }
+  }
+}
+
 @include for-max-1050px() {
   .header {
     .nav {
@@ -134,7 +145,6 @@ a {
         display: grid;
         justify-content: center;
         align-items: center;
-        width: 55%;
         justify-content: space-evenly;
         gap: 0;
         grid-template-areas:

@@ -4,10 +4,12 @@
     display: none;
   }
   .toggle-container {
-    width: 82px;
+    right: 8%;
+    position: absolute;
+    width: 50px;
     height: 27px;
-   transform: translate(-100%, 141%);
   .toggle-slider {
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
     position: absolute;
     top: 0;
     right: 0;
@@ -23,26 +25,36 @@
     &:after {
       content: "";
       position: absolute;
-      bottom: 4px;
+      bottom: 6px;
       left: -24px;
-      width: 20px;
-      height: 20px;
-      background-color: #ffffff;
+      width: 25px;
+      height: 25px;
       border-radius: 30px;
+      font-size: 25px;
+      text-align: center;
+      text-justify: auto;
     }
     &:before {
+      content: "🌚";
+      width: 25px;
+      height: 25px;
       transition: 0.4s;
     }
     &:after {
+      content: "🌞";
+      width: 28px;
+      font-size: 28px;
+      bottom: 5px;
+      height: 28px;
       transition: 0.5s;
-       left: 4px;
+      left: -8px;
     }
   }
   .toggle-wave {
     position: absolute;
     top: 0;
     left: 0;
-    width: 69px;
+    width: 42px;
     height: 27px;
     border-radius: 40px;
     transition: all 1.4s;
@@ -53,9 +65,8 @@
       left: 20%;
       width: 30px;
       height: 3px;
-      background: #ffffff;
       border-radius: 100%;
-      opacity: 0.4;
+      opacity: 1;
     }
     &:before {
       content: "";
@@ -64,20 +75,53 @@
       left: 30%;
       width: 35px;
       height: 2px;
-      background: #ffffff;
       border-radius: 100%;
-      opacity: 0.3;
+      opacity: 1;
     }
   }
   input:checked + .toggle-slider {
     background-color: transparent;
     &:before,
     &:after {
-      transform: translateX(70px);
+      transform: translateX(44px);
+    }
+    &::before {
+      z-index: 6;
+    }
+    &::after {
+      z-index: 5;
     }
   }
   input:checked ~ .toggle-wave {
     display: block;
     background-color: #3398d9;
+  }
+}
+
+@include for-max-1611px() {
+  .toggle-container {
+    right: 3%;
+  }
+}
+
+
+@include for-max-1443px() {
+  .toggle-container {
+    right: 1%;
+  }
+}
+
+@include for-max-1000px() {
+  .toggle-container {
+    display: none;
+    &.activated {
+      display: block;
+      position: fixed;
+      z-index: 10000;
+      left: 21px;
+      top: 523px;
+      animation: taadaa 1.2s forwards;
+    }
+   
   }
 }

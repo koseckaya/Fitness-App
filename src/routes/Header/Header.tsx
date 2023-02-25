@@ -52,7 +52,7 @@ const Header: FC<Props> = () => {
                 <button className={classBurger} aria-expanded={menuActive} onClick={handleBurgerActive} aria-label="Main Menu">
                   <CrossHamburgerIcon/>
                 </button>
-                <ThemeChange />
+                <ThemeChange className={`toggle-container ${menuActive ? 'activated' : ''}`}/>
             </div>
         </Container>
     </div>

@@ -7,8 +7,8 @@ export type Props = {
     onChange: () => void;
 };
 
-const Toggle: FC<Props> = ({ value, onChange }: Props) => (
-    <div className='toggle-container'>
+const Toggle: FC<Props> = ({ value, onChange, className }: Props) => (
+    <div className={className}>
         <label className="switch" htmlFor="toggler">
             <input
             className='toggle-input'
