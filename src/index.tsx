@@ -1,19 +1,41 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import React, { ReactNode, useContext } from "react";
+import ReactDOM from "react-dom/client";
+import { createBrowserRouter, Navigate } from "react-router-dom";
+import { App } from "./App";
 import {
-  createBrowserRouter,
-} from "react-router-dom";
-import { App } from './App';
-import {
-  Main, Error, Home, WorkoutPrograms,
-  WorkoutVideos, About,
-  Signup, Login, PrivacyPolicy, RecipePage, ProgramPage
+  Main,
+  Error,
+  Home,
+  WorkoutPrograms,
+  WorkoutVideos,
+  About,
+  Signup,
+  Login,
+  PrivacyPolicy,
+  RecipePage,
+  ProgramPage,
 } from "./routes";
-import RecipesWrapper from './routes/Recipes/RecipesWrapper';
-import './styles/index.scss'
-import { ThemeProvider, UserProvider } from './components/utils/contexts';
-import { Calculator } from './routes/Calculator';
-import { Profile } from './routes/Profile';
+import RecipesWrapper from "./routes/Recipes/RecipesWrapper";
+import "./styles/index.scss";
+import {
+  ThemeProvider,
+  UserContext,
+  UserProvider,
+} from "./components/utils/contexts";
+import { Calculator } from "./routes/Calculator";
+import { Profile } from "./routes/Profile";
+
+interface ProtectedRouteProps {
+  children: ReactNode;
+}
+
+export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
+  const { currentUser } = useContext(UserContext);
+  if (!currentUser) {
+    return <Navigate to='/' />;
+  }
+  return <>{children}</>;
+};
 
 export const router = createBrowserRouter([
   {
@@ -44,12 +66,12 @@ export const router = createBrowserRouter([
       {
         path: "recipes/:categoryId",
         element: <RecipesWrapper />,
-        },
-       {
+      },
+      {
         path: "calculator",
         element: <Calculator />,
-        },
-       {
+      },
+      {
         path: "about",
         element: <About />,
       },
@@ -63,7 +85,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "profile",
-        element: <Profile />,
+        element: (
+          <ProtectedRoute>
+            <Profile />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "privacy-policy",
@@ -71,19 +97,18 @@ export const router = createBrowserRouter([
       },
     ],
   },
-
 ]);
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
 
 root.render(
   <React.StrictMode>
-      <ThemeProvider> 
-        <UserProvider>
-          <App />
-        </UserProvider>
+    <ThemeProvider>
+      <UserProvider>
+        <App />
+      </UserProvider>
     </ThemeProvider>
   </React.StrictMode>
 );

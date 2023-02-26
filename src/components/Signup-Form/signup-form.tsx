@@ -1,14 +1,12 @@
 import './signup-form.scss';
 import { GoogleIcon } from '../Icons';
-
-
 import { FC, useEffect} from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
-import { 
+import {
   auth,
-  createUserDocFromAuth, 
+  createUserDocFromAuth,
   signInWithGoogleRedirect,
   createAuthUserWithEmailAndPass,
 } from '../utils/firebase';
@@ -37,12 +35,7 @@ const SignupForm: FC = () => {
     };
 
     fetchData();
-  }, [])
-
-/*   const logGoogleUser = async () => {
-    const { user} = await signInWithGooglePopup();
-    const userDocRef = await createUserDocFromAuth(user);
-  } */
+  }, [navigate])
 
   const validationSchema = Yup.object().shape({
     name: Yup.string().required('Name is required')
@@ -66,7 +59,6 @@ const SignupForm: FC = () => {
     register,
     handleSubmit,
     setError,
-    reset,
     formState: { errors, isValid }
   } = useForm<UserSubmitForm>({
     resolver: yupResolver(validationSchema)
@@ -83,7 +75,7 @@ const SignupForm: FC = () => {
       }
     } catch (error: unknown) {
       if (error instanceof Error && error.code === 'auth/email-already-in-use') {
-        setError('email', { 
+        setError('email', {
           message: 'Email already in use',
         })
       }
@@ -124,7 +116,7 @@ const SignupForm: FC = () => {
           </div>
 
           <div className="mb-3">
-            <input type="password" id="password" 
+            <input type="password" id="password"
               className={`form-control__auth ${ errors.password ? 'is-invalid' : '' }`}
               placeholder='Password'
               {...register('password')} />
@@ -152,7 +144,7 @@ const SignupForm: FC = () => {
             disabled={!isValid}>
             Create account
           </button>
-          
+
           <div className='form-delimiter'>or</div>
           <button type='button' className='button form-btn form-btn-google'
             onClick={ signInWithGoogleRedirect }>
