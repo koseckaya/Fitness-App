@@ -194,25 +194,80 @@
         margin-bottom: 1rem;
     }
     .form-calculator {
-        display: grid;
-        grid-template-areas:
-          "name btn"
-          "weight btn";
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(2, 1fr);
-        grid-gap: 10px;
-        height: auto;
+            display: grid;
+            grid-template-areas:
+                "name btn"
+                "weight btn";
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            grid-gap: 10px;
+            height: auto;
       
         &__name {
-          grid-area: name;
+            grid-area: name;
         }
       
         &__weight {
-          grid-area: weight;
+            grid-area: weight;
         }
       
         .button {
-          grid-area: btn;
+            grid-area: btn;
+            width: 172px;
+            align-self: center;
+            justify-self: end;
+        }
+      }
+      .list {
+        &__weight {
+            margin: 0;
+            width: 15%;
+        }
+        &__title {
+            margin: 0;
+            width: 15%;
+        }
+        &__nutrition {
+            margin: 0;
+        }
+    }
+  }
+
+  @include for-max-640px() {
+    .calc__forms {
+        .calc__form {
+            width: 95%;
+        }
+        .calc__analysis {
+            width: 95%;
+        }
+    }
+    .list__item {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-rows: repeat(2, auto);
+        grid-template-areas:
+          "weight nutrition controls"
+          "title nutrition controls";
+        grid-column-gap: 5px;
+        grid-row-gap: 5px;
+      
+        .list__weight {
+          grid-area: weight;
+          width: auto;
+        }
+      
+        .list__title {
+          grid-area: title;
+          width: auto;
+        }
+      
+        .list__nutrition {
+          grid-area: nutrition;
+        }
+      
+        .list__controls {
+          grid-area: controls;
         }
       }
   }
