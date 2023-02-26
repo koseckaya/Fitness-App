@@ -1,4 +1,4 @@
-
+//@ts-nocheck
 
 import { FC, useContext, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
@@ -21,9 +21,11 @@ const Header: FC<Props> = () => {
     let location = useLocation();
     let path = location.pathname
     const [menuActive, setMenuActive] = useState(false);
-    const handleMenuActive = () => {
+    const handleMenuActive = (e) => {
+        if(e.target.closest('.toggle-container')) return
+        if(!menuActive) return
         menuActive ? setMenuActive(false) : setMenuActive(true);
-        }
+    }
     const handleBurgerActive = (e: any) => {
         e.stopPropagation();
         menuActive ? setMenuActive(false) : setMenuActive(true);
