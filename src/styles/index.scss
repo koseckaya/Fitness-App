@@ -1,5 +1,8 @@
 @import './vars.scss';
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;600&display=swap');
+
+@import "./light-dark-theme";
+
 body {
     margin: 0;
     padding: 0;
@@ -7,6 +10,13 @@ body {
     background: #fff;
     height: 100%;
     font-family: 'Manrope', sans-serif;
+    &::-webkit-scrollbar {
+        width: 0px;
+        background: rgba(255, 255, 255, 0.0);
+      }
+    background-color: var(--bgThemeColor1);
+    color: var(--textThemeColor1);
+    transition: background-color 0.5s ease;
 }
 
 .error  {
@@ -37,18 +47,157 @@ body {
 }
 
 
+@include for-max-1250px() {
+  
+    .workout-videos {
+        padding: 1rem;
+      &__right-side {
+        .videos-container {
+          display: grid !important;
+          grid-template-columns: repeat(2, 1fr);
+          .workout-video {
+            width: 75%;
+            align-self: start;
+            justify-self: center;
+          }
+        }
+      }
+    }
+  
+}
+
+@include for-max-1000px() {
+    body {
+        overflow-x: hidden;
+    }
+}
+
+@include for-max-620px() {
+    .section__videos {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+}
+
+@include for-max-568px() {
+    .section__programs {
+        display: flex;
+        flex-direction: column;
+        .program-card {
+            a {
+                .program-card__inner {
+                    img {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+                .program-card__title {    
+                    font-size: 1.2rem;
+                }
+            }
+        }
+    }
+}
+
+@include for-max-400px() {
+    .button-primary {
+        width: 186px;
+    }
+    .header__hamburger {
+        &.opened {
+            top: 37.5px;
+        }
+    }
+  }
+
+
 :root[data-theme="light"] {
   --background-color: #fafafa;
   --color: #2b3e51;
 }
 
-:root[data-theme="dark"] {
-  --background-color: #2b3e51;
-  --color: #fafafa;
-}
 
 body {
-  background-color: var(--background-color);
-  color: var(--color);
-  transition: background-color 1s linear, color 0.5s linear;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: #fff;
+    height: 100%;
+    font-family: 'Manrope', sans-serif;
+    background-color: var(--bgThemeColor1);
+    color: var(--textThemeColor1);
+    transition: background-color 0.5s ease;
+}
+
+
+// :root[data-theme="light"] {
+//   --background-color: #fafafa;
+//   --color: #2b3e51;
+// }
+
+// :root[data-theme="dark"] {
+//   --background-color: #2b3e51;
+//   --color: #fafafa;
+// }
+
+// body {
+//   background-color: var(--background-color);
+//   color: var(--color);
+//   transition: background-color 1s linear, color 0.5s linear;
+// }
+.about {
+    &-title{
+        text-align: center;
+        margin: 30px 0;
+        font-size: 32px;
+        font-weight: 700;
+    }
+    &__image {
+        height: 300px;
+        width: 100%;
+        img {
+            width: 100%; 
+            height: 100%; 
+            object-fit: contain;
+        }
+    }
+    &-card {
+        border: 1px solid rgb(233, 233, 239);
+        border-radius: 15px;
+        background-color: var(--bgThemeColor2);
+        color: var(--textThemeColor1);
+        padding: 20px 30px;
+        display: grid;
+        grid-template-columns: 324px auto;
+        column-gap: 30px;
+        margin-bottom: 20px;
+    }
+    &__title {
+        margin-bottom: 20px;
+        font-weight: 500;
+        font-size: 22px;
+        line-height: 30px;
+        color: #303033;
+        text-transform: capitalize;
+    }
+    &__desc {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 27px;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        word-break: break-word;
+        -webkit-user-select: none;
+        user-select: none;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+    }
+    &__text {
+       
+    }
 }

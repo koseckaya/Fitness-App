@@ -1,14 +1,20 @@
 @import '../../styles/vars.scss';
+@import "../../styles/light-dark-theme";
 
 .footer {
     box-sizing: border-box;
-    background: $gray;
+    background-color: var(--bgThemeColor2);
+    color: var(--textThemeColor1);
     padding: 15px 20px;
     &__container{
         display: flex;
         justify-content: space-around;
+        .nav {
+            width: 60%;
+        }
     }
     .social{
+        background-color: var(--testThemeColor);
         display: flex;
         gap: 15px;
     }

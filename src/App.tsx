@@ -1,18 +1,14 @@
 import React from 'react';
 import { RouterProvider } from "react-router-dom";
+import { RecipeContext } from './components/utils/contexts/RecipeContext';
 import { RecipeContextType, RecipeContextItems, recipeData } from './data';
 import { modifyData } from './helpers/helpers';
-import { router } from './index';
+import { router } from './router';
 import { getRecipes } from './Services/apiService';
 
 
 interface IProps {}
-interface IState extends RecipeContextType{}
-  
-export const RecipeContext = React.createContext<Partial<RecipeContextType>>({
-  recipes: {},
-  setRecipes: () => {}
-})
+interface IState extends RecipeContextType {}
 
 class App extends React.Component<IProps,IState > {
     constructor(props: any) {

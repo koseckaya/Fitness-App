@@ -1,12 +1,14 @@
 @import '../../styles/vars';
+@import "../../styles/light-dark-theme";
 
 .program-card {
   box-sizing: border-box;
   display: flex;
-  margin-bottom: 80px;
+  margin-bottom: 1rem;
   &__title {
     font-size: 18px;
     font-weight: 500;
+    color: var(--textThemeColor1);
   }
   &__inner{
     margin-bottom: 16px;
@@ -17,7 +19,7 @@
      cursor: pointer;
     &:hover {
       .card__content {
-        bottom: 15px;
+        bottom: -100px;
       }
       .card__image {
          filter: brightness(0.6);
@@ -37,7 +39,8 @@
     position: absolute;
     display: flex;
     flex-direction: column;
-    bottom: -44px;
+    bottom: -208px;
+    height: 300px;
     left: 15px;
     gap: 10px;
     transition: all 0.5s;
@@ -54,5 +57,96 @@
   }
    &__minutes {
     width: 108px;
+  }
+}
+
+@include for-max-1360px() {
+  .card__image {
+    height: 428px;
+    width: 329px;
+  }
+  .program-card {
+    align-items: center;
+    justify-content: center;
+    &__title {
+      display: block;
+      font-size: 14px;
+      text-align: center;
+    }
+  }
+}
+
+@include for-max-1128px() {
+  .card__image {
+    height: 371px;
+    width: 261px;
+  }
+}
+
+@include for-max-920px() {
+  .card__image {
+    height: 327px;
+    width: 216px;
+  }
+  .program-card {
+    &__inner {
+      &:hover {
+        .card__content {
+          bottom: -60px;
+        }
+      }
+    }
+    &__title {
+      font-size: 14px;
+      text-align: center;
+    }
+  }
+}
+
+@include for-max-800px() {
+  .programs-container {
+    grid-template-columns: repeat(2, 1fr) !important;
+    .program-card {
+      width: 100%;
+      &__inner {
+        .card__image {
+          width: 300px !important;
+          height: 450px !important;
+        }
+      }
+    }
+  }
+}
+
+@include for-max-740px() {
+  .card__image {
+    height: 275px;
+    width: 181px;
+  }
+  .program-card__title {
+    font-size: 14px;
+  }
+}
+
+@include for-max-620px() {
+  .card__image {
+    height: 228px;
+    width: 142px;
+  }
+}
+
+@include for-max-400px() {
+  .programs-container {
+    .program-card {
+      &__inner {
+        .card__image {
+          width: 280px !important;
+          height: 430px !important;
+        }
+      }
+    }
+  }
+  .card__content {
+    padding-right: 10px;
   }
 }

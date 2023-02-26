@@ -1,6 +1,5 @@
-
-import { APP_ID, APP_KEY, NUTRITION_ID, NUTRITION_KEY } from './../key';
 import axios from "axios";
+import { APP_ID, APP_KEY, NUTRITION_ID, NUTRITION_KEY } from './../key';
 import { RecipeApi } from '../data';
 import { categoryMappingType } from './types';
 

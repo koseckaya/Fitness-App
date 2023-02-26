@@ -1,4 +1,4 @@
-//@ts-nocheck
+
 export interface Programs {
   id: number;
   title: string;
@@ -7219,11 +7219,7 @@ export const programByDays: Program[] = [
   },
 ];
 
-export interface ImagesLargeType {
-  url: string;
-  height?: number;
-  width?: number;
-}
+
 
 export interface NutrientType {
   label: string;
@@ -7236,6 +7232,12 @@ export interface NutrientsType {
   [key: string]: NutrientType;
 }
 
+interface ImageType {
+  url: string;
+  width: number;
+  height: number;
+}
+
 export interface RecipeItem {
   url: string;
   uri: string;
@@ -7243,14 +7245,28 @@ export interface RecipeItem {
   label: string;
   image: string;
   calories: number;
-  images?: ImagesType;
+  images?: { [key: string]: ImageType };
   ingredientLines?: string[];
   totalNutrients?: NutrientsType;
   healthLabels?: string[];
   totalTime?: number;
+  source?: string;
+  yield?: number;
+  dietLabels?: string[];
+  cautions?: string[];
+  ingredients?: any;
+  totalDaily?: any;
+  digest?: any;
+  
+  totalWeight?: number;
+  cuisineType?: string[];
+  mealType?: string[];
+  dishType?: string[];
+
 }
 export interface RecipeApi {
   recipe: RecipeItem;
+  _links?: { self: { title: string; href: string } };
 }
 export interface RecipeContextItems {
   [key: string]: RecipeApi;
