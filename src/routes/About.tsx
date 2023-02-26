@@ -31,11 +31,9 @@ export class About extends Component {
             <div className='about__title'>Yuri Skripal</div>
               <div className='about__desc'>Frontend developer</div>
               <div className='about__text'>
-                <p>Application architecture development, routing setup.</p>
-                <p>Connecting and working with third party APIs
-                to get recipes and food nutrients.</p>
-                <p>Used jest framework to write unit tests for all application components.</p>
-                <p>Implemented dark mode functionality for the application</p>
+                <p>Developed the backend part of authentication and authorization via the Firebase database.</p>
+                <p>Implemented logic to manage the user's profile page by updating data from the database.</p>
+                <p>Created a sign-in and sign-up form with a validation scheme.</p>
               </div>
 
           </div>
@@ -57,7 +55,7 @@ export class About extends Component {
 
           </div>
         </div>
-       
+
       </Container>
     )
   }
