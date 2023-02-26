@@ -1,5 +1,6 @@
 @import '../../styles/vars.scss';
 @import "../../styles/light-dark-theme";
+
 .header {
   box-sizing: border-box;
   padding: 15px 20px;
@@ -22,6 +23,15 @@
     display: flex;
     width: 55%;
     justify-content: space-around;
+    color: var(--textThemeColor1);
+  &-active {
+    color: var(--testThemeColor);
+  }
+  &-item {
+    &:hover {
+      color: darken($purple, 20%);
+    }
+  }
   }
 }
 

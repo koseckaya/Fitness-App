@@ -69,6 +69,23 @@
     }
 }
 
+@include for-max-970px() {
+    .recipes__search {
+        margin-right: 0px;
+        border-radius: 9px;
+    }
+    .recipes__top {
+        flex-direction: column;
+        gap: 20px;
+        .latest {
+            width: 100%;
+        }
+        .categories {
+            width: 100%;
+        }
+    }
+}
+
 @include for-max-740px() {
     .recipes__container {
         display: grid;
@@ -79,6 +96,14 @@
 }
 
 @include for-max-568px() {
+    .recipes__search {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        position: none;
+        margin: 15px auto;
+    }
     .recipes__container {
         display: flex;
         flex-direction: column;

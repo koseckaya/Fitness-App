@@ -53,7 +53,7 @@ body {
         padding: 1rem;
       &__right-side {
         .videos-container {
-          display: grid;
+          display: grid !important;
           grid-template-columns: repeat(2, 1fr);
           .workout-video {
             width: 75%;
@@ -119,9 +119,15 @@ body {
 
 
 body {
-  background-color: var(--background-color);
-  color: var(--color);
-  transition: background-color 1s linear, color 0.5s linear;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: #fff;
+    height: 100%;
+    font-family: 'Manrope', sans-serif;
+    background-color: var(--bgThemeColor1);
+    color: var(--textThemeColor1);
+    transition: background-color 0.5s ease;
 }
 
 

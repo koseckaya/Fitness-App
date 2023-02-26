@@ -19,7 +19,7 @@
      cursor: pointer;
     &:hover {
       .card__content {
-        bottom: 15px;
+        bottom: -100px;
       }
       .card__image {
          filter: brightness(0.6);
@@ -39,7 +39,8 @@
     position: absolute;
     display: flex;
     flex-direction: column;
-    bottom: -44px;
+    bottom: -208px;
+    height: 300px;
     left: 15px;
     gap: 10px;
     transition: all 0.5s;
@@ -67,6 +68,11 @@
   .program-card {
     align-items: center;
     justify-content: center;
+    &__title {
+      display: block;
+      font-size: 14px;
+      text-align: center;
+    }
   }
 }
 
@@ -81,6 +87,34 @@
   .card__image {
     height: 327px;
     width: 216px;
+  }
+  .program-card {
+    &__inner {
+      &:hover {
+        .card__content {
+          bottom: -60px;
+        }
+      }
+    }
+    &__title {
+      font-size: 14px;
+      text-align: center;
+    }
+  }
+}
+
+@include for-max-800px() {
+  .programs-container {
+    grid-template-columns: repeat(2, 1fr) !important;
+    .program-card {
+      width: 100%;
+      &__inner {
+        .card__image {
+          width: 300px !important;
+          height: 450px !important;
+        }
+      }
+    }
   }
 }
 
@@ -98,5 +132,21 @@
   .card__image {
     height: 228px;
     width: 142px;
+  }
+}
+
+@include for-max-400px() {
+  .programs-container {
+    .program-card {
+      &__inner {
+        .card__image {
+          width: 280px !important;
+          height: 430px !important;
+        }
+      }
+    }
+  }
+  .card__content {
+    padding-right: 10px;
   }
 }

@@ -162,7 +162,6 @@ export class WorkoutVideos extends Component {
                             ></div>
                         </form>
                     </div>
-                    <div>
                         <div className="slider-minutes">WORKOUT DURATION</div>
                         <MultiRangeSlider
                             key={this.state.reset}
@@ -174,21 +173,19 @@ export class WorkoutVideos extends Component {
                                     duration: [min, max],
                                 })
                             }/>
-                <div className="random-video">
-                  <div className="random-video__title">Try out this Random Workout Video:</div>
-                  {randomVideo && (
-                         <WorkoutVideoComponent
-                                    key={randomVideo.id}
-                                    title={randomVideo.title}
-                                    src={randomVideo.src}
-                                    srcImg={randomVideo.srcImg}
-                                    duration={randomVideo.duration}
-                  /> ) }
-                  
-                  <div className="button" onClick={this.handleRandomVideo }>Randomize Again</div>
-                </div>
-              </div>
-              
+                        <div className="random-video">
+                        <div className="random-video__title">Try out this Random Workout Video:</div>
+                        {randomVideo && (
+                                <WorkoutVideoComponent
+                                            key={randomVideo.id}
+                                            title={randomVideo.title}
+                                            src={randomVideo.src}
+                                            srcImg={randomVideo.srcImg}
+                                            duration={randomVideo.duration}
+                        /> ) }
+                        
+                        <div className="button" onClick={this.handleRandomVideo }>Randomize Again</div>
+                        </div>
                 </div>
                 <div className="workout-videos__right-side">
                     <div className="videos-filters">

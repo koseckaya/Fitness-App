@@ -46,6 +46,10 @@ $error: rgb(162, 5, 5) ;
   @media (max-width: 1000px) { @content; }
 }
 
+@mixin for-max-970px {
+  @media (max-width: 970px) { @content; }
+}
+
 @mixin for-max-950px {
   @media (max-width: 950px) { @content; }
 }
@@ -72,6 +76,10 @@ $error: rgb(162, 5, 5) ;
 
 @mixin for-max-568px {
   @media (max-width: 568px) { @content; }
+}
+
+@mixin for-max-480px {
+  @media (max-width: 480px) { @content; }
 }
 
 @mixin for-max-440px {
