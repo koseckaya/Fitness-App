@@ -6,15 +6,15 @@ import { ThemeProvider, UserProvider } from './components/utils/contexts';
 import './styles/index.scss'
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
 
 root.render(
   <React.StrictMode>
-      <ThemeProvider> 
-        <UserProvider>
-          <App />
-        </UserProvider>
+    <ThemeProvider>
+      <UserProvider>
+        <App />
+      </UserProvider>
     </ThemeProvider>
   </React.StrictMode>
 );
