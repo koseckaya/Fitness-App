@@ -42,3 +42,137 @@
         text-transform: lowercase;
     }
 }
+
+@include for-max-1000px() {
+  .categories {
+    &__card {
+      width: 90%;
+    }
+  }
+}
+
+@include for-max-970px() {
+  .categories {
+    &__card {
+      width: 100%;
+      margin-left: 0;
+      height: 210px;
+      margin-bottom: 15px;
+      gap: 25%;
+      .categories-desc {
+        width: 25%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+        .categories-title {
+          font-size: 2rem;
+        }
+        .categories-description {
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+}
+
+@include for-max-640px() {
+  .categories {
+    &__card {
+      width: 100%;
+      margin-left: 0;
+      height: 210px;
+      margin-bottom: 15px;
+      gap: 15%;
+      .categories-desc {
+        width: 25%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+        .categories-title {
+          font-size: 2rem;
+        }
+        .categories-description {
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+}
+
+@include for-max-568px() {
+  .categories {
+    &__card {
+      width: 100%;
+      margin-left: 0;
+      height: 210px;
+      margin-bottom: 15px;
+      gap: 15%;
+      .categories-desc {
+        width: 25%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+        .categories-title {
+          font-size: 1.5rem;
+        }
+        .categories-description {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}
+
+@include for-max-480px() {
+  .categories {
+    &__card {
+      .categories-desc {
+        .categories-title {
+          font-size: 1.2rem;
+        }
+        .categories-description {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}
+
+@include for-max-480px() {
+  .categories {
+    &__card {
+      gap: 5%;
+      .categories-desc {
+        .categories-title {
+          font-size: 1.2rem;
+        }
+        .categories-description {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}
+
+@include for-max-480px() {
+  .categories {
+    &__card {
+      height: 150px;
+      gap: 15%;
+      .categories-desc {
+        .categories-title {
+          font-size: 1.2rem;
+        }
+        .categories-description {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}

@@ -38,3 +38,21 @@
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   }
 }
+
+@include for-max-620px() {
+  .workout-video {
+    width: 65%;
+    &__title {
+      font-size: 1.3rem;
+    }
+    &__duration {
+      font-size: 1.3rem;
+    }
+  }
+}
+
+@include for-max-440px() {
+  .workout-video {
+    width: 80%;
+  }
+}

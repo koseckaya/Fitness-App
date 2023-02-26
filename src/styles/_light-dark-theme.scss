@@ -16,6 +16,9 @@ $color-background-primary: #eee;
 $error: rgb(162, 5, 5) ;
 
 
+$test1: rgb(0, 254, 72);
+$test2: rgb(35, 38, 1);
+
 $themes: (
   bgThemeColor1: (
     darkTheme: $blue700,
@@ -33,6 +36,10 @@ $themes: (
     darkTheme: $gray,
     lightTheme: $color-primary,
   ),
+  testThemeColor: (
+    darkTheme: $test1,
+    lightTheme: $test2,
+  )
 );
 
 @mixin styles($mode) {

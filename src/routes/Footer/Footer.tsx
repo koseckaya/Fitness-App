@@ -16,7 +16,6 @@ const Footer: FC<Props> = ({ className }: Props) => (
                 <div className='copy'>© 2023 Body Tone</div>
                 <nav className='nav'>
                     <Link to={`/privacy-policy`} className="nav-item">Privacy Policy</Link>
-                    <Link to={`/about`} className="nav-item">About</Link>
                 </nav>
                <div className='social'>
                     <a href='https://www.facebook.com'><FacebookIcon /></a>

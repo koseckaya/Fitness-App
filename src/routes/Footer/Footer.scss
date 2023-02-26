@@ -9,8 +9,12 @@
     &__container{
         display: flex;
         justify-content: space-around;
+        .nav {
+            width: 60%;
+        }
     }
     .social{
+        background-color: var(--testThemeColor);
         display: flex;
         gap: 15px;
     }
