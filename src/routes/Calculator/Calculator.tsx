@@ -180,9 +180,11 @@ const Calculator: FC<Props> = ({ className }: Props) => {
 
     return (
        <>
-            <video className='videoTag' autoPlay loop muted>
-                    <source src={video} type='video/mp4' />
-            </video>
+            <div className="videoContainer">
+                <video className='videoTag' autoPlay loop muted>
+                        <source src={video} type='video/mp4' />
+                </video>
+            </div>
         <Container>
             <div className="calc">
                 <h3 className="calc__title">

@@ -21,9 +21,11 @@ const Header: FC<Props> = () => {
     let location = useLocation();
     let path = location.pathname
     const [menuActive, setMenuActive] = useState(false);
-    const handleMenuActive = () => {
-        menuActive ? setMenuActive(false) : setMenuActive(true);
-        }
+    const handleMenuActive = (e: any) => {
+      if(e.target.closest('.toggle-container')) return
+      if(!menuActive) return
+      menuActive ? setMenuActive(false) : setMenuActive(true);
+    }
     const handleBurgerActive = (e: any) => {
         e.stopPropagation();
         menuActive ? setMenuActive(false) : setMenuActive(true);
