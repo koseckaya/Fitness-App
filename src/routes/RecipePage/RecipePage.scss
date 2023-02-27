@@ -119,3 +119,57 @@
     }
   }
 }
+
+@include for-max-920px() {
+  .recipe-page {
+    flex-direction: column;
+    &__main {
+      padding: 3px 48px 40px 20px;
+    }
+    &__side {
+      padding: 26px 10px 28px 20px;
+    }
+  }
+  .recipe__img {
+    place-self: center;
+    width: 55%;
+    padding: 25px 0px 10px 0px;
+  }
+  .recipe__title {
+    margin: 9px 0px;
+    text-align: center;
+  }
+  .recipe__notes {
+    width: 95%;
+    margin-top: 20px;
+    max-width: none;
+  }
+  .recipe__ingredient_title {
+    margin-top: 30px;
+  }
+}
+
+@include for-max-480px() {
+  .recipe__img {
+    width: 80%;
+  }
+  .recipe-page {
+    &__main {
+      .recipe__nutrition {
+        display: flex;
+        flex-wrap: wrap;
+      }
+    }
+  }
+  .recipe__tags {
+    align-items: center;
+    justify-items: center;
+    place-self: center;
+  }
+  .recipe__notes {
+    padding: 20px;
+  }
+  .recipe__notes_text {
+    font-size: 15px;
+  }
+}

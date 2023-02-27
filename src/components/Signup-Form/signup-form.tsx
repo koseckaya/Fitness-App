@@ -44,8 +44,7 @@ const SignupForm: FC = () => {
       .max(20, "Name must not exceed 20 characters"),
     lastName: Yup.string()
       .optional()
-      .max(20, "Name must not exceed 20 characters")
-      .notRequired(),
+      .max(20, "Name must not exceed 20 characters"),
     email: Yup.string().required("Email is required").email("Email is invalid"),
     password: Yup.string()
       .required("Password is required")

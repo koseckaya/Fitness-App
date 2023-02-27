@@ -43,7 +43,7 @@ export const DropdownMenu: FC<DropdownProps> = ({
   });
 
   return (
-    <div ref={ref}>
+    <div ref={ref} className="profileBtnContainer">
       <DropdownItem
         open={open}
         trigger={
