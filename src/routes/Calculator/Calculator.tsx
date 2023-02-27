@@ -185,7 +185,7 @@ const Calculator: FC<Props> = ({ className }: Props) => {
                         <source src={video} type='video/mp4' />
                 </video>
             </div>
-        <Container>
+        <Container className="calculator-container">
             <div className="calc">
                 <h3 className="calc__title">
                     Try Our Recipe Nutrition Calculator
