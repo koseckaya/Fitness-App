@@ -45,107 +45,6 @@ body {
     display: flex;
     justify-content: space-between;
 }
-
-
-@include for-max-1250px() {
-  
-    .workout-videos {
-        padding: 1rem;
-      &__right-side {
-        .videos-container {
-          display: grid !important;
-          grid-template-columns: repeat(2, 1fr);
-          .workout-video {
-            width: 75%;
-            align-self: start;
-            justify-self: center;
-          }
-        }
-      }
-    }
-  
-}
-
-@include for-max-1000px() {
-    body {
-        overflow-x: hidden;
-    }
-}
-
-@include for-max-620px() {
-    .section__videos {
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-    }
-}
-
-@include for-max-568px() {
-    .section__programs {
-        display: flex;
-        flex-direction: column;
-        .program-card {
-            a {
-                .program-card__inner {
-                    img {
-                        width: 100%;
-                        height: 100%;
-                    }
-                }
-                .program-card__title {    
-                    font-size: 1.2rem;
-                }
-            }
-        }
-    }
-}
-
-@include for-max-400px() {
-    .button-primary {
-        width: 186px;
-    }
-    .header__hamburger {
-        &.opened {
-            top: 37.5px;
-        }
-    }
-  }
-
-
-:root[data-theme="light"] {
-  --background-color: #fafafa;
-  --color: #2b3e51;
-}
-
-
-body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background: #fff;
-    height: 100%;
-    font-family: 'Manrope', sans-serif;
-    background-color: var(--bgThemeColor1);
-    color: var(--textThemeColor1);
-    transition: background-color 0.5s ease;
-}
-
-
-// :root[data-theme="light"] {
-//   --background-color: #fafafa;
-//   --color: #2b3e51;
-// }
-
-// :root[data-theme="dark"] {
-//   --background-color: #2b3e51;
-//   --color: #fafafa;
-// }
-
-// body {
-//   background-color: var(--background-color);
-//   color: var(--color);
-//   transition: background-color 1s linear, color 0.5s linear;
-// }
 .about {
     &-title{
         text-align: center;
@@ -197,7 +96,119 @@ body {
         -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
     }
-    &__text {
-       
+}
+
+
+@include for-max-1250px() {
+  
+    .workout-videos {
+        padding: 1rem;
+      &__right-side {
+        .videos-container {
+          display: grid !important;
+          grid-template-columns: repeat(2, 1fr);
+          .workout-video {
+            width: 75%;
+            align-self: start;
+            justify-self: center;
+          }
+        }
+      }
     }
+  
+}
+
+@include for-max-1000px() {
+    body {
+        overflow-x: hidden;
+    }
+}
+@include for-max-920px() {
+    .error{
+        &-text {
+            text-align: center;
+        }
+        &-btns {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        }
+    }
+}
+
+@include for-max-740px() {
+    .about {
+        &-card {
+            grid-template-columns: 200px auto;
+        }
+    }
+}
+@include for-max-620px() {
+    .section__videos {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+}
+
+@include for-max-568px() {
+    .section__programs {
+        display: flex;
+        flex-direction: column;
+        .program-card {
+            a {
+                .program-card__inner {
+                    img {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+                .program-card__title {    
+                    font-size: 1.2rem;
+                }
+            }
+        }
+    }
+    .about {
+        &-card {
+            grid-template-columns: auto;
+            padding: 10px;
+        }
+        &__image {
+            margin-bottom: 15px;
+        }
+    }
+    .error-btns {
+        display: grid;
+        grid-template-columns: 1fr ;
+    }
+}
+
+@include for-max-400px() {
+    .button-primary {
+        width: 186px;
+    }
+    .header__hamburger {
+        &.opened {
+            top: 37.5px;
+        }
+    }
+  }
+
+
+:root[data-theme="light"] {
+  --background-color: #fafafa;
+  --color: #2b3e51;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: #fff;
+    height: 100%;
+    font-family: 'Manrope', sans-serif;
+    background-color: var(--bgThemeColor1);
+    color: var(--textThemeColor1);
+    transition: background-color 0.5s ease;
 }
