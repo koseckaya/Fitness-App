@@ -5,7 +5,7 @@ export class About extends Component {
   render() {
     return (
       <Container>
-         <div className='about-title'>Out Team</div>
+         <div className='about-title'>Our Team</div>
         <div className='about-card'>
           <div className='about__image'>
             <img src='https://www.strangearts.ru/sites/default/files/styles/heroes_main_picture/public/292px-supergirl_vol_6_1_textless.jpg' alt="super girl"/>
