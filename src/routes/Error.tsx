@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from "../components/Button";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
+import { ErrorSvg } from "../components/Icons";
 
 
 export function Error() {
@@ -19,10 +20,10 @@ export function Error() {
         navigate("/videos");
     }
     function handleRecipes() {
-        navigate("/recipes");
+        navigate("/recipes/alcohol-free");
     }
     function handleStore() {
-        navigate("/store");
+        navigate("/about");
     }
 
     return (
@@ -30,6 +31,7 @@ export function Error() {
       <Header />
         <Container>
           <div className='error' >
+            <div className="error-icon" ><ErrorSvg /></div>
             <div className='error-message' >
               <span className='error-404'>404 • </span>
               <span className='error-text'>The page you're looking for can't be found. Please check out one of these pages instead</span>
@@ -38,7 +40,7 @@ export function Error() {
                 <Button content="Workout Programs" type={Button.TYPES.DEFAULT} onClick={handlePrograms}/>
                 <Button content="Workout Videos" type={Button.TYPES.DEFAULT} onClick={handleVideos}/>
                 <Button content="Recipes" type={Button.TYPES.DEFAULT} onClick={handleRecipes}/>
-                <Button content="Store" type={Button.TYPES.DEFAULT} onClick={handleStore}/>
+                <Button content="About" type={Button.TYPES.DEFAULT} onClick={handleStore}/>
             </div>
             </div>
            

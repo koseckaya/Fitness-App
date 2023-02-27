@@ -26,7 +26,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: calc(100vh - 175px);
+    height: calc(100vh - 241px);
     &-404 {
         font-weight: 700;
         margin-bottom: 30px;
@@ -35,6 +35,15 @@ body {
         display: flex;
         gap: 15px;
         margin-top: 50px;
+    }
+    &-icon {
+        width: 100%;
+        height: 325px;
+        overflow: hidden;
+        margin: 0 auto;
+        outline: none;
+        opacity: 0.85;
+        margin-bottom: 50px;
     }
 }
 
