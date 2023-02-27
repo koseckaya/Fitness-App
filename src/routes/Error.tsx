@@ -29,15 +29,17 @@ export function Error() {
     <>
       <Header />
         <Container>
-            <div className='error' >
-                <span className='error-404'>404 • </span>
-                <span className='error-text'>The page you're looking for can't be found. Please check out one of these pages instead</span>
-                <div className='error-btns'>
-                    <Button content="Workout Programs" type={Button.TYPES.DEFAULT} onClick={handlePrograms}/>
-                    <Button content="Workout Videos" type={Button.TYPES.DEFAULT} onClick={handleVideos}/>
-                    <Button content="Recipes" type={Button.TYPES.DEFAULT} onClick={handleRecipes}/>
-                    <Button content="Store" type={Button.TYPES.DEFAULT} onClick={handleStore}/>
-                </div>
+          <div className='error' >
+            <div className='error-message' >
+              <span className='error-404'>404 • </span>
+              <span className='error-text'>The page you're looking for can't be found. Please check out one of these pages instead</span>
+            </div>
+            <div className='error-btns'>
+                <Button content="Workout Programs" type={Button.TYPES.DEFAULT} onClick={handlePrograms}/>
+                <Button content="Workout Videos" type={Button.TYPES.DEFAULT} onClick={handleVideos}/>
+                <Button content="Recipes" type={Button.TYPES.DEFAULT} onClick={handleRecipes}/>
+                <Button content="Store" type={Button.TYPES.DEFAULT} onClick={handleStore}/>
+            </div>
             </div>
            
         </Container>

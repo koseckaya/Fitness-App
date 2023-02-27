@@ -2,19 +2,23 @@
 
 exports[`renders correctly 1`] = `
 Array [
-  <video
-    autoPlay={true}
-    className="videoTag"
-    loop={true}
-    muted={true}
-  >
-    <source
-      src="video.mp4"
-      type="video/mp4"
-    />
-  </video>,
   <div
-    className="container "
+    className="videoContainer"
+  >
+    <video
+      autoPlay={true}
+      className="videoTag"
+      loop={true}
+      muted={true}
+    >
+      <source
+        src="video.mp4"
+        type="video/mp4"
+      />
+    </video>
+  </div>,
+  <div
+    className="container calculator-container"
   >
     <div
       className="calc"
