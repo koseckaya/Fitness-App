@@ -7,11 +7,11 @@ exports[`renders correctly 1`] = `
   <div
     className="tab-menu__wrapper"
   >
-    <div
+    <nav
       className="tab-menu"
     >
       <button
-        className="focus"
+        className="button-active"
         onClick={[Function]}
       >
         Personal Info
@@ -22,14 +22,12 @@ exports[`renders correctly 1`] = `
       >
         Started Challenges
       </button>
-    </div>
+    </nav>
     <div
       className="tab-view"
     >
       <div
-        className="tab-content selected"
-        index="1"
-        label="Personal Info"
+        hidden={false}
       >
         <div
           className="form-wrap"
@@ -136,18 +134,8 @@ exports[`renders correctly 1`] = `
         </div>
       </div>
       <div
-        className="tab-content "
-        index="2"
-        label="Started Challenges"
-      >
-        <div
-          className="small-programs__container"
-        >
-          <p>
-            Start Workout Programs
-          </p>
-        </div>
-      </div>
+        hidden={true}
+      />
     </div>
   </div>
 </div>
