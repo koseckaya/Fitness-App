@@ -180,10 +180,12 @@ const Calculator: FC<Props> = ({ className }: Props) => {
 
     return (
        <>
-            <video className='videoTag' autoPlay loop muted>
-                    <source src={video} type='video/mp4' />
-            </video>
-        <Container>
+            <div className="videoContainer">
+                <video className='videoTag' autoPlay loop muted>
+                        <source src={video} type='video/mp4' />
+                </video>
+            </div>
+        <Container className="calculator-container">
             <div className="calc">
                 <h3 className="calc__title">
                     Try Our Recipe Nutrition Calculator

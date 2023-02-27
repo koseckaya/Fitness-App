@@ -144,3 +144,50 @@
     }
   }
 }
+
+@include for-max-1443px() {
+  .program-page {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    &__side {
+      display: grid;
+      grid-template-columns: 1fr 2fr 1fr;
+      grid-template-rows: repeat(3, auto);
+      grid-template-areas:
+      "image title start"
+      "type desc start"
+      "equip desc start";
+      column-gap: 10px;
+      .side__image {
+      grid-area: image;
+      }
+      
+      .side__type {
+      grid-area: type;
+      }
+      
+      .side__equip {
+      grid-area: equip;
+      }
+      
+      .side__title {
+      grid-area: title;
+      }
+      
+      .side__desc {
+      grid-area: desc;
+      }
+      
+      .side__start {
+      grid-area: start;
+      }
+    }
+    &__main {
+      .schedule {
+        padding: 0;
+        border: none;
+      }
+    }
+  }
+}

@@ -1,3 +1,5 @@
+@import '../../styles/light-dark-theme';
+
 .dropdown {
   position: relative;
 }
@@ -44,8 +46,22 @@
   cursor: pointer;
 }
 
-.dropdown {
-  & .button {
-    width: auto;
-  }  
+
+
+
+.profileBtnContainer {
+  width: 45px;
+  height: 45px;
+  position: absolute;
+  right: 1.3rem;
+  border: 1.5px solid var(--textThemeColor1);
+  border-radius: 50%;
+  .dropdown {
+    .button {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      padding: 0;
+    }
+  }
 }

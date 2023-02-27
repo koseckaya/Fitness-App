@@ -45,6 +45,31 @@ body {
     display: flex;
     justify-content: space-between;
 }
+
+
+
+
+
+
+
+:root[data-theme="light"] {
+  --background-color: #fafafa;
+  --color: #2b3e51;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: #fff;
+    height: 100%;
+    font-family: 'Manrope', sans-serif;
+    background-color: var(--bgThemeColor1);
+    color: var(--textThemeColor1);
+    transition: background-color 0.5s ease;
+}
+
 .about {
     &-title{
         text-align: center;
@@ -148,6 +173,37 @@ body {
         align-items: center;
         gap: 1rem;
     }
+    .videos-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(80%, 1fr)) !important;
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
+        
+        .workout-video {
+          display: grid;
+          grid-template-rows: 1fr auto auto;
+          justify-items: center;
+          align-items: center;
+          
+          .workout-video__thumbnail {
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; 
+            background-color: gray;
+          }
+          
+          .workout-video__title {
+            font-size: 1rem;
+            margin: 10px 0;
+          }
+          
+          .workout-video__duration {
+            font-size: 1rem;
+            margin-bottom: 10px;
+          }
+        }
+      }
 }
 
 @include for-max-568px() {
@@ -198,17 +254,4 @@ body {
 :root[data-theme="light"] {
   --background-color: #fafafa;
   --color: #2b3e51;
-}
-
-
-body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background: #fff;
-    height: 100%;
-    font-family: 'Manrope', sans-serif;
-    background-color: var(--bgThemeColor1);
-    color: var(--textThemeColor1);
-    transition: background-color 0.5s ease;
 }
