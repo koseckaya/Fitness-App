@@ -1,8 +1,7 @@
 import { User } from "firebase/auth";
-import { FC, useState, useEffect, useContext } from "react";
+import { FC, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../Button";
-import { useUserData } from "../Preferences";
 import { UserContext } from "../utils/contexts";
 import { signOutUser } from "../utils/firebase/firebase";
 import useOuterClick from "../utils/useOuterClick";
