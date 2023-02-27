@@ -14,12 +14,12 @@ import { User } from 'firebase/auth';
 import { Timestamp } from 'firebase/firestore';
 
 type UserSubmitForm = {
-  name?: string;
-  lastName?: string;
+  name?: string | '';
+  lastName?: string | '';
 };
 
 export const Preferences: FC = () => {
-  const { currentUser } = useContext(UserContext);
+  const { currentUser, setName } = useContext(UserContext);
   const userData = useUserData(currentUser);
   const date = useDateConverted(userData?.createdAt as Timestamp);
 
@@ -28,9 +28,22 @@ export const Preferences: FC = () => {
       .min(3, 'Name must be at least 3 characters')
       .max(20, 'Name must not exceed 20 characters'),
     lastName: Yup.string().optional()
-      .min(3, 'Last name must be at least 3 characters')
       .max(20, 'Last name must not exceed 20 characters')
   });
+
+  const [values, setValues] = useState<UserSubmitForm>({
+    name: '',
+    lastName: ''
+  });
+
+  useEffect (() => {
+    if (userData) {
+      setValues({
+        name: userData.displayName,
+        lastName: userData.lastName
+      })
+    }
+  }, [userData])
 
   const {
     register,
@@ -38,7 +51,8 @@ export const Preferences: FC = () => {
     reset,
     formState: { errors, isValid, isDirty },
   } = useForm<UserSubmitForm>({
-    resolver: yupResolver(validationSchema)
+    resolver: yupResolver(validationSchema),
+    values
   });
 
   const onSubmit = async (data: UserSubmitForm) => {
@@ -47,7 +61,7 @@ export const Preferences: FC = () => {
       if (currentUser) {
         reset({'name': data.name, 'lastName': data.lastName});
         await updateUserDocFromAuth(currentUser, { displayName: data.name, lastName: data.lastName });
-        reset({'lastName': data.lastName, 'name': data.name});
+        if (data.name) setName(data.name);
       }
     } catch (error) {
       console.log('user create encountered an error', error);
@@ -69,7 +83,6 @@ export const Preferences: FC = () => {
               <input type="text" id="name" aria-describedby="nameHelp"
                 className={`form-control__auth ${ errors.name ? 'is-invalid' : '' }`}
                 placeholder='First Name'
-                defaultValue={userData?.displayName}
                 {...register('name')} />
               <p className='invalid-feedback'>{errors.name?.message}</p>
             </div>
@@ -78,7 +91,6 @@ export const Preferences: FC = () => {
               <input type="text" id="lastName" aria-describedby="nameHelp"
                 className={`form-control__auth ${ errors.lastName ? 'is-invalid' : '' }`}
                 placeholder='Last Name'
-                defaultValue={userData?.lastName}
                 {...register('lastName')} />
               <p className='invalid-feedback'>{errors.lastName?.message}</p>
             </div>
