@@ -2,7 +2,7 @@ $blue700: #1a1a40;
 $blue600: #2c2c66;
 $black: #000;
 $grey100: #fdfcfc;
-$grey200: #f5f1f1;
+$grey200: #E78F63;
 $purple100: #7a0bc0;
 $purple200: #650c9d;
 
@@ -14,11 +14,10 @@ $purple: #7c73c5;
 $secondary: #868a93;
 $color-background-primary: #eee;
 $error: rgb(162, 5, 5) ;
+$white: #fff;
 
-
-$test1: rgb(0, 254, 72);
-$test2: rgb(35, 38, 1);
-
+$filter-light: invert(84%) sepia(100%) saturate(1%) hue-rotate(56deg) brightness(105%) contrast(101%);
+$filter-dark: brightness(0) saturate(100%) invert(58%) sepia(12%) saturate(6353%) hue-rotate(331deg) brightness(105%) contrast(101%);
 $themes: (
   bgThemeColor1: (
     darkTheme: $blue700,
@@ -34,12 +33,12 @@ $themes: (
   ),
    textThemeColor2: (
     darkTheme: $gray,
-    lightTheme: $color-primary,
+    lightTheme: $white,
   ),
-  testThemeColor: (
-    darkTheme: $test1,
-    lightTheme: $test2,
-  )
+   logoFilter: (
+    darkTheme: $filter-dark,
+    lightTheme: $filter-light,
+   )
 );
 
 @mixin styles($mode) {

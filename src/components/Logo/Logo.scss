@@ -1,4 +1,5 @@
 @import '../../styles/vars.scss';
+@import '../../styles/light-dark-theme';
 
 .logo1 {
   width: 286px;
@@ -7,7 +8,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  filter: brightness(0) saturate(100%) invert(58%) sepia(12%) saturate(6353%) hue-rotate(331deg) brightness(105%) contrast(101%);
+  filter: var(--logoFilter);
 }
 
 @include for-max-1200px() {
