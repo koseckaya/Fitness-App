@@ -26,13 +26,29 @@
     justify-content: space-around;
     color: var(--textThemeColor1);
   &-active {
-    color: var(--testThemeColor);
+    color: #ffffff;
+    
+    &::after {
+      content: "";
+      height: 2px;
+      background-color: #ffffff;
+      display: block;
+      animation: width .4s forwards;
+      animation-timing-function: ease;
+      will-change: contents;
+    }
   }
   &-item {
+    transition: all .3s;
     &:hover {
       color: darken($purple, 20%);
     }
+    &::after {
+      content: "";
+      height: 2px;
+    }
   }
+  
   }
 }
 

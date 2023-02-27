@@ -20,14 +20,14 @@
     border: 1px solid transparent;
     cursor: pointer;
     &:hover {
-      color: var(--textThemeColor2);
+      color: var(--textThemeColor1);
       background-color: transparent;
       border: 1px solid $color-primary;
     }
     &-primary {
-      color: var(--textThemeColor2);
       background-color: transparent;
       border: 1px solid $color-primary;
-      
+      border-color: var(--activeFilter);
+      color: var(--textThemeColor1);
     }
 }
