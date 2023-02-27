@@ -1,6 +1,6 @@
 .textarea-review {
   height: 120px;
-  width: 320px;
+  width: 100%;
   font-family: "Manrope", sans-serif;
   font-size: 16px;
   font-weight: 400;
@@ -9,9 +9,9 @@
   border: 1px solid #e3e4eb;
   border-radius: 15px;
   padding: 15px 20px;
-  margin: 0 0;
   resize: none;
   overflow: auto;
+  box-sizing: border-box;
 }
 
 p.textarea-review {
@@ -23,13 +23,15 @@ p.textarea-review {
 }
 
 .textarea-container {
+  display: flex;
+  flex-direction: column;
   position: relative;
 }
 
 .textarea-limit {
   position: absolute;
-  right: 0;
-  transform: translateY(-250%) translateX(-30%);
+  left: 8px;
+  bottom: -41px;
 }
 
 .btn-review {

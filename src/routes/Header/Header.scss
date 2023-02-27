@@ -257,9 +257,11 @@ a {
     }
     &__hamburger {
       display: block !important;
+      right: 0;
       &.opened {
         position: fixed;
         top: 42px;
+        right: 2.2rem;
       }
     }
     .logo {
@@ -301,9 +303,6 @@ a {
 
 @include for-max-440px() {
   .header {
-    &__hamburger {
-      right: 2rem;
-    }
     .logo {
       width: 70%;
       .logo1 {
@@ -320,7 +319,11 @@ a {
 @include for-max-400px() {
   .header {
     &__hamburger {
-      right: 1rem;
+      right: -1rem;
+      &.opened {
+        top: 37.6px;
+        right: 19px;
+      }
     }
     .logo {
       width: 90%;

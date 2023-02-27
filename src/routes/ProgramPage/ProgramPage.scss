@@ -238,10 +238,10 @@
       "desc desc start";
   }
   .side__minutes {
-    bottom: 56px;
+    bottom: 30px;
   }
   .side__duration {
-    bottom: 56px;
+    bottom: 30px;
   }
   .program-page {
 
@@ -264,6 +264,10 @@
       font-size: 14px;
       }
 
+      .side__img {
+        width: 100%;
+        height: 100%;
+      }
     }
   }
 }
@@ -288,11 +292,11 @@
       }
 
       .side__minutes {
-        bottom: 30px;
+        bottom: 15px;
       }
 
       .side__duration {
-        bottom: 30px;
+        bottom: 15px;
       }
 
       .side__type {
