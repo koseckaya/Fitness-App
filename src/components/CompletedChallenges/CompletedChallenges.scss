@@ -1,3 +1,6 @@
+@import '../../styles/vars.scss';
+@import '../../styles/light-dark-theme';
+
 .small-programs__container {
   margin-top: 2rem;
   display: flex;
@@ -6,16 +9,44 @@
   align-items: flex-start;
   gap: 1rem;
   max-width: 700px;
+  width: 100%;
   margin: 2rem auto 0;
 }
 
 .small-programs__card {
   display: flex;
-  flex-wrap: wrap;
   gap: 1rem;
   align-items: center;
+  width: 100%;
+  a {
+    width: 50%;
+  }
+  .small-programs__info {
+    width: 50%;
+  }
+  .side__img {
+    width: 100%;
+  }
 }
 
 .side__img {
   margin-bottom: 0px;
+}
+
+@include for-max-640px() {
+  .small-programs__card {
+    flex-direction: column;
+    padding: 15px 0px;
+    a {
+      width: 100%;
+      .side__img {
+        width: 100%;
+      }
+    }
+    .small-programs__info {
+      width: 100%;
+      border-bottom: 1px solid var(--color-primary);
+      padding-bottom: 25px;
+    }
+  }
 }

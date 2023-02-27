@@ -47,10 +47,11 @@
   }
   &__duration, &__minutes{
     text-transform: lowercase;
-    background: #fff;
-   border-radius: 15px;
+    background-color: var(--activeFilter);
+    border-color: var(--activeFilter);
+    color: var(--textThemeColor2);
+    border-radius: 15px;
     padding: 5px;
-    color: $color-primary;
   }
   &__duration {
     width: 57px;

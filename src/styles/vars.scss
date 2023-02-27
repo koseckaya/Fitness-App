@@ -100,6 +100,18 @@ $error: rgb(162, 5, 5) ;
   }
 }
 
+@keyframes width { 
+  0% {
+    opacity: 0;
+    width: 0;
+  }
+
+  100% {
+    opacity: 1;
+    width: 100%;
+  }
+}
+
 @keyframes taadaa-logo { 
   0% {
     opacity: 0;

@@ -92,22 +92,22 @@ exports[`renders correctly 1`] = `
         className="workout-video"
       >
         <a
-          href="https://www.youtube.com/watch?v=UBnfm4s7CRA&feature=youtu.be&ab_channel=ChloeTing"
+          href="https://www.youtube.com/watch?v=2pLT-olgUJs&ab_channel=ChloeTing"
         >
           <img
-            alt="Flat Belly Abs"
+            alt="Abs in 2 Weeks"
             className="workout-video__img"
-            src="https://static.chloeting.com/videos/61bbbbf0c3d293024898b838/8873f260-5ebe-11ec-9a04-3fd984621d67.jpeg"
+            src="https://static.chloeting.com/videos/61bbdcdd017bbb985e15f8eb/28972560-5ed2-11ec-b99f-c33e6b9468db.jpeg"
           />
           <div
             className="workout-video__title"
           >
-            Flat Belly Abs
+            Abs in 2 Weeks
           </div>
           <div
             className="workout-video__duration"
           >
-            25
+            11
              MIN
           </div>
         </a>

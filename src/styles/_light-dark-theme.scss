@@ -1,11 +1,11 @@
 $blue700: #1a1a40;
 $blue600: #2c2c66;
 $black: #000;
-$grey100: #fdfcfc;
-$grey200: #f5f1f1;
+$grey100: #fff;
+$orange: #E78F63;
 $purple100: #7a0bc0;
 $purple200: #650c9d;
-
+$orange-text: #e78f63;
 
 $color-primary: #303033;
 $gray: #eee;
@@ -14,10 +14,13 @@ $purple: #7c73c5;
 $secondary: #868a93;
 $color-background-primary: #eee;
 $error: rgb(162, 5, 5) ;
+$white: #fff;
 
+$filter-light: invert(84%) sepia(100%) saturate(1%) hue-rotate(56deg) brightness(105%) contrast(101%);
+$filter-dark: brightness(0) saturate(100%) invert(58%) sepia(12%) saturate(6353%) hue-rotate(331deg) brightness(105%) contrast(101%);
 
-$test1: rgb(0, 254, 72);
-$test2: rgb(35, 38, 1);
+$active-filter-dark: #e78f63;
+$active-filter-light: #e78f63;
 
 $themes: (
   bgThemeColor1: (
@@ -26,20 +29,24 @@ $themes: (
   ),
   bgThemeColor2: (
     darkTheme: $blue600,
-    lightTheme: $grey200,
+    lightTheme: $orange,
   ),
   textThemeColor1: (
     darkTheme: $grey100,
-    lightTheme: $black,
+    lightTheme: $orange-text,
   ),
    textThemeColor2: (
     darkTheme: $gray,
-    lightTheme: $color-primary,
+    lightTheme: $white,
   ),
-  testThemeColor: (
-    darkTheme: $test1,
-    lightTheme: $test2,
-  )
+   logoFilter: (
+    darkTheme: $filter-dark,
+    lightTheme: $filter-light,
+  ),
+    activeFilter: (
+      darkTheme: $active-filter-dark,
+      lightTheme: $active-filter-light,
+    )
 );
 
 @mixin styles($mode) {

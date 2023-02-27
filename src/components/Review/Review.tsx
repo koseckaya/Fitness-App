@@ -22,7 +22,7 @@ export const Review: FC<Props> = ({
   idChallenge,
   reviewText,
   className,
-  value = "",
+  value = "Challenge completed. Press 'Edit' to leave your feedback",
   limit = 200,
 }: Props) => {
   const [content, setContent] = useState(value.slice(0, limit));
@@ -78,7 +78,6 @@ export const Review: FC<Props> = ({
     <div>
       {!editMode ? (
         <div className="textarea-container">
-          <label>Challenge completed, leave you feedback</label>
           <p className="textarea-review">{content}</p>
           <div className="review-container">
             <button
@@ -92,13 +91,13 @@ export const Review: FC<Props> = ({
         </div>
       ) : (
         <form method="post" onSubmit={handleSubmit(onSubmit)}>
-          <label>Challenge completed, leave you feedback</label>
           <div className="textarea-container">
             <textarea
               {...register("reviewText")}
               className="textarea-review"
               onChange={(event) => setFormattedContent(event.target.value)}
               value={content}
+              placeholder="Challenge completed, leave you feedback"
             />
             <p className="textarea-limit">
               {content.length}/{limit}

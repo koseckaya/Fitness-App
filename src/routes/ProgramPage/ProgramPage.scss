@@ -158,21 +158,27 @@
       "image title start"
       "type desc start"
       "equip desc start";
-      column-gap: 10px;
+      column-gap: 20px;
+      margin-bottom: 15px;
       .side__image {
       grid-area: image;
       }
       
       .side__type {
       grid-area: type;
+      font-size: 20px;
+      align-self: center;
       }
       
       .side__equip {
       grid-area: equip;
+      font-size: 18px;
+      align-self: center;
       }
       
       .side__title {
       grid-area: title;
+      font-size: 20px;
       }
       
       .side__desc {
@@ -187,6 +193,233 @@
       .schedule {
         padding: 0;
         border: none;
+        padding-top: 30px;
+      }
+    }
+  }
+}
+
+@include for-max-1000px() {
+  .side__img {
+    width: 255px;
+  }
+  .side__start {
+    margin: 0;
+  }
+  .program-page__main {
+    h3 {
+     font-size: 26px;
+    }
+  }
+}
+
+@include for-max-920px() {
+  .program-page__main {
+    h3 {
+      display: none;
+    }
+    .schedule {
+      &__title {
+        display: none;
+      }
+    }
+  }
+}
+
+@include for-max-800px() {
+  .program-page__side {
+    grid-template-columns: 2fr 2fr 1fr;
+      grid-template-rows: repeat(5, auto);
+      grid-template-areas:
+      "image title start"
+      "image type start"
+      "image equip start"
+      "desc desc start"
+      "desc desc start";
+  }
+  .side__minutes {
+    bottom: 30px;
+  }
+  .side__duration {
+    bottom: 30px;
+  }
+  .program-page {
+
+    &__side {   
+
+      .side__type {
+      grid-area: type;
+      font-size: 14px;
+      align-self: center;
+      }
+
+      .side__equip {
+      grid-area: equip;
+      font-size: 14px;
+      align-self: center;
+      }
+      
+      .side__title {
+      grid-area: title;
+      font-size: 14px;
+      }
+
+      .side__img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
+
+@include for-max-740px() {
+  .program-page {
+    
+    &__side {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: repeat(2, auto);
+      grid-template-areas:
+      "image start"
+      "type start";
+      column-gap: 20px;
+      margin-bottom: 15px;
+      .side__image {
+      grid-area: image;
+        .side__img {
+          width: 100%;
+        }
+      }
+
+      .side__minutes {
+        bottom: 15px;
+      }
+
+      .side__duration {
+        bottom: 15px;
+      }
+
+      .side__type {
+      grid-area: type;
+      font-size: 20px;
+      text-align: center;
+      }
+      
+      .side__equip {
+      grid-area: equip;
+      display: none;
+      }
+      
+      .side__title {
+        display: none;
+      }
+      
+      .side__desc {
+      display: none;
+      }
+      
+      .side__start {
+      grid-area: start;
+      text-align: center;
+      }
+    }
+  }
+}
+
+@include for-max-740px() {
+  .program-page {
+    
+    &__side {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      grid-template-rows: repeat(2, auto);
+      grid-template-areas:
+      "image start"
+      "type start";
+      column-gap: 20px;
+      margin-bottom: 15px;
+      .side__type {
+      grid-area: type;
+      font-size: 16px;
+      text-align: center;
+      }
+      .side__start {
+        .start__title {
+          font-size: 14px;
+        }
+        .start__desc {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
+@include for-max-620px() {
+  .program-page {
+    
+    &__side {
+      display: grid;
+      grid-template-columns: 3fr 1fr;
+      grid-template-rows: repeat(2, auto);
+      grid-template-areas:
+      "image start"
+      "type start";
+      column-gap: 5px;
+      margin-bottom: 15px;
+      .side__type {
+      grid-area: type;
+      font-size: 16px;
+      text-align: center;
+      }
+      .side__start {
+        .start__title {
+          font-size: 14px;
+        }
+        .start__desc {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+  .schedule {
+    &__weeks {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      gap: 10px;
+      .schedule__week {
+        height: 21px;
+        width: fit-content;
+        padding: 5px 10px;
+        border-radius: 54px;
+        margin-left: 0px;
+      }
+    }
+  }
+}
+
+@include for-max-568px() {
+  .program-page {
+    &__side {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(2, auto);
+      grid-template-areas:
+      "image"
+      "start";
+      column-gap: 5px;
+      margin-bottom: 15px;
+      .side__type {
+      display: none;
+      }
+      .side__start {
+        .start__title {
+          font-size: 14px;
+        }
+        .start__desc {
+          font-size: 14px;
+        }
       }
     }
   }

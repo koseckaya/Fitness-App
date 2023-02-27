@@ -22,7 +22,7 @@ const Header: FC<Props> = () => {
     let path = location.pathname
     const [menuActive, setMenuActive] = useState(false);
     const handleMenuActive = (e: any) => {
-      if(e.target.closest('.toggle-container')) return
+      if(e.target.closest('.toggle-container') || (e.target.closest('.profileBtnContainer') && !e.target.closest('.dropdown-menu'))) return
       if(!menuActive) return
       menuActive ? setMenuActive(false) : setMenuActive(true);
     }
@@ -44,7 +44,7 @@ const Header: FC<Props> = () => {
                     <Link to={`/about`} className={`nav-item e ${path === '/about' ? 'nav-active': ''}`}>About</Link>
                 </nav>
                 {currentUser ? (
-                  <DropdownMenu userName={currentUser}/>
+                  <DropdownMenu userName={currentUser} className={`profileBtnContainer ${menuActive ? 'activated' : ''}`}/>
                   ) : (
                     <div className={`header__signUp ${menuActive ? 'activated' : ''}`}>
                       <Link to={`/signup`}><Button content="Sign Up" type={Button.TYPES.DEFAULT} /></Link>

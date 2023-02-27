@@ -16,10 +16,12 @@ type MenuProps = {
 
 type DropdownProps = {
   userName: User;
+  className?: string;
 };
 
 export const DropdownMenu: FC<DropdownProps> = ({
   userName,
+  className
 }: DropdownProps) => {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
@@ -45,7 +47,7 @@ export const DropdownMenu: FC<DropdownProps> = ({
   });
 
   return (
-    <div ref={ref} className="profileBtnContainer">
+    <div ref={ref} className={className}>
       <DropdownItem
         open={open}
         trigger={
