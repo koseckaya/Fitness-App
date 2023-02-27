@@ -1,7 +1,8 @@
 import { User } from "firebase/auth";
-import { FC, useState } from "react";
+import { FC, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../Button";
+import { UserContext } from "../utils/contexts";
 import { signOutUser } from "../utils/firebase/firebase";
 import useOuterClick from "../utils/useOuterClick";
 
@@ -22,6 +23,7 @@ export const DropdownMenu: FC<DropdownProps> = ({
 }: DropdownProps) => {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
+  const { name } = useContext(UserContext);
 
   const handleOpen = () => {
     setOpen(!open);
@@ -48,7 +50,7 @@ export const DropdownMenu: FC<DropdownProps> = ({
         open={open}
         trigger={
           <Button
-            content={`${userName.email?.split("@")[0].slice(0, 6)}`}
+            content={`${name.slice(0, 1).toUpperCase()}`}
             type={Button.TYPES.DEFAULT}
             onClick={handleOpen}
           />

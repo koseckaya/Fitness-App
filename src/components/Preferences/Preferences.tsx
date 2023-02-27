@@ -19,7 +19,7 @@ type UserSubmitForm = {
 };
 
 export const Preferences: FC = () => {
-  const { currentUser } = useContext(UserContext);
+  const { currentUser, setName } = useContext(UserContext);
   const userData = useUserData(currentUser);
   const date = useDateConverted(userData?.createdAt as Timestamp);
 
@@ -28,7 +28,6 @@ export const Preferences: FC = () => {
       .min(3, 'Name must be at least 3 characters')
       .max(20, 'Name must not exceed 20 characters'),
     lastName: Yup.string().optional()
-      .min(3, 'Last name must be at least 3 characters')
       .max(20, 'Last name must not exceed 20 characters')
   });
 
@@ -62,6 +61,7 @@ export const Preferences: FC = () => {
       if (currentUser) {
         reset({'name': data.name, 'lastName': data.lastName});
         await updateUserDocFromAuth(currentUser, { displayName: data.name, lastName: data.lastName });
+        if (data.name) setName(data.name);
       }
     } catch (error) {
       console.log('user create encountered an error', error);
