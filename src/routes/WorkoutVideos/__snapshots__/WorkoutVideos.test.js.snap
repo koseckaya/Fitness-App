@@ -30,95 +30,93 @@ exports[`renders correctly 1`] = `
         />
       </form>
     </div>
-    <div>
-      <div
-        className="slider-minutes"
-      >
-        WORKOUT DURATION
-      </div>
-      <div
-        className="slider-container"
-      >
-        <input
-          className="thumb thumb--left"
-          max={25}
-          min={5}
-          onChange={[Function]}
-          style={
-            Object {
-              "zIndex": 5,
-            }
+    <div
+      className="slider-minutes"
+    >
+      WORKOUT DURATION
+    </div>
+    <div
+      className="slider-container"
+    >
+      <input
+        className="thumb thumb--left"
+        max={25}
+        min={5}
+        onChange={[Function]}
+        style={
+          Object {
+            "zIndex": 5,
           }
-          type="range"
-          value={5}
-        />
-        <input
-          className="thumb thumb--right"
-          max={25}
-          min={5}
-          onChange={[Function]}
-          type="range"
-          value={25}
+        }
+        type="range"
+        value={5}
+      />
+      <input
+        className="thumb thumb--right"
+        max={25}
+        min={5}
+        onChange={[Function]}
+        type="range"
+        value={25}
+      />
+      <div
+        className="slider"
+      >
+        <div
+          className="slider__track"
         />
         <div
-          className="slider"
+          className="slider__range"
+        />
+        <div
+          className="slider__left-value"
         >
-          <div
-            className="slider__track"
+          5
+        </div>
+        <div
+          className="slider__right-value"
+        >
+          25
+        </div>
+      </div>
+    </div>
+    <div
+      className="random-video"
+    >
+      <div
+        className="random-video__title"
+      >
+        Try out this Random Workout Video:
+      </div>
+      <div
+        className="workout-video"
+      >
+        <a
+          href="https://www.youtube.com/watch?v=UBnfm4s7CRA&feature=youtu.be&ab_channel=ChloeTing"
+        >
+          <img
+            alt="Flat Belly Abs"
+            className="workout-video__img"
+            src="https://static.chloeting.com/videos/61bbbbf0c3d293024898b838/8873f260-5ebe-11ec-9a04-3fd984621d67.jpeg"
           />
           <div
-            className="slider__range"
-          />
-          <div
-            className="slider__left-value"
+            className="workout-video__title"
           >
-            5
+            Flat Belly Abs
           </div>
           <div
-            className="slider__right-value"
+            className="workout-video__duration"
           >
             25
+             MIN
           </div>
-        </div>
+        </a>
       </div>
       <div
-        className="random-video"
+        className="button"
+        onClick={[Function]}
       >
-        <div
-          className="random-video__title"
-        >
-          Try out this Random Workout Video:
-        </div>
-        <div
-          className="workout-video"
-        >
-          <a
-            href="https://www.youtube.com/watch?v=h8ctkfSx6R0&feature=youtu.be&ab_channel=ChloeTing"
-          >
-            <img
-              alt="Abs in 2 Weeks - 2020"
-              className="workout-video__img"
-              src="https://static.chloeting.com/videos/61bc1877dff295b571b03e08/af196bc0-5ef5-11ec-b4e8-6545cdfc138f.jpeg"
-            />
-            <div
-              className="workout-video__title"
-            >
-              Abs in 2 Weeks - 2020
-            </div>
-            <div
-              className="workout-video__duration"
-            >
-              11
-               MIN
-            </div>
-          </a>
-        </div>
-        <div
-          className="button"
-          onClick={[Function]}
-        >
-          Randomize Again
-        </div>
+        Randomize Again
       </div>
     </div>
   </div>

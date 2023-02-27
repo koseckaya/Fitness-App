@@ -25,13 +25,6 @@ exports[`renders correctly 1`] = `
         >
           Privacy Policy
         </a>
-        <a
-          className="nav-item"
-          href="/about"
-          onClick={[Function]}
-        >
-          About
-        </a>
       </nav>
       <div
         className="social"
