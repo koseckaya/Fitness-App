@@ -14,8 +14,28 @@
         }
     }
     .social{
-        background-color: var(--testThemeColor);
+        background-color: var(--bgThemeColor2);
         display: flex;
         gap: 15px;
+        &__pers1 {
+            svg g {
+                fill: #4287a4;
+            }
+        }
+          &__pers2 {
+            svg g {
+                fill: #446a3c;
+            }
+        }
+          &__pers3 {
+            svg g {
+                fill: #ff5625;
+            }
+        }
+        &__rs {
+            img {
+            width: 30px;
+            height: 30px;}
+        }
     }
 }
