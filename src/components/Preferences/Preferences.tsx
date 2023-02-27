@@ -28,7 +28,6 @@ export const Preferences: FC = () => {
       .min(3, 'Name must be at least 3 characters')
       .max(20, 'Name must not exceed 20 characters'),
     lastName: Yup.string().optional()
-      .min(3, 'Last name must be at least 3 characters')
       .max(20, 'Last name must not exceed 20 characters')
   });
 

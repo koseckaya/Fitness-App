@@ -1,7 +1,8 @@
 import { User } from "firebase/auth";
-import { FC, useState } from "react";
+import { FC, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../Button";
+import { useUserData } from "../Preferences";
 import { signOutUser } from "../utils/firebase/firebase";
 import useOuterClick from "../utils/useOuterClick";
 
@@ -21,11 +22,20 @@ export const DropdownMenu: FC<DropdownProps> = ({
   userName,
 }: DropdownProps) => {
   const [open, setOpen] = useState(false);
+  const [name, setName] = useState<string | ''>('');
+  const userData = useUserData(userName);
   const navigate = useNavigate();
 
   const handleOpen = () => {
     setOpen(!open);
   };
+
+  useEffect (() => {
+    if (!userData) return;
+    if (!userData.displayName) return;
+    setName(userData.displayName.slice(0, 1).toUpperCase());
+  }, [userData])
+
 
   const signOut = () => {
     setOpen(false);
@@ -48,7 +58,7 @@ export const DropdownMenu: FC<DropdownProps> = ({
         open={open}
         trigger={
           <Button
-            content={`${userName.email?.split("@")[0].slice(0, 6)}`}
+            content={`${name}`}
             type={Button.TYPES.DEFAULT}
             onClick={handleOpen}
           />
