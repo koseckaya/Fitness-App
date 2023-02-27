@@ -58,3 +58,34 @@
       color: rgb(255, 255, 255);
     }
 }
+
+@include for-max-1000px() {
+  .program__videos {
+    overflow-x: scroll;
+    grid-template-columns: repeat(5, 200px);
+    &::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+      cursor: pointer !important;
+    }
+    &::-webkit-scrollbar-track {
+      border-radius: 10px;
+      background: rgba(0,0,0,0.1);
+      cursor: pointer !important;
+    }
+    &::-webkit-scrollbar-thumb{
+      border-radius: 10px;
+      background: rgba(0,0,0,0.2);
+      cursor: pointer !important;
+    }
+    &::-webkit-scrollbar-thumb:hover{
+      background: rgba(0,0,0,0.4);
+      cursor: pointer !important;
+      
+    }
+    &::-webkit-scrollbar-thumb:active{
+      background: rgba(0,0,0,.9);
+      cursor: pointer !important;
+    }
+  }
+}
