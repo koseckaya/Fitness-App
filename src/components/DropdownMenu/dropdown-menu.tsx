@@ -43,12 +43,12 @@ export const DropdownMenu: FC<DropdownProps> = ({
   });
 
   return (
-    <div ref={ref}>
+    <div ref={ref} className="profileBtnContainer">
       <DropdownItem
         open={open}
         trigger={
           <Button
-            content={`${userName.email?.split("@")[0].slice(0, 6)}`}
+            content={`${userName.displayName?.[0]}`}
             type={Button.TYPES.DEFAULT}
             onClick={handleOpen}
           />
