@@ -58,3 +58,10 @@
       color: rgb(255, 255, 255);
     }
 }
+
+@include for-max-1000px() {
+  .program__videos {
+    overflow-x: scroll;
+    grid-template-columns: repeat(5, 200px);
+  }
+}
