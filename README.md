@@ -1,46 +1,88 @@
-# Getting Started with Create React App
+(The API has a limit of 10 requests per minute. If there is no response from the API, please wait a minute)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Home Page
+About Page
+Error Page 
 
-## Available Scripts
+### Workout Programs Page - 30
+-   отображение карточек программ 10
+-   фильтр по типам программ 10
+-   фильтр по продолжительности программы 10
+### Programs/id Page - 90
+-   отображение видео по дням 
+-   фильтр по неделям 10
+-   отметка просмотренных видео 20
+-   отметка завершенных дней (данные хранятся в личном аккаунте) 30
+-   кнопка "Начать программу" (данные хранятся в личном аккаунте) 30
 
-In the project directory, you can run:
+### Workout Videos Page - 30
+-   вывод видео 
+-   фильтр по категориям 5
+-   фильтр по продолжительности  5
+-   поле поиска 10
+-   случайное видео 10
 
-### `npm start`
+### Recipes Page - 70
+-   запрос и работа с API (данные из API, в случае ошибки - из JSON) 20
+-   вывод карточек рецептов 10
+-   бесконечная прокрутка  10
+-   блок с выводом последнего рецепта 10
+-   4 категории (каждая - запрос к API) 10
+-   текстовый поиск (запрос к API) 10
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Recipes/id Page - 20
+-   вывод ингредиентов 5
+-   вывод времени приготовления 5
+-   вывод категории/диеты 5
+-   белки, жиры, углеводы, калории 5
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Calculator Page - 50
+-   запрос и работа с API 20
+-   возможность ввода названия продукта и его веса 10
+-   проверка полей на корректность (валидация) 5
+-   редактирование веса 5 
+-   удаление продукта 5
+-   расчет питательных веществ 5
 
-### `npm test`
+### Изменение цветовой темы сайта - 30 
+### Jest-тесты с помощью snapshot- 50
+ 
+### Адаптивность - 40
+-   бургер-меню 10
+-   адаптивные стили сайта от 320px до наибольшего разрешения 30 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Форма Регистрации Sign Up - 40
+-   валидация имени, email, пароля и повторного пароля с помощью Yup схемы 15
+-   авторизация через Google с перенаправлением на главную страницу 10
+-   отображение ошибки в случае, если аккаунт уже существует в базе данных 15
 
-### `npm run build`
+### Форма Входа Log In - 20
+-   валидация email и пароля 5
+-   авторизация через Google с помощью попап-меню 5
+-   отображение ошибки в случае, если email или пароль введены неверно 10
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Выпадающее Меню Dropdown Menu - 20
+-   отображение авторизованного пользователя в заголовке сайта 5
+-   при нажатии на пользователя в заголовке отображается выпадающее меню 5
+-   пользователь может получить доступ к странице профиля через выпадающее меню 5
+-   из выпадающего меню пользователь может Выйти 5
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Страница Профиля (Личный кабинет) - 30
+-   профиль содержи отдельные вкладки: Настройки и Начатые челленджи 10 
+-   персональная информация для каждого пользователя 10
+-   страница профиля защищена от неавторизованных  10
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Вкладка Настройки - 20
+-   Отображение email, имени, фамилии и даты создания пользователя 5
+-   Имя и фамилию можно изменить 15
 
-### `npm run eject`
+### Вкладка Начатые челленджи (программы) - 30
+-   отображение начатых челленджей 5
+-   отображение прогресса (дней ) для каждого челленджа 5
+-   для завершенных челлендей доступен блок отзыва 10
+-   отзывы могут быть отредактированы и хранятся в базе 10
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Firebase utils - 50
+-  отслеживание авторизации пользователей 15
+-  запись о новом пользователе в базу данных 15
+-   утилиты для записи и чтения доступных данных пользователей 20
