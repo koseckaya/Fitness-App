@@ -1,11 +1,11 @@
-@import "src/styles/vars";
-
+@import "../../styles/vars";
+@import '../../styles/light-dark-theme';
 
 .latest__card {
     display: grid;
     grid-template-columns: 324px auto;
     margin-bottom: 0px;
-    background:white;
+    background:var(--bgThemeColor1);
     border: 1px solid rgb(233, 233, 239);
     border-radius: 15px;
     padding: 38px 30px;

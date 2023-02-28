@@ -19,6 +19,18 @@
     width: 18%;
     justify-content: flex-end;
     padding-right: 1rem;
+    .button {
+      background: var(--bgThemeColor4);
+      &.button-primary {
+        transition: .3s ease;
+        background-color: transparent;
+        color: var(--textThemeColor2);
+        border: 1px solid var(--textThemeColor2);
+        &:hover {
+          background: var(--bgThemeColor4);
+        }
+      }
+    }
   }
   .nav {
     display: flex;
@@ -41,7 +53,11 @@
   &-item {
     transition: all .3s;
     &:hover {
-      color: darken($purple, 20%);
+      color: var(--textThemeColor1);
+      text-shadow: 10px 10px 25px rgb(255, 255, 255),
+    -10px 10px 25px rgb(255, 255, 255),
+    -10px -10px 25px rgb(255, 255, 255),
+    10px -10px 25px rgb(255, 255, 255);
     }
     &::after {
       content: "";
@@ -129,6 +145,7 @@ a {
   cursor: pointer;
   display: flex;
   padding: 0;
+  filter: invert(100%);
 }
 .line {
   fill: none;
@@ -234,7 +251,7 @@ a {
       padding: 120px 0px 0px 20px;
       right: 0;
       position: fixed;
-      background: lightskyblue;
+      background: var(--bgThemeColor6);
       display: flex;
       flex-direction: column;
       gap: 15px;

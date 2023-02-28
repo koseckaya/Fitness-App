@@ -1,4 +1,5 @@
-@import "src/styles/vars";
+@import "../../styles/light-dark-theme";
+@import "../../styles/vars";
 
 .exercise-video-prev {
   box-sizing: border-box;
@@ -51,4 +52,8 @@
       background-color: #66bb6a;
       border-color: #66bb6a;
     }
+}
+
+.exercise-video-title {
+  color: var(--textThemeColor1);
 }

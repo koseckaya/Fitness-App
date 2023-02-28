@@ -1,5 +1,5 @@
-@import "src/styles/vars";
-
+@import '../../styles/vars.scss';
+@import '../../styles/light-dark-theme';
 
 .recipe-card {
   box-sizing: border-box;
@@ -17,17 +17,17 @@
   &__label {
     font-weight: 400;
     font-size: 18px;
-    color: $color-primary;
+    color: var(--textThemeColor1);
     word-break: break-word;
   }
   &__cal {
     position: absolute;
     top: 4px;
     left: 4px;
-    background: #fff;
+    background: var(--textThemeColor1);
     border-radius: 15px;
     padding: 5px;
-    color: $color-primary;
+    color: var(--textThemeColor2);
   }
 }
 

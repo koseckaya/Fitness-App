@@ -5,11 +5,12 @@ import { ExerciseVideoPrev } from '../ExerciseVideoPrev';
 import { UserContext } from '../utils/contexts';
 import './DayProgram.scss';
 import { useEffect } from 'react';
+import { Video } from '../../data';
 
 export type Props = {
     className?: string;
     day: number;
-    videos: any[];
+    videos: Video[];
     programId: number;
     isCompletedDay: boolean;
     onDayCheck: (day: number) => void;
@@ -91,7 +92,7 @@ const DayProgram: FC<Props> = ({ day, videos, programId, isCompletedDay, onDayCh
                 {
                     videos.map((video, index) => {
                     let dayIndex = `${day}-${index}`;
-                    return <ExerciseVideoPrev title={video.title} onVideoClick={onVideoClick} active={completedVideos.includes(dayIndex)}
+                    return <ExerciseVideoPrev title={video.title!} onVideoClick={onVideoClick} active={completedVideos.includes(dayIndex)}
                         src={video.src} srcImg={video.srcImg} key={index} day={dayIndex} />
                 })}
             </div>
