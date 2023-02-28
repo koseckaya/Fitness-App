@@ -1,5 +1,3 @@
-//@ts-nocheck
-
 import { FC, useContext, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '../../components/Button';
@@ -21,12 +19,13 @@ const Header: FC<Props> = () => {
     let location = useLocation();
     let path = location.pathname
     const [menuActive, setMenuActive] = useState(false);
-    const handleMenuActive = (e: any) => {
-      if(e.target.closest('.toggle-container') || (e.target.closest('.profileBtnContainer') && !e.target.closest('.dropdown-menu'))) return
+    const handleMenuActive = (e: React.MouseEvent<HTMLDivElement>) => {
+      const val = e.target as HTMLDivElement;
+      if(val.closest('.toggle-container') || (val.closest('.profileBtnContainer') && !val.closest('.dropdown-menu'))) return
       if(!menuActive) return
       menuActive ? setMenuActive(false) : setMenuActive(true);
     }
-    const handleBurgerActive = (e: any) => {
+    const handleBurgerActive = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.stopPropagation();
         menuActive ? setMenuActive(false) : setMenuActive(true);
     }

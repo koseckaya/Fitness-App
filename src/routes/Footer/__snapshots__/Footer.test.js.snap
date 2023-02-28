@@ -15,17 +15,6 @@ exports[`renders correctly 1`] = `
       >
         © 2023
       </div>
-      <nav
-        className="nav"
-      >
-        <a
-          className="nav-item"
-          href="/privacy-policy"
-          onClick={[Function]}
-        >
-          Privacy Policy
-        </a>
-      </nav>
       <div
         className="social"
       >

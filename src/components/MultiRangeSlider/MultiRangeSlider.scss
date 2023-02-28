@@ -1,4 +1,6 @@
 @import '../../styles/vars.scss';
+@import '../../styles/light-dark-theme';
+
 .slider-container {
   height: 40px;
   display: flex;
@@ -31,13 +33,13 @@
 }
 
 .slider__range {
-  background-color: $purple;
+  background-color: var(--textThemeColor1);
   z-index: 2;
 }
 
 .slider__left-value,
 .slider__right-value {
-  color: $purple;
+  color: var(--textThemeColor1);
   font-size: 1.5rem;
   margin-top: 15px;
 }
@@ -75,10 +77,10 @@
 
 /* For Chrome browsers */
 .thumb::-webkit-slider-thumb {
-  background-color: #f1f5f7;
+  background-color: var(--textThemeColor1);
   border: none;
   border-radius: 50%;
-  box-shadow: 0 0 1px 1px #ced4da;
+  box-shadow: 0 0 1px 1px var(--textThemeColor1);
   cursor: pointer;
   height: 18px;
   width: 18px;

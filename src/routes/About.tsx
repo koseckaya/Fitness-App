@@ -5,7 +5,7 @@ export class About extends Component {
   render() {
     return (
       <Container>
-         <div className='about-title'>Our Team</div>
+         <div className='about-title'>Our Superheroes Team</div>
         <div className='about-card'>
           <div className='about__image'>
             <img src='https://www.strangearts.ru/sites/default/files/styles/heroes_main_picture/public/292px-supergirl_vol_6_1_textless.jpg' alt="super girl"/>
@@ -43,14 +43,13 @@ export class About extends Component {
             <img src='https://cdn.discordapp.com/attachments/1068259899127111705/1079470778854150224/734574-sorrow1.png' alt="Cavalier"/>
           </div>
           <div className='about-person-info'>
-            <div className='about__title'>SiverianSerpent</div>
+            <div className='about__title'>Denys Kopych</div>
               <div className='about__desc'>Frontend developer</div>
               <div className='about__text'>
-                <p>Application architecture development, routing setup.</p>
-                <p>Connecting and working with third party APIs
-                to get recipes and food nutrients.</p>
-                <p>Used jest framework to write unit tests for all application components.</p>
-                <p>Implemented dark mode functionality for the application</p>
+                <p>Design and responsiveness of the entire project.</p>
+                <p>Worked on developing the Workout Videos Page.</p>
+                <p>Implemented a burger menu and animations.</p>
+                <p>Also contributed to the database for the Videos and Programs sections.</p>
               </div>
 
           </div>

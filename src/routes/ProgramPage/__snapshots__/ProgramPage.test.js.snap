@@ -181,7 +181,9 @@ exports[`renders correctly 1`] = `
                     className="video-prev "
                     onClick={[Function]}
                   />
-                  <div>
+                  <div
+                    className="exercise-video-title"
+                  >
                     5 Min Warm Up
                   </div>
                 </a>
@@ -201,7 +203,9 @@ exports[`renders correctly 1`] = `
                     className="video-prev "
                     onClick={[Function]}
                   />
-                  <div>
+                  <div
+                    className="exercise-video-title"
+                  >
                     Abs and Butt
                   </div>
                 </a>
@@ -221,7 +225,9 @@ exports[`renders correctly 1`] = `
                     className="video-prev "
                     onClick={[Function]}
                   />
-                  <div>
+                  <div
+                    className="exercise-video-title"
+                  >
                     Lower Body Cooldown
                   </div>
                 </a>
@@ -284,7 +290,9 @@ exports[`renders correctly 1`] = `
                     className="video-prev "
                     onClick={[Function]}
                   />
-                  <div>
+                  <div
+                    className="exercise-video-title"
+                  >
                     5 Min Warm Up
                   </div>
                 </a>
@@ -304,7 +312,9 @@ exports[`renders correctly 1`] = `
                     className="video-prev "
                     onClick={[Function]}
                   />
-                  <div>
+                  <div
+                    className="exercise-video-title"
+                  >
                     Abs and Butt
                   </div>
                 </a>
@@ -324,7 +334,9 @@ exports[`renders correctly 1`] = `
                     className="video-prev "
                     onClick={[Function]}
                   />
-                  <div>
+                  <div
+                    className="exercise-video-title"
+                  >
                     Lower Body Cooldown
                   </div>
                 </a>
@@ -387,7 +399,9 @@ exports[`renders correctly 1`] = `
                     className="video-prev "
                     onClick={[Function]}
                   />
-                  <div>
+                  <div
+                    className="exercise-video-title"
+                  >
                     5 Min Warm Up
                   </div>
                 </a>
@@ -407,7 +421,9 @@ exports[`renders correctly 1`] = `
                     className="video-prev "
                     onClick={[Function]}
                   />
-                  <div>
+                  <div
+                    className="exercise-video-title"
+                  >
                     Abs and Butt
                   </div>
                 </a>
@@ -427,7 +443,9 @@ exports[`renders correctly 1`] = `
                     className="video-prev "
                     onClick={[Function]}
                   />
-                  <div>
+                  <div
+                    className="exercise-video-title"
+                  >
                     Lower Body Cooldown
                   </div>
                 </a>
@@ -490,7 +508,9 @@ exports[`renders correctly 1`] = `
                     className="video-prev "
                     onClick={[Function]}
                   />
-                  <div>
+                  <div
+                    className="exercise-video-title"
+                  >
                     5 Min Warm Up
                   </div>
                 </a>
@@ -510,7 +530,9 @@ exports[`renders correctly 1`] = `
                     className="video-prev "
                     onClick={[Function]}
                   />
-                  <div>
+                  <div
+                    className="exercise-video-title"
+                  >
                     Abs and Butt
                   </div>
                 </a>
@@ -530,7 +552,9 @@ exports[`renders correctly 1`] = `
                     className="video-prev "
                     onClick={[Function]}
                   />
-                  <div>
+                  <div
+                    className="exercise-video-title"
+                  >
                     Lower Body Cooldown
                   </div>
                 </a>
@@ -593,7 +617,9 @@ exports[`renders correctly 1`] = `
                     className="video-prev "
                     onClick={[Function]}
                   />
-                  <div>
+                  <div
+                    className="exercise-video-title"
+                  >
                     5 Min Warm Up
                   </div>
                 </a>
@@ -613,7 +639,9 @@ exports[`renders correctly 1`] = `
                     className="video-prev "
                     onClick={[Function]}
                   />
-                  <div>
+                  <div
+                    className="exercise-video-title"
+                  >
                     Abs and Butt
                   </div>
                 </a>
@@ -633,7 +661,9 @@ exports[`renders correctly 1`] = `
                     className="video-prev "
                     onClick={[Function]}
                   />
-                  <div>
+                  <div
+                    className="exercise-video-title"
+                  >
                     Lower Body Cooldown
                   </div>
                 </a>
@@ -696,7 +726,9 @@ exports[`renders correctly 1`] = `
                     className="video-prev "
                     onClick={[Function]}
                   />
-                  <div>
+                  <div
+                    className="exercise-video-title"
+                  >
                     5 Min Warm Up
                   </div>
                 </a>
@@ -716,7 +748,9 @@ exports[`renders correctly 1`] = `
                     className="video-prev "
                     onClick={[Function]}
                   />
-                  <div>
+                  <div
+                    className="exercise-video-title"
+                  >
                     Abs and Butt
                   </div>
                 </a>
@@ -736,7 +770,9 @@ exports[`renders correctly 1`] = `
                     className="video-prev "
                     onClick={[Function]}
                   />
-                  <div>
+                  <div
+                    className="exercise-video-title"
+                  >
                     Lower Body Cooldown
                   </div>
                 </a>
@@ -799,7 +835,9 @@ exports[`renders correctly 1`] = `
                     className="video-prev "
                     onClick={[Function]}
                   />
-                  <div>
+                  <div
+                    className="exercise-video-title"
+                  >
                     5 Min Warm Up
                   </div>
                 </a>
@@ -819,7 +857,9 @@ exports[`renders correctly 1`] = `
                     className="video-prev "
                     onClick={[Function]}
                   />
-                  <div>
+                  <div
+                    className="exercise-video-title"
+                  >
                     Abs and Butt
                   </div>
                 </a>
@@ -839,7 +879,9 @@ exports[`renders correctly 1`] = `
                     className="video-prev "
                     onClick={[Function]}
                   />
-                  <div>
+                  <div
+                    className="exercise-video-title"
+                  >
                     Lower Body Cooldown
                   </div>
                 </a>

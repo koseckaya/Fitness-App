@@ -14,9 +14,6 @@ const Footer: FC<Props> = ({ className }: Props) => (
         <Container>
             <div className="footer__container" >
                 <div className='copy'>© 2023</div>
-                <nav className='nav'>
-                    <Link to={`/privacy-policy`} className="nav-item">Privacy Policy</Link>
-                </nav>
                 <div className='social'>
                     <a href='https://rs.school/' className='social__rs'>
                         <img src="https://d3373sevsv1jc.cloudfront.net/uploads/communities_production/page_part/50206/C4353AB4DA2E410DAA6AEF509661B82C.png" alt="rs-school" />
