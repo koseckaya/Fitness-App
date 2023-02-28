@@ -1,3 +1,6 @@
+@import '../../styles/light-dark-theme';
+@import '../../styles/vars.scss';
+
 :root {
   --color-primary: rgb(48, 48, 51);
   --color-primary-disabled: #e3e4eb;
@@ -19,7 +22,7 @@
 
 .form-container {
   padding: 16px;
-  color: var(--color-primary);
+  color: var(--textThemeColor1);
   font-size: 14px;
   font-weight: 500;
   line-height: 1.4285;
@@ -48,10 +51,10 @@
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: var(--bs-body-color);
+  color: $black;
   background-color: var(--bs-form-control-bg);
   background-clip: padding-box;
-  border: var(--bs-border-width) solid var(--bs-border-color);
+  border: var(--bs-border-width) solid var(--textThemeColor1);
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;

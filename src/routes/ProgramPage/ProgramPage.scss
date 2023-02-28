@@ -132,15 +132,15 @@
     height: 30px;
     width: fit-content;
     padding: 5px 12px;
-    border: 1px solid $color-primary;
+    border: 1px solid var(--textThemeColor1);
     border-radius: 54px;
     background-color: transparent;
     margin-left: 5px;
     cursor: pointer;
     &.active {
-       background-color: rgb(124, 115, 197);
-        border-color: $purple;
-        color: #fff;
+       background-color: var(--textThemeColor1);
+        border-color: var(--textThemeColor1);
+        color: var(--textThemeColor2);
     }
   }
 }

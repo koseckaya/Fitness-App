@@ -16,7 +16,9 @@ exports[`ExerciseVideoPrev component should render component with default props 
       className="video-prev "
       onClick={[Function]}
     />
-    <div>
+    <div
+      className="exercise-video-title"
+    >
       5 Min Warm Up
     </div>
   </a>
@@ -39,7 +41,9 @@ exports[`ExerciseVideoPrev component should render component with inactive prop 
       className="video-prev active"
       onClick={[Function]}
     />
-    <div>
+    <div
+      className="exercise-video-title"
+    >
       5 Min Warm Up
     </div>
   </a>
@@ -62,7 +66,9 @@ exports[`ExerciseVideoPrev component should render component without prop title 
       className="video-prev "
       onClick={[Function]}
     />
-    <div />
+    <div
+      className="exercise-video-title"
+    />
   </a>
 </div>
 `;
@@ -83,7 +89,9 @@ exports[`ExerciseVideoPrev component should render component without src prop 1`
       className="video-prev "
       onClick={[Function]}
     />
-    <div>
+    <div
+      className="exercise-video-title"
+    >
       5 Min Warm Up
     </div>
   </a>
@@ -106,7 +114,9 @@ exports[`ExerciseVideoPrev component should render component without srcImg prop
       className="video-prev "
       onClick={[Function]}
     />
-    <div>
+    <div
+      className="exercise-video-title"
+    >
       5 Min Warm Up
     </div>
   </a>

@@ -11,13 +11,13 @@
 .filter {
     display: flex;
     justify-content: space-between;
-    color: var(--textThemeColor1);
+    color: $orange-text;
     select {
-        border: 1px solid $primary-disabled;
+        border: 1px solid $orange-text;
         border-radius: 4px;
         padding: 0px 10px;
         height: 36px;
-        color: $color-primary;
+        color: $orange-text;
         outline: none;
     }
 }
@@ -39,7 +39,7 @@
         &.active {
             background-color: var(--activeFilter);
             border-color: var(--activeFilter);
-            color: var(--textThemeColor2);
+            color: $white;
         }
     }
     

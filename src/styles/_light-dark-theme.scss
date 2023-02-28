@@ -22,21 +22,40 @@ $filter-dark: brightness(0) saturate(100%) invert(58%) sepia(12%) saturate(6353%
 $active-filter-dark: #e78f63;
 $active-filter-light: #e78f63;
 
+$light-filter-for-hover: brightness(0.6);
+$dark-filter-for-hover: contrast(0.3);
+
 $themes: (
   bgThemeColor1: (
     darkTheme: $blue700,
-    lightTheme: $grey100,
+    lightTheme: $white,
   ),
   bgThemeColor2: (
     darkTheme: $blue600,
     lightTheme: $orange,
   ),
+  bgThemeColor3: (
+    darkTheme: $blue600,
+    lightTheme: $white,
+  ),
+  bgThemeColor4: (
+    darkTheme: $white,
+    lightTheme: $blue600,
+  ),
+  bgThemeColor6: (
+    darkTheme: $blue700,
+    lightTheme: $orange-text,
+  ),
   textThemeColor1: (
-    darkTheme: $grey100,
+    darkTheme: $white,
     lightTheme: $orange-text,
   ),
    textThemeColor2: (
-    darkTheme: $gray,
+    darkTheme: $orange-text,
+    lightTheme: $white,
+  ),
+  textThemeColor3: (
+    darkTheme: $blue700,
     lightTheme: $white,
   ),
    logoFilter: (
@@ -46,7 +65,11 @@ $themes: (
     activeFilter: (
       darkTheme: $active-filter-dark,
       lightTheme: $active-filter-light,
-    )
+    ),
+  hoverFilter: (
+    darkTheme: $dark-filter-for-hover,
+    lightTheme: $light-filter-for-hover,
+  )
 );
 
 @mixin styles($mode) {
