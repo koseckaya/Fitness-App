@@ -16,9 +16,8 @@ import { RecipeLatest } from "../../components/RecipeLatest";
 import RecipesCategories from "../../components/RecipesCategories/RecipesCategories";
 import { RecipeContext } from "../../components/utils/contexts/RecipeContext";
 
-
 interface IProps {
-  navigate:  NavigateFunction;
+    navigate: NavigateFunction;
 }
 interface IState {
     items: RecipeApi[];
@@ -29,7 +28,6 @@ interface IState {
     from: number;
     to: number;
     category: string;
-  
 }
 
 const ITEMS_PER_PAGE = 20;
@@ -47,20 +45,20 @@ export class Recipes extends Component<IProps, IState> {
     };
     static contextType = RecipeContext;
 
-  componentDidMount() {
-
-    const { recipes: items, category } = this.context as RecipeContextType;
-    if (Object.keys(items).length === 0) {
-        this.fetchData(true, category );
-      }
-  }
-    fetchData = (reset = false, category = '') => {
-        const { setRecipes, category: categoryContext } = this.context as RecipeContextType;
+    componentDidMount() {
+        const { recipes: items, category } = this.context as RecipeContextType;
+        if (Object.keys(items).length === 0) {
+            this.fetchData(true, category);
+        }
+    }
+    fetchData = (reset = false, category = "") => {
+        const { setRecipes, category: categoryContext } = this
+            .context as RecipeContextType;
         const config = {
             from: this.state.from,
             to: this.state.to,
             search: this.state.search,
-            category: category || categoryContext ,
+            category: category || categoryContext,
         };
         getRecipes(config)
             .then((data) => {
@@ -73,15 +71,18 @@ export class Recipes extends Component<IProps, IState> {
             });
     };
 
-
-
     handleNext = () => {
-        this.setState((state) => {
-            return {
-                from: state.from + ITEMS_PER_PAGE,
-                to: state.to + ITEMS_PER_PAGE,
-            };
-        }, () => { this.fetchData()});
+        this.setState(
+            (state) => {
+                return {
+                    from: state.from + ITEMS_PER_PAGE,
+                    to: state.to + ITEMS_PER_PAGE,
+                };
+            },
+            () => {
+                this.fetchData();
+            }
+        );
     };
     handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const val = e.target.value;
@@ -103,23 +104,15 @@ export class Recipes extends Component<IProps, IState> {
         let categ = target.getAttribute("data-categ");
         if (!categ) return;
         const { setCategory } = this.context as RecipeContextType;
-        setCategory(categ)
-        this.setState(
-            {from: 0,
-              to: ITEMS_PER_PAGE,
-            },
-            () => {
-                this.fetchData(true);
-            }
-      );
-        this.props.navigate(`/recipes/${categ}`)
+        setCategory(categ);
+        this.setState({ from: 0, to: ITEMS_PER_PAGE }, () => {
+            this.fetchData(true);
+        });
+        this.props.navigate(`/recipes/${categ}`);
     };
 
-  render() {
-    const { recipes: items, category } = this.context as RecipeContextType;
-    if (Object.keys(items).length === 0) {
-      return null;
-    }
+    render() {
+        const { recipes: items, category } = this.context as RecipeContextType;
         return (
             <Container>
                 <div className="recipes__search">
@@ -133,41 +126,52 @@ export class Recipes extends Component<IProps, IState> {
                         <span
                             className="recipes__search_zoom"
                             onClick={this.onSubmit}
-                        >🔎︎ </span>
+                        >
+                            🔎︎{" "}
+                        </span>
                     </form>
                 </div>
-                <div className="recipes__top">
-                  <RecipeLatest />
-                  <RecipesCategories onChangeCategory={ this.handleCategory} />
-                </div>
+                {Object.keys(items).length !== 0 ? (
+                    <>
+                        <div className="recipes__top">
+                            <RecipeLatest />
+                            <RecipesCategories
+                                onChangeCategory={this.handleCategory}
+                            />
+                        </div>
 
-                <h3 className="recipes__title">All Recipes</h3>
-                <InfiniteScroll
-                    className="recipes__container"
-                    dataLength={Object.keys(items).length}
-                    next={this.handleNext}
-                    hasMore={this.state.hasMore}
-                    loader={<h4>Loading...</h4>}
-                    endMessage={
-                        <p style={{ textAlign: "center" }}>
-                            <b>Yay! You have seen it all</b>
-                        </p>
-                    }
-                >
-                    {Object.values(items).map((i, index) => {
-                        const url = getRecipeId(i.recipe.shareAs);
+                        <h3 className="recipes__title">All Recipes</h3>
+                        <InfiniteScroll
+                            className="recipes__container"
+                            dataLength={Object.keys(items).length}
+                            next={this.handleNext}
+                            hasMore={this.state.hasMore}
+                            loader={<h4>Loading...</h4>}
+                            endMessage={
+                                <p style={{ textAlign: "center" }}>
+                                    <b>Yay! You have seen it all</b>
+                                </p>
+                            }
+                        >
+                            {Object.values(items).map((i, index) => {
+                                const url = getRecipeId(i.recipe.shareAs);
 
-                        return (
-                            <Link to={`/recipes/${category}/${url}`} key={index}>
-                                <RecipeCard
-                                    label={i.recipe.label}
-                                    imgUrl={i.recipe.image}
-                                    calories={i.recipe.calories}
-                                />
-                            </Link>
-                        );
-                    })}
-                </InfiniteScroll>
+                                return (
+                                    <Link
+                                        to={`/recipes/${category}/${url}`}
+                                        key={index}
+                                    >
+                                        <RecipeCard
+                                            label={i.recipe.label}
+                                            imgUrl={i.recipe.image}
+                                            calories={i.recipe.calories}
+                                        />
+                                    </Link>
+                                );
+                            })}
+                        </InfiniteScroll>
+                    </>
+                ) : null}
             </Container>
         );
     }
