@@ -6,7 +6,7 @@ import { WorkoutVideos } from '../WorkoutVideos';
 
 it('renders correctly', () => {
     const tree = renderer
-        .create(<Router><WorkoutVideos /></Router>)
+        .create(<Router><WorkoutVideos disableRandom={ true} /></Router>)
         .toJSON();
     expect(tree).toMatchSnapshot();
 });

@@ -14,7 +14,7 @@
     margin-bottom: 16px;
     position: relative;
     transition: all 0.5s;
-    color: $gray;
+    color: var(--textThemeColor3);
      overflow: hidden;
      cursor: pointer;
     &:hover {
@@ -22,7 +22,7 @@
         bottom: -100px;
       }
       .card__image {
-         filter: brightness(0.6);
+         filter: var(--hoverFilter)
       }
     }
   }
@@ -47,10 +47,11 @@
   }
   &__duration, &__minutes{
     text-transform: lowercase;
-    background: #fff;
-   border-radius: 15px;
+    background-color: var(--activeFilter);
+    border-color: var(--activeFilter);
+    color: $white;
+    border-radius: 15px;
     padding: 5px;
-    color: $color-primary;
   }
   &__duration {
     width: 57px;

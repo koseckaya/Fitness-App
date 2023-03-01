@@ -60,7 +60,7 @@ const SignupForm: FC = () => {
     register,
     handleSubmit,
     setError,
-    formState: { errors, isValid },
+    formState: { errors },
   } = useForm<UserSubmitForm>({
     resolver: yupResolver(validationSchema),
   });

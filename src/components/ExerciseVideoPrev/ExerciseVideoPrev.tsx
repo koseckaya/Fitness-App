@@ -18,7 +18,7 @@ const ExerciseVideoPrev: FC<Props> = ({title, src, srcImg, day, onVideoClick, ac
                     
                     <div className={`video-prev ${active ? 'active' : ''}`} onClick={(e) => onVideoClick(day, e)}>
                     </div>
-                    <div>{title}</div>
+                    <div className='exercise-video-title'>{title}</div>
                 </a>
             </div>
     )

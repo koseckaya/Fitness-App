@@ -1,4 +1,5 @@
 @import '../../styles/light-dark-theme';
+@import '../../styles/vars.scss';
 
 .dropdown {
   position: relative;
@@ -53,7 +54,7 @@
   width: 45px;
   height: 45px;
   position: absolute;
-  right: 1.3rem;
+  right: 4.0rem;
   border: 1.5px solid var(--textThemeColor1);
   border-radius: 50%;
   .dropdown {
@@ -62,6 +63,44 @@
       height: 45px;
       border-radius: 50%;
       padding: 0;
+      background-color: var(--bgThemeColor4);
+    }
+  }
+}
+
+@include for-max-1000px() {
+  .profileBtnContainer {
+    display: none;
+    &.activated {
+      display: block;
+      z-index: 10000;
+      position: fixed;
+      left: 1.2rem;
+      top: 27rem;
+      width: 50px;
+      height: 50px;
+      animation: taadaa .9s ease;
+      .button {
+        width: 50px;
+        height: 50px;
+      }
+      .dropdown {
+        .dropdown-menu {
+          position: absolute;
+          top: 0;
+          left: 130%;
+          width: 72px;
+          list-style-type: none;
+          margin: 2px 0;
+          padding: 3px 10px;
+          color: rgba(0, 0, 0, 0.85);
+          background-color: #fff;
+          line-height: 22px;
+          box-shadow: rgb(115 136 189 / 15%) 0px 4px 12px;
+          border-radius: 6px;
+          z-index: 1;
+        }
+      }
     }
   }
 }

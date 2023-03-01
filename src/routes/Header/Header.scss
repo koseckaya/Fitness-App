@@ -19,6 +19,18 @@
     width: 18%;
     justify-content: flex-end;
     padding-right: 1rem;
+    .button {
+      background: var(--bgThemeColor4);
+      &.button-primary {
+        transition: .3s ease;
+        background-color: transparent;
+        color: var(--textThemeColor2);
+        border: 1px solid var(--textThemeColor2);
+        &:hover {
+          background: var(--bgThemeColor4);
+        }
+      }
+    }
   }
   .nav {
     display: flex;
@@ -26,13 +38,33 @@
     justify-content: space-around;
     color: var(--textThemeColor1);
   &-active {
-    color: var(--testThemeColor);
-  }
-  &-item {
-    &:hover {
-      color: darken($purple, 20%);
+    color: #ffffff;
+    
+    &::after {
+      content: "";
+      height: 2px;
+      background-color: #ffffff;
+      display: block;
+      animation: width .4s forwards;
+      animation-timing-function: ease;
+      will-change: contents;
     }
   }
+  &-item {
+    transition: all .3s;
+    &:hover {
+      color: var(--textThemeColor1);
+      text-shadow: 10px 10px 25px rgb(255, 255, 255),
+    -10px 10px 25px rgb(255, 255, 255),
+    -10px -10px 25px rgb(255, 255, 255),
+    10px -10px 25px rgb(255, 255, 255);
+    }
+    &::after {
+      content: "";
+      height: 2px;
+    }
+  }
+  
   }
 }
 
@@ -113,6 +145,7 @@ a {
   cursor: pointer;
   display: flex;
   padding: 0;
+  filter: invert(100%);
 }
 .line {
   fill: none;
@@ -218,7 +251,7 @@ a {
       padding: 120px 0px 0px 20px;
       right: 0;
       position: fixed;
-      background: lightskyblue;
+      background: var(--bgThemeColor6);
       display: flex;
       flex-direction: column;
       gap: 15px;
@@ -257,9 +290,11 @@ a {
     }
     &__hamburger {
       display: block !important;
+      right: 0;
       &.opened {
         position: fixed;
         top: 42px;
+        right: 2.2rem;
       }
     }
     .logo {
@@ -301,9 +336,6 @@ a {
 
 @include for-max-440px() {
   .header {
-    &__hamburger {
-      right: 2rem;
-    }
     .logo {
       width: 70%;
       .logo1 {
@@ -320,7 +352,11 @@ a {
 @include for-max-400px() {
   .header {
     &__hamburger {
-      right: 1rem;
+      right: -1rem;
+      &.opened {
+        top: 37.6px;
+        right: 19px;
+      }
     }
     .logo {
       width: 90%;

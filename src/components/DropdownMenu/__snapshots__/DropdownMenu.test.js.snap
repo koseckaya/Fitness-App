@@ -1,35 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DropDownMenu component should render component with default props 1`] = `
-<div
-  className="profileBtnContainer"
->
+<div>
   <div
     className="dropdown"
   >
     <div
       className="button  "
       onClick={[Function]}
-    >
-      undefined
-    </div>
+    />
   </div>
 </div>
 `;
 
 exports[`DropDownMenu component should render component without props 1`] = `
-<div
-  className="profileBtnContainer"
->
+<div>
   <div
     className="dropdown"
   >
     <div
       className="button  "
       onClick={[Function]}
-    >
-      undefined
-    </div>
+    />
   </div>
 </div>
 `;
