@@ -131,15 +131,15 @@ export class Recipes extends Component<IProps, IState> {
                         </span>
                     </form>
                 </div>
-                {Object.keys(items).length !== 0 ? (
-                    <>
+                
                         <div className="recipes__top">
                             <RecipeLatest />
                             <RecipesCategories
                                 onChangeCategory={this.handleCategory}
                             />
                         </div>
-
+                {Object.keys(items).length !== 0 ? (
+                    <>
                         <h3 className="recipes__title">All Recipes</h3>
                         <InfiniteScroll
                             className="recipes__container"
@@ -171,7 +171,7 @@ export class Recipes extends Component<IProps, IState> {
                             })}
                         </InfiniteScroll>
                     </>
-                ) : null}
+                ) : <div>Nothing to Find. Try again</div>}
             </Container>
         );
     }
