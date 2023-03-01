@@ -14,7 +14,7 @@ config.optimization.runtimeChunk = false;
 config.optimization.minimize = false;
 
 // JS
-config.output.filename = './[name].js';
+config.output.filename = '[name].js';
 // CSS. "5" is MiniCssPlugin
 // config.plugins[5].options.filename = '[name].css';
 // config.plugins[5].options.publicPath = '../';
