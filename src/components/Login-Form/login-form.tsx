@@ -36,7 +36,7 @@ const LoginForm: FC = () => {
     register,
     handleSubmit,
     setError,
-    formState: { errors, isValid },
+    formState: { errors },
   } = useForm<UserLoginForm>({
     resolver: yupResolver(validationSchema),
   });
@@ -109,7 +109,7 @@ const LoginForm: FC = () => {
             </label>
           </div>
 
-          <button type="submit" className="button form-btn" disabled={!isValid}>
+          <button type="submit" className="button form-btn">
             Log in
           </button>
 
