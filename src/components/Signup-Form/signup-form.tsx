@@ -186,7 +186,7 @@ const SignupForm: FC = () => {
             </label>
           </div>
 
-          <button type="submit" className="button form-btn" disabled={!isValid}>
+          <button type="submit" className="button form-btn">
             Create account
           </button>
 
