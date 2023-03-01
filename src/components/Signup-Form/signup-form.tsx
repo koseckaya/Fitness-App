@@ -60,7 +60,7 @@ const SignupForm: FC = () => {
     register,
     handleSubmit,
     setError,
-    formState: { errors, isValid },
+    formState: { errors },
   } = useForm<UserSubmitForm>({
     resolver: yupResolver(validationSchema),
   });
@@ -186,7 +186,7 @@ const SignupForm: FC = () => {
             </label>
           </div>
 
-          <button type="submit" className="button form-btn" disabled={!isValid}>
+          <button type="submit" className="button form-btn">
             Create account
           </button>
 
