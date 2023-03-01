@@ -19,8 +19,12 @@ const ProgramPage: FC<Props> = ({ className }: Props) => {
         (prog) => prog.path === "/" + programId
     )[0];
 
+    console.log(program, programId);
+
     const { currentUser } = useContext(UserContext);
     const userData = useUserData(currentUser);
+
+    console.log(userData);
 
     const [completedDays, setCompletedDays] = useState<number[]>([])
     const [week, setWeek] = useState(1);
