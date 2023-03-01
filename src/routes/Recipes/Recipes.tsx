@@ -131,7 +131,7 @@ export class Recipes extends Component<IProps, IState> {
                         </span>
                     </form>
                 </div>
-                {Object.keys(items).length === 0 ? (
+                {Object.keys(items).length !== 0 ? (
                     <>
                         <div className="recipes__top">
                             <RecipeLatest />
