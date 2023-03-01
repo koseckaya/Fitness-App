@@ -34,7 +34,7 @@
     },
     "scripts": {
         "start": "react-scripts start",
-        "build": "node build.js",
+        "build": "react-scripts build",
         "test": "react-scripts test --transformIgnorePatterns \"node_modules/(?!axios)/\"",
         "eject": "react-scripts eject",
         "new-c": "cd ./helpers/src && node new_component.js"
