@@ -1,5 +1,3 @@
-
-
 import React, { Component } from "react";
 import { Container } from "../../components/Container";
 import "./WorkoutVideos.scss";
@@ -12,17 +10,21 @@ interface VideoTagItem {
     key: number;
 }
 interface IState {
-  tags: string[];
-  search: string;
-  duration: number[];
-  reset: number;
-  randomVideo: Video | null;
+    tags: string[];
+    search: string;
+    duration: number[];
+    reset: number;
+    randomVideo: Video | null;
 }
-export class WorkoutVideos extends Component {
-  constructor(props: IState) {
-    super(props)
-    this.state.randomVideo = this.randomizeVideo()
-  }
+interface IProps {
+    disableRandom?: boolean;
+}
+
+export class WorkoutVideos extends Component<IProps, IState> {
+    constructor(props: IProps) {
+        super(props);
+        this.state.randomVideo = this.randomizeVideo();
+    }
     state: IState = {
         tags: ["All"],
         search: "",
@@ -102,7 +104,10 @@ export class WorkoutVideos extends Component {
                 )
             );
         } else {
-          filteredArray = filteredArray.filter((elem) => elem.title?.toLowerCase().includes(this.state.search.toLowerCase())
+            filteredArray = filteredArray.filter((elem) =>
+                elem.title
+                    ?.toLowerCase()
+                    .includes(this.state.search.toLowerCase())
             );
         }
         const durationFilter = filteredArray.filter(
@@ -125,29 +130,40 @@ export class WorkoutVideos extends Component {
         });
 
         input.focus();
-  };
-  
-  randomizeVideo = () => {
-    let min = 0; let max = workoutVideosData.length-1
-    let rand = Math.floor(min + Math.random() * (max + 1 - min));
-    let video = [...workoutVideosData][rand]
-    return video
-  }
-  handleRandomVideo = () => {
-      this.setState({ randomVideo: this.randomizeVideo() })
-  }
- 
-  
+    };
+
+    randomizeVideo = () => {
+        let min = 0;
+        let max = workoutVideosData.length - 1;
+        let rand = Math.floor(min + Math.random() * (max + 1 - min));
+        if (this.props.disableRandom) {
+            rand = 0;
+        }
+        let video = [...workoutVideosData][rand];
+
+        return video;
+    };
+    handleRandomVideo = () => {
+        this.setState({ randomVideo: this.randomizeVideo() });
+    };
+    handleRangeChange = ({ min, max }: {min?: number, max?: number}) => {
+        if (min && max) {
+            this.setState({
+                ...this.state,
+                duration: [min, max],
+            });
+        }
+    };
 
     render() {
-  const filteredVideos = this.getFilteredVideos();
-      const randomVideo = this.state.randomVideo;
+        const filteredVideos = this.getFilteredVideos();
+        const randomVideo = this.state.randomVideo;
 
         return (
             <Container className="workout-videos">
                 <div className="workout-videos__left-side">
                     <div className="search-container">
-                        <form className="finder-form" autoComplete="off" >
+                        <form className="finder-form" autoComplete="off">
                             <div className="finder__icon"></div>
                             <input
                                 className="finder__input"
@@ -162,30 +178,34 @@ export class WorkoutVideos extends Component {
                             ></div>
                         </form>
                     </div>
-                        <div className="slider-minutes">WORKOUT DURATION</div>
-                        <MultiRangeSlider
-                            key={this.state.reset}
-                            min={5}
-                            max={25}
-                            onChange={({ min, max }) =>
-                                this.setState({
-                                    ...this.state,
-                                    duration: [min, max],
-                                })
-                            }/>
-                        <div className="random-video">
-                        <div className="random-video__title">Try out this Random Workout Video:</div>
-                        {randomVideo && (
-                                <WorkoutVideoComponent
-                                            key={randomVideo.id}
-                                            title={randomVideo.title}
-                                            src={randomVideo.src}
-                                            srcImg={randomVideo.srcImg}
-                                            duration={randomVideo.duration}
-                        /> ) }
-                        
-                        <div className="button" onClick={this.handleRandomVideo }>Randomize Again</div>
+                    <div className="slider-minutes">WORKOUT DURATION</div>
+                    <MultiRangeSlider
+                        key={this.state.reset}
+                        min={5}
+                        max={25}
+                        onChange={ this.handleRangeChange }
+                    />
+                    <div className="random-video">
+                        <div className="random-video__title">
+                            Try out this Random Workout Video:
                         </div>
+                        {randomVideo && (
+                            <WorkoutVideoComponent
+                                key={randomVideo.id}
+                                title={randomVideo.title}
+                                src={randomVideo.src}
+                                srcImg={randomVideo.srcImg}
+                                duration={randomVideo.duration}
+                            />
+                        )}
+
+                        <div
+                            className="button"
+                            onClick={this.handleRandomVideo}
+                        >
+                            Randomize Again
+                        </div>
+                    </div>
                 </div>
                 <div className="workout-videos__right-side">
                     <div className="videos-filters">
