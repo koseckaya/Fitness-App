@@ -73,11 +73,15 @@
         overflow: hidden;
         text-overflow: ellipsis;  
         margin-right: 20px;
+        transform: all 0.3s ease;
         cursor: pointer;
           &.active {
               background-color: var(--textThemeColor1);
               border-color: var(--textThemeColor1);
               color: var(--textThemeColor2);
+          }
+          &:hover {
+            transform: scale(1.02);
           }
         
       }

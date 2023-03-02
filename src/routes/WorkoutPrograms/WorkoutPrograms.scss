@@ -29,18 +29,23 @@
     padding: 6px 10px;
     font-weight: 500;
     font-size: 15px;
-    border: 1px solid var(--textThemeColor1);;
+    border: 1px solid var(--textThemeColor1);
     border-radius: 100px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;  
     margin-right: 20px;
+    transition: all 0.3s ease;
     cursor: pointer;
+         &:hover {
+            transform: scale(1.02);
+          }
         &.active {
             background-color: var(--activeFilter);
             border-color: var(--activeFilter);
             color: $white;
         }
+        
     }
     
 }

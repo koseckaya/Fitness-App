@@ -12,6 +12,10 @@
     display: grid;
     column-gap: 30px;
     margin-bottom: 30px;
+    &:hover {
+      transform: scale(1.02);
+    transition: 0.3s;
+    }
   }
 
 .categories {
