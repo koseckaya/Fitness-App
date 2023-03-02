@@ -44,11 +44,11 @@
 }
 .btn-complete{ 
     color: $color-primary;
-    background-color: transparent;
+    background-color: #e1e3f2;
     border: 1px solid $color-primary;
     transition: 0.5s all ease;
     opacity: 0.5;
-    // pointer-events: none;
+ 
     &.active, &:hover {
       opacity: 1;
       pointer-events: all;
