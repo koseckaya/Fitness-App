@@ -1,0 +1,134 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WorkoutVideoComponent component should render component with default props 1`] = `
+<div
+  className="workout-video"
+>
+  <a
+    href="https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing"
+  >
+    <img
+      alt="5 Min Warm Up"
+      className="workout-video__img"
+      src="https://static.chloeting.com/videos/63ae100649cf64962cb594e2/f081bd90-8a98-11ed-97ac-4b900c40c009.jpeg"
+    />
+    <div
+      className="workout-video__title"
+    >
+      5 Min Warm Up
+    </div>
+    <div
+      className="workout-video__duration"
+    >
+      5
+       MIN
+    </div>
+  </a>
+</div>
+`;
+
+exports[`WorkoutVideoComponent component should render component without duration props 1`] = `
+<div
+  className="workout-video"
+>
+  <a
+    href="https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing"
+  >
+    <img
+      alt="5 Min Warm Up"
+      className="workout-video__img"
+      src="https://static.chloeting.com/videos/63ae100649cf64962cb594e2/f081bd90-8a98-11ed-97ac-4b900c40c009.jpeg"
+    />
+    <div
+      className="workout-video__title"
+    >
+      5 Min Warm Up
+    </div>
+    <div
+      className="workout-video__duration"
+    >
+      0
+       MIN
+    </div>
+  </a>
+</div>
+`;
+
+exports[`WorkoutVideoComponent component should render component without src props 1`] = `
+<div
+  className="workout-video"
+>
+  <a
+    href=""
+  >
+    <img
+      alt="5 Min Warm Up"
+      className="workout-video__img"
+      src="https://static.chloeting.com/videos/63ae100649cf64962cb594e2/f081bd90-8a98-11ed-97ac-4b900c40c009.jpeg"
+    />
+    <div
+      className="workout-video__title"
+    >
+      5 Min Warm Up
+    </div>
+    <div
+      className="workout-video__duration"
+    >
+      5
+       MIN
+    </div>
+  </a>
+</div>
+`;
+
+exports[`WorkoutVideoComponent component should render component without srcImg props 1`] = `
+<div
+  className="workout-video"
+>
+  <a
+    href="https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing"
+  >
+    <img
+      alt="5 Min Warm Up"
+      className="workout-video__img"
+      src=""
+    />
+    <div
+      className="workout-video__title"
+    >
+      5 Min Warm Up
+    </div>
+    <div
+      className="workout-video__duration"
+    >
+      5
+       MIN
+    </div>
+  </a>
+</div>
+`;
+
+exports[`WorkoutVideoComponent component should render component without title props 1`] = `
+<div
+  className="workout-video"
+>
+  <a
+    href="https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing"
+  >
+    <img
+      alt=""
+      className="workout-video__img"
+      src="https://static.chloeting.com/videos/63ae100649cf64962cb594e2/f081bd90-8a98-11ed-97ac-4b900c40c009.jpeg"
+    />
+    <div
+      className="workout-video__title"
+    />
+    <div
+      className="workout-video__duration"
+    >
+      5
+       MIN
+    </div>
+  </a>
+</div>
+`;

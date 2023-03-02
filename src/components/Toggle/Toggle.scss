@@ -1,0 +1,120 @@
+@import "src/styles/vars";
+
+ .toggle-input {
+    display: none;
+  }
+  .toggle-container {
+    right: -5%;
+    position: absolute;
+    width: 50px;
+    height: 27px;
+  .toggle-slider {
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    overflow: hidden;
+    background-color: #e74a42;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 1.4s;
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: 6px;
+      left: -24px;
+      width: 25px;
+      height: 25px;
+      border-radius: 30px;
+      font-size: 25px;
+      text-align: center;
+      text-justify: auto;
+    }
+    &:before {
+      content: "🌚";
+      width: 25px;
+      height: 25px;
+      transition: 0.4s;
+    }
+    &:after {
+      content: "🌞";
+      width: 28px;
+      font-size: 28px;
+      bottom: 5px;
+      height: 28px;
+      transition: 0.5s;
+      left: -8px;
+    }
+  }
+  .toggle-wave {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 42px;
+    height: 27px;
+    border-radius: 40px;
+    transition: all 1.4s;
+    &:after {
+      content: "";
+      position: absolute;
+      top: 3px;
+      left: 20%;
+      width: 30px;
+      height: 3px;
+      border-radius: 100%;
+      opacity: 1;
+    }
+    &:before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: 30%;
+      width: 35px;
+      height: 2px;
+      border-radius: 100%;
+      opacity: 1;
+    }
+  }
+  input:checked + .toggle-slider {
+    background-color: transparent;
+    &:before,
+    &:after {
+      transform: translateX(44px);
+    }
+    &::before {
+      z-index: 6;
+    }
+    &::after {
+      z-index: 5;
+    }
+  }
+  input:checked ~ .toggle-wave {
+    display: block;
+    background-color: #3398d9;
+  }
+}
+
+@include for-max-1443px() {
+  .toggle-container {
+    right: -2%;
+  }
+}
+
+@include for-max-1000px() {
+  .toggle-container {
+    display: none;
+    &.activated {
+      display: block;
+      position: fixed;
+      z-index: 10000;
+      left: 21px;
+      top: 523px;
+      animation: taadaa 1.2s forwards;
+    }
+   
+  }
+}

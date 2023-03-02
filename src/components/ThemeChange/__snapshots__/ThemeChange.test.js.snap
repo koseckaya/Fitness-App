@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div>
+  <label
+    className="switch"
+    htmlFor="toggler"
+  >
+    <input
+      checked={false}
+      className="toggle-input"
+      id="toggler"
+      onClick={[Function]}
+      readOnly={true}
+      type="checkbox"
+    />
+    <span
+      className="toggle-slider"
+    />
+    <span
+      className="toggle-wave"
+    />
+  </label>
+</div>
+`;

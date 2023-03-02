@@ -1,0 +1,61 @@
+@import '../../styles/vars.scss';
+@import '../../styles/light-dark-theme';
+
+.workout-video {
+  display: flex;
+  position: relative;
+  width: 32%;
+  a {
+    width: 100%;
+  }
+  &__img {
+    width: 100%;
+    box-shadow: rgb(38, 57, 77) 0px 15px 20px -10px;
+    &:hover {
+      transition: .3s;
+      transform: scale(1.005);
+      background-color: rgba(102, 67, 1, 0.716);
+    }
+  }
+  &__duration {
+    font-size: 1.1rem;
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    background-color: rgba(168, 71, 0, 0.57);
+    border-radius: 4px;
+    backdrop-filter: blur(4px);
+    padding: 2px 4px;
+    color: $white;
+  }
+  &__title {
+    position: absolute;
+    top: 5%;
+    font-size: 1.1rem;
+    width: 99.14%;
+    background-color: rgb(168 71 0 / 57%);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    padding: 2px 0px 2px 2px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    color: $white;
+  }
+}
+
+@include for-max-620px() {
+  .workout-video {
+    width: 65%;
+    &__title {
+      font-size: 1.3rem;
+    }
+    &__duration {
+      font-size: 1.3rem;
+    }
+  }
+}
+
+@include for-max-440px() {
+  .workout-video {
+    width: 80%;
+  }
+}

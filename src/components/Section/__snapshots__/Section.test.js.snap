@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Section component should render component with default props 1`] = `
+<div
+  className="container "
+>
+  <div
+    className="section"
+  >
+    <div
+      className="section__header"
+    >
+      <div
+        className="section__title"
+      >
+        Free Workout Programs
+      </div>
+      <div
+        className="button  button-primary"
+        onClick={[Function]}
+      >
+        Free Workout Programs
+      </div>
+    </div>
+    <div
+      className="section__content"
+    >
+      &lt;div&gt;&lt;/div&gt;
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Section component should render component without btnText props 1`] = `
+<div
+  className="container "
+>
+  <div
+    className="section"
+  >
+    <div
+      className="section__header"
+    >
+      <div
+        className="section__title"
+      >
+        Free Workout Programs
+      </div>
+      <div
+        className="button  button-primary"
+        onClick={[Function]}
+      />
+    </div>
+    <div
+      className="section__content"
+    >
+      &lt;div&gt;&lt;/div&gt;
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Section component should render component without children props 1`] = `
+<div
+  className="container "
+>
+  <div
+    className="section"
+  >
+    <div
+      className="section__header"
+    >
+      <div
+        className="section__title"
+      >
+        Free Workout Programs
+      </div>
+      <div
+        className="button  button-primary"
+        onClick={[Function]}
+      >
+        Free Workout Programs
+      </div>
+    </div>
+    <div
+      className="section__content"
+    />
+  </div>
+</div>
+`;
+
+exports[`Section component should render component without title props 1`] = `
+<div
+  className="container "
+>
+  <div
+    className="section"
+  >
+    <div
+      className="section__header"
+    >
+      <div
+        className="section__title"
+      />
+      <div
+        className="button  button-primary"
+        onClick={[Function]}
+      >
+        Free Workout Programs
+      </div>
+    </div>
+    <div
+      className="section__content"
+    >
+      &lt;div&gt;&lt;/div&gt;
+    </div>
+  </div>
+</div>
+`;

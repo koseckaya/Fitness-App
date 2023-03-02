@@ -1,0 +1,142 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="container "
+>
+  <div
+    className="tab-menu__wrapper"
+  >
+    <nav
+      className="tab-menu"
+    >
+      <button
+        className="button-active"
+        onClick={[Function]}
+      >
+        Personal Info
+      </button>
+      <button
+        className=""
+        onClick={[Function]}
+      >
+        Started Challenges
+      </button>
+    </nav>
+    <div
+      className="tab-view"
+    >
+      <div
+        hidden={false}
+      >
+        <div
+          className="form-wrap"
+        >
+          <div
+            className="form-container"
+          >
+            <form
+              className="form__auth"
+              onSubmit={[Function]}
+            >
+              <p
+                className="form__auth-subtitle"
+              >
+                Your Name
+              </p>
+              <div>
+                <div
+                  className="mb-3"
+                >
+                  <input
+                    aria-describedby="nameHelp"
+                    className="form-control__auth "
+                    id="name"
+                    name="name"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="First Name"
+                    type="text"
+                  />
+                  <p
+                    className="invalid-feedback"
+                  />
+                </div>
+                <div
+                  className="mb-3"
+                >
+                  <input
+                    aria-describedby="nameHelp"
+                    className="form-control__auth "
+                    id="lastName"
+                    name="lastName"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="Last Name"
+                    type="text"
+                  />
+                  <p
+                    className="invalid-feedback"
+                  />
+                </div>
+              </div>
+              <div
+                className="form-btn__container"
+              >
+                <button
+                  className="button form-btn form-btn__default"
+                  disabled={true}
+                  onClick={[Function]}
+                  type="button"
+                >
+                  Cancel
+                </button>
+                <button
+                  className="button form-btn"
+                  disabled={true}
+                  type="submit"
+                >
+                  Save Changes
+                </button>
+              </div>
+              <div>
+                <p
+                  className="form__auth-subtitle"
+                >
+                  Email Address
+                </p>
+                <p
+                  className="auth__text"
+                >
+                  Your email address is
+                  <span
+                    className="auth__text-secondary"
+                  />
+                </p>
+              </div>
+              <div>
+                <p
+                  className="form__auth-subtitle"
+                >
+                  Account created
+                </p>
+                <p
+                  className="auth__text"
+                >
+                  Time of creation
+                  <span
+                    className="auth__text-secondary"
+                  />
+                </p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div
+        hidden={true}
+      />
+    </div>
+  </div>
+</div>
+`;

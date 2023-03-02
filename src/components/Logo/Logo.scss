@@ -1,0 +1,26 @@
+@import '../../styles/vars.scss';
+@import '../../styles/light-dark-theme';
+
+.logo1 {
+  width: 286px;
+  height: 100px;
+  background: url(./result.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  filter: var(--logoFilter);
+}
+
+@include for-max-1200px() {
+  .logo1 {
+    width: 222px;
+    height: 76px;
+  }
+}
+
+@include for-max-400px() {
+  .logo1 {
+    width: 200px;
+    height: 68px;
+  }
+}

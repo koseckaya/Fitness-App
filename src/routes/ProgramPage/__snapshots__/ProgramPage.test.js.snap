@@ -1,0 +1,903 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="container "
+>
+  <div
+    className="program-page"
+  >
+    <div
+      className="program-page__side"
+    >
+      <div
+        className="side__image"
+      >
+        <img
+          alt="Grow A Booty Challenge"
+          className="side__img"
+          src="https://static.chloeting.com/programs/6306f2a687caf1cb72ebad58/375058a0-86d2-11ed-8daf-11eb0dd6c117.jpeg"
+        />
+        <span
+          className="side__duration"
+        >
+          28
+           days
+        </span>
+        <span
+          className="side__minutes"
+        >
+          20
+          -
+          50
+           min/day
+        </span>
+      </div>
+      <div
+        className="side__type"
+      >
+        Resistance, Booty, Abs & Core
+      </div>
+      <div
+        className="side__equip"
+      >
+        Fitness Mat, Dumbbells, Resistance Bands
+      </div>
+      <div
+        className="side__title"
+      >
+        DETAILS
+      </div>
+      <div
+        className="side__desc"
+      >
+        This 4-week resistance challenge will help you grow a booty with progressive overload! Dumbbells & resistance bands are recommended, a bench can be useful too. 
+ Beginners can try this with bodyweight or temporary alternatives like filled water bottles
+      </div>
+      <div
+        className="side__start"
+      >
+        <div
+          className="start__title"
+        >
+          Start This Challenge
+        </div>
+        <div
+          className="start__desc"
+        >
+          When you start a challenge you can see your progress in your personal account
+        </div>
+        <div
+          className="button start__btn "
+        >
+          Should Sign in to Start
+        </div>
+      </div>
+    </div>
+    <div
+      className="program-page__main"
+    >
+      <h3>
+        Grow A Booty Challenge
+      </h3>
+      <div
+        className="schedule"
+      >
+        <div
+          className="schedule__head"
+        >
+          <div
+            className="schedule__title"
+          >
+            Full Schedule List View
+          </div>
+          <div
+            className="schedule__weeks"
+          >
+            <span
+              className="schedule__week active"
+              data-week={1}
+              onClick={[Function]}
+            >
+              Week 1
+            </span>
+            <span
+              className="schedule__week "
+              data-week={2}
+              onClick={[Function]}
+            >
+              Week 2
+            </span>
+            <span
+              className="schedule__week "
+              data-week={3}
+              onClick={[Function]}
+            >
+              Week 3
+            </span>
+            <span
+              className="schedule__week "
+              data-week={4}
+              onClick={[Function]}
+            >
+              Week 4
+            </span>
+            <span
+              className="schedule__week "
+              data-week={0}
+              onClick={[Function]}
+            >
+              View All
+            </span>
+          </div>
+        </div>
+        <div>
+          <div
+            className="day-program"
+          >
+            <div
+              className="day__title"
+            >
+              <span
+                className="day__number"
+              >
+                Day 
+                1
+              </span>
+              <div
+                className="day__desc"
+              >
+                <span
+                  className="day__count"
+                >
+                   
+                  3
+                   Workouts | 
+                </span>
+                <span
+                  className="day__duration"
+                >
+                   
+                  27
+                   Mins
+                </span>
+              </div>
+            </div>
+            <div
+              className="program__videos"
+            >
+              <div
+                className="exercise-video-prev"
+              >
+                <a
+                  href="https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing"
+                >
+                  <img
+                    alt="5 Min Warm Up"
+                    className="exercise-video-prev__img"
+                    src="https://static.chloeting.com/videos/63ae100649cf64962cb594e2/f081bd90-8a98-11ed-97ac-4b900c40c009.jpeg"
+                  />
+                  <div
+                    className="video-prev "
+                    onClick={[Function]}
+                  />
+                  <div
+                    className="exercise-video-title"
+                  >
+                    5 Min Warm Up
+                  </div>
+                </a>
+              </div>
+              <div
+                className="exercise-video-prev"
+              >
+                <a
+                  href="https://www.youtube.com/watch?v=7LFcL6aj73o&feature=youtu.be&ab_channel=ChloeTing"
+                >
+                  <img
+                    alt="Abs and Butt"
+                    className="exercise-video-prev__img"
+                    src="https://static.chloeting.com/videos/6306edbb319d6a2844ffec11/cd4684b0-276e-11ed-b1cf-338eb74818fa.jpeg"
+                  />
+                  <div
+                    className="video-prev "
+                    onClick={[Function]}
+                  />
+                  <div
+                    className="exercise-video-title"
+                  >
+                    Abs and Butt
+                  </div>
+                </a>
+              </div>
+              <div
+                className="exercise-video-prev"
+              >
+                <a
+                  href="https://www.youtube.com/watch?v=kI9mXjMQWzA&feature=youtu.be&ab_channel=ChloeTing"
+                >
+                  <img
+                    alt="Lower Body Cooldown"
+                    className="exercise-video-prev__img"
+                    src="https://static.chloeting.com/videos/6306efc337990d0691f93a35/8693ea80-276e-11ed-94c7-572dee6a46f7.jpeg"
+                  />
+                  <div
+                    className="video-prev "
+                    onClick={[Function]}
+                  />
+                  <div
+                    className="exercise-video-title"
+                  >
+                    Lower Body Cooldown
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div
+              className="button btn-complete
+                
+                "
+            >
+              Mark Day 1 as Complete
+            </div>
+          </div>
+          <div
+            className="day-program"
+          >
+            <div
+              className="day__title"
+            >
+              <span
+                className="day__number"
+              >
+                Day 
+                2
+              </span>
+              <div
+                className="day__desc"
+              >
+                <span
+                  className="day__count"
+                >
+                   
+                  3
+                   Workouts | 
+                </span>
+                <span
+                  className="day__duration"
+                >
+                   
+                  27
+                   Mins
+                </span>
+              </div>
+            </div>
+            <div
+              className="program__videos"
+            >
+              <div
+                className="exercise-video-prev"
+              >
+                <a
+                  href="https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing"
+                >
+                  <img
+                    alt="5 Min Warm Up"
+                    className="exercise-video-prev__img"
+                    src="https://static.chloeting.com/videos/63ae100649cf64962cb594e2/f081bd90-8a98-11ed-97ac-4b900c40c009.jpeg"
+                  />
+                  <div
+                    className="video-prev "
+                    onClick={[Function]}
+                  />
+                  <div
+                    className="exercise-video-title"
+                  >
+                    5 Min Warm Up
+                  </div>
+                </a>
+              </div>
+              <div
+                className="exercise-video-prev"
+              >
+                <a
+                  href="https://www.youtube.com/watch?v=7LFcL6aj73o&feature=youtu.be&ab_channel=ChloeTing"
+                >
+                  <img
+                    alt="Abs and Butt"
+                    className="exercise-video-prev__img"
+                    src="https://static.chloeting.com/videos/6306edbb319d6a2844ffec11/cd4684b0-276e-11ed-b1cf-338eb74818fa.jpeg"
+                  />
+                  <div
+                    className="video-prev "
+                    onClick={[Function]}
+                  />
+                  <div
+                    className="exercise-video-title"
+                  >
+                    Abs and Butt
+                  </div>
+                </a>
+              </div>
+              <div
+                className="exercise-video-prev"
+              >
+                <a
+                  href="https://www.youtube.com/watch?v=kI9mXjMQWzA&feature=youtu.be&ab_channel=ChloeTing"
+                >
+                  <img
+                    alt="Lower Body Cooldown"
+                    className="exercise-video-prev__img"
+                    src="https://static.chloeting.com/videos/6306efc337990d0691f93a35/8693ea80-276e-11ed-94c7-572dee6a46f7.jpeg"
+                  />
+                  <div
+                    className="video-prev "
+                    onClick={[Function]}
+                  />
+                  <div
+                    className="exercise-video-title"
+                  >
+                    Lower Body Cooldown
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div
+              className="button btn-complete
+                
+                "
+            >
+              Mark Day 2 as Complete
+            </div>
+          </div>
+          <div
+            className="day-program"
+          >
+            <div
+              className="day__title"
+            >
+              <span
+                className="day__number"
+              >
+                Day 
+                3
+              </span>
+              <div
+                className="day__desc"
+              >
+                <span
+                  className="day__count"
+                >
+                   
+                  3
+                   Workouts | 
+                </span>
+                <span
+                  className="day__duration"
+                >
+                   
+                  27
+                   Mins
+                </span>
+              </div>
+            </div>
+            <div
+              className="program__videos"
+            >
+              <div
+                className="exercise-video-prev"
+              >
+                <a
+                  href="https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing"
+                >
+                  <img
+                    alt="5 Min Warm Up"
+                    className="exercise-video-prev__img"
+                    src="https://static.chloeting.com/videos/63ae100649cf64962cb594e2/f081bd90-8a98-11ed-97ac-4b900c40c009.jpeg"
+                  />
+                  <div
+                    className="video-prev "
+                    onClick={[Function]}
+                  />
+                  <div
+                    className="exercise-video-title"
+                  >
+                    5 Min Warm Up
+                  </div>
+                </a>
+              </div>
+              <div
+                className="exercise-video-prev"
+              >
+                <a
+                  href="https://www.youtube.com/watch?v=7LFcL6aj73o&feature=youtu.be&ab_channel=ChloeTing"
+                >
+                  <img
+                    alt="Abs and Butt"
+                    className="exercise-video-prev__img"
+                    src="https://static.chloeting.com/videos/6306edbb319d6a2844ffec11/cd4684b0-276e-11ed-b1cf-338eb74818fa.jpeg"
+                  />
+                  <div
+                    className="video-prev "
+                    onClick={[Function]}
+                  />
+                  <div
+                    className="exercise-video-title"
+                  >
+                    Abs and Butt
+                  </div>
+                </a>
+              </div>
+              <div
+                className="exercise-video-prev"
+              >
+                <a
+                  href="https://www.youtube.com/watch?v=kI9mXjMQWzA&feature=youtu.be&ab_channel=ChloeTing"
+                >
+                  <img
+                    alt="Lower Body Cooldown"
+                    className="exercise-video-prev__img"
+                    src="https://static.chloeting.com/videos/6306efc337990d0691f93a35/8693ea80-276e-11ed-94c7-572dee6a46f7.jpeg"
+                  />
+                  <div
+                    className="video-prev "
+                    onClick={[Function]}
+                  />
+                  <div
+                    className="exercise-video-title"
+                  >
+                    Lower Body Cooldown
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div
+              className="button btn-complete
+                
+                "
+            >
+              Mark Day 3 as Complete
+            </div>
+          </div>
+          <div
+            className="day-program"
+          >
+            <div
+              className="day__title"
+            >
+              <span
+                className="day__number"
+              >
+                Day 
+                4
+              </span>
+              <div
+                className="day__desc"
+              >
+                <span
+                  className="day__count"
+                >
+                   
+                  3
+                   Workouts | 
+                </span>
+                <span
+                  className="day__duration"
+                >
+                   
+                  27
+                   Mins
+                </span>
+              </div>
+            </div>
+            <div
+              className="program__videos"
+            >
+              <div
+                className="exercise-video-prev"
+              >
+                <a
+                  href="https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing"
+                >
+                  <img
+                    alt="5 Min Warm Up"
+                    className="exercise-video-prev__img"
+                    src="https://static.chloeting.com/videos/63ae100649cf64962cb594e2/f081bd90-8a98-11ed-97ac-4b900c40c009.jpeg"
+                  />
+                  <div
+                    className="video-prev "
+                    onClick={[Function]}
+                  />
+                  <div
+                    className="exercise-video-title"
+                  >
+                    5 Min Warm Up
+                  </div>
+                </a>
+              </div>
+              <div
+                className="exercise-video-prev"
+              >
+                <a
+                  href="https://www.youtube.com/watch?v=7LFcL6aj73o&feature=youtu.be&ab_channel=ChloeTing"
+                >
+                  <img
+                    alt="Abs and Butt"
+                    className="exercise-video-prev__img"
+                    src="https://static.chloeting.com/videos/6306edbb319d6a2844ffec11/cd4684b0-276e-11ed-b1cf-338eb74818fa.jpeg"
+                  />
+                  <div
+                    className="video-prev "
+                    onClick={[Function]}
+                  />
+                  <div
+                    className="exercise-video-title"
+                  >
+                    Abs and Butt
+                  </div>
+                </a>
+              </div>
+              <div
+                className="exercise-video-prev"
+              >
+                <a
+                  href="https://www.youtube.com/watch?v=kI9mXjMQWzA&feature=youtu.be&ab_channel=ChloeTing"
+                >
+                  <img
+                    alt="Lower Body Cooldown"
+                    className="exercise-video-prev__img"
+                    src="https://static.chloeting.com/videos/6306efc337990d0691f93a35/8693ea80-276e-11ed-94c7-572dee6a46f7.jpeg"
+                  />
+                  <div
+                    className="video-prev "
+                    onClick={[Function]}
+                  />
+                  <div
+                    className="exercise-video-title"
+                  >
+                    Lower Body Cooldown
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div
+              className="button btn-complete
+                
+                "
+            >
+              Mark Day 4 as Complete
+            </div>
+          </div>
+          <div
+            className="day-program"
+          >
+            <div
+              className="day__title"
+            >
+              <span
+                className="day__number"
+              >
+                Day 
+                5
+              </span>
+              <div
+                className="day__desc"
+              >
+                <span
+                  className="day__count"
+                >
+                   
+                  3
+                   Workouts | 
+                </span>
+                <span
+                  className="day__duration"
+                >
+                   
+                  27
+                   Mins
+                </span>
+              </div>
+            </div>
+            <div
+              className="program__videos"
+            >
+              <div
+                className="exercise-video-prev"
+              >
+                <a
+                  href="https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing"
+                >
+                  <img
+                    alt="5 Min Warm Up"
+                    className="exercise-video-prev__img"
+                    src="https://static.chloeting.com/videos/63ae100649cf64962cb594e2/f081bd90-8a98-11ed-97ac-4b900c40c009.jpeg"
+                  />
+                  <div
+                    className="video-prev "
+                    onClick={[Function]}
+                  />
+                  <div
+                    className="exercise-video-title"
+                  >
+                    5 Min Warm Up
+                  </div>
+                </a>
+              </div>
+              <div
+                className="exercise-video-prev"
+              >
+                <a
+                  href="https://www.youtube.com/watch?v=7LFcL6aj73o&feature=youtu.be&ab_channel=ChloeTing"
+                >
+                  <img
+                    alt="Abs and Butt"
+                    className="exercise-video-prev__img"
+                    src="https://static.chloeting.com/videos/6306edbb319d6a2844ffec11/cd4684b0-276e-11ed-b1cf-338eb74818fa.jpeg"
+                  />
+                  <div
+                    className="video-prev "
+                    onClick={[Function]}
+                  />
+                  <div
+                    className="exercise-video-title"
+                  >
+                    Abs and Butt
+                  </div>
+                </a>
+              </div>
+              <div
+                className="exercise-video-prev"
+              >
+                <a
+                  href="https://www.youtube.com/watch?v=kI9mXjMQWzA&feature=youtu.be&ab_channel=ChloeTing"
+                >
+                  <img
+                    alt="Lower Body Cooldown"
+                    className="exercise-video-prev__img"
+                    src="https://static.chloeting.com/videos/6306efc337990d0691f93a35/8693ea80-276e-11ed-94c7-572dee6a46f7.jpeg"
+                  />
+                  <div
+                    className="video-prev "
+                    onClick={[Function]}
+                  />
+                  <div
+                    className="exercise-video-title"
+                  >
+                    Lower Body Cooldown
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div
+              className="button btn-complete
+                
+                "
+            >
+              Mark Day 5 as Complete
+            </div>
+          </div>
+          <div
+            className="day-program"
+          >
+            <div
+              className="day__title"
+            >
+              <span
+                className="day__number"
+              >
+                Day 
+                6
+              </span>
+              <div
+                className="day__desc"
+              >
+                <span
+                  className="day__count"
+                >
+                   
+                  3
+                   Workouts | 
+                </span>
+                <span
+                  className="day__duration"
+                >
+                   
+                  27
+                   Mins
+                </span>
+              </div>
+            </div>
+            <div
+              className="program__videos"
+            >
+              <div
+                className="exercise-video-prev"
+              >
+                <a
+                  href="https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing"
+                >
+                  <img
+                    alt="5 Min Warm Up"
+                    className="exercise-video-prev__img"
+                    src="https://static.chloeting.com/videos/63ae100649cf64962cb594e2/f081bd90-8a98-11ed-97ac-4b900c40c009.jpeg"
+                  />
+                  <div
+                    className="video-prev "
+                    onClick={[Function]}
+                  />
+                  <div
+                    className="exercise-video-title"
+                  >
+                    5 Min Warm Up
+                  </div>
+                </a>
+              </div>
+              <div
+                className="exercise-video-prev"
+              >
+                <a
+                  href="https://www.youtube.com/watch?v=7LFcL6aj73o&feature=youtu.be&ab_channel=ChloeTing"
+                >
+                  <img
+                    alt="Abs and Butt"
+                    className="exercise-video-prev__img"
+                    src="https://static.chloeting.com/videos/6306edbb319d6a2844ffec11/cd4684b0-276e-11ed-b1cf-338eb74818fa.jpeg"
+                  />
+                  <div
+                    className="video-prev "
+                    onClick={[Function]}
+                  />
+                  <div
+                    className="exercise-video-title"
+                  >
+                    Abs and Butt
+                  </div>
+                </a>
+              </div>
+              <div
+                className="exercise-video-prev"
+              >
+                <a
+                  href="https://www.youtube.com/watch?v=kI9mXjMQWzA&feature=youtu.be&ab_channel=ChloeTing"
+                >
+                  <img
+                    alt="Lower Body Cooldown"
+                    className="exercise-video-prev__img"
+                    src="https://static.chloeting.com/videos/6306efc337990d0691f93a35/8693ea80-276e-11ed-94c7-572dee6a46f7.jpeg"
+                  />
+                  <div
+                    className="video-prev "
+                    onClick={[Function]}
+                  />
+                  <div
+                    className="exercise-video-title"
+                  >
+                    Lower Body Cooldown
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div
+              className="button btn-complete
+                
+                "
+            >
+              Mark Day 6 as Complete
+            </div>
+          </div>
+          <div
+            className="day-program"
+          >
+            <div
+              className="day__title"
+            >
+              <span
+                className="day__number"
+              >
+                Day 
+                7
+              </span>
+              <div
+                className="day__desc"
+              >
+                <span
+                  className="day__count"
+                >
+                   
+                  3
+                   Workouts | 
+                </span>
+                <span
+                  className="day__duration"
+                >
+                   
+                  27
+                   Mins
+                </span>
+              </div>
+            </div>
+            <div
+              className="program__videos"
+            >
+              <div
+                className="exercise-video-prev"
+              >
+                <a
+                  href="https://www.youtube.com/watch?v=7t1qhpDLSi0&ab_channel=ChloeTing"
+                >
+                  <img
+                    alt="5 Min Warm Up"
+                    className="exercise-video-prev__img"
+                    src="https://static.chloeting.com/videos/63ae100649cf64962cb594e2/f081bd90-8a98-11ed-97ac-4b900c40c009.jpeg"
+                  />
+                  <div
+                    className="video-prev "
+                    onClick={[Function]}
+                  />
+                  <div
+                    className="exercise-video-title"
+                  >
+                    5 Min Warm Up
+                  </div>
+                </a>
+              </div>
+              <div
+                className="exercise-video-prev"
+              >
+                <a
+                  href="https://www.youtube.com/watch?v=7LFcL6aj73o&feature=youtu.be&ab_channel=ChloeTing"
+                >
+                  <img
+                    alt="Abs and Butt"
+                    className="exercise-video-prev__img"
+                    src="https://static.chloeting.com/videos/6306edbb319d6a2844ffec11/cd4684b0-276e-11ed-b1cf-338eb74818fa.jpeg"
+                  />
+                  <div
+                    className="video-prev "
+                    onClick={[Function]}
+                  />
+                  <div
+                    className="exercise-video-title"
+                  >
+                    Abs and Butt
+                  </div>
+                </a>
+              </div>
+              <div
+                className="exercise-video-prev"
+              >
+                <a
+                  href="https://www.youtube.com/watch?v=kI9mXjMQWzA&feature=youtu.be&ab_channel=ChloeTing"
+                >
+                  <img
+                    alt="Lower Body Cooldown"
+                    className="exercise-video-prev__img"
+                    src="https://static.chloeting.com/videos/6306efc337990d0691f93a35/8693ea80-276e-11ed-94c7-572dee6a46f7.jpeg"
+                  />
+                  <div
+                    className="video-prev "
+                    onClick={[Function]}
+                  />
+                  <div
+                    className="exercise-video-title"
+                  >
+                    Lower Body Cooldown
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div
+              className="button btn-complete
+                
+                "
+            >
+              Mark Day 7 as Complete
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

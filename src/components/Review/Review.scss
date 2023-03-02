@@ -1,0 +1,50 @@
+.textarea-review {
+  height: 120px;
+  width: 100%;
+  font-family: "Manrope", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 120%;
+  border: 1px solid #e3e4eb;
+  border-radius: 15px;
+  padding: 15px 20px;
+  resize: none;
+  overflow: auto;
+  box-sizing: border-box;
+}
+
+p.textarea-review {
+  margin-bottom: 5px;
+}
+
+.textarea-review:focus {
+  outline: 0px;
+}
+
+.textarea-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.textarea-limit {
+  position: absolute;
+  left: 8px;
+  bottom: -41px;
+}
+
+.btn-review {
+  width: auto;
+}
+
+.btn-cancel {
+  background-color: var(--bs-form-control-bg);
+  color: var(--color-primary);
+}
+
+.review-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}

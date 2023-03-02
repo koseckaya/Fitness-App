@@ -1,0 +1,339 @@
+@import '../../styles/vars.scss';
+
+.calc {
+    &__title {
+        margin-left: 106px;
+        position: relative;
+        color: #fff;
+        font-size: 37px;
+    }
+    &__forms {
+        display: flex;
+        gap: 0%;
+    }
+    &__form, &__analysis {
+        position: relative;
+        width: 60%;
+        box-sizing: border-box;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        border-radius: 8px;
+        background-color: #eeeeeed4;
+        border: 1px solid #c8c8c8;
+        margin-bottom: 15px;
+        margin: 15px auto;
+        align-items: center;
+        padding-top: 30px;
+        transition: all 0.5s ease;
+    }
+    &__analysis {
+        width: 35%;
+        gap: 3px;
+        padding-top: 0;
+    }
+    &__error {
+        position: absolute;
+        top: 3px;
+        color: $error;
+        font-weight: 600;
+        transition: all 0.5s ease;
+    }
+}
+.form {
+    &-calculator {
+   display: flex;
+    justify-content: space-around;
+    background-color: var(--bgThemeColor3);
+    width: 96%;
+    align-items: center;
+    padding: 5px 15px;
+     border-radius: 5px;
+    }
+
+    &__name, &__weight {
+        align-items: center;
+        display: flex;
+        padding: 6px 9px 6px 14px;
+        border-radius: 4px;
+        border: 1px solid var(--textThemeColor1);
+        max-width: 250px;
+        transition: all ease 0.3s;
+        position: relative;
+        outline: none;
+        
+        &:hover {
+            border: 1px solid $color-primary;
+        }
+    }
+    &__btn {
+        width: 100px;
+    }
+    &__list {
+        width: 100%;
+    }
+    &__editing {
+        align-items: center;
+        display: flex;
+        padding: 2px 5px;
+        border-radius: 4px;
+        border: 1px solid #e3e4eb;
+        max-width: 50px;
+        transition: all ease 0.3s;
+        position: relative;
+        outline: none;
+        margin-right: 5px;
+    }
+}
+.list {
+    &__item {
+        display: flex;
+        background-color: var(--bgThemeColor3);
+        padding: 5px 15px;
+        border-radius: 5px;
+        margin-bottom: 8px;
+    }
+    &__controls {
+        margin-left: auto;
+        display: flex;
+        gap: 10px;
+        cursor: pointer;
+    }
+    &__weight {
+        margin-right: 20px;
+    }
+    &__title {
+        margin-right: 30px;
+    }
+    &__nutrition, &__kkal {
+        color: #c8c8c8;
+        margin-right: 10px;
+        font-size: 13px;
+        &_fat, &_carb, &_prot {
+            margin-right: 5px;
+        }
+    }
+}
+
+.analysis {
+    &__title {
+        margin: 8px 0;
+    }
+   &__fat, &__kkal, &__carb, &__prot, &__cholest, &__sodium, &__sugar,
+   &__vitD, &__calcium, &__iron, &__potass, &__desc
+   {
+    display: flex;
+    border-bottom: 1px solid $color-background-primary;
+    background-color: var(--bgThemeColor3);
+    padding: 5px 15px;
+    border-radius: 5px;
+    width: 92%;
+    justify-content: space-between;
+   } 
+   &__vitamins {
+    border-top: 2px solid $secondary;
+    width: 100%;
+    padding-top: 8px;
+   }
+   
+   &__vitD, &__calcium, &__iron, &__potass {
+    padding: 3px 15px;
+    font-size: 14px;
+   }
+   &__kkal {
+    font-size: 18px;
+    font-weight: 700;
+   }
+   &__text {
+    margin-left: auto;
+    font-size: 14px;
+   }
+   &__desc {
+    font-size: 12px;
+    font-style: italic;
+   }
+}
+.videoContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+
+  @include for-max-1050px() {
+    .videoContainer {
+        top: 50px;
+    }
+  }
+
+  @include for-max-920px() {
+    .calc__forms {
+        flex-direction: column;
+        gap: 0;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        .calc__analysis {
+            width: 80%;
+            margin: 0;
+            border-radius: 0;
+            border: none;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+        .calc__form {
+            width: 80%;
+            margin: 0;
+            border: none;
+            border-radius: 0;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+    }
+    .calc__title {
+        width: 100%;
+        margin: 0;
+        font-size: 1.5rem;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    .form-calculator {
+            display: grid;
+            grid-template-areas:
+                "name btn"
+                "weight btn";
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            grid-gap: 10px;
+            height: auto;
+      
+        &__name {
+            grid-area: name;
+        }
+      
+        &__weight {
+            grid-area: weight;
+        }
+      
+        .button {
+            grid-area: btn;
+            width: 172px;
+            align-self: center;
+            justify-self: end;
+        }
+      }
+      .list {
+        &__weight {
+            margin: 0;
+            width: 15%;
+        }
+        &__title {
+            margin: 0;
+            width: 15%;
+        }
+        &__nutrition {
+            margin: 0;
+        }
+    }
+  }
+
+  @include for-max-800px() {
+    .form-calculator {
+        width: 94%;
+    }
+  }
+
+  @include for-max-640px() {
+    .videoContainer {
+        top: 99px;
+    }
+    .calc__forms {
+        text-align: left;
+        .calc__form {
+            width: 95%;
+        }
+        .calc__analysis {
+            width: 95%;
+        }
+        
+    }
+    .calc__title {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+    }
+    .list__item {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-rows: repeat(2, auto);
+        grid-template-areas:
+          "weight nutrition controls"
+          "title nutrition controls";
+        grid-column-gap: 5px;
+        grid-row-gap: 5px;
+        padding: 5px 4px;
+        .list__weight {
+          grid-area: weight;
+          width: auto;
+        }
+      
+        .list__title {
+          grid-area: title;
+          width: auto;
+        }
+      
+        .list__nutrition {
+          grid-area: nutrition;
+          place-self: center;
+        }
+      
+        .list__controls {
+          grid-area: controls;
+          place-self: center;
+          margin: 0;
+        }
+      }
+      .form-calculator {
+        display: grid;
+        grid-template-areas:
+            "name"
+            "weight"
+            "btn";
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        grid-gap: 10px;
+        height: auto;
+        justify-items: center;
+        &__name {
+            align-self: center;
+        }
+      
+        &__weight {
+            align-self: center;
+        }
+        .button {
+            justify-self: center;
+        }
+      }
+      .calculator-container {
+        margin: 20px auto;
+      }
+  }
+
+  @include for-max-440px() {
+    .list__nutrition, .list__kkal {
+        font-size: 7.5px;
+    }
+    .list__weight, .list__title {
+        font-size: 11.5px;
+    }
+  }

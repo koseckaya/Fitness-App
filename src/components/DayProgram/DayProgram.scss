@@ -1,0 +1,91 @@
+@import "src/styles/vars";
+@import "../../styles/light-dark-theme";
+.day-program {
+  position: relative;
+  box-sizing: border-box;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 8px;
+    background-color: var(--bgThemeColor1);
+    border: 1px solid #c8c8c8;
+    margin-bottom: 15px;
+}
+.day {
+  &__title {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__number {
+    font-weight: 700;
+    font-size: 18px;
+  }
+  &__desc {
+    font-weight: 500;
+    color: $secondary;
+  }
+  &__message {
+    background: white;
+    width: 250px;
+    padding: 5px 10px;
+    border-radius: 8px;
+    position: absolute;
+    bottom: 10px;
+    left: 220px;
+   
+  }
+}
+.program__videos{
+   display: grid;
+    width: 100%;
+    gap: 15px;
+    grid-template-columns: repeat(5, minmax(0px, 1fr));
+}
+.btn-complete{ 
+    color: $color-primary;
+    background-color: #e1e3f2;
+    border: 1px solid $color-primary;
+    transition: 0.5s all ease;
+    opacity: 0.5;
+ 
+    &.active, &:hover {
+      opacity: 1;
+      pointer-events: all;
+    }
+    &.completed {
+      background-color: $color-primary;
+      color: rgb(255, 255, 255);
+    }
+}
+
+@include for-max-1000px() {
+  .program__videos {
+    overflow-x: scroll;
+    grid-template-columns: repeat(5, 200px);
+    &::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+      cursor: pointer !important;
+    }
+    &::-webkit-scrollbar-track {
+      border-radius: 10px;
+      background: rgba(0,0,0,0.1);
+      cursor: pointer !important;
+    }
+    &::-webkit-scrollbar-thumb{
+      border-radius: 10px;
+      background: rgba(0,0,0,0.2);
+      cursor: pointer !important;
+    }
+    &::-webkit-scrollbar-thumb:hover{
+      background: rgba(0,0,0,0.4);
+      cursor: pointer !important;
+      
+    }
+    &::-webkit-scrollbar-thumb:active{
+      background: rgba(0,0,0,.9);
+      cursor: pointer !important;
+    }
+  }
+}

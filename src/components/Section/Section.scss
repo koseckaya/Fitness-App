@@ -1,0 +1,29 @@
+@import "../../styles/light-dark-theme";
+.section {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
+    color: var(--textThemeColor1);
+    transition: background-color 0.5s ease;
+
+  &__title {
+    font-size: 18px;
+  }
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+  }
+  
+  &__programs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 20px;
+  }
+  &__recipes{
+    display: grid;
+    grid-template-columns:  1fr 320px;
+    row-gap: 20px;
+  }
+}
