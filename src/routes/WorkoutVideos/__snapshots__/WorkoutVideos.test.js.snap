@@ -102,16 +102,12 @@ exports[`renders correctly 1`] = `
           <div
             className="workout-video__title"
           >
-            Abs in 2 Weeks
+            11 Line Abs
           </div>
           <div
             className="workout-video__duration"
           >
-            11
-             MIN
-          </div>
         </a>
-      </div>
       <div
         className="button"
         onClick={[Function]}

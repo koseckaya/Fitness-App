@@ -1,5 +1,5 @@
 @import "src/styles/vars";
-
+@import "../../styles/light-dark-theme";
 .day-program {
   position: relative;
   box-sizing: border-box;
@@ -8,7 +8,7 @@
     flex-direction: column;
     gap: 10px;
     border-radius: 8px;
-    background-color: $color-background-primary;
+    background-color: var(--bgThemeColor1);
     border: 1px solid #c8c8c8;
     margin-bottom: 15px;
 }
